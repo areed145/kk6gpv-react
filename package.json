@@ -12,6 +12,7 @@
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.4.1",
+    "express": "^4.17.1",
     "mapbox-gl": "^1.6.1",
     "plotly.js": "^1.51.3",
     "prop-types": "^15.5.10",
@@ -25,13 +26,16 @@
     "react-scripts": "3.3.0",
     "react-sparklines": "^1.7.0",
     "reactstrap": "^8.2.0",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "serve": "^11.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "postinstall": "npm run build",
+    "serve": "serve -s build"
   },
   "eslintConfig": {
     "extends": "react-app"
