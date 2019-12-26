@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700,300');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,300');
+
+body {
+  margin: 0;
+  font-family: "Ubuntu" !important;
+  background-color: #f0ffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.map {
+    height: calc(100vh - 110px) !important;
+    width: 100vw !important;
+    margin: 0px !important;
+    padding: 0px !important;
+  }
+
+.mapboxgl-popup-close-button {
+    /* display: None */
+    margin-right: 10px;
+    margin-top: 2px;
+}
+
+/* .mapboxgl-popup-content {
+    position: relative;
+    font-family: "Ubuntu";
+    background: #f0ffff !important;
+    opacity: 0.7;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5) !important;
+    padding: 20px important;
+    margin: 0px;
+    pointer-events: auto;
+} */
+
+.navbar,
+.navbar-default,
+.footer {
+    font-family: "Ubuntu";
+    color: #f0ffff;
+    background-color: #f0ffff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5) !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.carddeck {
+    margin-top: 25px !important;
+    margin-left: 12.5px !important;
+    margin-right: 12.5px !important;
+}
+
+.mapboxgl-popup-content,
+.menu,
+.card {
+    font-family: "Ubuntu";
+    background-color: #ffffff !important;
+    border: 0px !important;
+    border-radius: 10px 10px 10px 10px !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5) !important;
+}
+
+.cardheader {
+    font-family: "Ubuntu";
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    border: 0px !important;
+    border-radius: 10px 10px 0px 0px !important;
+    background-color: "#f1f1f1";
+}
+
+.cardbody {
+    border-radius: 0px 0px 10px 10px !important;
+    padding: 10px !important;
+}
+
+.main {
+    background-color: #f0ffff;
+}
+
+.margin {
+    height: 40px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
