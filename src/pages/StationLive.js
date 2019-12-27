@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import GaugeTemp from '../components/GaugeTemp'
 import GaugeHum from '../components/GaugeHum'
 import { CardDeck } from 'reactstrap';
+import Footer from '../components/Footer'
 
 class StationLive extends Component {
     constructor(props) {
@@ -49,6 +50,7 @@ class StationLive extends Component {
                     <div className="spinner-border text-secondary" role="status">
                         <span className="sr-only">Loading...</span>
                     </div>
+                    <Footer />
                 </div>
             );
         } else {
@@ -59,6 +61,7 @@ class StationLive extends Component {
                         <GaugeHum value={this.state.wx.dewpt_f} />
                     </CardDeck>
                     <div className="margin" />
+                    <Footer />
                 </div>
             );
         }

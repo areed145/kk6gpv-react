@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import CardPlot from '../components/CardPlot'
 import { CardDeck } from 'reactstrap';
+import Footer from '../components/Footer'
 class StationHistory extends Component {
     constructor(props) {
         super(props);
@@ -61,6 +62,7 @@ class StationHistory extends Component {
                     <div className="spinner-border text-secondary" role="status">
                         <span className="sr-only">Loading...</span>
                     </div>
+                    <Footer />
                 </div>
             );
         } else {
@@ -121,6 +123,7 @@ class StationHistory extends Component {
                         />
                     </CardDeck>
                     <div className="margin" />
+                    <Footer />
                 </div>
             );
         }

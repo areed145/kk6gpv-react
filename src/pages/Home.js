@@ -1,6 +1,7 @@
 import React from 'react';
 import { CardDeck } from 'reactstrap';
 
+import Footer from '../components/Footer'
 import CardIcon from '../components/CardIcon'
 
 import station_history from '../assets/icons/temperature.svg';
@@ -40,6 +41,7 @@ const Home = () => {
                 <CardIcon title='About' link='/about' img={about} bgcolor="rgb(255, 152, 250)" />
             </CardDeck>
             <div className="margin" />
+            <Footer />
         </div>
     );
 };

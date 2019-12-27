@@ -4,7 +4,7 @@ class Footer extends Component {
     render() {
         return (
             <div>
-                <footer className="footer fixed-bottom">
+                <footer className="footer">
                     <div className="container">
                         <span className="text-muted">
                             <div className="footer-copyright text-center py-1">© 2019 Copyright

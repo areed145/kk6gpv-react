@@ -13,8 +13,6 @@ import MapTest from './pages/MapTest'
 import DetailsOilgas from './pages/DetailsOilgas'
 
 import Menu from './components/Menu'
-import Footer from './components/Footer'
-
 
 class App extends Component {
     render() {
@@ -35,7 +33,6 @@ class App extends Component {
                         <Route component={Error} />
                     </Switch>
                 </BrowserRouter>
-                <Footer />
             </div>
         );
     }

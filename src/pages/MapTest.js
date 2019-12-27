@@ -5,6 +5,7 @@ import { setActiveOption } from '../redux/action-creators'
 import Map from '../components/Map'
 import Toggle from '../components/Toggle'
 import Legend from '../components/Legend'
+import Footer from '../components/Footer'
 
 class MapTest extends React.Component {
     render() {

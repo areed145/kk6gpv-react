@@ -3,6 +3,7 @@ import { CardDeck } from 'reactstrap';
 
 import CardCell from '../components/CardCell'
 import CardVideo from '../components/CardVideo'
+import Footer from '../components/Footer'
 
 import first_solo from '../assets/images/first_solo.jpg';
 import kernville from '../assets/images/kernville.jpg';
@@ -38,6 +39,7 @@ const Aircraft = () => {
                 <CardVideo title="superdeca" src="https://player.vimeo.com/video/163972650" caption="Video of aerobatic flying in a Super Decathlon" text="" />
             </CardDeck>
             <div className="margin" />
+            <Footer />
         </div>
     );
 };

@@ -91,7 +91,7 @@ class MapOil extends Component {
         }
 
         return (
-            <Div100vh style={{ height: 'calc(100rvh - 95px)' }}>
+            <Div100vh style={{ height: 'calc(100rvh - 65px)' }}>
                 <ReactMapGL
                     {...viewport}
                     width="100%"

@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import mapboxgl from 'mapbox-gl'
+import Div100vh from 'react-div-100vh'
 import { connect } from 'react-redux'
-
-import '../styles/Map.css';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA';
 
@@ -53,10 +52,9 @@ let Map = class Map extends React.Component {
 
     render() {
         return (
-            <div className="map-wrapper" height="90vh">
+            <Div100vh style={{ height: 'calc(100rvh - 65px)' }}>
                 <div ref={el => this.mapContainer = el} className="absolute top right left bottom" />
-            </div>
-            // <div ref={el => this.mapContainer = el} className="absolute top right left bottom" />
+            </Div100vh>
         );
     }
 }

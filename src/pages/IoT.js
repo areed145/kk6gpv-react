@@ -2,6 +2,7 @@ import React from 'react';
 import { CardDeck } from 'reactstrap';
 
 import CardBasic from '../components/CardBasic'
+import Footer from '../components/Footer'
 
 const IoT = () => {
     return (
@@ -10,6 +11,7 @@ const IoT = () => {
                 <CardBasic />
             </CardDeck>
             <div className="margin" />
+            <Footer />
         </div>
         // <div class="col-md-12">
         //     <div class="card-deck mt-4">
