@@ -5,6 +5,7 @@ import './styles/App.css';
 import Home from './pages/Home'
 import IoT from './pages/IoT'
 import StationHistory from './pages/StationHistory'
+import StationLive from './pages/StationLive'
 import Aircraft from './pages/Aircraft'
 import N5777V from './pages/N5777V'
 import MapOilgas from './pages/MapOilgas'
@@ -25,6 +26,7 @@ class App extends Component {
                         <Route path="/" component={Home} exact />
                         <Route path="/iot" component={IoT} />
                         <Route path="/station/history" component={StationHistory} />
+                        <Route path="/station/live" component={StationLive} />
                         <Route path="/aircraft" component={Aircraft} />
                         <Route path="/n5777v" component={N5777V} />
                         <Route path="/oilgas/map" component={MapOilgas} />

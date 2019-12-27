@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import React from 'react'
+import Div100vh from 'react-div-100vh'
 import ReactMapGL, { GeolocateControl, Popup, FullscreenControl } from "react-map-gl";
 import WellInfo from './WellInfo';
 import 'mapbox-gl/dist/mapbox-gl.css'
@@ -64,14 +65,14 @@ class MapOil extends Component {
                     closeOnClick={false}
                     onClose={() => this.setState({ popup: null })}
                 >
-                    <WellInfo info={popup}/>
+                    <WellInfo info={popup} />
                 </Popup>
             )
         );
     }
 
     render() {
-        const { viewport} = this.state
+        const { viewport } = this.state
 
         const fullscreenControlStyle = {
             position: 'absolute',
@@ -85,32 +86,35 @@ class MapOil extends Component {
             position: 'absolute',
             right: 10,
             top: 10,
+            padding: '0px',
             boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.5)'
         }
 
         return (
-            <div className="map">
-            <ReactMapGL
-                {...viewport}
-                width="100%"
-                height="100%"
-                mapboxApiAccessToken={TOKEN}
-                mapStyle='mapbox://styles/areed145/ck2jlfnp03oiv1cpepd4js9k6'
-                onViewportChange={viewport => this.onViewportChange(viewport)}
-                onClick={popup => this.onMapClick(popup)}>
-                {this.renderPopup()}
-                <div className="geolocate">
-                    <GeolocateControl style={geolocateStyle}
-                        positionOptions={{ enableHighAccuracy: true }}
-                        trackUserLocation={true}
-                        onViewportChange={this._updateViewport}
-                    />
-                </div>
-                <div className="fullscreen" style={fullscreenControlStyle}>
-                    <FullscreenControl />
-                </div>
-            </ReactMapGL>
-            </div>
+            <Div100vh
+                style={{ height: 'calc(100rvh - 95px)' }}
+            >
+                <ReactMapGL
+                    {...viewport}
+                    width="100%"
+                    height="100%"
+                    mapboxApiAccessToken={TOKEN}
+                    mapStyle='mapbox://styles/areed145/ck2jlfnp03oiv1cpepd4js9k6'
+                    onViewportChange={viewport => this.onViewportChange(viewport)}
+                    onClick={popup => this.onMapClick(popup)}>
+                    {this.renderPopup()}
+                    <div className="geolocate">
+                        <GeolocateControl style={geolocateStyle}
+                            positionOptions={{ enableHighAccuracy: true }}
+                            trackUserLocation={true}
+                            onViewportChange={this._updateViewport}
+                        />
+                    </div>
+                    <div className="fullscreen" style={fullscreenControlStyle}>
+                        <FullscreenControl />
+                    </div>
+                </ReactMapGL>
+            </Div100vh>
         );
     }
 }

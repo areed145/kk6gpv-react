@@ -8,9 +8,11 @@ class CardCell extends Component {
                 <CardBody className="cardbody">
                     <CardImg src={this.props.img} />
                     <figcaption className="figure-caption">{this.props.caption}</figcaption>
-                    <CardText>{this.props.text}</CardText>
-                    <CardText>{this.props.text1}</CardText>
-                    <CardText>{this.props.text2}</CardText>
+                    <CardText>
+                        <p>{this.props.text}</p>
+                        <p>{this.props.text1}</p>
+                        <p>{this.props.text2}</p>
+                    </CardText>
                 </CardBody>
             </Card >
         );

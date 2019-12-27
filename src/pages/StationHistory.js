@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-// import CardCell from '../components/CardCell'
-import { CardDeck, Card, CardBody } from 'reactstrap';
-import Plot from 'react-plotly.js';
-
+import CardPlot from '../components/CardPlot'
+import { CardDeck } from 'reactstrap';
 class StationHistory extends Component {
     constructor(props) {
         super(props);
@@ -69,138 +67,58 @@ class StationHistory extends Component {
             return (
                 <div>
                     <CardDeck className="carddeck">
-                        <Card className="card">
-                            <CardBody className="cardbody">
-                                <div width="100vw">
-                                    <Plot
-                                        data={this.state.fig_td.data}
-                                        layout={this.state.fig_td.layout}
-                                        revision={this.state.revision}
-                                        graphDiv="fig_td"
-                                        useResizeHandler
-                                        style={{ height: '100%' }}
-                                        config={{ displayModeBar: false }}
-                                    />
-                                </div>
-                            </CardBody>
-                        </Card >
+                        <CardPlot
+                            data={this.state.fig_td.data}
+                            layout={this.state.fig_td.layout}
+                            revision={this.state.revision}
+                        />
                     </CardDeck>
                     <CardDeck className="carddeck">
-                        <Card className="card">
-                            <CardBody className="cardbody">
-                                <div width="100vw">
-                                    <Plot
-                                        data={this.state.fig_pr.data}
-                                        layout={this.state.fig_pr.layout}
-                                        revision={this.state.revision}
-                                        graphDiv="fig_td"
-                                        useResizeHandler
-                                        style={{ height: '100%' }}
-                                        config={{ displayModeBar: false }}
-                                    />
-                                </div>
-                            </CardBody>
-                        </Card >
+                        <CardPlot
+                            data={this.state.fig_pr.data}
+                            layout={this.state.fig_pr.layout}
+                            revision={this.state.revision}
+                        />
                     </CardDeck>
                     <CardDeck className="carddeck">
-                        <Card className="card">
-                            <CardBody className="cardbody">
-                                <div width="100vw">
-                                    <Plot
-                                        data={this.state.fig_pc.data}
-                                        layout={this.state.fig_pc.layout}
-                                        revision={this.state.revision}
-                                        graphDiv="fig_td"
-                                        useResizeHandler
-                                        style={{ height: '100%' }}
-                                        config={{ displayModeBar: false }}
-                                    />
-                                </div>
-                            </CardBody>
-                        </Card >
+                        <CardPlot
+                            data={this.state.fig_pc.data}
+                            layout={this.state.fig_pc.layout}
+                            revision={this.state.revision}
+                        />
                     </CardDeck>
                     <CardDeck className="carddeck">
-                        <Card className="card">
-                            <CardBody className="cardbody">
-                                <div width="100vw">
-                                    <Plot
-                                        data={this.state.fig_wd.data}
-                                        layout={this.state.fig_wd.layout}
-                                        revision={this.state.revision}
-                                        graphDiv="fig_td"
-                                        useResizeHandler
-                                        style={{ height: '100%' }}
-                                        config={{ displayModeBar: false }}
-                                    />
-                                </div>
-                            </CardBody>
-                        </Card >
+                        <CardPlot
+                            data={this.state.fig_wd.data}
+                            layout={this.state.fig_wd.layout}
+                            revision={this.state.revision}
+                        />
                     </CardDeck>
                     <CardDeck className="carddeck">
-                        <Card className="card">
-                            <CardBody className="cardbody">
-                                <div width="100vw">
-                                    <Plot
-                                        data={this.state.fig_su.data}
-                                        layout={this.state.fig_su.layout}
-                                        revision={this.state.revision}
-                                        graphDiv="fig_td"
-                                        useResizeHandler
-                                        style={{ height: '100%' }}
-                                        config={{ displayModeBar: false }}
-                                    />
-                                </div>
-                            </CardBody>
-                        </Card >
+                        <CardPlot
+                            data={this.state.fig_su.data}
+                            layout={this.state.fig_su.layout}
+                            revision={this.state.revision}
+                        />
                     </CardDeck>
                     <CardDeck className="carddeck">
-                        <Card className="card">
-                            <CardBody className="cardbody">
-                                <div width="100vw">
-                                    <Plot
-                                        data={this.state.fig_cb.data}
-                                        layout={this.state.fig_cb.layout}
-                                        revision={this.state.revision}
-                                        graphDiv="fig_td"
-                                        useResizeHandler
-                                        style={{ height: '100%' }}
-                                        config={{ displayModeBar: false }}
-                                    />
-                                </div>
-                            </CardBody>
-                        </Card >
+                        <CardPlot
+                            data={this.state.fig_cb.data}
+                            layout={this.state.fig_cb.layout}
+                            revision={this.state.revision}
+                        />
                     </CardDeck>
                     <CardDeck className="carddeck">
-                        <Card className="card">
-                            <CardBody className="cardbody">
-                                <div width="100vw">
-                                    <Plot
-                                        data={this.state.fig_wr.data}
-                                        layout={this.state.fig_wr.layout}
-                                        revision={this.state.revision}
-                                        graphDiv="fig_td"
-                                        useResizeHandler
-                                        style={{ height: '100%' }}
-                                        config={{ displayModeBar: false }}
-                                    />
-                                </div>
-                            </CardBody>
-                        </Card >
-                        <Card className="card">
-                            <CardBody className="cardbody">
-                                <div width="100vw">
-                                    <Plot
-                                        data={this.state.fig_thp.data}
-                                        layout={this.state.fig_thp.layout}
-                                        revision={this.state.revision}
-                                        graphDiv="fig_td"
-                                        useResizeHandler
-                                        style={{ height: '100%' }}
-                                        config={{ displayModeBar: false }}
-                                    />
-                                </div>
-                            </CardBody>
-                        </Card >
+                        <CardPlot
+                            data={this.state.fig_wr.data}
+                            layout={this.state.fig_wr.layout}
+                            revision={this.state.revision}
+                        />
+                        <CardPlot
+                            data={this.state.fig_thp.data}
+                            layout={this.state.fig_thp.layout}
+                            revision={this.state.revision}
+                        />
                     </CardDeck>
                     <div className="margin" />
                 </div>

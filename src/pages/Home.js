@@ -3,12 +3,12 @@ import { CardDeck } from 'reactstrap';
 
 import CardIcon from '../components/CardIcon'
 
-import station_weather from '../assets/icons/temperature.svg';
-import us_weather from '../assets/icons/satellite.svg';
+import station_history from '../assets/icons/temperature.svg';
+import weather_aviation from '../assets/icons/satellite.svg';
 import iot from '../assets/icons/rfid.svg';
 import aprs from '../assets/icons/aprs_color.svg';
 
-import flying from '../assets/icons/paragliding.svg';
+import aircraft from '../assets/icons/paragliding.svg';
 import photos from '../assets/icons/camera2.svg';
 import travel from '../assets/icons/rv.svg';
 import scuba from '../assets/icons/scuba.svg';
@@ -22,13 +22,13 @@ const Home = () => {
     return (
         <div>
             <CardDeck className="carddeck">
-                <CardIcon title='Station Weather' link='/station_weather' img={station_weather} bgcolor="rgb(255, 145, 172)" />
-                <CardIcon title='U.S. Weather' link='/us_weather' img={us_weather} bgcolor="rgb(255, 151, 133)" />
+                <CardIcon title='Station Weather' link='/station/history' img={station_history} bgcolor="rgb(255, 145, 172)" />
+                <CardIcon title='Aviation Weather' link='/weather/aviation' img={weather_aviation} bgcolor="rgb(255, 151, 133)" />
                 <CardIcon title='IoT' link='/iot' img={iot} bgcolor="rgb(255, 208, 147)" />
-                <CardIcon title='APRS' link='/aprs' img={aprs} bgcolor="rgb(255, 236, 149)" />
+                <CardIcon title='APRS' link='/aprs/kk6gpv' img={aprs} bgcolor="rgb(255, 236, 149)" />
             </CardDeck>
             <CardDeck className="carddeck">
-                <CardIcon title='Flying' link='/aircraft' img={flying} bgcolor="rgb(253, 255, 153)" />
+                <CardIcon title='Flying' link='/aircraft' img={aircraft} bgcolor="rgb(253, 255, 153)" />
                 <CardIcon title='Photos' link='/photos' img={photos} bgcolor="rgb(205, 255, 172)" />
                 <CardIcon title='Travel' link='/travel' img={travel} bgcolor="rgb(152, 255, 216)" />
                 <CardIcon title='Scuba' link='/scuba' img={scuba} bgcolor="rgb(159, 225, 255)" />
