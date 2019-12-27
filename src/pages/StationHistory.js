@@ -202,6 +202,7 @@ class StationHistory extends Component {
                             </CardBody>
                         </Card >
                     </CardDeck>
+                    <div className="margin" />
                 </div>
             );
         }

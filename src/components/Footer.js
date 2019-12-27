@@ -4,7 +4,6 @@ class Footer extends Component {
     render() {
         return (
             <div>
-                <div className="margin" />
                 <footer className="footer fixed-bottom">
                     <div className="container">
                         <span className="text-muted">

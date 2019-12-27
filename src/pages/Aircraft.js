@@ -37,6 +37,7 @@ const Aircraft = () => {
                 <CardCell img={n5777v_mit1} caption="N5777V on low approach, KMIT" text="In March of 2017 I co-purchased my first aircraft: Beechcraft A23-24 Super Musketeer N5777V, which is detailed on its own page." />
                 <CardVideo title="superdeca" src="https://player.vimeo.com/video/163972650" caption="Video of aerobatic flying in a Super Decathlon" text="" />
             </CardDeck>
+            <div className="margin" />
         </div>
     );
 };

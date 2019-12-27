@@ -39,6 +39,7 @@ const Home = () => {
                 <CardIcon title='Blog' link='/blog' img={blog} bgcolor="rgb(226, 152, 255)" />
                 <CardIcon title='About' link='/about' img={about} bgcolor="rgb(255, 152, 250)" />
             </CardDeck>
+            <div className="margin" />
         </div>
     );
 };

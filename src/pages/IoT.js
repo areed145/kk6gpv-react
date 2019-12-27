@@ -9,6 +9,7 @@ const IoT = () => {
             <CardDeck className="carddeck">
                 <CardBasic />
             </CardDeck>
+            <div className="margin" />
         </div>
         // <div class="col-md-12">
         //     <div class="card-deck mt-4">

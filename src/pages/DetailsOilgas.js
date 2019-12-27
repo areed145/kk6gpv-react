@@ -5,9 +5,12 @@ import { CardDeck } from 'reactstrap';
 class DetailsOilgas extends Component {
     render() {
         return (
-            <CardDeck className="carddeck">
-                <CardCell text={this.props.match.params.api} />
-            </CardDeck>
+            <div>
+                <CardDeck className="carddeck">
+                    <CardCell text={this.props.match.params.api} />
+                </CardDeck>
+                <div className="margin" />
+            </div>
         );
     }
 }
