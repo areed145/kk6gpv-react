@@ -8,7 +8,7 @@ class Footer extends Component {
                 <footer className="footer fixed-bottom">
                     <div className="container">
                         <span className="text-muted">
-                            <div className="footer-copyright text-center py-2">© 2019 Copyright
+                            <div className="footer-copyright text-center py-1">© 2019 Copyright
                                 <a href="/about"> Adam Reeder</a>
                             </div>
                         </span>

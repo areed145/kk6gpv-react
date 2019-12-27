@@ -58,7 +58,13 @@ class StationHistory extends Component {
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
-            return <div>Loading...</div>;
+            return (
+                <div className="center">
+                    <div className="spinner-border text-secondary" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                </div>
+            );
         } else {
             return (
                 <div>
@@ -196,7 +202,6 @@ class StationHistory extends Component {
                             </CardBody>
                         </Card >
                     </CardDeck>
-                    <div className="margin" />
                 </div>
             );
         }

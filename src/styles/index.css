@@ -9,6 +9,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
 .map {
     height: calc(100vh - 110px) !important;
     width: 100vw !important;
@@ -81,7 +90,7 @@ body {
 }
 
 .margin {
-    height: 40px;
+    height: 60px;
 }
 
 code {

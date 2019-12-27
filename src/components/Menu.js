@@ -36,7 +36,7 @@ class Menu extends Component {
         return (
             <Navbar light expand="md" sticky="top" className="navbar">
                 <NavbarBrand href="/">
-                    <img id="logo" alt="logo" src={logo} width="45" height="45" />
+                    <img id="logo" alt="logo" src={logo} width="40" height="40" />
                     Coconut Barometer
                 </NavbarBrand>
                 <NavbarToggler onClick={this.toggle} />
