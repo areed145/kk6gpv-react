@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card, CardBody, CardHeader, CardTitle} from 'reactstrap';
+import { Card, CardBody, CardHeader, CardTitle } from 'reactstrap';
 import Plot from 'react-plotly.js';
 
 class Gauge extends Component {
@@ -56,59 +56,59 @@ class Gauge extends Component {
         var colors = ['rgba(110, 154, 22, 0)'];
         var text = [gmax.toString()];
         for (var i = 0; i < len; i++) {
-            values.push(gs/len);
+            values.push(gs / len);
             colors.push(cmap[i])
             text.push('');
         }
         values.push(ls, ws);
         text.push(gmin.toString(), leveldisp.toString());
-        colors.push('rgba(110, 154, 22, 0)','rgba(110, 154, 22, 0)');
+        colors.push('rgba(110, 154, 22, 0)', 'rgba(110, 154, 22, 0)');
 
         var data = [{
-                type: 'scatter',
-                x: [0],
-                y: [0],
-                marker: {
-                    size: sz,
-                    color: '#000000'
-                },
-                showlegend: false,
-                hoverinfo: 'none'
+            type: 'scatter',
+            x: [0],
+            y: [0],
+            marker: {
+                size: sz,
+                color: '#000000'
             },
-            {
-                values: values,
-                hoverinfo: 'none',
-                rotation: rot - 30,
-                sort: false,
-                text: text,
-                textinfo: 'text',
-                textposition: 'inside',
-                marker: {
-                    colors: colors
-                },
-                hole: 0.5,
-                type: 'pie',
-                showlegend: false
-            }
+            showlegend: false,
+            hoverinfo: 'none'
+        },
+        {
+            values: values,
+            hoverinfo: 'none',
+            rotation: rot - 30,
+            sort: false,
+            text: text,
+            textinfo: 'text',
+            textposition: 'inside',
+            marker: {
+                colors: colors
+            },
+            hole: 0.5,
+            type: 'pie',
+            showlegend: false
+        }
         ];
 
         var layout = {
             shapes: [{
-                    type: 'path',
-                    path: path,
-                    fillcolor: '#000000',
-                    line: {
-                        color: '#000000'
-                    }
-                },
-                {
-                    type: 'path',
-                    path: path2,
-                    fillcolor: '#000000',
-                    line: {
-                        color: '#000000'
-                    }
+                type: 'path',
+                path: path,
+                fillcolor: '#000000',
+                line: {
+                    color: '#000000'
                 }
+            },
+            {
+                type: 'path',
+                path: path2,
+                fillcolor: '#000000',
+                line: {
+                    color: '#000000'
+                }
+            }
             ],
             // autosize: true,
             height: hw,
@@ -143,14 +143,14 @@ class Gauge extends Component {
                         <h5>{this.state.title}</h5>
                     </CardTitle>
                 </CardHeader>
-                <CardBody className="cardbody" style={{ margin: "auto"}}>
-                <Plot
-                    data={data}
-                    layout={layout}
-                    revision={this.props.revision}
-                    useResizeHandler
-                    config={{ displayModeBar: false }}
-                        />
+                <CardBody className="cardbody" style={{ margin: "auto" }}>
+                    <Plot
+                        data={data}
+                        layout={layout}
+                        revision={this.props.revision}
+                        useResizeHandler
+                        config={{ displayModeBar: false }}
+                    />
                 </CardBody>
             </Card >
         );

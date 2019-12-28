@@ -69,10 +69,10 @@ class StationLive extends Component {
                                 gmax={110}
                                 hw={200}
                                 cmap={
-                                    ['#f44298','#f44741','#f48541',
-                                    '#f4af41','#edde42','#d6ed42',
-                                    '#78ed42','#42edae','#42d0ed',
-                                    '#4283ed','#424ded']
+                                    ['#f44298', '#f44741', '#f48541',
+                                        '#f4af41', '#edde42', '#d6ed42',
+                                        '#78ed42', '#42edae', '#42d0ed',
+                                        '#4283ed', '#424ded']
                                 }
                             />
                             <Gauge
@@ -82,10 +82,10 @@ class StationLive extends Component {
                                 gmax={110}
                                 hw={200}
                                 cmap={
-                                    ['#f44298','#f44741','#f48541',
-                                    '#f4af41','#edde42','#d6ed42',
-                                    '#78ed42','#42edae','#42d0ed',
-                                    '#4283ed', '#424ded']
+                                    ['#f44298', '#f44741', '#f48541',
+                                        '#f4af41', '#edde42', '#d6ed42',
+                                        '#78ed42', '#42edae', '#42d0ed',
+                                        '#4283ed', '#424ded']
                                 }
                             />
                             <Gauge
@@ -95,8 +95,8 @@ class StationLive extends Component {
                                 gmax={100}
                                 hw={200}
                                 cmap={
-                                    ['#4286f4','#41b8f4','#41f1f4',
-                                    '#41f455','#a9f441']
+                                    ['#4286f4', '#41b8f4', '#41f1f4',
+                                        '#41f455', '#a9f441']
                                 }
                             />
                             <Gauge
@@ -106,8 +106,8 @@ class StationLive extends Component {
                                 gmax={30.5}
                                 hw={200}
                                 cmap={
-                                    ['#78ed42','#d6ed42','#edde42',
-                                    '#f4af41','#f48541',]
+                                    ['#78ed42', '#d6ed42', '#edde42',
+                                        '#f4af41', '#f48541',]
                                 }
                             />
                         </CardDeck>
@@ -134,8 +134,8 @@ class StationLive extends Component {
                                 gmax={1}
                                 hw={160}
                                 cmap={
-                                    ['#4286f4','#6399f2','#41b8f4',
-                                    '#41f1f4','#bcf6ff']
+                                    ['#4286f4', '#6399f2', '#41b8f4',
+                                        '#41f1f4', '#bcf6ff']
                                 }
                             />
                             <Gauge
@@ -145,8 +145,8 @@ class StationLive extends Component {
                                 gmax={1000}
                                 hw={160}
                                 cmap={
-                                    ['#ff9900','#ffb444','#ffd944',
-                                    '#fce58a','#fffcbc',]
+                                    ['#ff9900', '#ffb444', '#ffd944',
+                                        '#fce58a', '#fffcbc',]
                                 }
                             />
                             <Gauge
@@ -156,8 +156,8 @@ class StationLive extends Component {
                                 gmax={8}
                                 hw={160}
                                 cmap={
-                                    ['#ff9990','#fcbbb5','#fcd1b5',
-                                    '#efd5c4','#f2e7e1',]
+                                    ['#ff9990', '#fcbbb5', '#fcd1b5',
+                                        '#efd5c4', '#f2e7e1',]
                                 }
                             />
                         </CardDeck>
