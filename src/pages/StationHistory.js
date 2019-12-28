@@ -20,7 +20,7 @@ class StationHistory extends Component {
     }
 
     componentDidMount() {
-        fetch("https://www.kk6gpv.net/wx/graph?time_int=d_2")
+        fetch("https://www.kk6gpv.net/station/history/graphs?time_int=d_2")
             .then(res => res.json())
             .then(
                 (result) => {

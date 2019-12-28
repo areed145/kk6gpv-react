@@ -10,9 +10,9 @@ const TOKEN = 'pk.eyJ1IjoiYXJlZWQxNDUiLCJhIjoiY2phdzNsN2ZoMGh0bjMybzF3cTkycWYyci
 class MapOil extends Component {
     state = {
         viewport: {
-            latitude: 37.7577,
-            longitude: -122.4376,
-            zoom: 8,
+            latitude: this.props.latitude,
+            longitude: this.props.longitude,
+            zoom: this.props.zoom,
             showPopup: true
         },
         popup: null

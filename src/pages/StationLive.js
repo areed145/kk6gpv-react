@@ -16,7 +16,7 @@ class StationLive extends Component {
     }
 
     componentDidMount() {
-        fetch("https://www.kk6gpv.net/station/live")
+        fetch("https://www.kk6gpv.net/station/live/data")
             .then(res => res.json())
             .then(
                 (result) => {
