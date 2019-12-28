@@ -83,8 +83,22 @@ class DetailsOilgas extends Component {
                                     </CardTitle>
                                 </CardHeader>
                                 <CardBody className="cardbody">
-                                    {this.state.header.api}
-                                    {this.state.header.well}
+                                    <br></br>
+                                    Field: {this.state.header.field}
+                                    <br></br>
+                                    Operator: {this.state.header.operator}
+                                    <br></br>
+                                    Wellname: {this.state.header.lease} {this.state.header.well}
+                                    <br></br>
+                                    County: {this.state.header.county}
+                                    <br></br>
+                                    Section: {this.state.header.section}
+                                    <br></br>
+                                    Township: {this.state.header.township}
+                                    <br></br>
+                                    Range: {this.state.header.rnge}
+                                    <br></br>
+                                    District: {this.state.header.district}
                                 </CardBody>
                             </Card >
                             <Card className="card">

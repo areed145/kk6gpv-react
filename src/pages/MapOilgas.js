@@ -8,6 +8,7 @@ const MapOilgas = () => {
             latitude={35.429904}
             longitude={-109.601666}
             zoom={4}
+            fill={'page'}
         />
     )
 }

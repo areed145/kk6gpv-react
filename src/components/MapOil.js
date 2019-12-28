@@ -15,6 +15,7 @@ class MapOil extends Component {
             zoom: this.props.zoom,
             showPopup: true
         },
+        fill: this.props.fill,
         popup: null
     }
 
@@ -90,9 +91,34 @@ class MapOil extends Component {
             boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.5)'
         }
 
-        return (
-            <Div100vh style={{ height: 'calc(100rvh - 65px)' }}>
-                <ReactMapGL
+        if (this.state.fill === 'page') {
+            return (
+                <Div100vh style={{ height: 'calc(100rvh - 65px)' }}>
+                    <ReactMapGL
+                        {...viewport}
+                        width="100%"
+                        height="100%"
+                        mapboxApiAccessToken={TOKEN}
+                        mapStyle='mapbox://styles/areed145/ck2jlfnp03oiv1cpepd4js9k6'
+                        onViewportChange={viewport => this.onViewportChange(viewport)}
+                        onClick={popup => this.onMapClick(popup)}>
+                        {this.renderPopup()}
+                        <div className="geolocate">
+                            <GeolocateControl style={geolocateStyle}
+                                positionOptions={{ enableHighAccuracy: true }}
+                                trackUserLocation={true}
+                                onViewportChange={this._updateViewport}
+                            />
+                        </div>
+                        <div className="fullscreen" style={fullscreenControlStyle}>
+                            <FullscreenControl />
+                        </div>
+                    </ReactMapGL>
+                </Div100vh>
+            );
+        } else {
+            return (
+                <ReactMapGL style={{minHeight : 400}}
                     {...viewport}
                     width="100%"
                     height="100%"
@@ -112,8 +138,8 @@ class MapOil extends Component {
                         <FullscreenControl />
                     </div>
                 </ReactMapGL>
-            </Div100vh>
-        );
+            );
+        }
     }
 }
 
