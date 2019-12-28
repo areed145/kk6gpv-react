@@ -7,11 +7,13 @@ class DetailsOilgas extends Component {
     render() {
         return (
             <div>
-                <CardDeck className="carddeck">
-                    <CardCell text={this.props.match.params.api} />
-                </CardDeck>
-                <div className="margin" />
-                <Footer />
+                <div className="main">
+                    <CardDeck className="carddeck">
+                        <CardCell text={this.props.match.params.api} />
+                    </CardDeck>
+                    <div className="margin" />
+                </div>
+                {/* <Footer /> */}
             </div>
         );
     }

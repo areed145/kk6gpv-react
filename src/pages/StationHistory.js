@@ -52,78 +52,83 @@ class StationHistory extends Component {
         console.log(this.state);
         const { error, isLoaded } = this.state;
 
-        // var layout = { font: { family: "Ubuntu"}}
-
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
             return (
-                <div className="center">
-                    <div className="spinner-border text-secondary" role="status">
-                        <span className="sr-only">Loading...</span>
+                <div>
+                    <div className="main">
+                        <div className="center">
+                            <div className="spinner-border text-secondary" role="status">
+                                <span className="sr-only">Loading...</span>
+                            </div>
+                        </div>
                     </div>
-                    <Footer />
+                    <div className="margin" />
+                    {/* <Footer /> */}
                 </div>
             );
         } else {
             return (
                 <div>
-                    <CardDeck className="carddeck">
-                        <CardPlot
-                            data={this.state.fig_td.data}
-                            layout={this.state.fig_td.layout}
-                            revision={this.state.revision}
-                        />
-                    </CardDeck>
-                    <CardDeck className="carddeck">
-                        <CardPlot
-                            data={this.state.fig_pr.data}
-                            layout={this.state.fig_pr.layout}
-                            revision={this.state.revision}
-                        />
-                    </CardDeck>
-                    <CardDeck className="carddeck">
-                        <CardPlot
-                            data={this.state.fig_pc.data}
-                            layout={this.state.fig_pc.layout}
-                            revision={this.state.revision}
-                        />
-                    </CardDeck>
-                    <CardDeck className="carddeck">
-                        <CardPlot
-                            data={this.state.fig_wd.data}
-                            layout={this.state.fig_wd.layout}
-                            revision={this.state.revision}
-                        />
-                    </CardDeck>
-                    <CardDeck className="carddeck">
-                        <CardPlot
-                            data={this.state.fig_su.data}
-                            layout={this.state.fig_su.layout}
-                            revision={this.state.revision}
-                        />
-                    </CardDeck>
-                    <CardDeck className="carddeck">
-                        <CardPlot
-                            data={this.state.fig_cb.data}
-                            layout={this.state.fig_cb.layout}
-                            revision={this.state.revision}
-                        />
-                    </CardDeck>
-                    <CardDeck className="carddeck">
-                        <CardPlot
-                            data={this.state.fig_wr.data}
-                            layout={this.state.fig_wr.layout}
-                            revision={this.state.revision}
-                        />
-                        <CardPlot
-                            data={this.state.fig_thp.data}
-                            layout={this.state.fig_thp.layout}
-                            revision={this.state.revision}
-                        />
-                    </CardDeck>
-                    <div className="margin" />
-                    <Footer />
+                    <div className="main">
+                        <CardDeck className="carddeck">
+                            <CardPlot
+                                data={this.state.fig_td.data}
+                                layout={this.state.fig_td.layout}
+                                revision={this.state.revision}
+                            />
+                        </CardDeck>
+                        <CardDeck className="carddeck">
+                            <CardPlot
+                                data={this.state.fig_pr.data}
+                                layout={this.state.fig_pr.layout}
+                                revision={this.state.revision}
+                            />
+                        </CardDeck>
+                        <CardDeck className="carddeck">
+                            <CardPlot
+                                data={this.state.fig_pc.data}
+                                layout={this.state.fig_pc.layout}
+                                revision={this.state.revision}
+                            />
+                        </CardDeck>
+                        <CardDeck className="carddeck">
+                            <CardPlot
+                                data={this.state.fig_wd.data}
+                                layout={this.state.fig_wd.layout}
+                                revision={this.state.revision}
+                            />
+                        </CardDeck>
+                        <CardDeck className="carddeck">
+                            <CardPlot
+                                data={this.state.fig_su.data}
+                                layout={this.state.fig_su.layout}
+                                revision={this.state.revision}
+                            />
+                        </CardDeck>
+                        <CardDeck className="carddeck">
+                            <CardPlot
+                                data={this.state.fig_cb.data}
+                                layout={this.state.fig_cb.layout}
+                                revision={this.state.revision}
+                            />
+                        </CardDeck>
+                        <CardDeck className="carddeck">
+                            <CardPlot
+                                data={this.state.fig_wr.data}
+                                layout={this.state.fig_wr.layout}
+                                revision={this.state.revision}
+                            />
+                            <CardPlot
+                                data={this.state.fig_thp.data}
+                                layout={this.state.fig_thp.layout}
+                                revision={this.state.revision}
+                            />
+                        </CardDeck>
+                        <div className="margin" />
+                        {/* <Footer /> */}
+                    </div>
                 </div>
             );
         }

@@ -5,13 +5,11 @@ class Footer extends Component {
         return (
             <div>
                 <footer className="footer">
-                    <div className="container">
-                        <span className="text-muted">
-                            <div className="footer-copyright text-center py-1">© 2019 Copyright
-                                <a href="/about"> Adam Reeder</a>
-                            </div>
-                        </span>
-                    </div>
+                    <span className="text-muted">
+                        <div className="footer-copyright text-center py-1">© 2019 Copyright
+                            <a href="/about"> Adam Reeder</a>
+                        </div>
+                    </span>
                 </footer>
             </div>
         );

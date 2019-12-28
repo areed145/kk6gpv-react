@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import './styles/App.css';
+import './styles/index.css';
 
 import Home from './pages/Home'
 import IoT from './pages/IoT'
@@ -17,7 +17,7 @@ import Menu from './components/Menu'
 class App extends Component {
     render() {
         return (
-            <div className="main">
+            <div>
                 <Menu />
                 <BrowserRouter>
                     <Switch>

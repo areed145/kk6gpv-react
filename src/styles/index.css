@@ -89,6 +89,7 @@ body {
 
 .main {
     background-color: #f0ffff;
+    min-height: calc(100vh - 123px) !important;
 }
 
 .margin {

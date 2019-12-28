@@ -7,11 +7,13 @@ import Footer from '../components/Footer'
 const IoT = () => {
     return (
         <div>
-            <CardDeck className="carddeck">
-                <CardBasic />
-            </CardDeck>
-            <div className="margin" />
-            <Footer />
+            <div className="main">
+                <CardDeck className="carddeck">
+                    <CardBasic />
+                </CardDeck>
+                <div className="margin" />
+                {/* <Footer /> */}
+            </div>
         </div>
         // <div class="col-md-12">
         //     <div class="card-deck mt-4">
