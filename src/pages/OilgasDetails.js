@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { CardDeck, Card, CardBody, CardHeader, CardTitle } from 'reactstrap';
+import { CardDeck, Card, CardBody, CardHeader, CardTitle, Table } from 'reactstrap';
 import Plot from 'react-plotly.js';
 import MapOil from '../components/MapOil';
 import CardPlot from '../components/CardPlot';
@@ -88,22 +88,102 @@ class DetailsOilgas extends Component {
                                     </CardTitle>
                                 </CardHeader>
                                 <CardBody className="cardbody">
-                                    <br></br>
-                                    Field: {this.state.header.field}
-                                    <br></br>
-                                    Operator: {this.state.header.operator}
-                                    <br></br>
-                                    Wellname: {this.state.header.lease} {this.state.header.well}
-                                    <br></br>
-                                    County: {this.state.header.county}
-                                    <br></br>
-                                    Section: {this.state.header.section}
-                                    <br></br>
-                                    Township: {this.state.header.township}
-                                    <br></br>
-                                    Range: {this.state.header.rnge}
-                                    <br></br>
-                                    District: {this.state.header.district}
+                                    <Table borderless responsive size="sm" style={{border: 0}}>
+                                        <thead style={{backgroundColor: "#f1f1f1"}}>
+                                            <tr>
+                                                <th><h6>API</h6></th>
+                                                <th><h6>Operator</h6></th>
+                                                <th><h6>Field</h6></th>
+                                                <th><h6>Lease</h6></th>
+                                                <th><h6>Well</h6></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>{this.state.header.api}</td>
+                                                <td>{this.state.header.operator}</td>
+                                                <td>{this.state.header.field}</td>
+                                                <td>{this.state.header.lease}</td>
+                                                <td>{this.state.header.well}</td>
+                                            </tr>
+                                        </tbody>
+                                    </Table>
+                                    <Table borderless responsive size="sm" style={{border: 0}}>
+                                        <thead style={{backgroundColor: "#f1f1f1"}}>
+                                            <tr>
+                                                <th><h6>Area</h6></th>
+                                                <th><h6>District</h6></th>
+                                                <th><h6>County</h6></th>
+                                                <th><h6>Section</h6></th>
+                                                <th><h6>Township</h6></th>
+                                                <th><h6>Range</h6></th>
+                                                <th><h6>BM</h6></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>{this.state.header.area}</td>
+                                                <td>{this.state.header.district}</td>
+                                                <td>{this.state.header.county}</td>
+                                                <td>{this.state.header.section}</td>
+                                                <td>{this.state.header.township}</td>
+                                                <td>{this.state.header.rnge}</td>
+                                                <td>{this.state.header.bm}</td>
+                                            </tr>
+                                        </tbody>
+                                    </Table>
+                                    <Table borderless responsive size="sm" style={{border: 0}}>
+                                        <thead style={{backgroundColor: "#f1f1f1"}}>
+                                            <tr>
+                                                <th><h6>Spud Date</h6></th>
+                                                <th><h6>PWT</h6></th>
+                                                <th><h6>Well Status</h6></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>{this.state.header.spuddate}</td>
+                                                <td>{this.state.header.pwt}</td>
+                                                <td>{this.state.header.wellstatus}</td>
+                                            </tr>
+                                        </tbody>
+                                    </Table>
+                                    <Table borderless responsive size="sm" style={{border: 0}}>
+                                        <thead style={{backgroundColor: "#f1f1f1"}}>
+                                            <tr>
+                                                <th><h6>Latitude</h6></th>
+                                                <th><h6>Longitude</h6></th>
+                                                <th><h6>Elevation</h6></th>
+                                                <th><h6>GIS Source</h6></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>{this.state.header.latitude}</td>
+                                                <td>{this.state.header.longitude}</td>
+                                                <td>{this.state.header.elev}</td>
+                                                <td>{this.state.header.gissrc}</td>
+                                            </tr>
+                                        </tbody>
+                                    </Table>
+                                    <Table borderless responsive size="sm" style={{border: 0}}>
+                                        <thead style={{backgroundColor: "#f1f1f1"}}>
+                                            <tr>
+                                                <th><h6>Oil Cum</h6></th>
+                                                <th><h6>Water Cum</h6></th>
+                                                <th><h6>Gas Cum</h6></th>
+                                                <th><h6>Water/Steam Cum</h6></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>{this.state.header.oil_cum}</td>
+                                                <td>{this.state.header.water_cum}</td>
+                                                <td>{this.state.header.gas_cum}</td>
+                                                <td>{this.state.header.wtrstm_cum}</td>
+                                            </tr>
+                                        </tbody>
+                                    </Table>
                                 </CardBody>
                             </Card >
                             <Card className="card">
