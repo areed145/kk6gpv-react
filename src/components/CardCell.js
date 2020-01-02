@@ -42,11 +42,12 @@ class CardCell extends Component {
     let plot = [];
     if (this.props.plot) {
       if (this.props.plot[0].data) {
-        for (const [index, value] of this.props.plot.entries()) {
+        for (const [, value] of this.props.plot.entries()) {
           plot.push(
             <Plot
               data={value.data}
               layout={value.layout}
+              revision={value.revision}
               useResizeHandler
               style={{ width: "100%" }}
               config={{ displayModeBar: false }}
@@ -85,7 +86,7 @@ class CardCell extends Component {
 
     let text = [];
     if (this.props.text) {
-      for (const [index, value] of this.props.text.entries()) {
+      for (const [, value] of this.props.text.entries()) {
         text.push(<p>{value}</p>);
       }
     }
@@ -235,9 +236,7 @@ class CardCell extends Component {
           {gauge}
           {video}
           {caption}
-          <CardText>
-            {text}
-          </CardText>
+          <CardText>{text}</CardText>
         </CardBody>
       </Card>
     );

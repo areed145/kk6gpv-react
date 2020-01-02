@@ -44,7 +44,7 @@ const Home = () => {
           />
           <CardCell
             title="APRS"
-            link="/aprs/kk6gpv"
+            link="/aprs/location"
             icon={aprs}
             bgcolor="rgb(255, 236, 149)"
           />

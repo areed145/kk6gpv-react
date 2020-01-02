@@ -4,12 +4,6 @@ import { CardDeck } from "reactstrap";
 import CardCell from "../components/CardCell";
 import Footer from "../components/Footer";
 
-// import first_solo from '../assets/images/first_solo.jpg';
-import kernville from "../assets/images/kernville.jpg";
-import private_pilot from "../assets/images/private_pilot.jpg";
-import extra_300 from "../assets/images/extra_300.jpg";
-import super_decathlon from "../assets/images/super_decathlon.jpg";
-import catalina from "../assets/images/catalina.jpg";
 import mooney from "../assets/images/mooney.jpg";
 import tehachapi from "../assets/images/tehachapi.jpg";
 import salinas from "../assets/images/salinas.jpg";

@@ -69,8 +69,8 @@ class Menu extends Component {
                 APRS
               </DropdownToggle>
               <DropdownMenu right className="menu">
-                <DropdownItem href="/aprs/kk6gpv">KK6GPV</DropdownItem>
-                <DropdownItem href="/aprs/kk6gpv10">KK6GPV-10</DropdownItem>
+                <DropdownItem href="/aprs/location">KK6GPV</DropdownItem>
+                <DropdownItem href="/aprs/igate">KK6GPV-10</DropdownItem>
                 <DropdownItem href="/aprs/houston">Houston Area</DropdownItem>
                 <DropdownItem href="/aprs/info">APRS Info</DropdownItem>
               </DropdownMenu>

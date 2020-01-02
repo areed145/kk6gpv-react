@@ -17,8 +17,9 @@ class StationHistory extends Component {
       fig_cb: [],
       fig_wr: [],
       fig_thp: [],
-      selected: "d_1",
-      label: "1 day"
+      time: "d_1",
+      time_label: "1 day",
+      revision: 0
     };
   }
 
@@ -26,14 +27,14 @@ class StationHistory extends Component {
     // console.log(event.value);
     this.setState(
       {
-        selected: event.value,
-        label: event.label
+        time: event.value,
+        time_label: event.label
       },
       function() {
         console.log(this.state);
         fetch(
           `https://www.kk6gpv.net/station/history/graphs?time_int=${encodeURIComponent(
-            this.state.selected
+            this.state.time
           )}`
         )
           .then(res => res.json())
@@ -48,7 +49,8 @@ class StationHistory extends Component {
                 fig_su: result.fig_su,
                 fig_cb: result.fig_cb,
                 fig_wr: result.fig_wr,
-                fig_thp: result.fig_thp
+                fig_thp: result.fig_thp,
+                revision: this.state.revision + 1
               });
             },
             // Note: it's important to handle errors here
@@ -67,9 +69,10 @@ class StationHistory extends Component {
   }
 
   componentDidMount() {
-    const encodedValue = encodeURIComponent(this.state.selected);
     fetch(
-      `https://www.kk6gpv.net/station/history/graphs?time_int=${encodedValue}`
+      `https://www.kk6gpv.net/station/history/graphs?time_int=${encodeURIComponent(
+        this.state.time
+      )}`
     )
       .then(res => res.json())
       .then(
@@ -141,10 +144,10 @@ class StationHistory extends Component {
                   <div width="100vw">
                     <Select
                       name="time_int"
-                      value={this.state.selected}
+                      value={this.state.time}
                       defaultInputValue=""
                       options={options}
-                      placeholder={this.state.label}
+                      placeholder={this.state.time_label}
                       searchable={false}
                       onChange={this.onChange.bind(this)}
                     />
@@ -153,26 +156,50 @@ class StationHistory extends Component {
               </Card>
             </CardDeck>
             <CardDeck className="carddeck">
-              <CardCell plot={[this.state.fig_td]} />
+              <CardCell
+                plot={[this.state.fig_td]}
+                revision={this.state.revision}
+              />
             </CardDeck>
             <CardDeck className="carddeck">
-              <CardCell plot={[this.state.fig_pr]} />
+              <CardCell
+                plot={[this.state.fig_pr]}
+                revision={this.state.revision}
+              />
             </CardDeck>
             <CardDeck className="carddeck">
-              <CardCell plot={[this.state.fig_pc]} />
+              <CardCell
+                plot={[this.state.fig_pc]}
+                revision={this.state.revision}
+              />
             </CardDeck>
             <CardDeck className="carddeck">
-              <CardCell plot={[this.state.fig_wd]} />
+              <CardCell
+                plot={[this.state.fig_wd]}
+                revision={this.state.revision}
+              />
             </CardDeck>
             <CardDeck className="carddeck">
-              <CardCell plot={[this.state.fig_su]} />
+              <CardCell
+                plot={[this.state.fig_su]}
+                revision={this.state.revision}
+              />
             </CardDeck>
             <CardDeck className="carddeck">
-              <CardCell plot={[this.state.fig_cb]} />
+              <CardCell
+                plot={[this.state.fig_cb]}
+                revision={this.state.revision}
+              />
             </CardDeck>
             <CardDeck className="carddeck">
-              <CardCell plot={[this.state.fig_wr]} />
-              <CardCell plot={[this.state.fig_thp]} />
+              <CardCell
+                plot={[this.state.fig_wr]}
+                revision={this.state.revision}
+              />
+              <CardCell
+                plot={[this.state.fig_thp]}
+                revision={this.state.revision}
+              />
             </CardDeck>
             <div className="margin" />
             {/* <Footer /> */}

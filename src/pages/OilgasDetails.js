@@ -7,7 +7,6 @@ import {
   CardTitle,
   Table
 } from "reactstrap";
-import Plot from "react-plotly.js";
 import MapOil from "../components/MapOil";
 import CardCell from "../components/CardCell";
 import Footer from "../components/Footer";

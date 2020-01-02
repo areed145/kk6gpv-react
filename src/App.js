@@ -10,9 +10,9 @@ import StationInfo from './pages/StationInfo'
 // import WeatherBlips from './pages/WeatherBlips'
 // import WeatherSoundings from './pages/WeatherSoundings'
 import IoT from "./pages/IoT";
-// import AprsLocation from './pages/AprsLocation'
-// import AprsIgate from './pages/AprsIgate'
-// import AprsHouston from './pages/AprsHouston'
+import AprsLocation from './pages/AprsLocation'
+import AprsIgate from './pages/AprsIgate'
+import AprsHouston from './pages/AprsHouston'
 // import AprsInfo from './pages/AprsInfo'
 import Aircraft from "./pages/Aircraft";
 import Paragliding from './pages/Paragliding'
@@ -44,9 +44,9 @@ class App extends Component {
             {/* <Route path="/weather/blips" component={WeatherBlips} /> */}
             {/* <Route path="/weather/soundings" component={WeatherSoundings} /> */}
             <Route path="/iot" component={IoT} />
-            {/* <Route path="/aprs/location" component={AprsLocation} /> */}
-            {/* <Route path="/aprs/igate" component={AprsIgate} /> */}
-            {/* <Route path="/aprs/houston" component={AprsHouston} /> */}
+            <Route path="/aprs/location" component={AprsLocation} />
+            <Route path="/aprs/igate" component={AprsIgate} />
+            <Route path="/aprs/houston" component={AprsHouston} />
             {/* <Route path="/aprs/info" component={AprsInfo} /> */}
             <Route path="/aircraft" component={Aircraft} />
             <Route path="/paragliding" component={Paragliding} />
