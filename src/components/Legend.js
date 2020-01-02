@@ -1,9 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
+import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 let Legend = class Legend extends React.Component {
-
   static propTypes = {
     active: PropTypes.object.isRequired
   };
@@ -13,24 +12,34 @@ let Legend = class Legend extends React.Component {
 
     const renderLegendKeys = (stop, i) => {
       return (
-        <div key={i} className='txt-s'>
-          <span className='mr6 round-full w12 h12 inline-block align-middle' style={{ backgroundColor: stop[1] }} />
+        <div key={i} className="txt-s">
+          <span
+            className="mr6 round-full w12 h12 inline-block align-middle"
+            style={{ backgroundColor: stop[1] }}
+          />
           <span>{`${stop[0].toLocaleString()}`}</span>
         </div>
       );
-    }
+    };
 
     return (
-      <div className="absolute bottom right py12 px12 shadow-darken10 round z1 wmax180" style={{ marginBottom: "65px" , marginRight: "25px", backgroundColor: '#f0ffff'}}>
-        <div className='mb6'>
+      <div
+        className="absolute bottom right py12 px12 shadow-darken10 round z1 wmax180"
+        style={{
+          marginBottom: "65px",
+          marginRight: "25px",
+          backgroundColor: "#f0ffff"
+        }}
+      >
+        <div className="mb6">
           <h2 className="txt-bold txt-s block">{name}</h2>
-          <p className='txt-s color-gray'>{description}</p>
+          <p className="txt-s color-gray">{description}</p>
         </div>
         {stops.map(renderLegendKeys)}
       </div>
     );
   }
-}
+};
 
 function mapStateToProps(state) {
   return {
