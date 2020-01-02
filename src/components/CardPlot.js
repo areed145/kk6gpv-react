@@ -4,23 +4,25 @@ import Plot from 'react-plotly.js';
 
 class CardPlot extends Component {
     render() {
-        return (
-            <Card className="card">
-                <CardBody className="cardbody">
-                    <div width="100vw">
-                        <Plot
-                            data={this.props.data}
-                            layout={this.props.layout}
-                            revision={this.props.revision}
-                            // graphDiv="fig_td"
-                            useResizeHandler
-                            style={{ height: '100%' }}
-                            config={{ displayModeBar: false }}
-                        />
-                    </div>
-                </CardBody>
-            </Card >
-        );
+        // console.log(this.props.def);
+        if (this.props.def) {
+            return (
+                <Plot
+                    data={this.props.def.data}
+                    layout={this.props.def.layout}
+                    useResizeHandler
+                    style={{ width: '100%' }}
+                    config={{ displayModeBar: false }}
+                />
+            );
+
+        } else {
+            return (
+                <div>
+                    <h6 align="center">None Available</h6>
+                </div>
+            );
+        }
     }
 }
 

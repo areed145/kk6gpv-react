@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { CardDeck, Card, CardBody, CardHeader, CardTitle } from 'reactstrap';
 import Plot from 'react-plotly.js';
 import MapOil from '../components/MapOil';
+import CardPlot from '../components/CardPlot';
 import Footer from '../components/Footer';
 class DetailsOilgas extends Component {
     constructor(props) {
@@ -28,18 +29,20 @@ class DetailsOilgas extends Component {
             .then(res => res.json())
             .then(
                 (result) => {
-                    this.setState({
-                        isLoaded: true,
-                        header: result.header,
-                        graph_oilgas: result.graph_oilgas,
-                        graph_offset_oil: result.graph_offset_oil,
-                        graph_offset_stm: result.graph_offset_stm,
-                        graph_offset_wtr: result.graph_offset_wtr,
-                        graph_offset_oil_ci: result.graph_offset_oil_ci,
-                        graph_offset_stm_ci: result.graph_offset_stm_ci,
-                        graph_offset_wtr_ci: result.graph_offset_wtr_ci,
-                        graph_cyclic_jobs: result.graph_cyclic_jobs,
-                    });
+                    this.setState(
+                        {
+                            isLoaded: true,
+                            header: result.header,
+                            graph_oilgas: result.graph_oilgas,
+                            graph_offset_oil: result.graph_offset_oil,
+                            graph_offset_stm: result.graph_offset_stm,
+                            graph_offset_wtr: result.graph_offset_wtr,
+                            graph_offset_oil_ci: result.graph_offset_oil_ci,
+                            graph_offset_stm_ci: result.graph_offset_stm_ci,
+                            graph_offset_wtr_ci: result.graph_offset_wtr_ci,
+                            graph_cyclic_jobs: result.graph_cyclic_jobs
+                        }
+                    );
                 },
                 // Note: it's important to handle errors here
                 // instead of a catch() block so that we don't swallow
@@ -50,11 +53,11 @@ class DetailsOilgas extends Component {
                         error
                     });
                 }
-            )
+            );
     }
 
     render() {
-        console.log(this.state);
+        // console.log(this.state);
         const { error, isLoaded } = this.state;
 
         if (error) {
@@ -127,13 +130,7 @@ class DetailsOilgas extends Component {
                                 </CardHeader>
                                 <CardBody className="cardbody">
                                     <div width="100vw">
-                                        <Plot
-                                            data={this.state.graph_oilgas.data}
-                                            layout={this.state.graph_oilgas.layout}
-                                            useResizeHandler
-                                            style={{ width: '100%' }}
-                                            config={{ displayModeBar: false }}
-                                        />
+                                        <CardPlot def={this.state.graph_oilgas} />
                                     </div>
                                 </CardBody>
                             </Card >
@@ -147,71 +144,39 @@ class DetailsOilgas extends Component {
                                 </CardHeader>
                                 <CardBody className="cardbody">
                                     <div width="100vw">
-                                        <Plot
-                                            data={this.state.graph_offset_oil.data}
-                                            layout={this.state.graph_offset_oil.layout}
-                                            useResizeHandler
-                                            style={{ width: '100%' }}
-                                            config={{ displayModeBar: false }}
-                                        />
-                                        <Plot
-                                            data={this.state.graph_offset_stm.data}
-                                            layout={this.state.graph_offset_stm.layout}
-                                            useResizeHandler
-                                            style={{ width: '100%' }}
-                                            config={{ displayModeBar: false }}
-                                        />
-                                        <Plot
-                                            data={this.state.graph_offset_wtr.data}
-                                            layout={this.state.graph_offset_wtr.layout}
-                                            useResizeHandler
-                                            style={{ width: '100%' }}
-                                            config={{ displayModeBar: false }}
-                                        />
+                                        <CardPlot def={this.state.graph_offset_oil} />
+                                        <CardPlot def={this.state.graph_offset_stm} />
+                                        <CardPlot def={this.state.graph_offset_wtr} />
                                     </div>
                                 </CardBody>
                             </Card >
                         </CardDeck>
                         <CardDeck className="carddeck">
                             <Card className="card">
+                                <CardHeader className="cardheader">
+                                    <CardTitle>
+                                        <h5>Offset Confidence Intervals: {this.state.header.api}</h5>
+                                    </CardTitle>
+                                </CardHeader>
                                 <CardBody className="cardbody">
                                     <div width="100vw">
-                                        <Plot
-                                            data={this.state.graph_offset_oil_ci.data}
-                                            layout={this.state.graph_offset_oil_ci.layout}
-                                            useResizeHandler
-                                            style={{ width: '100%' }}
-                                            config={{ displayModeBar: false }}
-                                        />
-                                        <Plot
-                                            data={this.state.graph_offset_stm_ci.data}
-                                            layout={this.state.graph_offset_stm_ci.layout}
-                                            useResizeHandler
-                                            style={{ width: '100%' }}
-                                            config={{ displayModeBar: false }}
-                                        />
-                                        <Plot
-                                            data={this.state.graph_offset_wtr_ci.data}
-                                            layout={this.state.graph_offset_wtr_ci.layout}
-                                            useResizeHandler
-                                            style={{ width: '100%' }}
-                                            config={{ displayModeBar: false }}
-                                        />
+                                        <CardPlot def={this.state.graph_offset_oil_ci} />
+                                        <CardPlot def={this.state.graph_offset_stm_ci} />
+                                        <CardPlot def={this.state.graph_offset_wtr_ci} />
                                     </div>
                                 </CardBody>
                             </Card >
                         </CardDeck>
                         <CardDeck className="carddeck">
                             <Card className="card">
+                                <CardHeader className="cardheader">
+                                    <CardTitle>
+                                        <h5>Cyclic Job Performance: {this.state.header.api}</h5>
+                                    </CardTitle>
+                                </CardHeader>
                                 <CardBody className="cardbody">
                                     <div width="100vw">
-                                        <Plot
-                                            data={this.state.graph_cyclic_jobs.data}
-                                            layout={this.state.graph_cyclic_jobs.layout}
-                                            useResizeHandler
-                                            style={{ width: '100%' }}
-                                            config={{ displayModeBar: false }}
-                                        />
+                                        <CardPlot def={this.state.graph_cyclic_jobs} />
                                     </div>
                                 </CardBody>
                             </Card >

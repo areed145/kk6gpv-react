@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import CardPlot from '../components/CardPlot'
-import { CardDeck } from 'reactstrap';
+import Select from 'react-select'
+import { CardDeck, Card, CardHeader, CardTitle, CardBody } from 'reactstrap';
 import Footer from '../components/Footer'
 class StationHistory extends Component {
     constructor(props) {
@@ -16,11 +17,54 @@ class StationHistory extends Component {
             fig_cb: [],
             fig_wr: [],
             fig_thp: [],
+            selected: 'd_1',
+            label: '1 day',
         };
     }
 
+    onChange(event) {
+        // console.log(event.value);
+        this.setState(
+            {
+                selected: event.value,
+                label: event.label
+            },
+            function () {
+                console.log(this.state);
+                fetch(`https://www.kk6gpv.net/station/history/graphs?time_int=${encodeURIComponent(this.state.selected)}`)
+                    .then(res => res.json())
+                    .then(
+                        (result) => {
+                            this.setState({
+                                isLoaded: true,
+                                fig_td: result.fig_td,
+                                fig_pr: result.fig_pr,
+                                fig_pc: result.fig_pc,
+                                fig_wd: result.fig_wd,
+                                fig_su: result.fig_su,
+                                fig_cb: result.fig_cb,
+                                fig_wr: result.fig_wr,
+                                fig_thp: result.fig_thp,
+                            });
+                        },
+                        // Note: it's important to handle errors here
+                        // instead of a catch() block so that we don't swallow
+                        // exceptions from actual bugs in components.
+                        (error) => {
+                            this.setState({
+                                isLoaded: true,
+                                error
+                            });
+                        }
+                    );
+                console.log(this.state);
+            }
+        );
+    }
+
     componentDidMount() {
-        fetch("https://www.kk6gpv.net/station/history/graphs?time_int=d_2")
+        const encodedValue = encodeURIComponent(this.state.selected);
+        fetch(`https://www.kk6gpv.net/station/history/graphs?time_int=${encodedValue}`)
             .then(res => res.json())
             .then(
                 (result) => {
@@ -45,12 +89,20 @@ class StationHistory extends Component {
                         error
                     });
                 }
-            )
+            );
     }
 
     render() {
-        console.log(this.state);
         const { error, isLoaded } = this.state;
+
+        var options = [
+            { value: 'h_1', label: '1 hour' },
+            { value: 'h_6', label: '6 hours' },
+            { value: 'd_1', label: '1 day' },
+            { value: 'd_2', label: '2 days' },
+            { value: 'd_7', label: '7 days' },
+            { value: 'd_30', label: '30 days' },
+            ];
 
         if (error) {
             return <div>Error: {error.message}</div>;
@@ -72,6 +124,28 @@ class StationHistory extends Component {
             return (
                 <div>
                     <div className="main">
+                        <CardDeck className="carddeck">
+                            <Card className="card">
+                                <CardHeader className="cardheader">
+                                    <CardTitle>
+                                        <h5>Time</h5>
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardBody className="cardbody">
+                                    <div width="100vw">
+                                        <Select
+                                            name='time_int'
+                                            value={this.state.selected}
+                                            defaultInputValue=""
+                                            options={options}
+                                            placeholder={this.state.label}
+                                            searchable={false}
+                                            onChange={this.onChange.bind(this)}
+                                        />
+                                    </div>
+                                </CardBody>
+                            </Card >
+                        </CardDeck>
                         <CardDeck className="carddeck">
                             <CardPlot
                                 data={this.state.fig_td.data}

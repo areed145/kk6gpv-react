@@ -6,7 +6,7 @@ import Map from '../components/Map'
 import Toggle from '../components/Toggle'
 import Legend from '../components/Legend'
 
-class MapTest extends React.Component {
+class TestMap extends React.Component {
     render() {
         return (
             <Provider store={store}>
@@ -20,4 +20,4 @@ class MapTest extends React.Component {
     }
 }
 
-export default MapTest;
+export default TestMap;
