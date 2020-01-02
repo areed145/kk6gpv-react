@@ -18,6 +18,7 @@ class DetailsOilgas extends Component {
             graph_offset_oil_ci: [],
             graph_offset_stm_ci: [],
             graph_offset_wtr_ci: [],
+            graph_cyclic_jobs: [],
         };
     }
 
@@ -37,6 +38,7 @@ class DetailsOilgas extends Component {
                         graph_offset_oil_ci: result.graph_offset_oil_ci,
                         graph_offset_stm_ci: result.graph_offset_stm_ci,
                         graph_offset_wtr_ci: result.graph_offset_wtr_ci,
+                        graph_cyclic_jobs: result.graph_cyclic_jobs,
                     });
                 },
                 // Note: it's important to handle errors here
@@ -191,6 +193,21 @@ class DetailsOilgas extends Component {
                                         <Plot
                                             data={this.state.graph_offset_wtr_ci.data}
                                             layout={this.state.graph_offset_wtr_ci.layout}
+                                            useResizeHandler
+                                            style={{ width: '100%' }}
+                                            config={{ displayModeBar: false }}
+                                        />
+                                    </div>
+                                </CardBody>
+                            </Card >
+                        </CardDeck>
+                        <CardDeck className="carddeck">
+                            <Card className="card">
+                                <CardBody className="cardbody">
+                                    <div width="100vw">
+                                        <Plot
+                                            data={this.state.graph_cyclic_jobs.data}
+                                            layout={this.state.graph_cyclic_jobs.layout}
                                             useResizeHandler
                                             style={{ width: '100%' }}
                                             config={{ displayModeBar: false }}
