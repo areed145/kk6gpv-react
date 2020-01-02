@@ -102,7 +102,7 @@ class StationHistory extends Component {
             { value: 'd_2', label: '2 days' },
             { value: 'd_7', label: '7 days' },
             { value: 'd_30', label: '30 days' },
-            ];
+        ];
 
         if (error) {
             return <div>Error: {error.message}</div>;
@@ -147,58 +147,74 @@ class StationHistory extends Component {
                             </Card >
                         </CardDeck>
                         <CardDeck className="carddeck">
-                            <CardPlot
-                                data={this.state.fig_td.data}
-                                layout={this.state.fig_td.layout}
-                                revision={this.state.revision}
-                            />
+                            <Card className="card">
+                                <CardBody className="cardbody">
+                                    <div width="100vw">
+                                        <CardPlot def={this.state.fig_td} />
+                                    </div>
+                                </CardBody>
+                            </Card >
                         </CardDeck>
                         <CardDeck className="carddeck">
-                            <CardPlot
-                                data={this.state.fig_pr.data}
-                                layout={this.state.fig_pr.layout}
-                                revision={this.state.revision}
-                            />
+                            <Card className="card">
+                                <CardBody className="cardbody">
+                                    <div width="100vw">
+                                        <CardPlot def={this.state.fig_pr} />
+                                    </div>
+                                </CardBody>
+                            </Card >
                         </CardDeck>
                         <CardDeck className="carddeck">
-                            <CardPlot
-                                data={this.state.fig_pc.data}
-                                layout={this.state.fig_pc.layout}
-                                revision={this.state.revision}
-                            />
+                            <Card className="card">
+                                <CardBody className="cardbody">
+                                    <div width="100vw">
+                                        <CardPlot def={this.state.fig_pc} />
+                                    </div>
+                                </CardBody>
+                            </Card >
                         </CardDeck>
                         <CardDeck className="carddeck">
-                            <CardPlot
-                                data={this.state.fig_wd.data}
-                                layout={this.state.fig_wd.layout}
-                                revision={this.state.revision}
-                            />
+                            <Card className="card">
+                                <CardBody className="cardbody">
+                                    <div width="100vw">
+                                        <CardPlot def={this.state.fig_wd} />
+                                    </div>
+                                </CardBody>
+                            </Card>
                         </CardDeck>
                         <CardDeck className="carddeck">
-                            <CardPlot
-                                data={this.state.fig_su.data}
-                                layout={this.state.fig_su.layout}
-                                revision={this.state.revision}
-                            />
+                            <Card className="card">
+                                <CardBody className="cardbody">
+                                    <div width="100vw">
+                                        <CardPlot def={this.state.fig_su} />
+                                    </div>
+                                </CardBody>
+                            </Card>
                         </CardDeck>
                         <CardDeck className="carddeck">
-                            <CardPlot
-                                data={this.state.fig_cb.data}
-                                layout={this.state.fig_cb.layout}
-                                revision={this.state.revision}
-                            />
+                            <Card className="card">
+                                <CardBody className="cardbody">
+                                    <div width="100vw">
+                                        <CardPlot def={this.state.fig_cb} />
+                                    </div>
+                                </CardBody>
+                            </Card>
                         </CardDeck>
                         <CardDeck className="carddeck">
-                            <CardPlot
-                                data={this.state.fig_wr.data}
-                                layout={this.state.fig_wr.layout}
-                                revision={this.state.revision}
-                            />
-                            <CardPlot
-                                data={this.state.fig_thp.data}
-                                layout={this.state.fig_thp.layout}
-                                revision={this.state.revision}
-                            />
+                            <Card className="card">
+                                <CardBody className="cardbody">
+                                    <div width="100vw">
+                                        <CardPlot def={this.state.fig_wr} />
+                                    </div>
+                                </CardBody>
+                            </Card>
+                            <Card className="card">
+                                <CardBody className="cardbody">
+                                    <div width="100vw">
+                                        <CardPlot def={this.state.fig_thp} />
+                                    </div>
+                                </CardBody>
+                            </Card>
                         </CardDeck>
                         <div className="margin" />
                         {/* <Footer /> */}
