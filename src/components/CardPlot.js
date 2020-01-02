@@ -11,11 +11,10 @@ class CardPlot extends Component {
                     data={this.props.def.data}
                     layout={this.props.def.layout}
                     useResizeHandler
-                    style={{ width: '100%' }}
+                    style={{ width: '100%'}}
                     config={{ displayModeBar: false }}
                 />
             );
-
         } else {
             return (
                 <div>
