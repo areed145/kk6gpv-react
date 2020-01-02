@@ -4,9 +4,8 @@ import { CardDeck } from "reactstrap";
 import CardCell from "../components/CardCell";
 import Footer from "../components/Footer";
 
-import first_solo from "../assets/images/first_solo.jpg";
-import kernville from "../assets/images/kernville.jpg";
-import private_pilot from "../assets/images/private_pilot.jpg";
+import owens from "../assets/images/owens.jpg";
+import kings from "../assets/images/kings.jpg";
 
 const Fishing = () => {
   return (
@@ -14,19 +13,48 @@ const Fishing = () => {
       <div className="main">
         <CardDeck className="carddeck">
           <CardCell
-            img={first_solo}
-            caption="First solo"
-            text={["After a lifetime of interest in aviation, I started flying in 2011 after moving to Bakersfield."]}
+            img={owens}
+            caption="Owens River, near Mammoth Lakes, CA"
+            text={[
+              "I try to go fishing often… Of course I never go as often as I’d like to. To be honest I wasn’t expecting it to be something I could keep up after moving to the Central Valley, but fly fishing around the Kernville / Lake Isabella area and trips to Kings River and Owens River has been a real treat."
+            ]}
           />
           <CardCell
-            img={kernville}
-            caption="Departing Kernville"
-            text={["Southern California's great flying weather, many fantastic destinations from the coast, central valley, high desert, and mountains, and the close-knit aviation community have made it a great hobby for the last few years."]}
+            img={kings}
+            caption="Kings River, near Reedley, CA"
+            text={[
+              "The fish aren’t typically large and can be a chore to catch, but they are very rewarding and fun to catch. If nothing else, the scenery and hiking involved to reach cooler streams is worth all the effort."
+            ]}
+          />
+        </CardDeck>
+        <CardDeck className="carddeck">
+          <CardCell
+            img="https://www.dreamflows.com/graphs/day.681.png"
+            caption="Kern River flows above Fairview Dam"
           />
           <CardCell
-            img={private_pilot}
-            caption="Newly minted private pilot"
-            text={["The majority of my training has been at Meadows Field (BFL), with some at Mojave Air and Space Port (MHV), Tehachapi Municipal (TSP), and Shafter Municipal (EHF)."]}
+            img="https://www.dreamflows.com/graphs/day.682.png"
+            caption="Kern River flows below Fairview Dam"
+          />
+        </CardDeck>
+        <CardDeck className="carddeck">
+          <CardCell
+            img="https://www.dreamflows.com/graphs/day.104.png"
+            caption="Kern River flows at Kernville"
+          />
+          <CardCell
+            img="https://www.dreamflows.com/graphs/day.473.png"
+            caption="Kern River flows above Borel Powerhouse"
+          />
+        </CardDeck>
+        <CardDeck className="carddeck">
+          <CardCell
+            img="https://www.dreamflows.com/graphs/day.475.png"
+            caption="Kern River flows below Democrat"
+          />
+          <CardCell
+            img="https://www.dreamflows.com/graphs/day.667.png"
+            caption="Kern River flows below Kern Canyon PH Div"
           />
         </CardDeck>
         <div className="margin" />
