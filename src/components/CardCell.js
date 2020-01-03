@@ -17,7 +17,7 @@ class CardCell extends Component {
     let title;
     if (this.props.title) {
       title = (
-        <CardHeader>
+        <CardHeader className="cardheader">
           <CardTitle>
             <h5 align="center">{this.props.title}</h5>
           </CardTitle>

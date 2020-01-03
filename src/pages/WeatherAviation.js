@@ -709,7 +709,7 @@ class WeatherAviation extends Component {
                       direction="right"
                       style={{
                         color: "#ffffff",
-                        backgroundColor: "#3330c5",
+                        backgroundColor: "#e8093a",
                         border: "0px",
                       }}
                     >
@@ -779,7 +779,7 @@ class WeatherAviation extends Component {
                       <DropdownItem
                         style={{
                           color: "#ffffff",
-                          backgroundColor: "#dac138",
+                          backgroundColor: "#F4C12E",
                           border: "0px"
                         }}
                         onClick={this.onClickLightning.bind(this)}
@@ -789,7 +789,7 @@ class WeatherAviation extends Component {
                       <DropdownItem
                         style={{
                           color: "#ffffff",
-                          backgroundColor: "#c54630",
+                          backgroundColor: "#F46A2E",
                           border: "0px"
                         }}
                         onClick={this.onClickAlerts.bind(this)}

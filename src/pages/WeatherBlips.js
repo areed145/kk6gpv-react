@@ -5,7 +5,7 @@ import GaugeWindSpeed from "../components/GaugeWindSpeed";
 import { CardDeck } from "reactstrap";
 // import Footer from "../components/Footer";
 
-class StationLive extends Component {
+class WeatherBlips extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -244,4 +244,4 @@ class StationLive extends Component {
   }
 }
 
-export default StationLive;
+export default WeatherBlips;

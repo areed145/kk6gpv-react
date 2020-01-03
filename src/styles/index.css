@@ -51,7 +51,7 @@ body {
   font-family: "Ubuntu";
   color: #f0ffff;
   background-color: #f0ffff;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2) !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -69,7 +69,7 @@ body {
   background-color: #ffffff !important;
   border: 0px !important;
   border-radius: 10px !important;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2) !important;
 }
 
 .dropdownmenu {
@@ -78,7 +78,7 @@ body {
   border: 0px !important;
   border-radius: 10px !important;
   padding: 0px !important;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2) !important;
 }
 
 .cardheader {
@@ -88,7 +88,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   border: 0px !important;
   border-radius: 10px 10px 0px 0px !important;
-  background-color: "#f1f1f1";
+  background-color: #ebe8e8 !important;
 }
 
 .cardbody {

@@ -3,7 +3,7 @@ import React from "react";
 // import CardCell from "../components/CardCell";
 // import Footer from "../components/Footer";
 
-const Scuba = () => {
+const About = () => {
   return (
     <div>
       <div className="main">
@@ -14,4 +14,4 @@ const Scuba = () => {
   );
 };
 
-export default Scuba;
+export default About;
