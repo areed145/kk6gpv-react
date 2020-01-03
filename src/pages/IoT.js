@@ -1,8 +1,7 @@
 import React from "react";
 import { CardDeck } from "reactstrap";
-
 import CardBasic from "../components/CardBasic";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 
 const IoT = () => {
   return (

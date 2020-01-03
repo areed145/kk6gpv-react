@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import CardCell from "../components/CardCell";
 import Select from "react-select";
 import { CardDeck, Card, CardHeader, CardTitle, CardBody } from "reactstrap";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 
 class AprsIgate extends Component {
   constructor(props) {

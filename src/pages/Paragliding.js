@@ -1,8 +1,7 @@
 import React from "react";
 import { CardDeck } from "reactstrap";
-
 import CardCell from "../components/CardCell";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 
 import ant_hill_track from "../assets/images/ant_hill_track.png";
 import comanche_track from "../assets/images/comanche_track.jpg";

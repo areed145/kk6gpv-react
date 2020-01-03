@@ -1,8 +1,7 @@
 import React from "react";
 import { CardDeck } from "reactstrap";
-
 import CardCell from "../components/CardCell";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 
 import soaring_tsp2 from "../assets/images/soaring_tsp2.jpg";
 import sierra_wave2 from "../assets/images/sierra_wave2.jpg";

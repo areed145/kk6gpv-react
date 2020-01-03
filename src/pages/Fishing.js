@@ -1,8 +1,7 @@
 import React from "react";
 import { CardDeck } from "reactstrap";
-
 import CardCell from "../components/CardCell";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 
 import owens from "../assets/images/owens.jpg";
 import kings from "../assets/images/kings.jpg";

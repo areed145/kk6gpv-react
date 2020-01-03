@@ -9,7 +9,7 @@ import {
 } from "reactstrap";
 import MapOil from "../components/MapOil";
 import CardCell from "../components/CardCell";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 class DetailsOilgas extends Component {
   constructor(props) {
     super(props);

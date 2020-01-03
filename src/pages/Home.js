@@ -1,7 +1,6 @@
 import React from "react";
 import { CardDeck } from "reactstrap";
-
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 import CardCell from "../components/CardCell";
 
 import station_history from "../assets/icons/temperature.svg";

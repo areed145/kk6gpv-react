@@ -6,13 +6,12 @@ import {
   Card,
   CardBody,
   ButtonGroup,
-  Button,
   DropdownToggle,
   ButtonDropdown,
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 class WeatherAviation extends Component {
   constructor(props) {
     super(props);

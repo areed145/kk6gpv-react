@@ -13,7 +13,7 @@ import IoT from "./pages/IoT";
 import AprsLocation from './pages/AprsLocation'
 import AprsIgate from './pages/AprsIgate'
 import AprsHouston from './pages/AprsHouston'
-// import AprsInfo from './pages/AprsInfo'
+import AprsInfo from './pages/AprsInfo'
 import Aircraft from "./pages/Aircraft";
 import Paragliding from './pages/Paragliding'
 import Soaring from './pages/Soaring'
@@ -47,7 +47,7 @@ class App extends Component {
             <Route path="/aprs/location" component={AprsLocation} />
             <Route path="/aprs/igate" component={AprsIgate} />
             <Route path="/aprs/houston" component={AprsHouston} />
-            {/* <Route path="/aprs/info" component={AprsInfo} /> */}
+            <Route path="/aprs/info" component={AprsInfo} />
             <Route path="/aircraft" component={Aircraft} />
             <Route path="/paragliding" component={Paragliding} />
             <Route path="/soaring" component={Soaring} />

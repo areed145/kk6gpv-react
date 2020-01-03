@@ -3,7 +3,7 @@ import CardCell from "../components/CardCell";
 import GaugeWindDir from "../components/GaugeWindDir";
 import GaugeWindSpeed from "../components/GaugeWindSpeed";
 import { CardDeck } from "reactstrap";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 
 class StationLive extends Component {
   constructor(props) {
