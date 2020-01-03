@@ -50,7 +50,7 @@ class CardCell extends Component {
               revision={value.revision}
               useResizeHandler
               style={{ width: "100%" }}
-              config={{ displayModeBar: false }}
+              config={{ displayModeBar: false, staticPlot: this.props.static}}
             />
           );
         }

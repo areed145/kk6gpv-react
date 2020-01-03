@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Card, CardBody } from "reactstrap";
-import Test from "./MapTest";
+import Test from "./Test";
 
 class CardBasic extends Component {
   render() {

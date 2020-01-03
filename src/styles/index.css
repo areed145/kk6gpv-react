@@ -64,6 +64,7 @@ body {
 
 .mapboxgl-popup-content,
 .menu,
+.dropdownmenu,
 .card {
   font-family: "Ubuntu";
   background-color: #ffffff !important;

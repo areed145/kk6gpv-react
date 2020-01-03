@@ -11,7 +11,19 @@ class StationLive extends Component {
     this.state = {
       error: null,
       isLoaded: false,
-      wx: []
+      wx: [],
+      prop_awc: "flight_category",
+      lat: 29.78088,
+      lon: -95.42041,
+      zoom: 6,
+      satellite: 0,
+      radar: 1,
+      analysis: 0,
+      lightning: 1,
+      precip: 0,
+      watchwarn: 0,
+      temp: 0,
+      radar_map: []
     };
   }
 
@@ -21,8 +33,47 @@ class StationLive extends Component {
       .then(
         result => {
           this.setState({
-            isLoaded: true,
+            // isLoaded: true,
             wx: result
+          });
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        error => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      );
+    fetch(
+      `https://www.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
+        this.state.prop_awc
+      )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
+        this.state.lon
+      )}&zoom=${encodeURIComponent(
+        this.state.zoom
+      )}&satellite=${encodeURIComponent(
+        this.state.satellite
+      )}&radar=${encodeURIComponent(
+        this.state.radar
+      )}&analysis=${encodeURIComponent(
+        this.state.analysis
+      )}&lightning=${encodeURIComponent(
+        this.state.lightning
+      )}&precip=${encodeURIComponent(
+        this.state.precip
+      )}&watchwarn=${encodeURIComponent(
+        this.state.watchwarn
+      )}&temp=${encodeURIComponent(this.state.temp)}`
+    )
+      .then(res => res.json())
+      .then(
+        result => {
+          this.setState({
+            isLoaded: true,
+            radar_map: result
           });
         },
         // Note: it's important to handle errors here
@@ -172,6 +223,13 @@ class StationLive extends Component {
                   hw: 160,
                   cmap: ["#ff9990", "#fcbbb5", "#fcd1b5", "#efd5c4", "#f2e7e1"]
                 }}
+              />
+            </CardDeck>
+            <CardDeck className="carddeck">
+              <CardCell
+                title="Station Radar"
+                plot={[this.state.radar_map]}
+                static={true}
               />
             </CardDeck>
             <div className="margin" />

@@ -147,11 +147,11 @@ class AprsHouston extends Component {
     const { error, isLoaded } = this.state;
 
     var time_options = [
-        { value: "m_5", label: "5 minutes" },
-        { value: "h_1", label: "1 hour" },
-        { value: "h_6", label: "6 hours" },
-        { value: "d_1", label: "1 day" }
-      ];
+      { value: "m_5", label: "5 minutes" },
+      { value: "h_1", label: "1 hour" },
+      { value: "h_6", label: "6 hours" },
+      { value: "d_1", label: "1 day" }
+    ];
 
     var prop_options = [
       { value: "speed", label: "Speed" },
@@ -183,26 +183,6 @@ class AprsHouston extends Component {
               <Card className="card">
                 <CardHeader className="cardheader">
                   <CardTitle>
-                    <h5>Time</h5>
-                  </CardTitle>
-                </CardHeader>
-                <CardBody className="cardbody">
-                  <div width="100vw">
-                    <Select
-                      name="time_int"
-                      value={this.state.time}
-                      defaultInputValue=""
-                      options={time_options}
-                      placeholder={this.state.time_label}
-                      searchable={false}
-                      onChange={this.onChangeTime.bind(this)}
-                    />
-                  </div>
-                </CardBody>
-              </Card>
-              <Card className="card">
-                <CardHeader className="cardheader">
-                  <CardTitle>
                     <h5>Property</h5>
                   </CardTitle>
                 </CardHeader>
@@ -216,6 +196,26 @@ class AprsHouston extends Component {
                       placeholder={this.state.prop_label}
                       searchable={false}
                       onChange={this.onChangeProp.bind(this)}
+                    />
+                  </div>
+                </CardBody>
+              </Card>
+              <Card className="card">
+                <CardHeader className="cardheader">
+                  <CardTitle>
+                    <h5>Time</h5>
+                  </CardTitle>
+                </CardHeader>
+                <CardBody className="cardbody">
+                  <div width="100vw">
+                    <Select
+                      name="time_int"
+                      value={this.state.time}
+                      defaultInputValue=""
+                      options={time_options}
+                      placeholder={this.state.time_label}
+                      searchable={false}
+                      onChange={this.onChangeTime.bind(this)}
                     />
                   </div>
                 </CardBody>

@@ -186,26 +186,6 @@ class AprsLocation extends Component {
               <Card className="card">
                 <CardHeader className="cardheader">
                   <CardTitle>
-                    <h5>Time</h5>
-                  </CardTitle>
-                </CardHeader>
-                <CardBody className="cardbody">
-                  <div width="100vw">
-                    <Select
-                      name="time_int"
-                      value={this.state.time}
-                      defaultInputValue=""
-                      options={time_options}
-                      placeholder={this.state.time_label}
-                      searchable={false}
-                      onChange={this.onChangeTime.bind(this)}
-                    />
-                  </div>
-                </CardBody>
-              </Card>
-              <Card className="card">
-                <CardHeader className="cardheader">
-                  <CardTitle>
                     <h5>Property</h5>
                   </CardTitle>
                 </CardHeader>
@@ -219,6 +199,26 @@ class AprsLocation extends Component {
                       placeholder={this.state.prop_label}
                       searchable={false}
                       onChange={this.onChangeProp.bind(this)}
+                    />
+                  </div>
+                </CardBody>
+              </Card>
+              <Card className="card">
+                <CardHeader className="cardheader">
+                  <CardTitle>
+                    <h5>Time</h5>
+                  </CardTitle>
+                </CardHeader>
+                <CardBody className="cardbody">
+                  <div width="100vw">
+                    <Select
+                      name="time_int"
+                      value={this.state.time}
+                      defaultInputValue=""
+                      options={time_options}
+                      placeholder={this.state.time_label}
+                      searchable={false}
+                      onChange={this.onChangeTime.bind(this)}
                     />
                   </div>
                 </CardBody>

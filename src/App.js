@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import StationLive from "./pages/StationLive";
 import StationHistory from "./pages/StationHistory";
 import StationInfo from './pages/StationInfo'
-// import WeatherAviation from './pages/WeatherAviation'
+import WeatherAviation from './pages/WeatherAviation'
 // import WeatherBlips from './pages/WeatherBlips'
 // import WeatherSoundings from './pages/WeatherSoundings'
 import IoT from "./pages/IoT";
@@ -40,7 +40,7 @@ class App extends Component {
             <Route path="/station/live" component={StationLive} />
             <Route path="/station/history" component={StationHistory} />
             <Route path="/station/info" component={StationInfo} />
-            {/* <Route path="/weather/aviation" component={WeatherAviation} /> */}
+            <Route path="/weather/aviation" component={WeatherAviation} />
             {/* <Route path="/weather/blips" component={WeatherBlips} /> */}
             {/* <Route path="/weather/soundings" component={WeatherSoundings} /> */}
             <Route path="/iot" component={IoT} />

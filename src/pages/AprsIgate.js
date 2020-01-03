@@ -183,6 +183,26 @@ class AprsIgate extends Component {
         <div>
           <div className="main">
             <CardDeck className="carddeck">
+            <Card className="card">
+                <CardHeader className="cardheader">
+                  <CardTitle>
+                    <h5>Property</h5>
+                  </CardTitle>
+                </CardHeader>
+                <CardBody className="cardbody">
+                  <div width="100vw">
+                    <Select
+                      name="prop"
+                      value={this.state.prop}
+                      defaultInputValue=""
+                      options={prop_options}
+                      placeholder={this.state.prop_label}
+                      searchable={false}
+                      onChange={this.onChangeProp.bind(this)}
+                    />
+                  </div>
+                </CardBody>
+              </Card>
               <Card className="card">
                 <CardHeader className="cardheader">
                   <CardTitle>
@@ -199,26 +219,6 @@ class AprsIgate extends Component {
                       placeholder={this.state.time_label}
                       searchable={false}
                       onChange={this.onChangeTime.bind(this)}
-                    />
-                  </div>
-                </CardBody>
-              </Card>
-              <Card className="card">
-                <CardHeader className="cardheader">
-                  <CardTitle>
-                    <h5>Property</h5>
-                  </CardTitle>
-                </CardHeader>
-                <CardBody className="cardbody">
-                  <div width="100vw">
-                    <Select
-                      name="prop"
-                      value={this.state.prop}
-                      defaultInputValue=""
-                      options={prop_options}
-                      placeholder={this.state.prop_label}
-                      searchable={false}
-                      onChange={this.onChangeProp.bind(this)}
                     />
                   </div>
                 </CardBody>
