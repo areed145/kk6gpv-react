@@ -614,32 +614,12 @@ class WeatherAviation extends Component {
                 position: "fixed",
                 // width: "250px",
                 // height: "210px",
-                top: "155px",
+                top: "140px",
                 left: "15px"
               }}
             >
-              <CardBody className="cardbody">
+              <CardBody className="cardbodynopad">
                 <ButtonGroup vertical>
-                  <Button
-                    style={{
-                      color: "#ffffff",
-                      backgroundColor: "#c53093",
-                      border: "0px"
-                    }}
-                    onClick={this.onClickTemp.bind(this)}
-                  >
-                    Temp
-                  </Button>
-                  <Button
-                    style={{
-                      color: "#ffffff",
-                      backgroundColor: "#8a30c5",
-                      border: "0px"
-                    }}
-                    onClick={this.onClickSatellite.bind(this)}
-                  >
-                    Satellite
-                  </Button>
                   <ButtonDropdown
                     isOpen={this.state.dropdownOpen}
                     toggle={this.toggle}
@@ -653,54 +633,81 @@ class WeatherAviation extends Component {
                         border: "0px"
                       }}
                     >
-                      Analysis
+                      Layers
                     </DropdownToggle>
                     <DropdownMenu className="dropdownmenu">
-                      <DropdownItem onClick={this.onClickFronts.bind(this)}>
+                      <DropdownItem
+                        style={{
+                          color: "#ffffff",
+                          backgroundColor: "#c53093",
+                          border: "0px"
+                        }}
+                        onClick={this.onClickTemp.bind(this)}
+                      >
+                        Temp
+                      </DropdownItem>
+                      <DropdownItem
+                        style={{
+                          color: "#ffffff",
+                          backgroundColor: "#8a30c5",
+                          border: "0px"
+                        }}
+                        onClick={this.onClickSatellite.bind(this)}
+                      >
+                        Satellite
+                      </DropdownItem>
+                      <DropdownItem
+                        style={{
+                          color: "#ffffff",
+                          backgroundColor: "#3330c5",
+                          border: "0px"
+                        }}
+                        onClick={this.onClickFronts.bind(this)}
+                      >
                         Fronts
+                      </DropdownItem>
+                      <DropdownItem
+                        style={{
+                          color: "#ffffff",
+                          backgroundColor: "#30c5a5",
+                          border: "0px"
+                        }}
+                        onClick={this.onClickPrecip.bind(this)}
+                      >
+                        Precip
+                      </DropdownItem>
+                      <DropdownItem
+                        style={{
+                          color: "#ffffff",
+                          backgroundColor: "#a6d84b",
+                          border: "0px"
+                        }}
+                        onClick={this.onClickRadar.bind(this)}
+                      >
+                        Radar
+                      </DropdownItem>
+                      <DropdownItem
+                        style={{
+                          color: "#ffffff",
+                          backgroundColor: "#dac138",
+                          border: "0px"
+                        }}
+                        onClick={this.onClickLightning.bind(this)}
+                      >
+                        Lightning
+                      </DropdownItem>
+                      <DropdownItem
+                        style={{
+                          color: "#ffffff",
+                          backgroundColor: "#c54630",
+                          border: "0px"
+                        }}
+                        onClick={this.onClickAlerts.bind(this)}
+                      >
+                        Alerts
                       </DropdownItem>
                     </DropdownMenu>
                   </ButtonDropdown>
-                  <Button
-                    style={{
-                      color: "#ffffff",
-                      backgroundColor: "#30c5a5",
-                      border: "0px"
-                    }}
-                    onClick={this.onClickPrecip.bind(this)}
-                  >
-                    Precip
-                  </Button>
-                  <Button
-                    style={{
-                      color: "#ffffff",
-                      backgroundColor: "#a6d84b",
-                      border: "0px"
-                    }}
-                    onClick={this.onClickRadar.bind(this)}
-                  >
-                    Radar
-                  </Button>
-                  <Button
-                    style={{
-                      color: "#ffffff",
-                      backgroundColor: "#dac138",
-                      border: "0px"
-                    }}
-                    onClick={this.onClickLightning.bind(this)}
-                  >
-                    Lightning
-                  </Button>
-                  <Button
-                    style={{
-                      color: "#ffffff",
-                      backgroundColor: "#c54630",
-                      border: "0px"
-                    }}
-                    onClick={this.onClickAlerts.bind(this)}
-                  >
-                    Alerts
-                  </Button>
                 </ButtonGroup>
               </CardBody>
             </Card>
@@ -709,11 +716,11 @@ class WeatherAviation extends Component {
               style={{
                 position: "fixed",
                 width: "240px",
-                top: "80px",
+                top: "85px",
                 left: "15px"
               }}
             >
-              <CardBody className="cardbody">
+              <CardBody className="cardbodynopad">
                 <div width="100vw">
                   <Select
                     name="time_int"
