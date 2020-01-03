@@ -98,7 +98,7 @@ class CardCell extends Component {
       var gs = 360 - ws - 2 * ls;
       var rot = 90;
       var hw = this.props.gauge.hw;
-      var sz = 25;
+      var sz = hw/8;
 
       var level = this.props.gauge.level;
       var gmin = this.props.gauge.gmin;
