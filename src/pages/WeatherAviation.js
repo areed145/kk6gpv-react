@@ -28,6 +28,7 @@ class WeatherAviation extends Component {
       lon: -95,
       zoom: 3,
       satellite: 0,
+      visible: 0,
       radar: 1,
       analysis: 0,
       lightning: 0,
@@ -63,6 +64,8 @@ class WeatherAviation extends Component {
             this.state.zoom
           )}&satellite=${encodeURIComponent(
             this.state.satellite
+          )}&visible=${encodeURIComponent(
+            this.state.visible
           )}&radar=${encodeURIComponent(
             this.state.radar
           )}&analysis=${encodeURIComponent(
@@ -119,6 +122,8 @@ class WeatherAviation extends Component {
             this.state.zoom
           )}&satellite=${encodeURIComponent(
             this.state.satellite
+          )}&visible=${encodeURIComponent(
+            this.state.visible
           )}&radar=${encodeURIComponent(
             this.state.radar
           )}&analysis=${encodeURIComponent(
@@ -155,7 +160,7 @@ class WeatherAviation extends Component {
     );
   }
 
-  onClickSatellite(event) {
+  onClickInfrared(event) {
     console.log(event);
     var satellite = this.state.satellite;
     if (satellite === 0) {
@@ -178,6 +183,69 @@ class WeatherAviation extends Component {
             this.state.zoom
           )}&satellite=${encodeURIComponent(
             this.state.satellite
+          )}&visible=${encodeURIComponent(
+            this.state.visible
+          )}&radar=${encodeURIComponent(
+            this.state.radar
+          )}&analysis=${encodeURIComponent(
+            this.state.analysis
+          )}&lightning=${encodeURIComponent(
+            this.state.lightning
+          )}&precip=${encodeURIComponent(
+            this.state.precip
+          )}&watchwarn=${encodeURIComponent(
+            this.state.watchwarn
+          )}&temp=${encodeURIComponent(this.state.temp)}`
+        )
+          .then(res => res.json())
+          .then(
+            result => {
+              console.log(result);
+              var radar_map = { ...this.state.radar_map };
+              radar_map.data = result.data;
+              radar_map.layout.mapbox.layers = result.layout.mapbox.layers;
+              this.setState({ radar_map: radar_map });
+              console.log(this.state);
+            },
+            // Note: it's important to handle errors here
+            // instead of a catch() block so that we don't swallow
+            // exceptions from actual bugs in components.
+            error => {
+              this.setState({
+                isLoaded: true,
+                error
+              });
+            }
+          );
+      }
+    );
+  }
+
+  onClickVisible(event) {
+    console.log(event);
+    var visible = this.state.visible;
+    if (visible === 0) {
+      visible = 1;
+    } else {
+      visible = 0;
+    }
+    this.setState(
+      {
+        visible: visible
+      },
+      function() {
+        console.log(this.state);
+        fetch(
+          `https://www.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
+            this.state.prop
+          )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
+            this.state.lon
+          )}&zoom=${encodeURIComponent(
+            this.state.zoom
+          )}&satellite=${encodeURIComponent(
+            this.state.satellite
+          )}&visible=${encodeURIComponent(
+            this.state.visible
           )}&radar=${encodeURIComponent(
             this.state.radar
           )}&analysis=${encodeURIComponent(
@@ -237,6 +305,8 @@ class WeatherAviation extends Component {
             this.state.zoom
           )}&satellite=${encodeURIComponent(
             this.state.satellite
+          )}&visible=${encodeURIComponent(
+            this.state.visible
           )}&radar=${encodeURIComponent(
             this.state.radar
           )}&analysis=${encodeURIComponent(
@@ -296,6 +366,8 @@ class WeatherAviation extends Component {
             this.state.zoom
           )}&satellite=${encodeURIComponent(
             this.state.satellite
+          )}&visible=${encodeURIComponent(
+            this.state.visible
           )}&radar=${encodeURIComponent(
             this.state.radar
           )}&analysis=${encodeURIComponent(
@@ -355,6 +427,8 @@ class WeatherAviation extends Component {
             this.state.zoom
           )}&satellite=${encodeURIComponent(
             this.state.satellite
+          )}&visible=${encodeURIComponent(
+            this.state.visible
           )}&radar=${encodeURIComponent(
             this.state.radar
           )}&analysis=${encodeURIComponent(
@@ -414,6 +488,8 @@ class WeatherAviation extends Component {
             this.state.zoom
           )}&satellite=${encodeURIComponent(
             this.state.satellite
+          )}&visible=${encodeURIComponent(
+            this.state.visible
           )}&radar=${encodeURIComponent(
             this.state.radar
           )}&analysis=${encodeURIComponent(
@@ -473,6 +549,8 @@ class WeatherAviation extends Component {
             this.state.zoom
           )}&satellite=${encodeURIComponent(
             this.state.satellite
+          )}&visible=${encodeURIComponent(
+            this.state.visible
           )}&radar=${encodeURIComponent(
             this.state.radar
           )}&analysis=${encodeURIComponent(
@@ -519,6 +597,8 @@ class WeatherAviation extends Component {
         this.state.zoom
       )}&satellite=${encodeURIComponent(
         this.state.satellite
+      )}&visible=${encodeURIComponent(
+        this.state.visible
       )}&radar=${encodeURIComponent(
         this.state.radar
       )}&analysis=${encodeURIComponent(
@@ -652,9 +732,19 @@ class WeatherAviation extends Component {
                           backgroundColor: "#8a30c5",
                           border: "0px"
                         }}
-                        onClick={this.onClickSatellite.bind(this)}
+                        onClick={this.onClickInfrared.bind(this)}
                       >
-                        Satellite
+                        Infrared
+                      </DropdownItem>
+                      <DropdownItem
+                        style={{
+                          color: "#ffffff",
+                          backgroundColor: "#8a30c5",
+                          border: "0px"
+                        }}
+                        onClick={this.onClickVisible.bind(this)}
+                      >
+                        Visible
                       </DropdownItem>
                       <DropdownItem
                         style={{
