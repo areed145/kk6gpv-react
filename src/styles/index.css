@@ -64,12 +64,20 @@ body {
 
 .mapboxgl-popup-content,
 .menu,
-.dropdownmenu,
 .card {
   font-family: "Ubuntu";
   background-color: #ffffff !important;
   border: 0px !important;
   border-radius: 10px !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5) !important;
+}
+
+.dropdownmenu {
+  font-family: "Ubuntu";
+  background-color: #ffffff !important;
+  border: 0px !important;
+  border-radius: 10px !important;
+  padding: 0px !important;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5) !important;
 }
 

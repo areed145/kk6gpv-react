@@ -702,19 +702,20 @@ class WeatherAviation extends Component {
                   <ButtonDropdown
                     isOpen={this.state.dropdownOpen}
                     toggle={this.toggle}
-                    // direction="down"
+                    direction="down"
                   >
                     <DropdownToggle
                       caret
+                      direction="right"
                       style={{
                         color: "#ffffff",
                         backgroundColor: "#3330c5",
-                        border: "0px"
+                        border: "0px",
                       }}
                     >
                       Layers
                     </DropdownToggle>
-                    <DropdownMenu className="dropdownmenu">
+                    <DropdownMenu className="dropdownmenu" style={{position: "absolute", top: "0px", left: "100px"}}>
                       <DropdownItem
                         style={{
                           color: "#ffffff",
@@ -738,7 +739,7 @@ class WeatherAviation extends Component {
                       <DropdownItem
                         style={{
                           color: "#ffffff",
-                          backgroundColor: "#8a30c5",
+                          backgroundColor: "#3330c5",
                           border: "0px"
                         }}
                         onClick={this.onClickVisible.bind(this)}
@@ -748,7 +749,7 @@ class WeatherAviation extends Component {
                       <DropdownItem
                         style={{
                           color: "#ffffff",
-                          backgroundColor: "#3330c5",
+                          backgroundColor: "#2EA4F4",
                           border: "0px"
                         }}
                         onClick={this.onClickFronts.bind(this)}
