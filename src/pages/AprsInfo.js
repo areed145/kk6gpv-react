@@ -13,6 +13,7 @@ import CardCell from "../components/CardCell";
 import yaesu from "../assets/images/yaesu.jpg";
 import baofeng from "../assets/images/baofeng.jpg";
 import qsl from "../assets/images/qsl.png";
+import igate from "../assets/images/igate.jpeg";
 
 const AprsInfo = () => {
   return (
@@ -172,6 +173,9 @@ const AprsInfo = () => {
               </Table>
             </CardBody>
           </Card>
+        </CardDeck>
+        <CardDeck className="carddeck">
+          <CardCell title="KK6GPV-10 I-Gate" img={igate} />
           <Card className="card">
             <CardHeader className="cardheader">
               <CardTitle>
