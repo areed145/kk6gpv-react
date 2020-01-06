@@ -15,8 +15,8 @@ class AprsIgate extends Component {
       plot_alt: [],
       plot_course: [],
       rows: [],
-      time: "d_1",
-      time_label: "1 day",
+      time: "d_7",
+      time_label: "7 days",
       prop: "speed",
       prop_label: "Speed",
       revision: 0
@@ -43,15 +43,33 @@ class AprsIgate extends Component {
               var map_aprs = { ...this.state.map_aprs };
               map_aprs.data = result.map_aprs.data;
               this.setState({ map_aprs });
-              var plot_speed = { ...this.state.plot_speed };
-              plot_speed.data = result.plot_speed.data;
-              this.setState({ plot_speed });
-              var plot_alt = { ...this.state.plot_alt };
-              plot_alt.data = result.plot_alt.data;
-              this.setState({ plot_alt });
-              var plot_course = { ...this.state.plot_course };
-              plot_course.data = result.plot_course.data;
-              this.setState({ plot_course });
+              this.setState({
+                plot_speed: result.plot_speed,
+                plot_alt: result.plot_alt,
+                plot_course: result.plot_course
+              });
+            },
+            // Note: it's important to handle errors here
+            // instead of a catch() block so that we don't swallow
+            // exceptions from actual bugs in components.
+            error => {
+              this.setState({
+                isLoaded: true,
+                error
+              });
+            }
+          );
+        fetch(
+          `https://www.kk6gpv.net/aprs/igate_range?time_int=${encodeURIComponent(
+            this.state.time
+          )}`
+        )
+          .then(res => res.json())
+          .then(
+            result => {
+              this.setState({
+                range_aprs: result.range_aprs
+              });
             },
             // Note: it's important to handle errors here
             // instead of a catch() block so that we don't swallow
@@ -88,15 +106,11 @@ class AprsIgate extends Component {
               var map_aprs = { ...this.state.map_aprs };
               map_aprs.data = result.map_aprs.data;
               this.setState({ map_aprs });
-              var plot_speed = { ...this.state.plot_speed };
-              plot_speed.data = result.plot_speed.data;
-              this.setState({ plot_speed });
-              var plot_alt = { ...this.state.plot_alt };
-              plot_alt.data = result.plot_alt.data;
-              this.setState({ plot_alt });
-              var plot_course = { ...this.state.plot_course };
-              plot_course.data = result.plot_course.data;
-              this.setState({ plot_course });
+              this.setState({
+                plot_speed: result.plot_speed,
+                plot_alt: result.plot_alt,
+                plot_course: result.plot_course
+              });
             },
             // Note: it's important to handle errors here
             // instead of a catch() block so that we don't swallow
@@ -109,6 +123,28 @@ class AprsIgate extends Component {
             }
           );
         console.log(this.state);
+        fetch(
+          `https://www.kk6gpv.net/aprs/igate_range?time_int=${encodeURIComponent(
+            this.state.time
+          )}`
+        )
+          .then(res => res.json())
+          .then(
+            result => {
+              this.setState({
+                range_aprs: result.range_aprs
+              });
+            },
+            // Note: it's important to handle errors here
+            // instead of a catch() block so that we don't swallow
+            // exceptions from actual bugs in components.
+            error => {
+              this.setState({
+                isLoaded: true,
+                error
+              });
+            }
+          );
       }
     );
   }
@@ -136,6 +172,28 @@ class AprsIgate extends Component {
         // exceptions from actual bugs in components.
         error => {
           this.setState({
+            // isLoaded: true,
+            error
+          });
+        }
+      );
+    fetch(
+      `https://www.kk6gpv.net/aprs/igate_range?time_int=${encodeURIComponent(
+        this.state.time
+      )}`
+    )
+      .then(res => res.json())
+      .then(
+        result => {
+          this.setState({
+            range_aprs: result.range_aprs
+          });
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        error => {
+          this.setState({
             isLoaded: true,
             error
           });
@@ -147,14 +205,15 @@ class AprsIgate extends Component {
     const { error, isLoaded } = this.state;
 
     var time_options = [
-        { value: "m_5", label: "5 minutes" },
-        { value: "h_1", label: "1 hour" },
-        { value: "h_6", label: "6 hours" },
-        { value: "d_1", label: "1 day" },
-        { value: "d_2", label: "2 days" },
-        { value: "d_7", label: "7 days" },
-        { value: "d_30", label: "30 days" }
-      ];
+      { value: "h_6", label: "6 hours" },
+      { value: "d_1", label: "1 day" },
+      { value: "d_2", label: "2 days" },
+      { value: "d_7", label: "7 days" },
+      { value: "d_30", label: "30 days" },
+      { value: "d_60", label: "60 days" },
+      { value: "d_180", label: "180 days" },
+      { value: "d_360", label: "360 days" }
+    ];
 
     var prop_options = [
       { value: "speed", label: "Speed" },
@@ -183,7 +242,7 @@ class AprsIgate extends Component {
         <div>
           <div className="main">
             <CardDeck className="carddeck">
-            <Card className="card">
+              <Card className="card">
                 <CardHeader className="cardheader">
                   <CardTitle>
                     <h5>Property</h5>
@@ -245,6 +304,12 @@ class AprsIgate extends Component {
             <CardDeck className="carddeck">
               <CardCell
                 plot={[this.state.plot_course]}
+                revision={this.state.revision}
+              />
+            </CardDeck>
+            <CardDeck className="carddeck">
+              <CardCell
+                plot={[this.state.range_aprs]}
                 revision={this.state.revision}
               />
             </CardDeck>

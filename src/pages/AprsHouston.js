@@ -43,15 +43,11 @@ class AprsHouston extends Component {
               var map_aprs = { ...this.state.map_aprs };
               map_aprs.data = result.map_aprs.data;
               this.setState({ map_aprs });
-              var plot_speed = { ...this.state.plot_speed };
-              plot_speed.data = result.plot_speed.data;
-              this.setState({ plot_speed });
-              var plot_alt = { ...this.state.plot_alt };
-              plot_alt.data = result.plot_alt.data;
-              this.setState({ plot_alt });
-              var plot_course = { ...this.state.plot_course };
-              plot_course.data = result.plot_course.data;
-              this.setState({ plot_course });
+              this.setState({
+                plot_speed: result.plot_speed,
+                plot_alt: result.plot_alt,
+                plot_course: result.plot_course
+              });
             },
             // Note: it's important to handle errors here
             // instead of a catch() block so that we don't swallow
@@ -88,15 +84,11 @@ class AprsHouston extends Component {
               var map_aprs = { ...this.state.map_aprs };
               map_aprs.data = result.map_aprs.data;
               this.setState({ map_aprs });
-              var plot_speed = { ...this.state.plot_speed };
-              plot_speed.data = result.plot_speed.data;
-              this.setState({ plot_speed });
-              var plot_alt = { ...this.state.plot_alt };
-              plot_alt.data = result.plot_alt.data;
-              this.setState({ plot_alt });
-              var plot_course = { ...this.state.plot_course };
-              plot_course.data = result.plot_course.data;
-              this.setState({ plot_course });
+              this.setState({
+                plot_speed: result.plot_speed,
+                plot_alt: result.plot_alt,
+                plot_course: result.plot_course
+              });
             },
             // Note: it's important to handle errors here
             // instead of a catch() block so that we don't swallow
