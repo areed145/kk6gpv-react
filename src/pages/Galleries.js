@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import CardCell from "../components/CardCell";
-import Select from "react-select";
-import { CardDeck, Card, CardHeader, CardTitle, CardBody } from "reactstrap";
+import { CardDeck } from "reactstrap";
 // import Footer from "../components/Footer";
 
 class Galleries extends Component {
