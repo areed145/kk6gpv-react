@@ -91,7 +91,7 @@ class Menu extends Component {
                 Hobbies
               </DropdownToggle>
               <DropdownMenu right className="menu">
-                <DropdownItem href="/photos">Photos</DropdownItem>
+                <DropdownItem href="/galleries">Photos</DropdownItem>
                 <DropdownItem href="/travel">Travel</DropdownItem>
                 <DropdownItem href="/scuba">Scuba</DropdownItem>
                 <DropdownItem href="/fishing">Fishing</DropdownItem>

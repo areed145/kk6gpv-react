@@ -50,7 +50,7 @@ class CardCell extends Component {
               revision={value.revision}
               useResizeHandler
               style={{ width: "100%" }}
-              config={{ displayModeBar: false, staticPlot: this.props.static}}
+              config={{ displayModeBar: false, staticPlot: this.props.static }}
             />
           );
         }
@@ -77,6 +77,11 @@ class CardCell extends Component {
       );
     }
 
+    let phototitle;
+    if (this.props.phototitle) {
+      phototitle = <CardText align="center">{this.props.phototitle}</CardText>;
+    }
+
     let caption;
     if (this.props.caption) {
       caption = (
@@ -98,7 +103,7 @@ class CardCell extends Component {
       var gs = 360 - ws - 2 * ls;
       var rot = 90;
       var hw = this.props.gauge.hw;
-      var sz = hw/8;
+      var sz = hw / 8;
 
       var level = this.props.gauge.level;
       var gmin = this.props.gauge.gmin;
@@ -235,6 +240,7 @@ class CardCell extends Component {
           {plot}
           {gauge}
           {video}
+          {phototitle}
           {caption}
           <CardText>{text}</CardText>
         </CardBody>

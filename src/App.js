@@ -18,7 +18,9 @@ import Aircraft from "./pages/Aircraft";
 import Paragliding from './pages/Paragliding'
 import Soaring from './pages/Soaring'
 import N5777V from "./pages/N5777V";
-import Photos from './pages/Photos'
+import Galleries from './pages/Galleries'
+import Gallery from './pages/Gallery'
+import Photo from './pages/Photo'
 import Travel from './pages/Travel'
 import Scuba from './pages/Scuba'
 import Fishing from './pages/Fishing'
@@ -55,17 +57,19 @@ class App extends Component {
             <Route path="/paragliding" component={Paragliding} />
             <Route path="/soaring" component={Soaring} />
             <Route path="/n5777v" component={N5777V} />
-            <Route path="/photos" component={Photos} />
+            <Route exact path="/galleries" component={Galleries} />
+            <Route exact path="/galleries/:id" component={Gallery} />
+            <Route exact path="/galleries/:id/:pid" component={Photo} />
             <Route path="/travel" component={Travel} />
             <Route path="/scuba" component={Scuba} />
             <Route path="/fishing" component={Fishing} />
             <Route path="/oilgas/summary" component={OilgasSummary} />
             <Route path="/oilgas/map" component={OilgasMap} />
+            <Route path="/oilgas/details/:api" component={OilgasDetails} />
             <Route path="/blog" component={Blog} />
             <Route path="/about" component={About} />
             <Route path="/login" component={Login} />
             <Route path="/test/map" component={TestMap} />
-            <Route path="/oilgas/details/:api" component={OilgasDetails} />
             <Route component={Error} />
           </Switch>
         </BrowserRouter>
