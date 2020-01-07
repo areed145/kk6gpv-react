@@ -57,7 +57,7 @@ const Home = () => {
           />
           <CardCell
             title="Photos"
-            link="/photos"
+            link="/galleries"
             icon={photos}
             bgcolor="rgb(205, 255, 172)"
           />
