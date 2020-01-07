@@ -55,7 +55,7 @@ class WeatherAviation extends Component {
       function() {
         console.log(this.state);
         fetch(
-          `https://www.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
+          `https://kk6gpv-api.herokuapp.com/weather/aviation/map?prop_awc=${encodeURIComponent(
             this.state.prop
           )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
             this.state.lon
@@ -113,7 +113,7 @@ class WeatherAviation extends Component {
       function() {
         console.log(this.state);
         fetch(
-          `https://www.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
+          `https://kk6gpv-api.herokuapp.com/weather/aviation/map?prop_awc=${encodeURIComponent(
             this.state.prop
           )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
             this.state.lon
@@ -174,7 +174,7 @@ class WeatherAviation extends Component {
       function() {
         console.log(this.state);
         fetch(
-          `https://www.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
+          `https://kk6gpv-api.herokuapp.com/weather/aviation/map?prop_awc=${encodeURIComponent(
             this.state.prop
           )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
             this.state.lon
@@ -235,7 +235,7 @@ class WeatherAviation extends Component {
       function() {
         console.log(this.state);
         fetch(
-          `https://www.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
+          `https://kk6gpv-api.herokuapp.com/weather/aviation/map?prop_awc=${encodeURIComponent(
             this.state.prop
           )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
             this.state.lon
@@ -296,7 +296,7 @@ class WeatherAviation extends Component {
       function() {
         console.log(this.state);
         fetch(
-          `https://www.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
+          `https://kk6gpv-api.herokuapp.com/weather/aviation/map?prop_awc=${encodeURIComponent(
             this.state.prop
           )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
             this.state.lon
@@ -357,7 +357,7 @@ class WeatherAviation extends Component {
       function() {
         console.log(this.state);
         fetch(
-          `https://www.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
+          `https://kk6gpv-api.herokuapp.com/weather/aviation/map?prop_awc=${encodeURIComponent(
             this.state.prop
           )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
             this.state.lon
@@ -418,7 +418,7 @@ class WeatherAviation extends Component {
       function() {
         console.log(this.state);
         fetch(
-          `https://www.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
+          `https://kk6gpv-api.herokuapp.com/weather/aviation/map?prop_awc=${encodeURIComponent(
             this.state.prop
           )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
             this.state.lon
@@ -479,7 +479,7 @@ class WeatherAviation extends Component {
       function() {
         console.log(this.state);
         fetch(
-          `https://www.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
+          `https://kk6gpv-api.herokuapp.com/weather/aviation/map?prop_awc=${encodeURIComponent(
             this.state.prop
           )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
             this.state.lon
@@ -540,7 +540,7 @@ class WeatherAviation extends Component {
       function() {
         console.log(this.state);
         fetch(
-          `https://www.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
+          `https://kk6gpv-api.herokuapp.com/weather/aviation/map?prop_awc=${encodeURIComponent(
             this.state.prop
           )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
             this.state.lon
@@ -588,7 +588,7 @@ class WeatherAviation extends Component {
 
   componentDidMount() {
     fetch(
-      `https://www.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
+      `https://kk6gpv-api.herokuapp.com/weather/aviation/map?prop_awc=${encodeURIComponent(
         this.state.prop
       )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
         this.state.lon

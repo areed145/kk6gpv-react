@@ -29,7 +29,7 @@ class StationLive extends Component {
   }
 
   componentDidMount() {
-    fetch("https://www.kk6gpv.net/station/live/data")
+    fetch("https://kk6gpv-api.herokuapp.com/station/live/data")
       .then(res => res.json())
       .then(
         result => {
@@ -49,7 +49,7 @@ class StationLive extends Component {
         }
       );
     fetch(
-      `https://www.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
+      `https://kk6gpv-api.herokuapp.com/weather/aviation/map?prop_awc=${encodeURIComponent(
         this.state.prop_awc
       )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
         this.state.lon

@@ -18,7 +18,7 @@ class Photo extends Component {
 
   componentDidMount() {
     fetch(
-      `https://www.kk6gpv.net/photos/galleries/${encodeURIComponent(
+      `https://kk6gpv-api.herokuapp.com/photos/galleries/${encodeURIComponent(
         this.state.id
       )}/${encodeURIComponent(this.state.pid)}`
     )
