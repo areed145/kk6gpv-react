@@ -33,7 +33,7 @@ class StationHistory extends Component {
       function() {
         console.log(this.state);
         fetch(
-          `https://kk6gpv-api.herokuapp.com/station/history/graphs?time_int=${encodeURIComponent(
+          `https://api.kk6gpv.net/station/history/graphs?time_int=${encodeURIComponent(
             this.state.time
           )}`
         )
@@ -70,7 +70,7 @@ class StationHistory extends Component {
 
   componentDidMount() {
     fetch(
-      `https://kk6gpv-api.herokuapp.com/station/history/graphs?time_int=${encodeURIComponent(
+      `https://api.kk6gpv.net/station/history/graphs?time_int=${encodeURIComponent(
         this.state.time
       )}`
     )

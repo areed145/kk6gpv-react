@@ -33,7 +33,7 @@ class AprsIgate extends Component {
       function() {
         console.log(this.state);
         fetch(
-          `https://kk6gpv-api.herokuapp.com/aprs/map?type_aprs=entry&prop_aprs=${encodeURIComponent(
+          `https://api.kk6gpv.net/aprs/map?type_aprs=entry&prop_aprs=${encodeURIComponent(
             this.state.prop
           )}&time_int=${encodeURIComponent(this.state.time)}`
         )
@@ -60,7 +60,7 @@ class AprsIgate extends Component {
             }
           );
         fetch(
-          `https://kk6gpv-api.herokuapp.com/aprs/igate_range?time_int=${encodeURIComponent(
+          `https://api.kk6gpv.net/aprs/igate_range?time_int=${encodeURIComponent(
             this.state.time
           )}`
         )
@@ -96,7 +96,7 @@ class AprsIgate extends Component {
       function() {
         console.log(this.state);
         fetch(
-          `https://kk6gpv-api.herokuapp.com/aprs/map?type_aprs=entry&prop_aprs=${encodeURIComponent(
+          `https://api.kk6gpv.net/aprs/map?type_aprs=entry&prop_aprs=${encodeURIComponent(
             this.state.prop
           )}&time_int=${encodeURIComponent(this.state.time)}`
         )
@@ -124,7 +124,7 @@ class AprsIgate extends Component {
           );
         console.log(this.state);
         fetch(
-          `https://kk6gpv-api.herokuapp.com/aprs/igate_range?time_int=${encodeURIComponent(
+          `https://api.kk6gpv.net/aprs/igate_range?time_int=${encodeURIComponent(
             this.state.time
           )}`
         )
@@ -151,7 +151,7 @@ class AprsIgate extends Component {
 
   componentDidMount() {
     fetch(
-      `https://kk6gpv-api.herokuapp.com/aprs/map?type_aprs=entry&prop_aprs=${encodeURIComponent(
+      `https://api.kk6gpv.net/aprs/map?type_aprs=entry&prop_aprs=${encodeURIComponent(
         this.state.prop
       )}&time_int=${encodeURIComponent(this.state.time)}`
     )
@@ -178,7 +178,7 @@ class AprsIgate extends Component {
         }
       );
     fetch(
-      `https://kk6gpv-api.herokuapp.com/aprs/igate_range?time_int=${encodeURIComponent(
+      `https://api.kk6gpv.net/aprs/igate_range?time_int=${encodeURIComponent(
         this.state.time
       )}`
     )

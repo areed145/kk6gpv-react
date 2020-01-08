@@ -33,7 +33,7 @@ class AprsLocation extends Component {
       function() {
         console.log(this.state);
         fetch(
-          `https://kk6gpv-api.herokuapp.com/aprs/map?type_aprs=prefix&prop_aprs=${encodeURIComponent(
+          `https://api.kk6gpv.net/aprs/map?type_aprs=prefix&prop_aprs=${encodeURIComponent(
             this.state.prop
           )}&time_int=${encodeURIComponent(this.state.time)}`
         )
@@ -74,7 +74,7 @@ class AprsLocation extends Component {
       function() {
         console.log(this.state);
         fetch(
-          `https://kk6gpv-api.herokuapp.com/aprs/map?type_aprs=prefix&prop_aprs=${encodeURIComponent(
+          `https://api.kk6gpv.net/aprs/map?type_aprs=prefix&prop_aprs=${encodeURIComponent(
             this.state.prop
           )}&time_int=${encodeURIComponent(this.state.time)}`
         )
@@ -107,7 +107,7 @@ class AprsLocation extends Component {
 
   componentDidMount() {
     fetch(
-      `https://kk6gpv-api.herokuapp.com/aprs/map?type_aprs=prefix&prop_aprs=${encodeURIComponent(
+      `https://api.kk6gpv.net/aprs/map?type_aprs=prefix&prop_aprs=${encodeURIComponent(
         this.state.prop
       )}&time_int=${encodeURIComponent(this.state.time)}`
     )

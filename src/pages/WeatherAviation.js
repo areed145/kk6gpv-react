@@ -26,7 +26,7 @@ class WeatherAviation extends Component {
       lat: 38,
       lon: -95,
       zoom: 3,
-      satellite: 0,
+      infrared: 0,
       visible: 0,
       radar: 1,
       analysis: 0,
@@ -55,14 +55,14 @@ class WeatherAviation extends Component {
       function() {
         console.log(this.state);
         fetch(
-          `https://kk6gpv-api.herokuapp.com/weather/aviation/map?prop_awc=${encodeURIComponent(
+          `https://api.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
             this.state.prop
           )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
             this.state.lon
           )}&zoom=${encodeURIComponent(
             this.state.zoom
-          )}&satellite=${encodeURIComponent(
-            this.state.satellite
+          )}&infrared=${encodeURIComponent(
+            this.state.infrared
           )}&visible=${encodeURIComponent(
             this.state.visible
           )}&radar=${encodeURIComponent(
@@ -113,14 +113,14 @@ class WeatherAviation extends Component {
       function() {
         console.log(this.state);
         fetch(
-          `https://kk6gpv-api.herokuapp.com/weather/aviation/map?prop_awc=${encodeURIComponent(
+          `https://api.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
             this.state.prop
           )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
             this.state.lon
           )}&zoom=${encodeURIComponent(
             this.state.zoom
-          )}&satellite=${encodeURIComponent(
-            this.state.satellite
+          )}&infrared=${encodeURIComponent(
+            this.state.infrared
           )}&visible=${encodeURIComponent(
             this.state.visible
           )}&radar=${encodeURIComponent(
@@ -161,27 +161,27 @@ class WeatherAviation extends Component {
 
   onClickInfrared(event) {
     console.log(event);
-    var satellite = this.state.satellite;
-    if (satellite === 0) {
-      satellite = 1;
+    var infrared = this.state.infrared;
+    if (infrared === 0) {
+      infrared = 1;
     } else {
-      satellite = 0;
+      infrared = 0;
     }
     this.setState(
       {
-        satellite: satellite
+        infrared: infrared
       },
       function() {
         console.log(this.state);
         fetch(
-          `https://kk6gpv-api.herokuapp.com/weather/aviation/map?prop_awc=${encodeURIComponent(
+          `https://api.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
             this.state.prop
           )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
             this.state.lon
           )}&zoom=${encodeURIComponent(
             this.state.zoom
-          )}&satellite=${encodeURIComponent(
-            this.state.satellite
+          )}&infrared=${encodeURIComponent(
+            this.state.infrared
           )}&visible=${encodeURIComponent(
             this.state.visible
           )}&radar=${encodeURIComponent(
@@ -235,14 +235,14 @@ class WeatherAviation extends Component {
       function() {
         console.log(this.state);
         fetch(
-          `https://kk6gpv-api.herokuapp.com/weather/aviation/map?prop_awc=${encodeURIComponent(
+          `https://api.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
             this.state.prop
           )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
             this.state.lon
           )}&zoom=${encodeURIComponent(
             this.state.zoom
-          )}&satellite=${encodeURIComponent(
-            this.state.satellite
+          )}&infrared=${encodeURIComponent(
+            this.state.infrared
           )}&visible=${encodeURIComponent(
             this.state.visible
           )}&radar=${encodeURIComponent(
@@ -296,14 +296,14 @@ class WeatherAviation extends Component {
       function() {
         console.log(this.state);
         fetch(
-          `https://kk6gpv-api.herokuapp.com/weather/aviation/map?prop_awc=${encodeURIComponent(
+          `https://api.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
             this.state.prop
           )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
             this.state.lon
           )}&zoom=${encodeURIComponent(
             this.state.zoom
-          )}&satellite=${encodeURIComponent(
-            this.state.satellite
+          )}&infrared=${encodeURIComponent(
+            this.state.infrared
           )}&visible=${encodeURIComponent(
             this.state.visible
           )}&radar=${encodeURIComponent(
@@ -357,14 +357,14 @@ class WeatherAviation extends Component {
       function() {
         console.log(this.state);
         fetch(
-          `https://kk6gpv-api.herokuapp.com/weather/aviation/map?prop_awc=${encodeURIComponent(
+          `https://api.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
             this.state.prop
           )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
             this.state.lon
           )}&zoom=${encodeURIComponent(
             this.state.zoom
-          )}&satellite=${encodeURIComponent(
-            this.state.satellite
+          )}&infrared=${encodeURIComponent(
+            this.state.infrared
           )}&visible=${encodeURIComponent(
             this.state.visible
           )}&radar=${encodeURIComponent(
@@ -418,14 +418,14 @@ class WeatherAviation extends Component {
       function() {
         console.log(this.state);
         fetch(
-          `https://kk6gpv-api.herokuapp.com/weather/aviation/map?prop_awc=${encodeURIComponent(
+          `https://api.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
             this.state.prop
           )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
             this.state.lon
           )}&zoom=${encodeURIComponent(
             this.state.zoom
-          )}&satellite=${encodeURIComponent(
-            this.state.satellite
+          )}&infrared=${encodeURIComponent(
+            this.state.infrared
           )}&visible=${encodeURIComponent(
             this.state.visible
           )}&radar=${encodeURIComponent(
@@ -479,14 +479,14 @@ class WeatherAviation extends Component {
       function() {
         console.log(this.state);
         fetch(
-          `https://kk6gpv-api.herokuapp.com/weather/aviation/map?prop_awc=${encodeURIComponent(
+          `https://api.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
             this.state.prop
           )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
             this.state.lon
           )}&zoom=${encodeURIComponent(
             this.state.zoom
-          )}&satellite=${encodeURIComponent(
-            this.state.satellite
+          )}&infrared=${encodeURIComponent(
+            this.state.infrared
           )}&visible=${encodeURIComponent(
             this.state.visible
           )}&radar=${encodeURIComponent(
@@ -540,14 +540,14 @@ class WeatherAviation extends Component {
       function() {
         console.log(this.state);
         fetch(
-          `https://kk6gpv-api.herokuapp.com/weather/aviation/map?prop_awc=${encodeURIComponent(
+          `https://api.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
             this.state.prop
           )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
             this.state.lon
           )}&zoom=${encodeURIComponent(
             this.state.zoom
-          )}&satellite=${encodeURIComponent(
-            this.state.satellite
+          )}&infrared=${encodeURIComponent(
+            this.state.infrared
           )}&visible=${encodeURIComponent(
             this.state.visible
           )}&radar=${encodeURIComponent(
@@ -588,14 +588,14 @@ class WeatherAviation extends Component {
 
   componentDidMount() {
     fetch(
-      `https://kk6gpv-api.herokuapp.com/weather/aviation/map?prop_awc=${encodeURIComponent(
+      `https://api.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
         this.state.prop
       )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
         this.state.lon
       )}&zoom=${encodeURIComponent(
         this.state.zoom
-      )}&satellite=${encodeURIComponent(
-        this.state.satellite
+      )}&infrared=${encodeURIComponent(
+        this.state.infrared
       )}&visible=${encodeURIComponent(
         this.state.visible
       )}&radar=${encodeURIComponent(

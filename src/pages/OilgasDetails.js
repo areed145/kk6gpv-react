@@ -31,7 +31,7 @@ class DetailsOilgas extends Component {
 
   componentDidMount() {
     const encodedValue = encodeURIComponent(this.state.api);
-    fetch(`https://kk6gpv-api.herokuapp.com/oilgas/details/graphs?api=${encodedValue}`)
+    fetch(`https://api.kk6gpv.net/oilgas/details/graphs?api=${encodedValue}`)
       .then(res => res.json())
       .then(
         result => {

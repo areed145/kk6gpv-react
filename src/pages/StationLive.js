@@ -16,7 +16,7 @@ class StationLive extends Component {
       lat: 29.78088,
       lon: -95.42041,
       zoom: 6,
-      satellite: 0,
+      infrared: 0,
       visible: 0,
       radar: 1,
       analysis: 0,
@@ -29,13 +29,12 @@ class StationLive extends Component {
   }
 
   componentDidMount() {
-    fetch("https://kk6gpv-api.herokuapp.com/station/live/data")
+    fetch("https://api.kk6gpv.net/station/live/data")
       .then(res => res.json())
       .then(
-        result => {
+        res => {
           this.setState({
-            // isLoaded: true,
-            wx: result
+            wx: res.wx
           });
         },
         // Note: it's important to handle errors here
@@ -49,14 +48,14 @@ class StationLive extends Component {
         }
       );
     fetch(
-      `https://kk6gpv-api.herokuapp.com/weather/aviation/map?prop_awc=${encodeURIComponent(
+      `https://api.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
         this.state.prop_awc
       )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
         this.state.lon
       )}&zoom=${encodeURIComponent(
         this.state.zoom
-      )}&satellite=${encodeURIComponent(
-        this.state.satellite
+      )}&infrared=${encodeURIComponent(
+        this.state.infrared
       )}&visible=${encodeURIComponent(
         this.state.visible
       )}&radar=${encodeURIComponent(
