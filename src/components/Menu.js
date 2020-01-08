@@ -106,14 +106,17 @@ class Menu extends Component {
                 <DropdownItem href="/oilgas/map">Map</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
-            <NavItem>
+            {/* <NavItem>
               <NavLink href="/blog">Blog</NavLink>
-            </NavItem>
+            </NavItem> */}
             <NavItem>
               <NavLink href="/about">About</NavLink>
             </NavItem>
-            <NavItem>
+            {/* <NavItem>
               <NavLink href="/login">Login</NavLink>
+            </NavItem> */}
+            <NavItem>
+              <NavLink href="https://api.kk6gpv.net/docs">API</NavLink>
             </NavItem>
           </Nav>
         </Collapse>
