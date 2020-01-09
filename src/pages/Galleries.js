@@ -39,13 +39,17 @@ class Galleries extends Component {
   render() {
     const { error, isLoaded } = this.state;
 
-    const cards = this.state.rows.map((row, index) => {
+    const cards = this.state.rows.map((row, ridx) => {
       return (
-        <CardDeck className="carddeck">
-          {row.map((gal, i) => {
-            console.log(gal);
+        <CardDeck className="carddeck" key={ridx}>
+          {row.map((gal, gidx) => {
             return (
-              <CardCell phototitle={gal.caption} icon={gal.thumb} link={gal.kk6gpv_link} />
+              <CardCell
+                key={gidx}
+                phototitle={gal.caption}
+                icon={gal.thumb}
+                link={gal.kk6gpv_link}
+              />
             );
           })}
         </CardDeck>

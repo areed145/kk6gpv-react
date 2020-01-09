@@ -5,26 +5,26 @@ import "./styles/index.css";
 import Home from "./pages/Home";
 import StationLive from "./pages/StationLive";
 import StationHistory from "./pages/StationHistory";
-import StationInfo from './pages/StationInfo'
-import WeatherAviation from './pages/WeatherAviation'
-import WeatherBlips from './pages/WeatherBlips'
-import WeatherSoundings from './pages/WeatherSoundings'
+import StationInfo from "./pages/StationInfo";
+import WeatherAviation from "./pages/WeatherAviation";
+import WeatherBlips from "./pages/WeatherBlips";
+import WeatherSoundings from "./pages/WeatherSoundings";
 import IoT from "./pages/IoT";
-import AprsLocation from './pages/AprsLocation'
-import AprsIgate from './pages/AprsIgate'
-import AprsHouston from './pages/AprsHouston'
-import AprsInfo from './pages/AprsInfo'
+import AprsLocation from "./pages/AprsLocation";
+import AprsIgate from "./pages/AprsIgate";
+import AprsHouston from "./pages/AprsHouston";
+import AprsInfo from "./pages/AprsInfo";
 import Aircraft from "./pages/Aircraft";
-import Paragliding from './pages/Paragliding'
-import Soaring from './pages/Soaring'
+import Paragliding from "./pages/Paragliding";
+import Soaring from "./pages/Soaring";
 import N5777V from "./pages/N5777V";
-import Galleries from './pages/Galleries'
-import Gallery from './pages/Gallery'
-import Photo from './pages/Photo'
-import Travel from './pages/Travel'
-import Scuba from './pages/Scuba'
-import Fishing from './pages/Fishing'
-import OilgasSummary from './pages/OilgasSummary'
+import Galleries from "./pages/Galleries";
+import Gallery from "./pages/Gallery";
+import Photo from "./pages/Photo";
+import Travel from "./pages/Travel";
+import Scuba from "./pages/Scuba";
+import Fishing from "./pages/Fishing";
+import OilgasSummary from "./pages/OilgasSummary";
 import OilgasMap from "./pages/OilgasMap";
 import OilgasDetails from "./pages/OilgasDetails";
 import Blog from "./pages/Blog";
@@ -58,8 +58,8 @@ class App extends Component {
             <Route path="/soaring" component={Soaring} />
             <Route path="/n5777v" component={N5777V} />
             <Route exact path="/galleries" component={Galleries} />
-            <Route exact path="/galleries/:id" component={Gallery} />
-            <Route exact path="/galleries/:gid/:id" component={Photo} />
+            <Route exact path="/gallery/:id" component={Gallery} />
+            <Route exact path="/photo/:id" component={Photo} />
             <Route path="/travel" component={Travel} />
             <Route path="/scuba" component={Scuba} />
             <Route path="/fishing" component={Fishing} />

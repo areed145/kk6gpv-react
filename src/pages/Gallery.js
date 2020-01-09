@@ -11,20 +11,30 @@ class Gallery extends Component {
       isLoaded: false,
       id: this.props.match.params.id,
       rows: [],
-      gals: [],
+      map: [],
+      title: [],
+      count_photos: [],
+      count_views: [],
       revision: 0
     };
   }
 
   componentDidMount() {
-    fetch(`https://api.kk6gpv.net/photos/gallery?id=${encodeURIComponent(this.state.id)}`)
+    fetch(
+      `https://api.kk6gpv.net/photos/gallery?id=${encodeURIComponent(
+        this.state.id
+      )}`
+    )
       .then(res => res.json())
       .then(
         result => {
           this.setState({
             isLoaded: true,
             rows: result.rows,
-            // gals: result.gals
+            map: result.map,
+            title: result.title,
+            count_photos: result.count_photos,
+            count_views: result.count_views
           });
         },
         // Note: it's important to handle errors here
@@ -42,14 +52,27 @@ class Gallery extends Component {
   render() {
     const { error, isLoaded } = this.state;
 
+    const header =
+      this.state.title +
+      " - " +
+      this.state.count_photos +
+      " - " +
+      this.state.count_views +
+      " views";
+
     console.log(this.state);
 
-    const cards = this.state.rows.map((row, index) => {
+    const cards = this.state.rows.map((row, ridx) => {
       return (
-        <CardDeck className="carddeck">
-          {row.map((gal, i) => {
+        <CardDeck className="carddeck" key={ridx}>
+          {row.map((photo, pidx) => {
             return (
-              <CardCell phototitle={gal.caption} icon={gal.thumb} link={gal.kk6gpv_link} />
+              <CardCell
+                key={pidx}
+                phototitle={photo.caption}
+                icon={photo.thumb}
+                link={photo.kk6gpv_link}
+              />
             );
           })}
         </CardDeck>
@@ -76,6 +99,9 @@ class Gallery extends Component {
       return (
         <div>
           <div className="main">
+            <CardDeck className="carddeck">
+              <CardCell title={header} plot={[this.state.map]} />
+            </CardDeck>
             {cards}
             <div className="margin" />
             {/* <Footer /> */}
