@@ -59,7 +59,7 @@ class App extends Component {
             <Route path="/n5777v" component={N5777V} />
             <Route exact path="/galleries" component={Galleries} />
             <Route exact path="/galleries/:id" component={Gallery} />
-            <Route exact path="/galleries/:id/:pid" component={Photo} />
+            <Route exact path="/galleries/:gid/:id" component={Photo} />
             <Route path="/travel" component={Travel} />
             <Route path="/scuba" component={Scuba} />
             <Route path="/fishing" component={Fishing} />
