@@ -41,18 +41,23 @@ class CardCell extends Component {
 
     let plot = [];
     if (this.props.plot) {
-      if (this.props.plot[0].data) {
-        for (const [, value] of this.props.plot.entries()) {
-          plot.push(
-            <Plot
-              data={value.data}
-              layout={value.layout}
-              revision={value.revision}
-              useResizeHandler
-              style={{ width: "100%" }}
-              config={{ displayModeBar: false, staticPlot: this.props.static }}
-            />
-          );
+      if (this.props.plot[0]) {
+        if (this.props.plot[0].data) {
+          for (const [, value] of this.props.plot.entries()) {
+            plot.push(
+              <Plot
+                data={value.data}
+                layout={value.layout}
+                revision={value.revision}
+                useResizeHandler
+                style={{ width: "100%" }}
+                config={{
+                  displayModeBar: false,
+                  staticPlot: this.props.static
+                }}
+              />
+            );
+          }
         }
       } else {
         plot = (

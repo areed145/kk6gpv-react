@@ -10,7 +10,6 @@ class Photo extends Component {
       error: null,
       isLoaded: false,
       id: this.props.match.params.id,
-      pid: this.props.match.params.pid,
       image: [],
       revision: 0
     };
@@ -18,8 +17,8 @@ class Photo extends Component {
 
   componentDidMount() {
     fetch(
-      `https://api.kk6gpv.net/photos/photo?pid=${encodeURIComponent(
-        this.state.pid
+      `https://api.kk6gpv.net/photos/photo?id=${encodeURIComponent(
+        this.state.id
       )}`
     )
       .then(res => res.json())
@@ -27,7 +26,7 @@ class Photo extends Component {
         result => {
           this.setState({
             isLoaded: true,
-            image: result.image
+            image: result
           });
         },
         // Note: it's important to handle errors here
