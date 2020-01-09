@@ -18,9 +18,9 @@ class Photo extends Component {
 
   componentDidMount() {
     fetch(
-      `https://api.kk6gpv.net/photos/photo?id=${encodeURIComponent(
-        this.state.id
-      )}&pid=${encodeURIComponent(this.state.pid)}`
+      `https://api.kk6gpv.net/photos/photo?pid=${encodeURIComponent(
+        this.state.pid
+      )}`
     )
       .then(res => res.json())
       .then(
@@ -66,9 +66,7 @@ class Photo extends Component {
         <div>
           <div className="main">
             <CardDeck className="carddeck">
-              <CardCell
-                img={this.state.image.large}
-              />
+              <CardCell img={this.state.image.large} />
             </CardDeck>
             <div className="margin" />
             {/* <Footer /> */}
