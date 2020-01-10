@@ -46,14 +46,12 @@ class WeatherAviation extends Component {
   }
 
   onChangeProp(event) {
-    // console.log(event.value);
     this.setState(
       {
         prop: event.value,
         prop_label: event.label
       },
       function() {
-        console.log(this.state);
         fetch(
           `https://api.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
             this.state.prop
@@ -81,7 +79,7 @@ class WeatherAviation extends Component {
           .then(
             result => {
               var radar_map = { ...this.state.radar_map };
-              radar_map.data = result.data;
+              radar_map.data = result.map.data;
               this.setState({ radar_map });
             },
             // Note: it's important to handle errors here
@@ -99,7 +97,6 @@ class WeatherAviation extends Component {
   }
 
   onClickTemp(event) {
-    console.log(event);
     var temp = this.state.temp;
     if (temp === 0) {
       temp = 1;
@@ -111,7 +108,6 @@ class WeatherAviation extends Component {
         temp: temp
       },
       function() {
-        console.log(this.state);
         fetch(
           `https://api.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
             this.state.prop
@@ -138,12 +134,10 @@ class WeatherAviation extends Component {
           .then(res => res.json())
           .then(
             result => {
-              console.log(result);
               var radar_map = { ...this.state.radar_map };
-              radar_map.data = result.data;
-              radar_map.layout.mapbox.layers = result.layout.mapbox.layers;
+              radar_map.data = result.map.data;
+              radar_map.layout.mapbox.layers = result.map.layout.mapbox.layers;
               this.setState({ radar_map: radar_map });
-              console.log(this.state);
             },
             // Note: it's important to handle errors here
             // instead of a catch() block so that we don't swallow
@@ -160,7 +154,6 @@ class WeatherAviation extends Component {
   }
 
   onClickInfrared(event) {
-    console.log(event);
     var infrared = this.state.infrared;
     if (infrared === 0) {
       infrared = 1;
@@ -172,7 +165,6 @@ class WeatherAviation extends Component {
         infrared: infrared
       },
       function() {
-        console.log(this.state);
         fetch(
           `https://api.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
             this.state.prop
@@ -199,12 +191,10 @@ class WeatherAviation extends Component {
           .then(res => res.json())
           .then(
             result => {
-              console.log(result);
               var radar_map = { ...this.state.radar_map };
-              radar_map.data = result.data;
-              radar_map.layout.mapbox.layers = result.layout.mapbox.layers;
+              radar_map.data = result.map.data;
+              radar_map.layout.mapbox.layers = result.map.layout.mapbox.layers;
               this.setState({ radar_map: radar_map });
-              console.log(this.state);
             },
             // Note: it's important to handle errors here
             // instead of a catch() block so that we don't swallow
@@ -221,7 +211,6 @@ class WeatherAviation extends Component {
   }
 
   onClickVisible(event) {
-    console.log(event);
     var visible = this.state.visible;
     if (visible === 0) {
       visible = 1;
@@ -233,7 +222,6 @@ class WeatherAviation extends Component {
         visible: visible
       },
       function() {
-        console.log(this.state);
         fetch(
           `https://api.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
             this.state.prop
@@ -260,12 +248,10 @@ class WeatherAviation extends Component {
           .then(res => res.json())
           .then(
             result => {
-              console.log(result);
               var radar_map = { ...this.state.radar_map };
-              radar_map.data = result.data;
-              radar_map.layout.mapbox.layers = result.layout.mapbox.layers;
+              radar_map.data = result.map.data;
+              radar_map.layout.mapbox.layers = result.map.layout.mapbox.layers;
               this.setState({ radar_map: radar_map });
-              console.log(this.state);
             },
             // Note: it's important to handle errors here
             // instead of a catch() block so that we don't swallow
@@ -282,7 +268,6 @@ class WeatherAviation extends Component {
   }
 
   onClickFronts(event) {
-    console.log(event);
     var analysis = this.state.analysis;
     if (analysis === 0) {
       analysis = 1;
@@ -294,7 +279,6 @@ class WeatherAviation extends Component {
         analysis: analysis
       },
       function() {
-        console.log(this.state);
         fetch(
           `https://api.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
             this.state.prop
@@ -321,12 +305,10 @@ class WeatherAviation extends Component {
           .then(res => res.json())
           .then(
             result => {
-              console.log(result);
               var radar_map = { ...this.state.radar_map };
-              radar_map.data = result.data;
-              radar_map.layout.mapbox.layers = result.layout.mapbox.layers;
+              radar_map.data = result.map.data;
+              radar_map.layout.mapbox.layers = result.map.layout.mapbox.layers;
               this.setState({ radar_map: radar_map });
-              console.log(this.state);
             },
             // Note: it's important to handle errors here
             // instead of a catch() block so that we don't swallow
@@ -343,7 +325,6 @@ class WeatherAviation extends Component {
   }
 
   onClickLightning(event) {
-    console.log(event);
     var lightning = this.state.lightning;
     if (lightning === 0) {
       lightning = 1;
@@ -355,7 +336,6 @@ class WeatherAviation extends Component {
         lightning: lightning
       },
       function() {
-        console.log(this.state);
         fetch(
           `https://api.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
             this.state.prop
@@ -382,12 +362,10 @@ class WeatherAviation extends Component {
           .then(res => res.json())
           .then(
             result => {
-              console.log(result);
               var radar_map = { ...this.state.radar_map };
-              radar_map.data = result.data;
-              radar_map.layout.mapbox.layers = result.layout.mapbox.layers;
+              radar_map.data = result.map.data;
+              radar_map.layout.mapbox.layers = result.map.layout.mapbox.layers;
               this.setState({ radar_map: radar_map });
-              console.log(this.state);
             },
             // Note: it's important to handle errors here
             // instead of a catch() block so that we don't swallow
@@ -404,7 +382,6 @@ class WeatherAviation extends Component {
   }
 
   onClickPrecip(event) {
-    console.log(event);
     var precip = this.state.precip;
     if (precip === 0) {
       precip = 1;
@@ -416,7 +393,6 @@ class WeatherAviation extends Component {
         precip: precip
       },
       function() {
-        console.log(this.state);
         fetch(
           `https://api.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
             this.state.prop
@@ -443,12 +419,10 @@ class WeatherAviation extends Component {
           .then(res => res.json())
           .then(
             result => {
-              console.log(result);
               var radar_map = { ...this.state.radar_map };
-              radar_map.data = result.data;
-              radar_map.layout.mapbox.layers = result.layout.mapbox.layers;
+              radar_map.data = result.map.data;
+              radar_map.layout.mapbox.layers = result.map.layout.mapbox.layers;
               this.setState({ radar_map: radar_map });
-              console.log(this.state);
             },
             // Note: it's important to handle errors here
             // instead of a catch() block so that we don't swallow
@@ -465,7 +439,6 @@ class WeatherAviation extends Component {
   }
 
   onClickRadar(event) {
-    console.log(event);
     var radar = this.state.radar;
     if (radar === 0) {
       radar = 1;
@@ -477,7 +450,6 @@ class WeatherAviation extends Component {
         radar: radar
       },
       function() {
-        console.log(this.state);
         fetch(
           `https://api.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
             this.state.prop
@@ -504,12 +476,10 @@ class WeatherAviation extends Component {
           .then(res => res.json())
           .then(
             result => {
-              console.log(result);
               var radar_map = { ...this.state.radar_map };
-              radar_map.data = result.data;
-              radar_map.layout.mapbox.layers = result.layout.mapbox.layers;
+              radar_map.data = result.map.data;
+              radar_map.layout.mapbox.layers = result.map.layout.mapbox.layers;
               this.setState({ radar_map: radar_map });
-              console.log(this.state);
             },
             // Note: it's important to handle errors here
             // instead of a catch() block so that we don't swallow
@@ -526,7 +496,6 @@ class WeatherAviation extends Component {
   }
 
   onClickAlerts(event) {
-    console.log(event);
     var watchwarn = this.state.watchwarn;
     if (watchwarn === 0) {
       watchwarn = 1;
@@ -538,7 +507,6 @@ class WeatherAviation extends Component {
         watchwarn: watchwarn
       },
       function() {
-        console.log(this.state);
         fetch(
           `https://api.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
             this.state.prop
@@ -565,12 +533,10 @@ class WeatherAviation extends Component {
           .then(res => res.json())
           .then(
             result => {
-              console.log(result);
               var radar_map = { ...this.state.radar_map };
-              radar_map.data = result.data;
-              radar_map.layout.mapbox.layers = result.layout.mapbox.layers;
+              radar_map.data = result.map.data;
+              radar_map.layout.mapbox.layers = result.map.layout.mapbox.layers;
               this.setState({ radar_map: radar_map });
-              console.log(this.state);
             },
             // Note: it's important to handle errors here
             // instead of a catch() block so that we don't swallow
@@ -615,7 +581,7 @@ class WeatherAviation extends Component {
         result => {
           this.setState({
             isLoaded: true,
-            radar_map: result
+            radar_map: result.map
           });
         },
         // Note: it's important to handle errors here

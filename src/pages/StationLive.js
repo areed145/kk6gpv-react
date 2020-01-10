@@ -75,7 +75,7 @@ class StationLive extends Component {
         result => {
           this.setState({
             isLoaded: true,
-            radar_map: result
+            radar_map: result.map
           });
         },
         // Note: it's important to handle errors here
@@ -91,7 +91,6 @@ class StationLive extends Component {
   }
 
   render() {
-    console.log(this.state);
     const { error, isLoaded } = this.state;
 
     if (error) {

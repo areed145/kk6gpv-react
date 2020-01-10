@@ -25,7 +25,7 @@ const Home = () => {
         <CardDeck className="carddeck">
           <CardCell
             title="Station Weather"
-            link="/station/history"
+            link="/station/live"
             icon={station_history}
             bgcolor="rgb(255, 145, 172)"
           />
