@@ -11,6 +11,7 @@ class Photo extends Component {
       isLoaded: false,
       id: this.props.match.params.id,
       image: [],
+      map: [],
       revision: 0
     };
   }
@@ -26,7 +27,8 @@ class Photo extends Component {
         result => {
           this.setState({
             isLoaded: true,
-            image: result
+            image: result.image,
+            map: result.map
           });
         },
         // Note: it's important to handle errors here
@@ -66,6 +68,9 @@ class Photo extends Component {
           <div className="main">
             <CardDeck className="carddeck">
               <CardCell img={this.state.image.large} />
+            </CardDeck>
+            <CardDeck className="carddeck">
+              <CardCell plot={[this.state.map]} />
             </CardDeck>
             <div className="margin" />
             {/* <Footer /> */}
