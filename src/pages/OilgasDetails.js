@@ -47,12 +47,12 @@ class DetailsOilgas extends Component {
           });
         }
       );
-    fetch(`https://api.kk6gpv.net/oilgas/prodinj/graph?api=${encodedValue}`)
+    fetch(`https://api.kk6gpv.net/oilgas/prodinj/graph?api=${encodedValue}&axis=log`)
       .then(res => res.json())
       .then(
         result => {
           this.setState({
-            // isLoaded: true,
+            isLoaded: true,
             graph_oilgas: result.graph_oilgas
           });
         },
@@ -63,12 +63,12 @@ class DetailsOilgas extends Component {
           });
         }
       );
-    fetch(`https://api.kk6gpv.net/oilgas/offset/graphs?api=${encodedValue}`)
+    fetch(`https://api.kk6gpv.net/oilgas/offset/graphs?api=${encodedValue}&axis=log`)
       .then(res => res.json())
       .then(
         result => {
           this.setState({
-            // isLoaded: true,
+            isLoaded: true,
             graph_offset_oil: result.graph_offset_oil,
             graph_offset_stm: result.graph_offset_stm,
             graph_offset_wtr: result.graph_offset_wtr,
@@ -91,6 +91,21 @@ class DetailsOilgas extends Component {
           this.setState({
             isLoaded: true,
             graph_cyclic_jobs: result.graph_cyclic_jobs
+          });
+        },
+        error => {
+          this.setState({
+            error
+          });
+        }
+      );
+      fetch(`https://api.kk6gpv.net/oilgas/crm/graph?api=${encodedValue}`)
+      .then(res => res.json())
+      .then(
+        result => {
+          this.setState({
+            isLoaded: true,
+            graph_crm: result.graph_crm
           });
         },
         error => {
@@ -323,6 +338,12 @@ class DetailsOilgas extends Component {
               <CardCell
                 title="Cyclic Job Performance"
                 plot={[this.state.graph_cyclic_jobs]}
+              />
+            </CardDeck>
+            <CardDeck className="carddeck">
+              <CardCell
+                title="CRM Model Results"
+                plot={[this.state.graph_crm]}
               />
             </CardDeck>
             <div className="margin" />
