@@ -31,26 +31,68 @@ class DetailsOilgas extends Component {
 
   componentDidMount() {
     const encodedValue = encodeURIComponent(this.state.api);
-    fetch(`https://api.kk6gpv.net/oilgas/details/graphs?api=${encodedValue}`)
+    fetch(`https://api.kk6gpv.net/oilgas/header/details?api=${encodedValue}`)
       .then(res => res.json())
       .then(
         result => {
           this.setState({
+            // isLoaded: true,
+            header: result.header
+          });
+        },
+        error => {
+          this.setState({
             isLoaded: true,
-            header: result.header,
-            graph_oilgas: result.graph_oilgas,
+            error
+          });
+        }
+      );
+    fetch(`https://api.kk6gpv.net/oilgas/prodinj/graph?api=${encodedValue}`)
+      .then(res => res.json())
+      .then(
+        result => {
+          this.setState({
+            // isLoaded: true,
+            graph_oilgas: result.graph_oilgas
+          });
+        },
+        error => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      );
+    fetch(`https://api.kk6gpv.net/oilgas/offset/graphs?api=${encodedValue}`)
+      .then(res => res.json())
+      .then(
+        result => {
+          this.setState({
+            // isLoaded: true,
             graph_offset_oil: result.graph_offset_oil,
             graph_offset_stm: result.graph_offset_stm,
             graph_offset_wtr: result.graph_offset_wtr,
             graph_offset_oil_ci: result.graph_offset_oil_ci,
             graph_offset_stm_ci: result.graph_offset_stm_ci,
-            graph_offset_wtr_ci: result.graph_offset_wtr_ci,
+            graph_offset_wtr_ci: result.graph_offset_wtr_ci
+          });
+        },
+        error => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      );
+    fetch(`https://api.kk6gpv.net/oilgas/cyclic/graph?api=${encodedValue}`)
+      .then(res => res.json())
+      .then(
+        result => {
+          this.setState({
+            isLoaded: true,
             graph_cyclic_jobs: result.graph_cyclic_jobs
           });
         },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
         error => {
           this.setState({
             isLoaded: true,
