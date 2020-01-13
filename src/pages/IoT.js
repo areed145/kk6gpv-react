@@ -25,13 +25,13 @@ class Iot extends Component {
     };
   }
 
-  onChangeTime(event) {
+  async onChangeTime(event) {
     // console.log(event.value);
     this.setState(
       {
         time: event
       },
-      function() {
+      async function() {
         var sensor_string = "";
         for (var i = 0; i < this.state.sensor.length; i++) {
           sensor_string =
@@ -48,39 +48,37 @@ class Iot extends Component {
             ]
           });
         }
-        fetch(
-          `https://api.kk6gpv.net/iot/graph?${sensor_string}time_int=${encodeURIComponent(
-            this.state.time.value
-          )}`
-        )
-          .then(res => res.json())
-          .then(
-            result => {
-              this.setState({
-                plot_iot: result.graph
-              });
-            },
-            // Note: it's important to handle errors here
-            // instead of a catch() block so that we don't swallow
-            // exceptions from actual bugs in components.
-            error => {
-              this.setState({
-                isLoaded: true,
-                error
-              });
-            }
+        try {
+          const response = await fetch(
+            `https://api.kk6gpv.net/iot/graph?${sensor_string}time_int=${encodeURIComponent(
+              this.state.time.value
+            )}`
           );
+          if (!response.ok) {
+            throw Error(response.statusText);
+          }
+          const res = await response.json();
+          this.setState({
+            isLoaded: true,
+            plot_iot: res.graph
+          });
+        } catch (error) {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
       }
     );
   }
 
-  onChangeSensor(event) {
+  async onChangeSensor(event) {
     console.log(event);
     this.setState(
       {
         sensor: event
       },
-      function() {
+      async function() {
         var sensor_string = "";
         if (this.state.sensor) {
           for (var i = 0; i < this.state.sensor.length; i++) {
@@ -101,33 +99,31 @@ class Iot extends Component {
             ]
           });
         }
-        fetch(
-          `https://api.kk6gpv.net/iot/graph?${sensor_string}time_int=${encodeURIComponent(
-            this.state.time.value
-          )}`
-        )
-          .then(res => res.json())
-          .then(
-            result => {
-              this.setState({
-                plot_iot: result.graph
-              });
-            },
-            // Note: it's important to handle errors here
-            // instead of a catch() block so that we don't swallow
-            // exceptions from actual bugs in components.
-            error => {
-              this.setState({
-                isLoaded: true,
-                error
-              });
-            }
+        try {
+          const response = await fetch(
+            `https://api.kk6gpv.net/iot/graph?${sensor_string}time_int=${encodeURIComponent(
+              this.state.time.value
+            )}`
           );
+          if (!response.ok) {
+            throw Error(response.statusText);
+          }
+          const res = await response.json();
+          this.setState({
+            isLoaded: true,
+            plot_iot: res.graph
+          });
+        } catch (error) {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
       }
     );
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     var sensor_string = "";
     for (var i = 0; i < this.state.sensor.length; i++) {
       sensor_string =
@@ -144,29 +140,26 @@ class Iot extends Component {
         ]
       });
     }
-    fetch(
-      `https://api.kk6gpv.net/iot/graph?${sensor_string}time_int=${encodeURIComponent(
-        this.state.time.value
-      )}`
-    )
-      .then(res => res.json())
-      .then(
-        result => {
-          this.setState({
-            isLoaded: true,
-            plot_iot: result.graph
-          });
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        error => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
+    try {
+      const response = await fetch(
+        `https://api.kk6gpv.net/iot/graph?${sensor_string}time_int=${encodeURIComponent(
+          this.state.time.value
+        )}`
       );
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const res = await response.json();
+      this.setState({
+        isLoaded: true,
+        plot_iot: res.graph
+      });
+    } catch (error) {
+      this.setState({
+        isLoaded: true,
+        error
+      });
+    }
   }
 
   render() {
