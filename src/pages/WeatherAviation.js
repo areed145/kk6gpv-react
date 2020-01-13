@@ -26,6 +26,7 @@ class WeatherAviation extends Component {
       lat: 38,
       lon: -95,
       zoom: 3,
+      stations: 1,
       infrared: 0,
       visible: 0,
       radar: 1,
@@ -59,6 +60,8 @@ class WeatherAviation extends Component {
             this.state.lon
           )}&zoom=${encodeURIComponent(
             this.state.zoom
+          )}&stations=${encodeURIComponent(
+            this.state.stations
           )}&infrared=${encodeURIComponent(
             this.state.infrared
           )}&visible=${encodeURIComponent(
@@ -115,6 +118,8 @@ class WeatherAviation extends Component {
             this.state.lon
           )}&zoom=${encodeURIComponent(
             this.state.zoom
+          )}&stations=${encodeURIComponent(
+            this.state.stations
           )}&infrared=${encodeURIComponent(
             this.state.infrared
           )}&visible=${encodeURIComponent(
@@ -172,6 +177,8 @@ class WeatherAviation extends Component {
             this.state.lon
           )}&zoom=${encodeURIComponent(
             this.state.zoom
+          )}&stations=${encodeURIComponent(
+            this.state.stations
           )}&infrared=${encodeURIComponent(
             this.state.infrared
           )}&visible=${encodeURIComponent(
@@ -229,6 +236,8 @@ class WeatherAviation extends Component {
             this.state.lon
           )}&zoom=${encodeURIComponent(
             this.state.zoom
+          )}&stations=${encodeURIComponent(
+            this.state.stations
           )}&infrared=${encodeURIComponent(
             this.state.infrared
           )}&visible=${encodeURIComponent(
@@ -286,6 +295,8 @@ class WeatherAviation extends Component {
             this.state.lon
           )}&zoom=${encodeURIComponent(
             this.state.zoom
+          )}&stations=${encodeURIComponent(
+            this.state.stations
           )}&infrared=${encodeURIComponent(
             this.state.infrared
           )}&visible=${encodeURIComponent(
@@ -343,6 +354,8 @@ class WeatherAviation extends Component {
             this.state.lon
           )}&zoom=${encodeURIComponent(
             this.state.zoom
+          )}&stations=${encodeURIComponent(
+            this.state.stations
           )}&infrared=${encodeURIComponent(
             this.state.infrared
           )}&visible=${encodeURIComponent(
@@ -400,6 +413,8 @@ class WeatherAviation extends Component {
             this.state.lon
           )}&zoom=${encodeURIComponent(
             this.state.zoom
+          )}&stations=${encodeURIComponent(
+            this.state.stations
           )}&infrared=${encodeURIComponent(
             this.state.infrared
           )}&visible=${encodeURIComponent(
@@ -457,6 +472,8 @@ class WeatherAviation extends Component {
             this.state.lon
           )}&zoom=${encodeURIComponent(
             this.state.zoom
+          )}&stations=${encodeURIComponent(
+            this.state.stations
           )}&infrared=${encodeURIComponent(
             this.state.infrared
           )}&visible=${encodeURIComponent(
@@ -514,6 +531,67 @@ class WeatherAviation extends Component {
             this.state.lon
           )}&zoom=${encodeURIComponent(
             this.state.zoom
+          )}&stations=${encodeURIComponent(
+            this.state.stations
+          )}&infrared=${encodeURIComponent(
+            this.state.infrared
+          )}&visible=${encodeURIComponent(
+            this.state.visible
+          )}&radar=${encodeURIComponent(
+            this.state.radar
+          )}&analysis=${encodeURIComponent(
+            this.state.analysis
+          )}&lightning=${encodeURIComponent(
+            this.state.lightning
+          )}&precip=${encodeURIComponent(
+            this.state.precip
+          )}&watchwarn=${encodeURIComponent(
+            this.state.watchwarn
+          )}&temp=${encodeURIComponent(this.state.temp)}`
+        )
+          .then(res => res.json())
+          .then(
+            result => {
+              var radar_map = { ...this.state.radar_map };
+              radar_map.data = result.map.data;
+              radar_map.layout.mapbox.layers = result.map.layout.mapbox.layers;
+              this.setState({ radar_map: radar_map });
+            },
+            // Note: it's important to handle errors here
+            // instead of a catch() block so that we don't swallow
+            // exceptions from actual bugs in components.
+            error => {
+              this.setState({
+                isLoaded: true,
+                error
+              });
+            }
+          );
+      }
+    );
+  }
+
+  onClickStations(event) {
+    var stations = this.state.stations;
+    if (stations === 0) {
+        stations = 1;
+    } else {
+        stations = 0;
+    }
+    this.setState(
+      {
+        stations: stations
+      },
+      function() {
+        fetch(
+          `https://api.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
+            this.state.prop
+          )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
+            this.state.lon
+          )}&zoom=${encodeURIComponent(
+            this.state.zoom
+          )}&stations=${encodeURIComponent(
+            this.state.stations
           )}&infrared=${encodeURIComponent(
             this.state.infrared
           )}&visible=${encodeURIComponent(
@@ -560,6 +638,8 @@ class WeatherAviation extends Component {
         this.state.lon
       )}&zoom=${encodeURIComponent(
         this.state.zoom
+      )}&stations=${encodeURIComponent(
+        this.state.stations
       )}&infrared=${encodeURIComponent(
         this.state.infrared
       )}&visible=${encodeURIComponent(
@@ -676,12 +756,29 @@ class WeatherAviation extends Component {
                       style={{
                         color: "#ffffff",
                         backgroundColor: "#e8093a",
-                        border: "0px",
+                        border: "0px"
                       }}
                     >
                       Layers
                     </DropdownToggle>
-                    <DropdownMenu className="dropdownmenu" style={{position: "absolute", top: "0px", left: "100px"}}>
+                    <DropdownMenu
+                      className="dropdownmenu"
+                      style={{
+                        position: "absolute",
+                        top: "0px",
+                        left: "100px"
+                      }}
+                    >
+                      <DropdownItem
+                        style={{
+                          color: "#ffffff",
+                          backgroundColor: "#c53093",
+                          border: "0px"
+                        }}
+                        onClick={this.onClickStations.bind(this)}
+                      >
+                        Stations
+                      </DropdownItem>
                       <DropdownItem
                         style={{
                           color: "#ffffff",
