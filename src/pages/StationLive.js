@@ -16,6 +16,7 @@ class StationLive extends Component {
       lat: 29.78088,
       lon: -95.42041,
       zoom: 6,
+      stations: 1,
       infrared: 0,
       visible: 0,
       radar: 1,
@@ -54,6 +55,8 @@ class StationLive extends Component {
         this.state.lon
       )}&zoom=${encodeURIComponent(
         this.state.zoom
+      )}&stations=${encodeURIComponent(
+        this.state.stations
       )}&infrared=${encodeURIComponent(
         this.state.infrared
       )}&visible=${encodeURIComponent(

@@ -30,7 +30,7 @@ class WeatherAviation extends Component {
       infrared: 0,
       visible: 0,
       radar: 1,
-      analysis: 0,
+      analysis: 1,
       lightning: 0,
       precip: 0,
       watchwarn: 0,
@@ -100,12 +100,7 @@ class WeatherAviation extends Component {
   }
 
   onClickTemp(event) {
-    var temp = this.state.temp;
-    if (temp === 0) {
-      temp = 1;
-    } else {
-      temp = 0;
-    }
+    var temp = -this.state.temp + 1;
     this.setState(
       {
         temp: temp
@@ -159,12 +154,7 @@ class WeatherAviation extends Component {
   }
 
   onClickInfrared(event) {
-    var infrared = this.state.infrared;
-    if (infrared === 0) {
-      infrared = 1;
-    } else {
-      infrared = 0;
-    }
+    var infrared = -this.state.infrared + 1;
     this.setState(
       {
         infrared: infrared
@@ -218,12 +208,7 @@ class WeatherAviation extends Component {
   }
 
   onClickVisible(event) {
-    var visible = this.state.visible;
-    if (visible === 0) {
-      visible = 1;
-    } else {
-      visible = 0;
-    }
+    var visible = -this.state.visible + 1;
     this.setState(
       {
         visible: visible
@@ -277,12 +262,7 @@ class WeatherAviation extends Component {
   }
 
   onClickFronts(event) {
-    var analysis = this.state.analysis;
-    if (analysis === 0) {
-      analysis = 1;
-    } else {
-      analysis = 0;
-    }
+    var analysis = -this.state.analysis + 1;
     this.setState(
       {
         analysis: analysis
@@ -336,12 +316,7 @@ class WeatherAviation extends Component {
   }
 
   onClickLightning(event) {
-    var lightning = this.state.lightning;
-    if (lightning === 0) {
-      lightning = 1;
-    } else {
-      lightning = 0;
-    }
+    var lightning = -this.state.lightning + 1;
     this.setState(
       {
         lightning: lightning
@@ -395,12 +370,7 @@ class WeatherAviation extends Component {
   }
 
   onClickPrecip(event) {
-    var precip = this.state.precip;
-    if (precip === 0) {
-      precip = 1;
-    } else {
-      precip = 0;
-    }
+    var precip = -this.state.precip + 1;
     this.setState(
       {
         precip: precip
@@ -454,12 +424,7 @@ class WeatherAviation extends Component {
   }
 
   onClickRadar(event) {
-    var radar = this.state.radar;
-    if (radar === 0) {
-      radar = 1;
-    } else {
-      radar = 0;
-    }
+    var radar = -this.state.radar + 1;
     this.setState(
       {
         radar: radar
@@ -513,12 +478,7 @@ class WeatherAviation extends Component {
   }
 
   onClickAlerts(event) {
-    var watchwarn = this.state.watchwarn;
-    if (watchwarn === 0) {
-      watchwarn = 1;
-    } else {
-      watchwarn = 0;
-    }
+    var watchwarn = -this.state.watchwarn + 1;
     this.setState(
       {
         watchwarn: watchwarn
@@ -572,12 +532,7 @@ class WeatherAviation extends Component {
   }
 
   onClickStations(event) {
-    var stations = this.state.stations;
-    if (stations === 0) {
-        stations = 1;
-    } else {
-        stations = 0;
-    }
+    var stations = -this.state.stations + 1;
     this.setState(
       {
         stations: stations
@@ -772,7 +727,7 @@ class WeatherAviation extends Component {
                       <DropdownItem
                         style={{
                           color: "#ffffff",
-                          backgroundColor: "#c53093",
+                          backgroundColor: "#eb3461",
                           border: "0px"
                         }}
                         onClick={this.onClickStations.bind(this)}
