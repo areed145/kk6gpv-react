@@ -29,68 +29,62 @@ class StationLive extends Component {
     };
   }
 
-  componentDidMount() {
-    fetch("https://api.kk6gpv.net/station/live/data")
-      .then(res => res.json())
-      .then(
-        res => {
-          this.setState({
-            wx: res.wx
-          });
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        error => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
+  async componentDidMount() {
+    try {
+      const response = await fetch(`https://api.kk6gpv.net/station/live/data`);
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const res = await response.json();
+      this.setState({
+        wx: res.wx
+      });
+    } catch (error) {
+      this.setState({
+        isLoaded: true,
+        error
+      });
+    }
+    try {
+      const response = await fetch(
+        `https://api.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
+          this.state.prop_awc
+        )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
+          this.state.lon
+        )}&zoom=${encodeURIComponent(
+          this.state.zoom
+        )}&stations=${encodeURIComponent(
+          this.state.stations
+        )}&infrared=${encodeURIComponent(
+          this.state.infrared
+        )}&visible=${encodeURIComponent(
+          this.state.visible
+        )}&radar=${encodeURIComponent(
+          this.state.radar
+        )}&analysis=${encodeURIComponent(
+          this.state.analysis
+        )}&lightning=${encodeURIComponent(
+          this.state.lightning
+        )}&precip=${encodeURIComponent(
+          this.state.precip
+        )}&watchwarn=${encodeURIComponent(
+          this.state.watchwarn
+        )}&temp=${encodeURIComponent(this.state.temp)}`
       );
-    fetch(
-      `https://api.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
-        this.state.prop_awc
-      )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
-        this.state.lon
-      )}&zoom=${encodeURIComponent(
-        this.state.zoom
-      )}&stations=${encodeURIComponent(
-        this.state.stations
-      )}&infrared=${encodeURIComponent(
-        this.state.infrared
-      )}&visible=${encodeURIComponent(
-        this.state.visible
-      )}&radar=${encodeURIComponent(
-        this.state.radar
-      )}&analysis=${encodeURIComponent(
-        this.state.analysis
-      )}&lightning=${encodeURIComponent(
-        this.state.lightning
-      )}&precip=${encodeURIComponent(
-        this.state.precip
-      )}&watchwarn=${encodeURIComponent(
-        this.state.watchwarn
-      )}&temp=${encodeURIComponent(this.state.temp)}`
-    )
-      .then(res => res.json())
-      .then(
-        result => {
-          this.setState({
-            isLoaded: true,
-            radar_map: result.map
-          });
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        error => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      );
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const res = await response.json();
+      this.setState({
+        isLoaded: true,
+        radar_map: res.map
+      });
+    } catch (error) {
+      this.setState({
+        isLoaded: true,
+        error
+      });
+    }
   }
 
   render() {

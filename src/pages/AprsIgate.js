@@ -23,182 +23,158 @@ class AprsIgate extends Component {
     };
   }
 
-  onChangeTime(event) {
-    // console.log(event.value);
+  async onChangeTime(event) {
     this.setState(
       {
         time: event.value,
         time_label: event.label
       },
-      function() {
-        console.log(this.state);
-        fetch(
-          `https://api.kk6gpv.net/aprs/map?type_aprs=entry&prop_aprs=${encodeURIComponent(
-            this.state.prop
-          )}&time_int=${encodeURIComponent(this.state.time)}`
-        )
-          .then(res => res.json())
-          .then(
-            result => {
-              var map_aprs = { ...this.state.map_aprs };
-              map_aprs.data = result.map_aprs.data;
-              this.setState({ map_aprs });
-              this.setState({
-                plot_speed: result.plot_speed,
-                plot_alt: result.plot_alt,
-                plot_course: result.plot_course
-              });
-            },
-            // Note: it's important to handle errors here
-            // instead of a catch() block so that we don't swallow
-            // exceptions from actual bugs in components.
-            error => {
-              this.setState({
-                isLoaded: true,
-                error
-              });
-            }
+      async function() {
+        try {
+          const response = await fetch(
+            `https://api.kk6gpv.net/aprs/map?type_aprs=entry&prop_aprs=${encodeURIComponent(
+              this.state.prop
+            )}&time_int=${encodeURIComponent(this.state.time)}`
           );
-        fetch(
-          `https://api.kk6gpv.net/aprs/igate_range?time_int=${encodeURIComponent(
-            this.state.time
-          )}`
-        )
-          .then(res => res.json())
-          .then(
-            result => {
-              this.setState({
-                range_aprs: result.range_aprs
-              });
-            },
-            // Note: it's important to handle errors here
-            // instead of a catch() block so that we don't swallow
-            // exceptions from actual bugs in components.
-            error => {
-              this.setState({
-                isLoaded: true,
-                error
-              });
-            }
+          if (!response.ok) {
+            throw Error(response.statusText);
+          }
+          const res = await response.json();
+          var map_aprs = { ...this.state.map_aprs };
+          map_aprs.data = res.map_aprs.data;
+          this.setState({ map_aprs });
+          this.setState({
+            plot_speed: res.plot_speed,
+            plot_alt: res.plot_alt,
+            plot_course: res.plot_course
+          });
+        } catch (error) {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+        try {
+          const response = await fetch(
+            `https://api.kk6gpv.net/aprs/igate_range?time_int=${encodeURIComponent(
+              this.state.time
+            )}`
           );
-        console.log(this.state);
+          if (!response.ok) {
+            throw Error(response.statusText);
+          }
+          const res = await response.json();
+          this.setState({
+            range_aprs: res.range_aprs
+          });
+        } catch (error) {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
       }
     );
   }
 
-  onChangeProp(event) {
-    // console.log(event.value);
+  async onChangeProp(event) {
     this.setState(
       {
         prop: event.value,
         prop_label: event.label
       },
-      function() {
-        console.log(this.state);
-        fetch(
-          `https://api.kk6gpv.net/aprs/map?type_aprs=entry&prop_aprs=${encodeURIComponent(
-            this.state.prop
-          )}&time_int=${encodeURIComponent(this.state.time)}`
-        )
-          .then(res => res.json())
-          .then(
-            result => {
-              var map_aprs = { ...this.state.map_aprs };
-              map_aprs.data = result.map_aprs.data;
-              this.setState({ map_aprs });
-              this.setState({
-                plot_speed: result.plot_speed,
-                plot_alt: result.plot_alt,
-                plot_course: result.plot_course
-              });
-            },
-            // Note: it's important to handle errors here
-            // instead of a catch() block so that we don't swallow
-            // exceptions from actual bugs in components.
-            error => {
-              this.setState({
-                isLoaded: true,
-                error
-              });
-            }
+      async function() {
+        try {
+          const response = await fetch(
+            `https://api.kk6gpv.net/aprs/map?type_aprs=entry&prop_aprs=${encodeURIComponent(
+              this.state.prop
+            )}&time_int=${encodeURIComponent(this.state.time)}`
           );
-        console.log(this.state);
-        fetch(
-          `https://api.kk6gpv.net/aprs/igate_range?time_int=${encodeURIComponent(
-            this.state.time
-          )}`
-        )
-          .then(res => res.json())
-          .then(
-            result => {
-              this.setState({
-                range_aprs: result.range_aprs
-              });
-            },
-            // Note: it's important to handle errors here
-            // instead of a catch() block so that we don't swallow
-            // exceptions from actual bugs in components.
-            error => {
-              this.setState({
-                isLoaded: true,
-                error
-              });
-            }
+          if (!response.ok) {
+            throw Error(response.statusText);
+          }
+          const res = await response.json();
+          var map_aprs = { ...this.state.map_aprs };
+          map_aprs.data = res.map_aprs.data;
+          this.setState({ map_aprs });
+          this.setState({
+            plot_speed: res.plot_speed,
+            plot_alt: res.plot_alt,
+            plot_course: res.plot_course
+          });
+        } catch (error) {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+        try {
+          const response = await fetch(
+            `https://api.kk6gpv.net/aprs/igate_range?time_int=${encodeURIComponent(
+              this.state.time
+            )}`
           );
+          if (!response.ok) {
+            throw Error(response.statusText);
+          }
+          const res = await response.json();
+          this.setState({
+            range_aprs: res.range_aprs
+          });
+        } catch (error) {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
       }
     );
   }
 
-  componentDidMount() {
-    fetch(
-      `https://api.kk6gpv.net/aprs/map?type_aprs=entry&prop_aprs=${encodeURIComponent(
-        this.state.prop
-      )}&time_int=${encodeURIComponent(this.state.time)}`
-    )
-      .then(res => res.json())
-      .then(
-        result => {
-          this.setState({
-            isLoaded: true,
-            map_aprs: result.map_aprs,
-            plot_speed: result.plot_speed,
-            plot_alt: result.plot_alt,
-            plot_course: result.plot_course,
-            rows: result.rows
-          });
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        error => {
-          this.setState({
-            // isLoaded: true,
-            error
-          });
-        }
+  async componentDidMount() {
+    try {
+      const response = await fetch(
+        `https://api.kk6gpv.net/aprs/map?type_aprs=entry&prop_aprs=${encodeURIComponent(
+          this.state.prop
+        )}&time_int=${encodeURIComponent(this.state.time)}`
       );
-    fetch(
-      `https://api.kk6gpv.net/aprs/igate_range?time_int=${encodeURIComponent(
-        this.state.time
-      )}`
-    )
-      .then(res => res.json())
-      .then(
-        result => {
-          this.setState({
-            range_aprs: result.range_aprs
-          });
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        error => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const res = await response.json();
+      this.setState({
+        isLoaded: true,
+        map_aprs: res.map_aprs,
+        plot_speed: res.plot_speed,
+        plot_alt: res.plot_alt,
+        plot_course: res.plot_course,
+        rows: res.rows
+      });
+    } catch (error) {
+      this.setState({
+        isLoaded: true,
+        error
+      });
+    }
+    try {
+      const response = await fetch(
+        `https://api.kk6gpv.net/aprs/igate_range?time_int=${encodeURIComponent(
+          this.state.time
+        )}`
       );
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const res = await response.json();
+      this.setState({
+        range_aprs: res.range_aprs
+      });
+    } catch (error) {
+      this.setState({
+        isLoaded: true,
+        error
+      });
+    }
   }
 
   render() {

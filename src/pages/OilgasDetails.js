@@ -29,92 +29,101 @@ class DetailsOilgas extends Component {
     };
   }
 
-  componentDidMount() {
-    const encodedValue = encodeURIComponent(this.state.api);
-    fetch(`https://api.kk6gpv.net/oilgas/header/details?api=${encodedValue}`)
-      .then(res => res.json())
-      .then(
-        result => {
-          this.setState({
-            // isLoaded: true,
-            header: result.header
-          });
-        },
-        error => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
+  async componentDidMount() {
+    const api = encodeURIComponent(this.state.api);
+    try {
+      const response = await fetch(
+        `https://api.kk6gpv.net/oilgas/header/details?api=${api}`
       );
-    fetch(`https://api.kk6gpv.net/oilgas/prodinj/graph?api=${encodedValue}&axis=log`)
-      .then(res => res.json())
-      .then(
-        result => {
-          this.setState({
-            isLoaded: true,
-            graph_oilgas: result.graph_oilgas
-          });
-        },
-        error => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const res = await response.json();
+      this.setState({
+        header: res.header
+      });
+    } catch (error) {
+      this.setState({
+        isLoaded: true,
+        error
+      });
+    }
+    try {
+      const response = await fetch(
+        `https://api.kk6gpv.net/oilgas/prodinj/graph?api=${api}&axis=log`
       );
-    fetch(`https://api.kk6gpv.net/oilgas/offset/graphs?api=${encodedValue}&axis=log`)
-      .then(res => res.json())
-      .then(
-        result => {
-          this.setState({
-            isLoaded: true,
-            graph_offset_oil: result.graph_offset_oil,
-            graph_offset_stm: result.graph_offset_stm,
-            graph_offset_wtr: result.graph_offset_wtr,
-            graph_offset_oil_ci: result.graph_offset_oil_ci,
-            graph_offset_stm_ci: result.graph_offset_stm_ci,
-            graph_offset_wtr_ci: result.graph_offset_wtr_ci
-          });
-        },
-        error => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const res = await response.json();
+      this.setState({
+        graph_oilgas: res.graph_oilgas
+      });
+    } catch (error) {
+      this.setState({
+        isLoaded: true,
+        error
+      });
+    }
+    try {
+      const response = await fetch(
+        `https://api.kk6gpv.net/oilgas/offset/graphs?api=${api}&axis=log`
       );
-    fetch(`https://api.kk6gpv.net/oilgas/cyclic/graph?api=${encodedValue}`)
-      .then(res => res.json())
-      .then(
-        result => {
-          this.setState({
-            isLoaded: true,
-            graph_cyclic_jobs: result.graph_cyclic_jobs
-          });
-        },
-        error => {
-          this.setState({
-            error
-          });
-        }
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const res = await response.json();
+      this.setState({
+        isLoaded: true,
+        graph_offset_oil: res.graph_offset_oil,
+        graph_offset_stm: res.graph_offset_stm,
+        graph_offset_wtr: res.graph_offset_wtr,
+        graph_offset_oil_ci: res.graph_offset_oil_ci,
+        graph_offset_stm_ci: res.graph_offset_stm_ci,
+        graph_offset_wtr_ci: res.graph_offset_wtr_ci
+      });
+    } catch (error) {
+      this.setState({
+        isLoaded: true,
+        error
+      });
+    }
+    try {
+      const response = await fetch(
+        `https://api.kk6gpv.net/oilgas/cyclic/graph?api=${api}`
       );
-      fetch(`https://api.kk6gpv.net/oilgas/crm/graph?api=${encodedValue}`)
-      .then(res => res.json())
-      .then(
-        result => {
-          this.setState({
-            isLoaded: true,
-            graph_crm: result.graph_crm
-          });
-        },
-        error => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const res = await response.json();
+      this.setState({
+        isLoaded: true,
+        graph_cyclic_jobs: res.graph_cyclic_jobs
+      });
+    } catch (error) {
+      this.setState({
+        isLoaded: true,
+        error
+      });
+    }
+    try {
+      const response = await fetch(
+        `https://api.kk6gpv.net/oilgas/crm/graph?api=${api}`
       );
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const res = await response.json();
+      this.setState({
+        isLoaded: true,
+        graph_crm: res.graph_crm
+      });
+    } catch (error) {
+      this.setState({
+        isLoaded: true,
+        error
+      });
+    }
   }
 
   render() {

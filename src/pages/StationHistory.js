@@ -23,82 +23,74 @@ class StationHistory extends Component {
     };
   }
 
-  onChange(event) {
-    // console.log(event.value);
+  async onChange(event) {
     this.setState(
       {
         time: event.value,
         time_label: event.label
       },
-      function() {
-        console.log(this.state);
-        fetch(
-          `https://api.kk6gpv.net/station/history/graphs?time_int=${encodeURIComponent(
-            this.state.time
-          )}`
-        )
-          .then(res => res.json())
-          .then(
-            result => {
-              this.setState({
-                isLoaded: true,
-                fig_td: result.fig_td,
-                fig_pr: result.fig_pr,
-                fig_pc: result.fig_pc,
-                fig_wd: result.fig_wd,
-                fig_su: result.fig_su,
-                fig_cb: result.fig_cb,
-                fig_wr: result.fig_wr,
-                fig_thp: result.fig_thp,
-                revision: this.state.revision + 1
-              });
-            },
-            // Note: it's important to handle errors here
-            // instead of a catch() block so that we don't swallow
-            // exceptions from actual bugs in components.
-            error => {
-              this.setState({
-                isLoaded: true,
-                error
-              });
-            }
+      async function() {
+        try {
+          const response = await fetch(
+            `https://api.kk6gpv.net/station/history/graphs?time_int=${encodeURIComponent(
+              this.state.time
+            )}`
           );
-        console.log(this.state);
-      }
-    );
-  }
-
-  componentDidMount() {
-    fetch(
-      `https://api.kk6gpv.net/station/history/graphs?time_int=${encodeURIComponent(
-        this.state.time
-      )}`
-    )
-      .then(res => res.json())
-      .then(
-        result => {
+          if (!response.ok) {
+            throw Error(response.statusText);
+          }
+          const res = await response.json();
           this.setState({
             isLoaded: true,
-            fig_td: result.fig_td,
-            fig_pr: result.fig_pr,
-            fig_pc: result.fig_pc,
-            fig_wd: result.fig_wd,
-            fig_su: result.fig_su,
-            fig_cb: result.fig_cb,
-            fig_wr: result.fig_wr,
-            fig_thp: result.fig_thp
+            fig_td: res.fig_td,
+            fig_pr: res.fig_pr,
+            fig_pc: res.fig_pc,
+            fig_wd: res.fig_wd,
+            fig_su: res.fig_su,
+            fig_cb: res.fig_cb,
+            fig_wr: res.fig_wr,
+            fig_thp: res.fig_thp,
+            revision: this.state.revision + 1
           });
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        error => {
+        } catch (error) {
           this.setState({
             isLoaded: true,
             error
           });
         }
+      }
+    );
+  }
+
+  async componentDidMount() {
+    try {
+      const response = await fetch(
+        `https://api.kk6gpv.net/station/history/graphs?time_int=${encodeURIComponent(
+          this.state.time
+        )}`
       );
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const res = await response.json();
+      this.setState({
+        isLoaded: true,
+        fig_td: res.fig_td,
+        fig_pr: res.fig_pr,
+        fig_pc: res.fig_pc,
+        fig_wd: res.fig_wd,
+        fig_su: res.fig_su,
+        fig_cb: res.fig_cb,
+        fig_wr: res.fig_wr,
+        fig_thp: res.fig_thp,
+        revision: this.state.revision + 1
+      });
+    } catch (error) {
+      this.setState({
+        isLoaded: true,
+        error
+      });
+    }
   }
 
   render() {
@@ -107,6 +99,7 @@ class StationHistory extends Component {
     var options = [
       { value: "h_1", label: "1 hour" },
       { value: "h_6", label: "6 hours" },
+      { value: "h_12", label: "12 hours" },
       { value: "d_1", label: "1 day" },
       { value: "d_2", label: "2 days" },
       { value: "d_7", label: "7 days" },
