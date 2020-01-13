@@ -62,6 +62,14 @@ body {
   margin-right: 12.5px !important;
 }
 
+.cardresume {
+  display: table-cell;
+}
+
+.cardresume img {
+  float: left;
+}
+
 .mapboxgl-popup-content,
 .menu,
 .card {
@@ -97,9 +105,9 @@ body {
 }
 
 .cardbodynopad {
-    border-radius: 0px 0px 10px 10px !important;
-    padding: 0px !important;
-  }
+  border-radius: 0px 0px 10px 10px !important;
+  padding: 0px !important;
+}
 
 .main {
   background-color: #f0ffff;
