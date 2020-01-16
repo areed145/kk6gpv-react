@@ -29,8 +29,10 @@ import OilgasMap from "./pages/OilgasMap";
 import OilgasDetails from "./pages/OilgasDetails";
 import Blog from "./pages/Blog";
 import About from "./pages/About";
+import Resume from "./pages/Resume";
 import Login from "./pages/Login";
 import TestMap from "./pages/TestMap";
+import CardBoard from "./pages/CardBoard";
 
 import Menu from "./components/Menu";
 
@@ -68,8 +70,10 @@ class App extends Component {
             <Route path="/oilgas/details/:api" component={OilgasDetails} />
             <Route path="/blog" component={Blog} />
             <Route path="/about" component={About} />
+            <Route path="/resume" component={Resume} />
             <Route path="/login" component={Login} />
             <Route path="/test/map" component={TestMap} />
+            <Route path="/board" component={CardBoard} />
             <Route component={Error} />
           </Switch>
         </BrowserRouter>
