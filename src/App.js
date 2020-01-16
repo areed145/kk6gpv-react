@@ -68,12 +68,12 @@ class App extends Component {
             <Route path="/oilgas/summary" component={OilgasSummary} />
             <Route path="/oilgas/map" component={OilgasMap} />
             <Route path="/oilgas/details/:api" component={OilgasDetails} />
+            <Route path="/oilgas/tasks" component={CardBoard} />
             <Route path="/blog" component={Blog} />
             <Route path="/about" component={About} />
             <Route path="/resume" component={Resume} />
             <Route path="/login" component={Login} />
             <Route path="/test/map" component={TestMap} />
-            <Route path="/board" component={CardBoard} />
             <Route component={Error} />
           </Switch>
         </BrowserRouter>

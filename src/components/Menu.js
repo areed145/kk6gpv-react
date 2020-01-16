@@ -104,6 +104,7 @@ class Menu extends Component {
               <DropdownMenu right className="menu">
                 <DropdownItem href="/oilgas/summary">Summary</DropdownItem>
                 <DropdownItem href="/oilgas/map">Map</DropdownItem>
+                <DropdownItem href="/oilgas/tasks">Tasks</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
             {/* <NavItem>
