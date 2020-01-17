@@ -6,6 +6,170 @@ import { CardDeck, Card, CardBody, CardHeader, CardTitle } from "reactstrap";
 // import CardCell from "../components/CardCell";
 // import Footer from "../components/Footer";
 
+const customStyles = {
+  headRow: {
+    style: {
+      fontSize: "1em"
+    }
+  },
+  headCells: {
+    style: {
+      fontSize: "1em"
+    }
+  }
+};
+const columns = [
+  {
+    name: "API",
+    selector: "api",
+    sortable: true,
+    right: true,
+    style: {
+      fontSize: "1.2em"
+    }
+  },
+  {
+    name: "Field",
+    selector: "field",
+    sortable: true,
+    right: true,
+    style: {
+      fontSize: "1.2em"
+    }
+  },
+  {
+    name: "Lease",
+    selector: "lease",
+    sortable: true,
+    style: {
+      fontSize: "1.2em"
+    }
+  },
+  {
+    name: "Well",
+    selector: "well",
+    sortable: true,
+    right: true,
+    style: {
+      fontSize: "1.2em"
+    }
+  },
+  {
+    name: "County",
+    selector: "county",
+    sortable: true,
+    right: true,
+    style: {
+      fontSize: "1.2em"
+    }
+  },
+  {
+    name: "Operator",
+    selector: "operator",
+    sortable: true,
+    right: true,
+    style: {
+      fontSize: "1.2em"
+    }
+  },
+  {
+    name: "Well Status",
+    selector: "wellstatus",
+    sortable: true,
+    right: true,
+    style: {
+      fontSize: "1.2em"
+    }
+  },
+  {
+    name: "Oil Cum",
+    selector: "oil_cum",
+    sortable: true,
+    right: true,
+    style: {
+      fontSize: "1.2em"
+    },
+    conditionalCellStyles: [
+      {
+        when: row => row.oil_cum < 20000,
+        style: {
+          backgroundColor: "#d6ed42"
+        }
+      },
+      {
+        when: row => row.oil_cum >= 20000 && row.oil_cum < 40000,
+        style: {
+          backgroundColor: "#78ed42"
+        }
+      },
+      {
+        when: row => row.oil_cum >= 40000,
+        style: {
+          backgroundColor: "#50bf37"
+        }
+      }
+    ]
+  },
+  {
+    name: "Water Cum",
+    selector: "water_cum",
+    sortable: true,
+    right: true,
+    style: {
+      fontSize: "1.2em"
+    },
+    conditionalCellStyles: [
+      {
+        when: row => row.water_cum < 40000,
+        style: {
+          backgroundColor: "#caf0f7"
+        }
+      },
+      {
+        when: row => row.water_cum >= 40000 && row.water_cum < 80000,
+        style: {
+          backgroundColor: "#64d6ea"
+        }
+      },
+      {
+        when: row => row.water_cum >= 80000,
+        style: {
+          backgroundColor: "#4286f4"
+        }
+      }
+    ]
+  },
+  {
+    name: "Steam Cum",
+    selector: "wtrstm_cum",
+    sortable: true,
+    right: true,
+    style: {
+      fontSize: "1.2em"
+    },
+    conditionalCellStyles: [
+      {
+        when: row => row.wtrstm_cum < 800000,
+        style: {
+          backgroundColor: "#edb6d7"
+        }
+      },
+      {
+        when: row => row.wtrstm_cum >= 800000 && row.wtrstm_cum < 1600000,
+        style: {
+          backgroundColor: "#ed87c4"
+        }
+      },
+      {
+        when: row => row.wtrstm_cum >= 1600000,
+        style: {
+          backgroundColor: "#e22f9b"
+        }
+      }
+    ]
+  }
+];
+
 class OilgasSummary extends Component {
   constructor(props) {
     super(props);
@@ -76,174 +240,9 @@ class OilgasSummary extends Component {
   }
 
   render() {
-    const customStyles = {
-      headRow: {
-        style: {
-          fontSize: "1em"
-        }
-      },
-      headCells: {
-        style: {
-          fontSize: "1em"
-        }
-      }
-    };
-    const columns = [
-      {
-        name: "API",
-        selector: "api",
-        sortable: true,
-        right: true,
-        style: {
-          fontSize: "1.2em"
-        }
-      },
-      {
-        name: "Field",
-        selector: "field",
-        sortable: true,
-        right: true,
-        style: {
-          fontSize: "1.2em"
-        }
-      },
-      {
-        name: "Lease",
-        selector: "lease",
-        sortable: true,
-        style: {
-          fontSize: "1.2em"
-        }
-      },
-      {
-        name: "Well",
-        selector: "well",
-        sortable: true,
-        right: true,
-        style: {
-          fontSize: "1.2em"
-        }
-      },
-      {
-        name: "County",
-        selector: "county",
-        sortable: true,
-        right: true,
-        style: {
-          fontSize: "1.2em"
-        }
-      },
-      {
-        name: "Operator",
-        selector: "operator",
-        sortable: true,
-        right: true,
-        style: {
-          fontSize: "1.2em"
-        }
-      },
-      {
-        name: "Well Status",
-        selector: "wellstatus",
-        sortable: true,
-        right: true,
-        style: {
-          fontSize: "1.2em"
-        }
-      },
-      {
-        name: "Oil Cum",
-        selector: "oil_cum",
-        sortable: true,
-        right: true,
-        style: {
-          fontSize: "1.2em"
-        },
-        conditionalCellStyles: [
-          {
-            when: row => row.oil_cum < 20000,
-            style: {
-              backgroundColor: "#d6ed42"
-            }
-          },
-          {
-            when: row => row.oil_cum >= 20000 && row.oil_cum < 40000,
-            style: {
-              backgroundColor: "#78ed42"
-            }
-          },
-          {
-            when: row => row.oil_cum >= 40000,
-            style: {
-              backgroundColor: "#50bf37"
-            }
-          }
-        ]
-      },
-      {
-        name: "Water Cum",
-        selector: "water_cum",
-        sortable: true,
-        right: true,
-        style: {
-          fontSize: "1.2em"
-        },
-        conditionalCellStyles: [
-          {
-            when: row => row.water_cum < 40000,
-            style: {
-              backgroundColor: "#caf0f7"
-            }
-          },
-          {
-            when: row => row.water_cum >= 40000 && row.water_cum < 80000,
-            style: {
-              backgroundColor: "#64d6ea"
-            }
-          },
-          {
-            when: row => row.water_cum >= 80000,
-            style: {
-              backgroundColor: "#4286f4"
-            }
-          }
-        ]
-      },
-      {
-        name: "Steam Cum",
-        selector: "wtrstm_cum",
-        sortable: true,
-        right: true,
-        style: {
-          fontSize: "1.2em"
-        },
-        conditionalCellStyles: [
-          {
-            when: row => row.wtrstm_cum < 800000,
-            style: {
-              backgroundColor: "#edb6d7"
-            }
-          },
-          {
-            when: row => row.wtrstm_cum >= 800000 && row.wtrstm_cum < 1600000,
-            style: {
-              backgroundColor: "#ed87c4"
-            }
-          },
-          {
-            when: row => row.wtrstm_cum >= 1600000,
-            style: {
-              backgroundColor: "#e22f9b"
-            }
-          }
-        ]
-      }
-    ];
-    console.log(this.state);
     return (
       <div>
         <div className="main">
-          <div className="margin" />
           <CardDeck className="carddeck">
             <Card className="card">
               <CardHeader className="cardheader">
@@ -253,6 +252,7 @@ class OilgasSummary extends Component {
               </CardHeader>
               <CardBody className="cardbody">
                 <DataTable
+                  noHeader
                   columns={columns}
                   data={this.state.highperf}
                   customStyles={customStyles}
@@ -270,6 +270,7 @@ class OilgasSummary extends Component {
               </CardHeader>
               <CardBody className="cardbody">
                 <DataTable
+                  noHeader
                   columns={columns}
                   data={this.state.ipcs}
                   customStyles={customStyles}
@@ -287,6 +288,7 @@ class OilgasSummary extends Component {
               </CardHeader>
               <CardBody className="cardbody">
                 <DataTable
+                  noHeader
                   columns={columns}
                   data={this.state.pics}
                   customStyles={customStyles}
