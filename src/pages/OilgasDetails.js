@@ -421,6 +421,7 @@ class DetailsOilgas extends Component {
                     latitude={this.state.header.latitude}
                     longitude={this.state.header.longitude}
                     zoom={16}
+                    mapstyle={"mapbox://styles/areed145/ck5ipvzcq0tos1ipc69h4vn7v"}
                   />
                 </CardBody>
               </Card>
@@ -480,6 +481,21 @@ class DetailsOilgas extends Component {
                 title="CRM Model Results"
                 plot={[this.state.graph_crm]}
               />
+              <Card className="card">
+                <CardHeader className="cardheader">
+                  <CardTitle>
+                    <h5>CRM Map</h5>
+                  </CardTitle>
+                </CardHeader>
+                <CardBody className="cardbody">
+                  <MapOil
+                    latitude={this.state.header.latitude}
+                    longitude={this.state.header.longitude}
+                    zoom={16}
+                    mapstyle={"mapbox://styles/areed145/ck2jlfnp03oiv1cpepd4js9k6"}
+                  />
+                </CardBody>
+              </Card>
             </CardDeck>
             <div className="margin" />
             {/* <Footer /> */}

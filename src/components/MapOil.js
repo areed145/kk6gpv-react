@@ -104,7 +104,7 @@ class MapOil extends Component {
             width="100%"
             height="100%"
             mapboxApiAccessToken={TOKEN}
-            mapStyle="mapbox://styles/areed145/ck2jlfnp03oiv1cpepd4js9k6"
+            mapStyle={this.props.mapstyle}
             onViewportChange={viewport => this.onViewportChange(viewport)}
             onClick={popup => this.onMapClick(popup)}
           >
@@ -131,7 +131,7 @@ class MapOil extends Component {
             width="100%"
             height="100%"
             mapboxApiAccessToken={TOKEN}
-            mapStyle="mapbox://styles/areed145/ck2jlfnp03oiv1cpepd4js9k6"
+            mapStyle={this.props.mapstyle}
             onViewportChange={viewport => this.onViewportChange(viewport)}
             onClick={popup => this.onMapClick(popup)}
           >
