@@ -109,10 +109,9 @@ class Iot extends Component {
             throw Error(response.statusText);
           }
           const res = await response.json();
-          this.setState({
-            isLoaded: true,
-            plot_iot: res.graph
-          });
+          var plot_iot = { ...this.state.plot_iot };
+          plot_iot.data = res.graph.data;
+          this.setState({ plot_iot });
         } catch (error) {
           this.setState({
             isLoaded: true,

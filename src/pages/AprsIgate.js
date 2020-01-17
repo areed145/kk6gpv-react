@@ -97,11 +97,6 @@ class AprsIgate extends Component {
           var map_aprs = { ...this.state.map_aprs };
           map_aprs.data = res.map_aprs.data;
           this.setState({ map_aprs });
-          this.setState({
-            plot_speed: res.plot_speed,
-            plot_alt: res.plot_alt,
-            plot_course: res.plot_course
-          });
         } catch (error) {
           this.setState({
             isLoaded: true,
