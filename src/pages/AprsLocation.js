@@ -1,8 +1,96 @@
 import React, { Component } from "react";
 import CardCell from "../components/CardCell";
 import Select from "react-select";
+import DataTable from "react-data-table-component";
 import { CardDeck, Card, CardHeader, CardTitle, CardBody } from "reactstrap";
 // import Footer from "../components/Footer";
+
+const customStyles = {
+  headRow: {
+    style: {
+      fontSize: "1em"
+    }
+  },
+  headCells: {
+    style: {
+      fontSize: "1em"
+    }
+  }
+};
+const columns = [
+  {
+    name: "Timestamp",
+    selector: "timestamp_",
+    sortable: true,
+    right: true,
+    style: {
+      fontSize: "1.2em"
+    }
+  },
+  {
+    name: "From",
+    selector: "from",
+    sortable: true,
+    right: true,
+    style: {
+      fontSize: "1.2em"
+    },
+  },
+  {
+    name: "To",
+    selector: "to",
+    sortable: true,
+    right: true,
+    style: {
+      fontSize: "1.2em"
+    },
+  },
+  {
+    name: "Via",
+    selector: "via",
+    sortable: true,
+    right: true,
+    style: {
+      fontSize: "1.2em"
+    },
+  },
+  {
+    name: "Speed",
+    selector: "speed",
+    sortable: true,
+    right: true,
+    style: {
+      fontSize: "1.2em"
+    },
+  },
+  {
+    name: "Altitude",
+    selector: "altitude",
+    sortable: true,
+    right: true,
+    style: {
+      fontSize: "1.2em"
+    },
+  },
+  {
+    name: "Course",
+    selector: "course",
+    sortable: true,
+    right: true,
+    style: {
+      fontSize: "1.2em"
+    },
+  },
+  {
+    name: "Comment",
+    selector: "comment",
+    sortable: true,
+    right: true,
+    style: {
+      fontSize: "1.2em"
+    },
+  }
+];
 
 class AprsLocation extends Component {
   constructor(props) {
@@ -46,7 +134,8 @@ class AprsLocation extends Component {
           this.setState({
             plot_speed: res.plot_speed,
             plot_alt: res.plot_alt,
-            plot_course: res.plot_course
+            plot_course: res.plot_course,
+            rows: res.rows
           });
         } catch (error) {
           this.setState({
@@ -222,6 +311,25 @@ class AprsLocation extends Component {
                 plot={[this.state.plot_course]}
                 revision={this.state.revision}
               />
+            </CardDeck>
+            <CardDeck className="carddeck">
+              <Card className="card">
+                <CardHeader className="cardheader">
+                  <CardTitle>
+                    <h5>Packets</h5>
+                  </CardTitle>
+                </CardHeader>
+                <CardBody className="cardbody">
+                  <DataTable
+                    noHeader
+                    columns={columns}
+                    data={this.state.rows}
+                    customStyles={customStyles}
+                    highlightOnHover
+                    pagination
+                  />
+                </CardBody>
+              </Card>
             </CardDeck>
             <div className="margin" />
             {/* <Footer /> */}
