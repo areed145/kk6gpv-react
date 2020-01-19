@@ -134,6 +134,10 @@ class Iot extends Component {
     );
   }
 
+  async componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
   async componentDidMount() {
     var sensor_string = "";
     for (var i = 0; i < this.state.sensor.length; i++) {
