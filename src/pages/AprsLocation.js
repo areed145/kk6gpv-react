@@ -34,7 +34,7 @@ const columns = [
     right: true,
     style: {
       fontSize: "1.2em"
-    },
+    }
   },
   {
     name: "To",
@@ -43,7 +43,7 @@ const columns = [
     right: true,
     style: {
       fontSize: "1.2em"
-    },
+    }
   },
   {
     name: "Via",
@@ -52,7 +52,7 @@ const columns = [
     right: true,
     style: {
       fontSize: "1.2em"
-    },
+    }
   },
   {
     name: "Speed",
@@ -61,7 +61,7 @@ const columns = [
     right: true,
     style: {
       fontSize: "1.2em"
-    },
+    }
   },
   {
     name: "Altitude",
@@ -70,7 +70,7 @@ const columns = [
     right: true,
     style: {
       fontSize: "1.2em"
-    },
+    }
   },
   {
     name: "Course",
@@ -79,7 +79,7 @@ const columns = [
     right: true,
     style: {
       fontSize: "1.2em"
-    },
+    }
   },
   {
     name: "Comment",
@@ -88,7 +88,7 @@ const columns = [
     right: true,
     style: {
       fontSize: "1.2em"
-    },
+    }
   }
 ];
 
@@ -103,12 +103,57 @@ class AprsLocation extends Component {
       plot_alt: [],
       plot_course: [],
       rows: [],
+      last: [],
       time: "d_1",
       time_label: "1 day",
       prop: "speed",
       prop_label: "Speed",
       revision: 0
     };
+  }
+
+  async intervalUpdate(event) {
+    try {
+      const response = await fetch(`https://api.kk6gpv.net/aprs/latest`);
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const res = await response.json();
+      this.setState({
+        isLoaded: true,
+        last: res.last
+      });
+    } catch (error) {
+      this.setState({
+        isLoaded: true,
+        error
+      });
+    }
+    try {
+      const response = await fetch(
+        `https://api.kk6gpv.net/aprs/map?type_aprs=prefix&prop_aprs=${encodeURIComponent(
+          this.state.prop
+        )}&time_int=${encodeURIComponent(this.state.time)}`
+      );
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const res = await response.json();
+      var map_aprs = { ...this.state.map_aprs };
+      map_aprs.data = res.map_aprs.data;
+      this.setState({ map_aprs });
+      this.setState({
+        plot_speed: res.plot_speed,
+        plot_alt: res.plot_alt,
+        plot_course: res.plot_course,
+        rows: res.rows
+      });
+    } catch (error) {
+      this.setState({
+        isLoaded: true,
+        error
+      });
+    }
   }
 
   async onChangeTime(event) {
@@ -118,6 +163,22 @@ class AprsLocation extends Component {
         time_label: event.label
       },
       async function() {
+        try {
+          const response = await fetch(`https://api.kk6gpv.net/aprs/latest`);
+          if (!response.ok) {
+            throw Error(response.statusText);
+          }
+          const res = await response.json();
+          this.setState({
+            isLoaded: true,
+            last: res.last
+          });
+        } catch (error) {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
         try {
           const response = await fetch(
             `https://api.kk6gpv.net/aprs/map?type_aprs=prefix&prop_aprs=${encodeURIComponent(
@@ -177,7 +238,27 @@ class AprsLocation extends Component {
     );
   }
 
+  async componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
   async componentDidMount() {
+    try {
+      const response = await fetch(`https://api.kk6gpv.net/aprs/latest`);
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const res = await response.json();
+      this.setState({
+        isLoaded: true,
+        last: res.last
+      });
+    } catch (error) {
+      this.setState({
+        isLoaded: true,
+        error
+      });
+    }
     try {
       const response = await fetch(
         `https://api.kk6gpv.net/aprs/map?type_aprs=prefix&prop_aprs=${encodeURIComponent(
@@ -188,9 +269,13 @@ class AprsLocation extends Component {
         throw Error(response.statusText);
       }
       const res = await response.json();
+      var map_aprs = res.map_aprs;
+      map_aprs.layout.mapbox.center.lat = this.state.last.latitude;
+      map_aprs.layout.mapbox.center.lon = this.state.last.longitude;
+      map_aprs.layout.mapbox.zoom = 12;
+      this.setState({ map_aprs });
       this.setState({
         isLoaded: true,
-        map_aprs: res.map_aprs,
         plot_speed: res.plot_speed,
         plot_alt: res.plot_alt,
         plot_course: res.plot_course,
@@ -202,6 +287,7 @@ class AprsLocation extends Component {
         error
       });
     }
+    this.interval = setInterval(() => this.intervalUpdate(), 10000);
   }
 
   render() {
@@ -293,6 +379,17 @@ class AprsLocation extends Component {
                 plot={[this.state.map_aprs]}
                 revision={this.state.revision}
               />
+            </CardDeck>
+            <CardDeck className="carddeck">
+              <Card className="card">
+                <CardBody className="cardbody">
+                  <p align="center">
+                    Last seen {this.state.last.hour} hours {this.state.last.min}{" "}
+                    minutes {this.state.last.sec} seconds ago at{" "}
+                    {this.state.last.timestamp_}
+                  </p>
+                </CardBody>
+              </Card>
             </CardDeck>
             <CardDeck className="carddeck">
               <CardCell

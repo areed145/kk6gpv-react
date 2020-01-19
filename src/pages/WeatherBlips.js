@@ -31,7 +31,6 @@ class WeatherBlips extends Component {
   }
 
   openTab(name) {
-    console.log(name);
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {

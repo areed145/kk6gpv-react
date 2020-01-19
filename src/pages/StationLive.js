@@ -29,6 +29,68 @@ class StationLive extends Component {
     };
   }
 
+  async intervalUpdate(event) {
+    try {
+      const response = await fetch(`https://api.kk6gpv.net/station/live/data`);
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const res = await response.json();
+      this.setState({
+        wx: res.wx
+      });
+    } catch (error) {
+      this.setState({
+        isLoaded: true,
+        error
+      });
+    }
+    try {
+      const response = await fetch(
+        `https://api.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
+          this.state.prop_awc
+        )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
+          this.state.lon
+        )}&zoom=${encodeURIComponent(
+          this.state.zoom
+        )}&stations=${encodeURIComponent(
+          this.state.stations
+        )}&infrared=${encodeURIComponent(
+          this.state.infrared
+        )}&visible=${encodeURIComponent(
+          this.state.visible
+        )}&radar=${encodeURIComponent(
+          this.state.radar
+        )}&analysis=${encodeURIComponent(
+          this.state.analysis
+        )}&lightning=${encodeURIComponent(
+          this.state.lightning
+        )}&precip=${encodeURIComponent(
+          this.state.precip
+        )}&watchwarn=${encodeURIComponent(
+          this.state.watchwarn
+        )}&temp=${encodeURIComponent(this.state.temp)}`
+      );
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const res = await response.json();
+      this.setState({
+        isLoaded: true,
+        radar_map: res.map
+      });
+    } catch (error) {
+      this.setState({
+        isLoaded: true,
+        error
+      });
+    }
+  }
+
+  async componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
   async componentDidMount() {
     try {
       const response = await fetch(`https://api.kk6gpv.net/station/live/data`);
@@ -85,6 +147,7 @@ class StationLive extends Component {
         error
       });
     }
+    this.interval = setInterval(() => this.intervalUpdate(), 60000);
   }
 
   render() {

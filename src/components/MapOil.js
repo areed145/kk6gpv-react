@@ -27,7 +27,6 @@ class MapOil extends Component {
   onViewportChange = viewport => {
     const { width, height, ...etc } = viewport;
     this.setState({ viewport: etc });
-    // console.log(this.state);
   };
 
   onMapClick(event) {

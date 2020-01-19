@@ -92,7 +92,6 @@ class WeatherSoundings extends Component {
   }
 
   render() {
-    console.log(this.state);
     const { error, isLoaded } = this.state;
 
     if (error) {

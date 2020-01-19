@@ -21,38 +21,44 @@ class Iot extends Component {
           label: "Load 1m"
         }
       ],
+      sensor_string: "sensor_iot=sensor.load_1m&",
       revision: 0
     };
   }
 
+  async intervalUpdate(event) {
+    try {
+      const response = await fetch(
+        `https://api.kk6gpv.net/iot/graph?${
+          this.state.sensor_string
+        }time_int=${encodeURIComponent(this.state.time.value)}`
+      );
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const res = await response.json();
+      var plot_iot = { ...this.state.plot_iot };
+      plot_iot.data = res.graph.data;
+      this.setState({ plot_iot });
+    } catch (error) {
+      this.setState({
+        isLoaded: true,
+        error
+      });
+    }
+  }
+
   async onChangeTime(event) {
-    // console.log(event.value);
     this.setState(
       {
         time: event
       },
       async function() {
-        var sensor_string = "";
-        for (var i = 0; i < this.state.sensor.length; i++) {
-          sensor_string =
-            sensor_string + "sensor_iot=" + this.state.sensor[i].value + "&";
-        }
-        if (sensor_string === "") {
-          sensor_string = "sensor_iot=sensor.load_1m&";
-          this.setState({
-            sensor: [
-              {
-                value: "sensor.load_1m",
-                label: "Load 1m"
-              }
-            ]
-          });
-        }
         try {
           const response = await fetch(
-            `https://api.kk6gpv.net/iot/graph?${sensor_string}time_int=${encodeURIComponent(
-              this.state.time.value
-            )}`
+            `https://api.kk6gpv.net/iot/graph?${
+              this.state.sensor_string
+            }time_int=${encodeURIComponent(this.state.time.value)}`
           );
           if (!response.ok) {
             throw Error(response.statusText);
@@ -73,7 +79,6 @@ class Iot extends Component {
   }
 
   async onChangeSensor(event) {
-    console.log(event);
     this.setState(
       {
         sensor: event
@@ -84,9 +89,15 @@ class Iot extends Component {
           for (var i = 0; i < this.state.sensor.length; i++) {
             sensor_string =
               sensor_string + "sensor_iot=" + this.state.sensor[i].value + "&";
+            this.setState({
+              sensor_string: sensor_string
+            });
           }
         } else {
           sensor_string = "";
+          this.setState({
+            sensor_string: sensor_string
+          });
         }
         if (sensor_string === "") {
           sensor_string = "sensor_iot=sensor.load_1m&";
@@ -96,7 +107,8 @@ class Iot extends Component {
                 value: "sensor.load_1m",
                 label: "Load 1m"
               }
-            ]
+            ],
+            sensor_string: sensor_string
           });
         }
         try {
@@ -159,10 +171,10 @@ class Iot extends Component {
         error
       });
     }
+    this.interval = setInterval(() => this.intervalUpdate(), 5000);
   }
 
   render() {
-    // console.log(this.state);
     const { error, isLoaded } = this.state;
 
     var time_options = [

@@ -60,8 +60,6 @@ class Gallery extends Component {
       this.state.count_views +
       " views";
 
-    console.log(this.state);
-
     const cards = this.state.rows.map((row, ridx) => {
       return (
         <CardDeck className="carddeck" key={ridx}>
