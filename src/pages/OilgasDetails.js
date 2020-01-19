@@ -19,6 +19,7 @@ class DetailsOilgas extends Component {
       isLoaded: false,
       api: this.props.match.params.api,
       header: [],
+      graph_decline: [],
       graph_oilgas: [],
       graph_offset_oil: [],
       graph_offset_stm: [],
@@ -27,6 +28,7 @@ class DetailsOilgas extends Component {
       graph_offset_stm_ci: [],
       graph_offset_wtr_ci: [],
       graph_cyclic_jobs: [],
+      graph_crm: [],
       tags: [],
       suggestions: [
         { id: 1, name: "Slider" },
@@ -154,7 +156,7 @@ class DetailsOilgas extends Component {
     } catch (error) {
       this.setState({
         isLoaded: true,
-        tags: [],
+        tags: []
       });
     }
     try {
@@ -167,6 +169,23 @@ class DetailsOilgas extends Component {
       const res = await response.json();
       this.setState({
         graph_oilgas: res.graph_oilgas
+      });
+    } catch (error) {
+      this.setState({
+        isLoaded: true,
+        error
+      });
+    }
+    try {
+      const response = await fetch(
+        `https://api.kk6gpv.net/oilgas/decline/graph?api=${api}&axis=log`
+      );
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const res = await response.json();
+      this.setState({
+        graph_decline: res.graph_decline
       });
     } catch (error) {
       this.setState({
@@ -421,7 +440,9 @@ class DetailsOilgas extends Component {
                     latitude={this.state.header.latitude}
                     longitude={this.state.header.longitude}
                     zoom={16}
-                    mapstyle={"mapbox://styles/areed145/ck5ipvzcq0tos1ipc69h4vn7v"}
+                    mapstyle={
+                      "mapbox://styles/areed145/ck5ipvzcq0tos1ipc69h4vn7v"
+                    }
                   />
                 </CardBody>
               </Card>
@@ -449,6 +470,12 @@ class DetailsOilgas extends Component {
                   />
                 </CardBody>
               </Card>
+            </CardDeck>
+            <CardDeck className="carddeck">
+              <CardCell
+                title="Decline Curve Analysis"
+                plot={[this.state.graph_decline]}
+              />
             </CardDeck>
             <CardDeck className="carddeck">
               <CardCell
@@ -492,7 +519,9 @@ class DetailsOilgas extends Component {
                     latitude={this.state.header.latitude}
                     longitude={this.state.header.longitude}
                     zoom={16}
-                    mapstyle={"mapbox://styles/areed145/ck2jlfnp03oiv1cpepd4js9k6"}
+                    mapstyle={
+                      "mapbox://styles/areed145/ck2jlfnp03oiv1cpepd4js9k6"
+                    }
                   />
                 </CardBody>
               </Card>
