@@ -1,9 +1,96 @@
 import React, { Component } from "react";
 import CardCell from "../components/CardCell";
 import Select from "react-select";
+import DataTable from "react-data-table-component";
 import { CardDeck, Card, CardHeader, CardTitle, CardBody } from "reactstrap";
 // import Footer from "../components/Footer";
 
+const customStyles = {
+  headRow: {
+    style: {
+      fontSize: "1em"
+    }
+  },
+  headCells: {
+    style: {
+      fontSize: "1em"
+    }
+  }
+};
+const columns = [
+  {
+    name: "Timestamp",
+    selector: "timestamp_",
+    sortable: true,
+    right: true,
+    style: {
+      fontSize: "1.1em"
+    }
+  },
+  {
+    name: "From",
+    selector: "from",
+    sortable: true,
+    right: true,
+    style: {
+      fontSize: "1.1em"
+    }
+  },
+  {
+    name: "To",
+    selector: "to",
+    sortable: true,
+    right: true,
+    style: {
+      fontSize: "1.1em"
+    }
+  },
+  {
+    name: "Via",
+    selector: "via",
+    sortable: true,
+    right: true,
+    style: {
+      fontSize: "1.1em"
+    }
+  },
+  {
+    name: "Speed",
+    selector: "speed",
+    sortable: true,
+    right: true,
+    style: {
+      fontSize: "1.1em"
+    }
+  },
+  {
+    name: "Altitude",
+    selector: "altitude",
+    sortable: true,
+    right: true,
+    style: {
+      fontSize: "1.1em"
+    }
+  },
+  {
+    name: "Course",
+    selector: "course",
+    sortable: true,
+    right: true,
+    style: {
+      fontSize: "1.1em"
+    }
+  },
+  {
+    name: "Comment",
+    selector: "comment",
+    sortable: true,
+    right: true,
+    style: {
+      fontSize: "1.1em"
+    }
+  }
+];
 class AprsIgate extends Component {
   constructor(props) {
     super(props);
@@ -21,6 +108,52 @@ class AprsIgate extends Component {
       prop_label: "Speed",
       revision: 0
     };
+  }
+
+  async intervalUpdate(event) {
+    try {
+      const response = await fetch(
+        `https://api.kk6gpv.net/aprs/map?type_aprs=entry&prop_aprs=${encodeURIComponent(
+          this.state.prop
+        )}&time_int=${encodeURIComponent(this.state.time)}`
+      );
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const res = await response.json();
+      var map_aprs = { ...this.state.map_aprs };
+      map_aprs.data = res.map_aprs.data;
+      this.setState({ map_aprs });
+      this.setState({
+        plot_speed: res.plot_speed,
+        plot_alt: res.plot_alt,
+        plot_course: res.plot_course
+      });
+    } catch (error) {
+      this.setState({
+        isLoaded: true,
+        error
+      });
+    }
+    try {
+      const response = await fetch(
+        `https://api.kk6gpv.net/aprs/igate_range?time_int=${encodeURIComponent(
+          this.state.time
+        )}`
+      );
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const res = await response.json();
+      this.setState({
+        range_aprs: res.range_aprs
+      });
+    } catch (error) {
+      this.setState({
+        isLoaded: true,
+        error
+      });
+    }
   }
 
   async onChangeTime(event) {
@@ -124,6 +257,10 @@ class AprsIgate extends Component {
         }
       }
     );
+  }
+
+  async componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   async componentDidMount() {
@@ -283,6 +420,25 @@ class AprsIgate extends Component {
                 plot={[this.state.range_aprs]}
                 revision={this.state.revision}
               />
+            </CardDeck>
+            <CardDeck className="carddeck">
+              <Card className="card">
+                <CardHeader className="cardheader">
+                  <CardTitle>
+                    <h5>Packets</h5>
+                  </CardTitle>
+                </CardHeader>
+                <CardBody className="cardbody">
+                  <DataTable
+                    noHeader
+                    columns={columns}
+                    data={this.state.rows}
+                    customStyles={customStyles}
+                    highlightOnHover
+                    pagination
+                  />
+                </CardBody>
+              </Card>
             </CardDeck>
             <div className="margin" />
             {/* <Footer /> */}

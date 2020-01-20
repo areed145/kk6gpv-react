@@ -24,7 +24,7 @@ const columns = [
     sortable: true,
     right: true,
     style: {
-      fontSize: "1.2em"
+      fontSize: "1.1em"
     }
   },
   {
@@ -33,7 +33,7 @@ const columns = [
     sortable: true,
     right: true,
     style: {
-      fontSize: "1.2em"
+      fontSize: "1.1em"
     }
   },
   {
@@ -42,7 +42,7 @@ const columns = [
     sortable: true,
     right: true,
     style: {
-      fontSize: "1.2em"
+      fontSize: "1.1em"
     }
   },
   {
@@ -51,7 +51,7 @@ const columns = [
     sortable: true,
     right: true,
     style: {
-      fontSize: "1.2em"
+      fontSize: "1.1em"
     }
   },
   {
@@ -60,7 +60,7 @@ const columns = [
     sortable: true,
     right: true,
     style: {
-      fontSize: "1.2em"
+      fontSize: "1.1em"
     }
   },
   {
@@ -69,7 +69,7 @@ const columns = [
     sortable: true,
     right: true,
     style: {
-      fontSize: "1.2em"
+      fontSize: "1.1em"
     }
   },
   {
@@ -78,7 +78,7 @@ const columns = [
     sortable: true,
     right: true,
     style: {
-      fontSize: "1.2em"
+      fontSize: "1.1em"
     }
   },
   {
@@ -87,7 +87,7 @@ const columns = [
     sortable: true,
     right: true,
     style: {
-      fontSize: "1.2em"
+      fontSize: "1.1em"
     }
   }
 ];
