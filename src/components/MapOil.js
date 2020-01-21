@@ -46,10 +46,6 @@ class MapOil extends Component {
       var well = feature.properties.well;
       var operator = feature.properties.operator;
       var api = feature.properties.api;
-      // var text = "<strong>" + lease + " " + well + "</strong><br>";
-      // text += "<a href=\"/oilgas/details/" + api + "\" target=\"_blank\" title=\"Opens in a new window\">" + api + "</a><br>";
-      // text += operator + "<br>";
-      // text += field + "<br>";
       const popup = {
         latitude: coordinates[1],
         longitude: coordinates[0],

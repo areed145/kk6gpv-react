@@ -178,7 +178,8 @@ class OilgasSummary extends Component {
       isLoaded: false,
       ipcs: [],
       pics: [],
-      highperf: []
+      highperf: [],
+      shutin: [],
     };
   }
 
@@ -237,12 +238,48 @@ class OilgasSummary extends Component {
         error
       });
     }
+    try {
+        const response = await fetch(
+          `https://api.kk6gpv.net/oilgas/header/tags?tags=Shut-In`
+        );
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        const res = await response.json();
+        this.setState({
+          isLoaded: true,
+          pics: res.headers
+        });
+      } catch (error) {
+        this.setState({
+          isLoaded: true,
+          error
+        });
+      }
   }
 
   render() {
     return (
       <div>
         <div className="main">
+          <CardDeck className="carddeck">
+            <Card className="card">
+              <CardHeader className="cardheader">
+                <CardTitle>
+                  <h5>Shut-In</h5>
+                </CardTitle>
+              </CardHeader>
+              <CardBody className="cardbody">
+                <DataTable
+                  noHeader
+                  columns={columns}
+                  data={this.state.shutin}
+                  customStyles={customStyles}
+                  highlightOnHover
+                />
+              </CardBody>
+            </Card>
+          </CardDeck>
           <CardDeck className="carddeck">
             <Card className="card">
               <CardHeader className="cardheader">
