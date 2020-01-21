@@ -526,6 +526,42 @@ class DetailsOilgas extends Component {
                 </CardBody>
               </Card>
             </CardDeck>
+            <CardDeck className="carddeck">
+              <Card className="card">
+                <CardHeader className="cardheader">
+                  <CardTitle>
+                    <h5>Qi Map</h5>
+                  </CardTitle>
+                </CardHeader>
+                <CardBody className="cardbody">
+                  <MapOil
+                    latitude={this.state.header.latitude}
+                    longitude={this.state.header.longitude}
+                    zoom={16}
+                    mapstyle={
+                      "mapbox://styles/areed145/ck5n93bd915mb1iqdh5otkndj"
+                    }
+                  />
+                </CardBody>
+              </Card>
+              <Card className="card">
+                <CardHeader className="cardheader">
+                  <CardTitle>
+                    <h5>Decline Map</h5>
+                  </CardTitle>
+                </CardHeader>
+                <CardBody className="cardbody">
+                  <MapOil
+                    latitude={this.state.header.latitude}
+                    longitude={this.state.header.longitude}
+                    zoom={16}
+                    mapstyle={
+                      "mapbox://styles/areed145/ck5n8jaq92f1y1ilpmeruwstl"
+                    }
+                  />
+                </CardBody>
+              </Card>
+            </CardDeck>
             <div className="margin" />
             {/* <Footer /> */}
           </div>
