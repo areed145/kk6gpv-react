@@ -4,7 +4,9 @@ import Div100vh from "react-div-100vh";
 import ReactMapGL, {
   GeolocateControl,
   Popup,
-  FullscreenControl
+  FullscreenControl,
+  Layer,
+  Source
 } from "react-map-gl";
 import WellInfo from "./WellInfo";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -12,13 +14,17 @@ import "mapbox-gl/dist/mapbox-gl.css";
 const TOKEN =
   "pk.eyJ1IjoiYXJlZWQxNDUiLCJhIjoiY2phdzNsN2ZoMGh0bjMybzF3cTkycWYyciJ9.4aS7z-guI2VDlP3duMg2FA";
 
+const metersToPixelsAtMaxZoom = (meters, latitude) =>
+  meters / 0.075 / Math.cos((latitude * Math.PI) / 180);
+
 class MapOil extends Component {
   state = {
     viewport: {
       latitude: this.props.latitude,
       longitude: this.props.longitude,
       zoom: this.props.zoom,
-      showPopup: true
+      showPopup: true,
+      radius: this.props.radius
     },
     fill: this.props.fill,
     popup: null
@@ -79,6 +85,19 @@ class MapOil extends Component {
   render() {
     const { viewport } = this.state;
 
+    const geojson = {
+      type: "FeatureCollection",
+      features: [
+        {
+          type: "Feature",
+          geometry: {
+            type: "Point",
+            coordinates: [this.props.longitude, this.props.latitude]
+          }
+        }
+      ]
+    };
+
     const fullscreenControlStyle = {
       position: "absolute",
       top: 10,
@@ -108,6 +127,26 @@ class MapOil extends Component {
             onClick={popup => this.onMapClick(popup)}
           >
             {this.renderPopup()}
+            <Source id="my-data" type="geojson" data={geojson}>
+              <Layer
+                // id="point"
+                type="circle"
+                beforeId="wells"
+                paint={{
+                  "circle-radius": {
+                    stops: [
+                      [0, 0],
+                      [20, metersToPixelsAtMaxZoom(100, this.props.latitude)]
+                    ],
+                    base: 2
+                  },
+                  "circle-color": "red",
+                  "circle-opacity": 0.1,
+                  "circle-stroke-width": 2,
+                  "circle-stroke-color": "red"
+                }}
+              />
+            </Source>
             <div className="geolocate">
               <GeolocateControl
                 style={geolocateStyle}
@@ -135,6 +174,26 @@ class MapOil extends Component {
             onClick={popup => this.onMapClick(popup)}
           >
             {this.renderPopup()}
+            <Source id="my-data" type="geojson" data={geojson}>
+              <Layer
+                // id="point"
+                type="circle"
+                beforeId="wells"
+                paint={{
+                  "circle-radius": {
+                    stops: [
+                      [0, 0],
+                      [20, metersToPixelsAtMaxZoom(100, 22)]
+                    ],
+                    base: 2
+                  },
+                  "circle-color": "red",
+                  "circle-opacity": 0.1,
+                  "circle-stroke-width": 2,
+                  "circle-stroke-color": "red"
+                }}
+              />
+            </Source>
             <div className="geolocate">
               <GeolocateControl
                 style={geolocateStyle}
