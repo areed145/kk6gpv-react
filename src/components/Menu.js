@@ -117,7 +117,7 @@ class Menu extends Component {
               <NavLink href="/login">Login</NavLink>
             </NavItem> */}
             <NavItem>
-              <NavLink href="https://api.kk6gpv.net/docs">API</NavLink>
+              <NavLink href="https://kk6gpv-api.herokuapp.com/docs">API</NavLink>
             </NavItem>
           </Nav>
         </Collapse>

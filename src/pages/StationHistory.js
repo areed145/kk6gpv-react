@@ -32,7 +32,7 @@ class StationHistory extends Component {
       async function() {
         try {
           const response = await fetch(
-            `https://api.kk6gpv.net/station/history/graphs?time_int=${encodeURIComponent(
+            `https://kk6gpv-api.herokuapp.com/station/history/graphs?time_int=${encodeURIComponent(
               this.state.time
             )}`
           );
@@ -65,7 +65,7 @@ class StationHistory extends Component {
   async componentDidMount() {
     try {
       const response = await fetch(
-        `https://api.kk6gpv.net/station/history/graphs?time_int=${encodeURIComponent(
+        `https://kk6gpv-api.herokuapp.com/station/history/graphs?time_int=${encodeURIComponent(
           this.state.time
         )}`
       );

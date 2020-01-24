@@ -29,7 +29,7 @@ class Iot extends Component {
   async intervalUpdate(event) {
     try {
       const response = await fetch(
-        `https://api.kk6gpv.net/iot/graph?${
+        `https://kk6gpv-api.herokuapp.com/iot/graph?${
           this.state.sensor_string
         }time_int=${encodeURIComponent(this.state.time.value)}`
       );
@@ -56,7 +56,7 @@ class Iot extends Component {
       async function() {
         try {
           const response = await fetch(
-            `https://api.kk6gpv.net/iot/graph?${
+            `https://kk6gpv-api.herokuapp.com/iot/graph?${
               this.state.sensor_string
             }time_int=${encodeURIComponent(this.state.time.value)}`
           );
@@ -113,7 +113,7 @@ class Iot extends Component {
         }
         try {
           const response = await fetch(
-            `https://api.kk6gpv.net/iot/graph?${sensor_string}time_int=${encodeURIComponent(
+            `https://kk6gpv-api.herokuapp.com/iot/graph?${sensor_string}time_int=${encodeURIComponent(
               this.state.time.value
             )}`
           );
@@ -157,7 +157,7 @@ class Iot extends Component {
     }
     try {
       const response = await fetch(
-        `https://api.kk6gpv.net/iot/graph?${sensor_string}time_int=${encodeURIComponent(
+        `https://kk6gpv-api.herokuapp.com/iot/graph?${sensor_string}time_int=${encodeURIComponent(
           this.state.time.value
         )}`
       );

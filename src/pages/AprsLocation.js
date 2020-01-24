@@ -114,7 +114,7 @@ class AprsLocation extends Component {
 
   async intervalUpdate(event) {
     try {
-      const response = await fetch(`https://api.kk6gpv.net/aprs/latest`);
+      const response = await fetch(`https://kk6gpv-api.herokuapp.com/aprs/latest`);
       if (!response.ok) {
         throw Error(response.statusText);
       }
@@ -131,7 +131,7 @@ class AprsLocation extends Component {
     }
     try {
       const response = await fetch(
-        `https://api.kk6gpv.net/aprs/map?type_aprs=prefix&prop_aprs=${encodeURIComponent(
+        `https://kk6gpv-api.herokuapp.com/aprs/map?type_aprs=prefix&prop_aprs=${encodeURIComponent(
           this.state.prop
         )}&time_int=${encodeURIComponent(this.state.time)}`
       );
@@ -164,7 +164,7 @@ class AprsLocation extends Component {
       },
       async function() {
         try {
-          const response = await fetch(`https://api.kk6gpv.net/aprs/latest`);
+          const response = await fetch(`https://kk6gpv-api.herokuapp.com/aprs/latest`);
           if (!response.ok) {
             throw Error(response.statusText);
           }
@@ -181,7 +181,7 @@ class AprsLocation extends Component {
         }
         try {
           const response = await fetch(
-            `https://api.kk6gpv.net/aprs/map?type_aprs=prefix&prop_aprs=${encodeURIComponent(
+            `https://kk6gpv-api.herokuapp.com/aprs/map?type_aprs=prefix&prop_aprs=${encodeURIComponent(
               this.state.prop
             )}&time_int=${encodeURIComponent(this.state.time)}`
           );
@@ -217,7 +217,7 @@ class AprsLocation extends Component {
       async function() {
         try {
           const response = await fetch(
-            `https://api.kk6gpv.net/aprs/map?type_aprs=prefix&prop_aprs=${encodeURIComponent(
+            `https://kk6gpv-api.herokuapp.com/aprs/map?type_aprs=prefix&prop_aprs=${encodeURIComponent(
               this.state.prop
             )}&time_int=${encodeURIComponent(this.state.time)}`
           );
@@ -244,7 +244,7 @@ class AprsLocation extends Component {
 
   async componentDidMount() {
     try {
-      const response = await fetch(`https://api.kk6gpv.net/aprs/latest`);
+      const response = await fetch(`https://kk6gpv-api.herokuapp.com/aprs/latest`);
       if (!response.ok) {
         throw Error(response.statusText);
       }
@@ -261,7 +261,7 @@ class AprsLocation extends Component {
     }
     try {
       const response = await fetch(
-        `https://api.kk6gpv.net/aprs/map?type_aprs=prefix&prop_aprs=${encodeURIComponent(
+        `https://kk6gpv-api.herokuapp.com/aprs/map?type_aprs=prefix&prop_aprs=${encodeURIComponent(
           this.state.prop
         )}&time_int=${encodeURIComponent(this.state.time)}`
       );

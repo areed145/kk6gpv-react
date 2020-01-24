@@ -78,7 +78,7 @@ class DetailsOilgas extends Component {
     }
     try {
       fetch(
-        `https://api.kk6gpv.net/oilgas/tags/set?${tags_string}api=${encodeURIComponent(
+        `https://kk6gpv-api.herokuapp.com/oilgas/tags/set?${tags_string}api=${encodeURIComponent(
           this.state.api
         )}`,
         {
@@ -105,7 +105,7 @@ class DetailsOilgas extends Component {
     }
     try {
       fetch(
-        `https://api.kk6gpv.net/oilgas/tags/set?${tags_string}api=${encodeURIComponent(
+        `https://kk6gpv-api.herokuapp.com/oilgas/tags/set?${tags_string}api=${encodeURIComponent(
           this.state.api
         )}`,
         {
@@ -127,7 +127,7 @@ class DetailsOilgas extends Component {
     const api = encodeURIComponent(this.state.api);
     try {
       const response = await fetch(
-        `https://api.kk6gpv.net/oilgas/header/details?api=${api}`
+        `https://kk6gpv-api.herokuapp.com/oilgas/header/details?api=${api}`
       );
       if (!response.ok) {
         throw Error(response.statusText);
@@ -144,7 +144,7 @@ class DetailsOilgas extends Component {
     }
     try {
       const response = await fetch(
-        `https://api.kk6gpv.net/oilgas/tags/get?api=${api}`
+        `https://kk6gpv-api.herokuapp.com/oilgas/tags/get?api=${api}`
       );
       if (!response.ok) {
         throw Error(response.statusText);
@@ -161,7 +161,7 @@ class DetailsOilgas extends Component {
     }
     try {
       const response = await fetch(
-        `https://api.kk6gpv.net/oilgas/prodinj/graph?api=${api}&axis=log`
+        `https://kk6gpv-api.herokuapp.com/oilgas/prodinj/graph?api=${api}&axis=log`
       );
       if (!response.ok) {
         throw Error(response.statusText);
@@ -178,7 +178,7 @@ class DetailsOilgas extends Component {
     }
     try {
       const response = await fetch(
-        `https://api.kk6gpv.net/oilgas/decline/graph?api=${api}&axis=log`
+        `https://kk6gpv-api.herokuapp.com/oilgas/decline/graph?api=${api}&axis=log`
       );
       if (!response.ok) {
         throw Error(response.statusText);
@@ -195,7 +195,7 @@ class DetailsOilgas extends Component {
     }
     try {
       const response = await fetch(
-        `https://api.kk6gpv.net/oilgas/offset/graphs?api=${api}&axis=log`
+        `https://kk6gpv-api.herokuapp.com/oilgas/offset/graphs?api=${api}&axis=log`
       );
       if (!response.ok) {
         throw Error(response.statusText);
@@ -218,7 +218,7 @@ class DetailsOilgas extends Component {
     }
     try {
       const response = await fetch(
-        `https://api.kk6gpv.net/oilgas/cyclic/graph?api=${api}`
+        `https://kk6gpv-api.herokuapp.com/oilgas/cyclic/graph?api=${api}`
       );
       if (!response.ok) {
         throw Error(response.statusText);
@@ -236,7 +236,7 @@ class DetailsOilgas extends Component {
     }
     try {
       const response = await fetch(
-        `https://api.kk6gpv.net/oilgas/crm/graph?api=${api}`
+        `https://kk6gpv-api.herokuapp.com/oilgas/crm/graph?api=${api}`
       );
       if (!response.ok) {
         throw Error(response.statusText);

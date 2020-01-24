@@ -32,7 +32,7 @@ class AprsHouston extends Component {
       async function() {
         try {
           const response = await fetch(
-            `https://api.kk6gpv.net/aprs/map?type_aprs=radius&prop_aprs=${encodeURIComponent(
+            `https://kk6gpv-api.herokuapp.com/aprs/map?type_aprs=radius&prop_aprs=${encodeURIComponent(
               this.state.prop
             )}&time_int=${encodeURIComponent(this.state.time)}`
           );
@@ -67,7 +67,7 @@ class AprsHouston extends Component {
       async function() {
         try {
           const response = await fetch(
-            `https://api.kk6gpv.net/aprs/map?type_aprs=radius&prop_aprs=${encodeURIComponent(
+            `https://kk6gpv-api.herokuapp.com/aprs/map?type_aprs=radius&prop_aprs=${encodeURIComponent(
               this.state.prop
             )}&time_int=${encodeURIComponent(this.state.time)}`
           );
@@ -91,7 +91,7 @@ class AprsHouston extends Component {
   async componentDidMount() {
     try {
       const response = await fetch(
-        `https://api.kk6gpv.net/aprs/map?type_aprs=radius&prop_aprs=${encodeURIComponent(
+        `https://kk6gpv-api.herokuapp.com/aprs/map?type_aprs=radius&prop_aprs=${encodeURIComponent(
           this.state.prop
         )}&time_int=${encodeURIComponent(this.state.time)}`
       );

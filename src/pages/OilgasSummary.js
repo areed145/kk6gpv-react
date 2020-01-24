@@ -186,7 +186,7 @@ class OilgasSummary extends Component {
   async componentDidMount() {
     try {
       const response = await fetch(
-        `https://api.kk6gpv.net/oilgas/header/tags?tags=High%20Performer`
+        `https://kk6gpv-api.herokuapp.com/oilgas/header/tags?tags=High%20Performer`
       );
       if (!response.ok) {
         throw Error(response.statusText);
@@ -204,7 +204,7 @@ class OilgasSummary extends Component {
     }
     try {
       const response = await fetch(
-        `https://api.kk6gpv.net/oilgas/header/tags?tags=IPC`
+        `https://kk6gpv-api.herokuapp.com/oilgas/header/tags?tags=IPC`
       );
       if (!response.ok) {
         throw Error(response.statusText);
@@ -222,7 +222,7 @@ class OilgasSummary extends Component {
     }
     try {
       const response = await fetch(
-        `https://api.kk6gpv.net/oilgas/header/tags?tags=PIC`
+        `https://kk6gpv-api.herokuapp.com/oilgas/header/tags?tags=PIC`
       );
       if (!response.ok) {
         throw Error(response.statusText);
@@ -240,7 +240,7 @@ class OilgasSummary extends Component {
     }
     try {
         const response = await fetch(
-          `https://api.kk6gpv.net/oilgas/header/tags?tags=Shut-In`
+          `https://kk6gpv-api.herokuapp.com/oilgas/header/tags?tags=Shut-In`
         );
         if (!response.ok) {
           throw Error(response.statusText);

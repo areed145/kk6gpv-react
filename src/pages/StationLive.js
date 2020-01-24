@@ -31,7 +31,7 @@ class StationLive extends Component {
 
   async intervalUpdate(event) {
     try {
-      const response = await fetch(`https://api.kk6gpv.net/station/live/data`);
+      const response = await fetch(`https://kk6gpv-api.herokuapp.com/station/live/data`);
       if (!response.ok) {
         throw Error(response.statusText);
       }
@@ -47,7 +47,7 @@ class StationLive extends Component {
     }
     try {
       const response = await fetch(
-        `https://api.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
+        `https://kk6gpv-api.herokuapp.com/weather/aviation/map?prop_awc=${encodeURIComponent(
           this.state.prop_awc
         )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
           this.state.lon
@@ -93,7 +93,7 @@ class StationLive extends Component {
 
   async componentDidMount() {
     try {
-      const response = await fetch(`https://api.kk6gpv.net/station/live/data`);
+      const response = await fetch(`https://kk6gpv-api.herokuapp.com/station/live/data`);
       if (!response.ok) {
         throw Error(response.statusText);
       }
@@ -109,7 +109,7 @@ class StationLive extends Component {
     }
     try {
       const response = await fetch(
-        `https://api.kk6gpv.net/weather/aviation/map?prop_awc=${encodeURIComponent(
+        `https://kk6gpv-api.herokuapp.com/weather/aviation/map?prop_awc=${encodeURIComponent(
           this.state.prop_awc
         )}&lat=${encodeURIComponent(this.state.lat)}&lon=${encodeURIComponent(
           this.state.lon
