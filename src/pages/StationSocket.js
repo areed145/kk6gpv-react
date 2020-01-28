@@ -36,16 +36,6 @@ class StationSocket extends Component {
 
   componentDidMount() {
     this.ws.onopen = () => {
-      // on connecting, do nothing but log it to the console
-      console.log("connected");
-
-      this.ws.send(
-        '{"type":"listen_start", "device_id":54051, "id": "2098388936"}'
-      );
-      this.ws.send(
-        '{"type":"listen_start", "device_id":54053, "id": "2098388936"}'
-      );
-
       try {
         fetch(
           `https://kk6gpv-api.herokuapp.com/weather/aviation/map?prop_awc=${encodeURIComponent(
@@ -78,13 +68,18 @@ class StationSocket extends Component {
               rad: true,
               radar_map: res.map
             })
+          )
+          .then(
+            this.ws.send(
+              '{"type":"listen_start", "device_id":54051, "id": "2098388936"}'
+            )
+          )
+          .then(
+            this.ws.send(
+              '{"type":"listen_start", "device_id":54053, "id": "2098388936"}'
+            )
           );
-      } catch (error) {
-        this.setState({
-          // isLoaded: true,
-          error
-        });
-      }
+      } catch {}
     };
 
     this.ws.onmessage = evt => {
@@ -104,7 +99,6 @@ class StationSocket extends Component {
           wx_air.relative_humidity = Number(message.obs[0][3].toFixed(2));
           wx_air.pressure_in = Number((message.obs[0][1] * 0.02953).toFixed(2));
           this.setState({ wx: wx_air });
-          console.log(this.state.wx);
           this.setState({ air: true });
         } catch {}
       }
@@ -120,7 +114,6 @@ class StationSocket extends Component {
           wx_sky.solar_radiation = message.obs[0][1];
           wx_sky.UV = message.obs[0][2];
           this.setState({ wx: wx_sky });
-          console.log(this.state.wx);
           this.setState({ sky: true });
         } catch {}
       }
@@ -131,10 +124,7 @@ class StationSocket extends Component {
       }
     };
 
-    this.ws.onclose = () => {
-      console.log("disconnected");
-      // automatically try to reconnect on connection loss
-    };
+    this.ws.onclose = () => {};
   }
 
   render() {
