@@ -78,6 +78,11 @@ class StationSocket extends Component {
             this.ws.send(
               '{"type":"listen_start", "device_id":54053, "id": "2098388936"}'
             )
+          )
+          .then(
+            this.ws.send(
+              '{"type":"listen_rapid_start", "device_id":54053, "id": "2098388936"}'
+            )
           );
       } catch {}
     };
@@ -97,7 +102,9 @@ class StationSocket extends Component {
             ).toFixed(2)
           );
           wx_air.relative_humidity = Number(message.obs[0][3].toFixed(2));
-          wx_air.pressure_in = Number((message.obs[0][1] * 0.02953).toFixed(2));
+          wx_air.pressure_in = Number(
+            (message.obs[0][1] * 0.029693).toFixed(3)
+          );
           this.setState({ wx: wx_air });
           this.setState({ air: true });
         } catch {}
@@ -106,14 +113,23 @@ class StationSocket extends Component {
         try {
           var wx_sky = { ...this.state.wx };
           wx_sky.wind_degrees = message.obs[0][7];
-          wx_sky.wind_mph = message.obs[0][5];
-          wx_sky.wind_gust_mph = message.obs[0][6];
+          wx_sky.wind_mph = message.obs[0][5] * 1.94384;
+          wx_sky.wind_gust_mph = message.obs[0][6] * 1.94384;
           wx_sky.precip_today_in = Number(
             (message.obs[0][11] * 0.0393701).toFixed(2)
           );
-          wx_sky.solar_radiation = message.obs[0][1];
+          wx_sky.solar_radiation = message.obs[0][10];
           wx_sky.UV = message.obs[0][2];
           this.setState({ wx: wx_sky });
+          this.setState({ sky: true });
+        } catch {}
+      }
+      if (message.type === "rapid_wind") {
+        try {
+          var wx_wind = { ...this.state.wx };
+          wx_wind.wind_degrees = message.ob[2];
+          wx_wind.wind_mph = message.ob[1] * 1.94384;
+          this.setState({ wx: wx_wind });
           this.setState({ sky: true });
         } catch {}
       }
