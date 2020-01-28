@@ -3,7 +3,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./styles/index.css";
 
 import Home from "./pages/Home";
-import StationLive from "./pages/StationLive";
+import StationDb from "./pages/StationDb";
+import StationSocket from "./pages/StationSocket";
 import StationHistory from "./pages/StationHistory";
 import StationInfo from "./pages/StationInfo";
 import WeatherAviation from "./pages/WeatherAviation";
@@ -44,7 +45,8 @@ class App extends Component {
         <BrowserRouter>
           <Switch>
             <Route path="/" component={Home} exact />
-            <Route path="/station/live" component={StationLive} />
+            <Route path="/station/live" component={StationSocket} />
+            <Route path="/station/db" component={StationDb} />
             <Route path="/station/history" component={StationHistory} />
             <Route path="/station/info" component={StationInfo} />
             <Route path="/weather/aviation" component={WeatherAviation} />
