@@ -99,6 +99,16 @@ body {
   background-color: #ebe8e8 !important;
 }
 
+.cardfooter {
+  font-family: "Ubuntu";
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border: 0px !important;
+  border-radius: 0px 0px 10px 10px !important;
+  background-color: #ebe8e8 !important;
+}
+
 .cardbody {
   border-radius: 0px 0px 10px 10px !important;
   padding: 10px !important;

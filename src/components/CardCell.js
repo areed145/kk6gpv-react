@@ -6,7 +6,10 @@ import {
   CardBody,
   CardText,
   CardHeader,
-  CardTitle
+  CardTitle,
+  ButtonGroup,
+  Button,
+  CardFooter
 } from "reactstrap";
 
 class CardCell extends Component {
@@ -84,6 +87,30 @@ class CardCell extends Component {
     let img;
     if (this.props.img) {
       img = <CardImg src={this.props.img} />;
+    }
+
+    let footer;
+    if (this.props.footer === "offset") {
+      footer = (
+        <CardFooter className="cardfooter">
+          <ButtonGroup sz="sm">
+            <Button variant="secondary" onClick={this.handleClick}>CI Log</Button>
+            <Button variant="secondary" onClick={this.handleClick}>CI</Button>
+            <Button variant="secondary" onClick={this.handleClick}>Heatmap</Button>
+          </ButtonGroup>
+        </CardFooter>
+      );
+    }
+
+    let loading;
+    if (this.props.loading) {
+      loading = (
+        <div className="center">
+          <div className="spinner-border text-secondary" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+        </div>
+      );
     }
 
     let plot = [];
@@ -626,6 +653,7 @@ class CardCell extends Component {
       <Card className="card">
         {title}
         <CardBody className="cardbody" style={bodystyle}>
+          {loading}
           {icon}
           {img}
           {plot}
@@ -637,6 +665,7 @@ class CardCell extends Component {
           {caption}
           <CardText>{text}</CardText>
         </CardBody>
+        {footer}
       </Card>
     );
   }
