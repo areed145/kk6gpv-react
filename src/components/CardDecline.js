@@ -17,12 +17,14 @@ class CardDecline extends Component {
       error: null,
       isLoaded: false,
       api: this.props.api,
+      decline_date: [],
+      decline_cum: [],
       decline: []
     };
   }
 
   onClickLog(event) {
-    var decline = { ...this.state.decline };
+    var decline = { ...this.state.decline_date };
     decline.layout.yaxis.type = "log";
     this.setState({
       decline
@@ -30,7 +32,23 @@ class CardDecline extends Component {
   }
 
   onClickLinear(event) {
-    var decline = { ...this.state.decline };
+    var decline = { ...this.state.decline_date };
+    decline.layout.yaxis.type = "linear";
+    this.setState({
+      decline
+    });
+  }
+
+  onClickLogCum(event) {
+    var decline = { ...this.state.decline_cum };
+    decline.layout.yaxis.type = "log";
+    this.setState({
+      decline
+    });
+  }
+
+  onClickLinearCum(event) {
+    var decline = { ...this.state.decline_cum };
     decline.layout.yaxis.type = "linear";
     this.setState({
       decline
@@ -49,6 +67,8 @@ class CardDecline extends Component {
       const res = await response.json();
       this.setState({
         isLoaded: true,
+        decline_date: res.graph_decline,
+        decline_cum: res.graph_decline_cum,
         decline: res.graph_decline
       });
     } catch (error) {
@@ -131,6 +151,18 @@ class CardDecline extends Component {
                   onClick={this.onClickLinear.bind(this)}
                 >
                   Linear
+                </Button>
+                <Button
+                  variant="secondary"
+                  onClick={this.onClickLogCum.bind(this)}
+                >
+                  Log Cum
+                </Button>
+                <Button
+                  variant="secondary"
+                  onClick={this.onClickLinearCum.bind(this)}
+                >
+                  Linear Cum
                 </Button>
               </ButtonGroup>
             </CardFooter>
