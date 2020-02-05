@@ -68,7 +68,7 @@ class CardDecline extends Component {
         throw Error(response.statusText);
       }
       const res = await response.json();
-      if (res === "success") {
+      if (res.result === 'success') {
         try {
           const response = await fetch(
             `https://kk6gpv-api.herokuapp.com/oilgas/decline/graph?api=${api}&axis=log`
