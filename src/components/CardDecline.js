@@ -55,6 +55,49 @@ class CardDecline extends Component {
     });
   }
 
+  async onClickAutoDecline(event) {
+    const api = encodeURIComponent(this.state.api);
+    try {
+      const response = await fetch(
+        `https://kk6gpv-api.herokuapp.com/oilgas/decline/solve?api=${api}`,
+        {
+          method: "PUT"
+        }
+      );
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const res = await response.json();
+      if (res === "success") {
+        try {
+          const response = await fetch(
+            `https://kk6gpv-api.herokuapp.com/oilgas/decline/graph?api=${api}&axis=log`
+          );
+          if (!response.ok) {
+            throw Error(response.statusText);
+          }
+          const res = await response.json();
+          this.setState({
+            isLoaded: true,
+            decline_date: res.graph_decline,
+            decline_cum: res.graph_decline_cum,
+            decline: res.graph_decline
+          });
+        } catch (error) {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      }
+    } catch (error) {
+      this.setState({
+        isLoaded: true,
+        error
+      });
+    }
+  }
+
   async componentDidMount() {
     const api = encodeURIComponent(this.state.api);
     try {
@@ -163,6 +206,15 @@ class CardDecline extends Component {
                   onClick={this.onClickLinearCum.bind(this)}
                 >
                   Linear Cum
+                </Button>
+              </ButtonGroup>
+              &nbsp;&nbsp;&nbsp;
+              <ButtonGroup sz="sm">
+                <Button
+                  variant="secondary"
+                  onClick={this.onClickAutoDecline.bind(this)}
+                >
+                  Auto Decline
                 </Button>
               </ButtonGroup>
             </CardFooter>
