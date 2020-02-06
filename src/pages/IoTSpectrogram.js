@@ -4,24 +4,22 @@ import Select from "react-select";
 import { CardDeck, Card, CardHeader, CardTitle, CardBody } from "reactstrap";
 // import Footer from "../components/Footer";
 
-class Iot extends Component {
+class IotSpectrogram extends Component {
   constructor(props) {
     super(props);
     this.state = {
       error: null,
       isLoaded: false,
       plot_iot: [],
+      plot_spectro: [],
       time: {
         value: "h_6",
         label: "6 hours"
       },
-      sensor: [
-        {
-          value: "sensor.load_1m",
-          label: "Load 1m"
-        }
-      ],
-      sensor_string: "sensor_iot=sensor.load_1m&",
+      sensor: {
+        value: "sensor.load_1m",
+        label: "Load 1m"
+      },
       revision: 0
     };
   }
@@ -29,17 +27,20 @@ class Iot extends Component {
   async intervalUpdate(event) {
     try {
       const response = await fetch(
-        `https://kk6gpv-api.herokuapp.com/iot/graph?${
-          this.state.sensor_string
-        }time_int=${encodeURIComponent(this.state.time.value)}`
+        `https://kk6gpv-api.herokuapp.com/iot/spectrogram?sensor_iot=${encodeURIComponent(
+          this.state.sensor.value
+        )}&time_int=${encodeURIComponent(this.state.time.value)}`
       );
       if (!response.ok) {
         throw Error(response.statusText);
       }
       const res = await response.json();
       var plot_iot = { ...this.state.plot_iot };
+      var plot_spectro = { ...this.state.plot_spectro };
       plot_iot.data = res.graph.data;
+      plot_spectro.data = res.spectro.data;
       this.setState({ plot_iot });
+      this.setState({ plot_spectro });
     } catch (error) {
       this.setState({
         isLoaded: true,
@@ -56,9 +57,9 @@ class Iot extends Component {
       async function() {
         try {
           const response = await fetch(
-            `https://kk6gpv-api.herokuapp.com/iot/graph?${
-              this.state.sensor_string
-            }time_int=${encodeURIComponent(this.state.time.value)}`
+            `https://kk6gpv-api.herokuapp.com/iot/spectrogram?sensor_iot=${encodeURIComponent(
+              this.state.sensor.value
+            )}&time_int=${encodeURIComponent(this.state.time.value)}`
           );
           if (!response.ok) {
             throw Error(response.statusText);
@@ -66,7 +67,8 @@ class Iot extends Component {
           const res = await response.json();
           this.setState({
             isLoaded: true,
-            plot_iot: res.graph
+            plot_iot: res.graph,
+            plot_spectro: res.spectro
           });
         } catch (error) {
           this.setState({
@@ -84,46 +86,22 @@ class Iot extends Component {
         sensor: event
       },
       async function() {
-        var sensor_string = "";
-        if (this.state.sensor) {
-          for (var i = 0; i < this.state.sensor.length; i++) {
-            sensor_string =
-              sensor_string + "sensor_iot=" + this.state.sensor[i].value + "&";
-            this.setState({
-              sensor_string: sensor_string
-            });
-          }
-        } else {
-          sensor_string = "";
-          this.setState({
-            sensor_string: sensor_string
-          });
-        }
-        if (sensor_string === "") {
-          sensor_string = "sensor_iot=sensor.load_1m&";
-          this.setState({
-            sensor: [
-              {
-                value: "sensor.load_1m",
-                label: "Load 1m"
-              }
-            ],
-            sensor_string: sensor_string
-          });
-        }
         try {
           const response = await fetch(
-            `https://kk6gpv-api.herokuapp.com/iot/graph?${sensor_string}time_int=${encodeURIComponent(
-              this.state.time.value
-            )}`
+            `https://kk6gpv-api.herokuapp.com/iot/spectrogram?sensor_iot=${encodeURIComponent(
+              this.state.sensor.value
+            )}&time_int=${encodeURIComponent(this.state.time.value)}`
           );
           if (!response.ok) {
             throw Error(response.statusText);
           }
           const res = await response.json();
           var plot_iot = { ...this.state.plot_iot };
+          var plot_spectro = { ...this.state.plot_spectro };
           plot_iot.data = res.graph.data;
+          plot_spectro.data = res.spectro.data;
           this.setState({ plot_iot });
+          this.setState({ plot_spectro });
         } catch (error) {
           this.setState({
             isLoaded: true,
@@ -139,27 +117,11 @@ class Iot extends Component {
   }
 
   async componentDidMount() {
-    var sensor_string = "";
-    for (var i = 0; i < this.state.sensor.length; i++) {
-      sensor_string =
-        sensor_string + "sensor_iot=" + this.state.sensor[i].value + "&";
-    }
-    if (sensor_string === "") {
-      sensor_string = "sensor_iot=sensor.load_1m&";
-      this.setState({
-        sensor: [
-          {
-            value: "sensor.load_1m",
-            label: "Load 1m"
-          }
-        ]
-      });
-    }
     try {
       const response = await fetch(
-        `https://kk6gpv-api.herokuapp.com/iot/graph?${sensor_string}time_int=${encodeURIComponent(
-          this.state.time.value
-        )}`
+        `https://kk6gpv-api.herokuapp.com/iot/spectrogram?sensor_iot=${encodeURIComponent(
+          this.state.sensor.value
+        )}&time_int=${encodeURIComponent(this.state.time.value)}`
       );
       if (!response.ok) {
         throw Error(response.statusText);
@@ -167,7 +129,8 @@ class Iot extends Component {
       const res = await response.json();
       this.setState({
         isLoaded: true,
-        plot_iot: res.graph
+        plot_iot: res.graph,
+        plot_spectro: res.spectro
       });
     } catch (error) {
       this.setState({
@@ -175,10 +138,12 @@ class Iot extends Component {
         error
       });
     }
-    this.interval = setInterval(() => this.intervalUpdate(), 5000);
+    this.interval = setInterval(() => this.intervalUpdate(), 60000);
   }
 
   render() {
+    console.log(this.state);
+
     const { error, isLoaded } = this.state;
 
     var time_options = [
@@ -572,7 +537,7 @@ class Iot extends Component {
                       value={this.state.sensor}
                       defaultInputValue=""
                       options={sensor_options}
-                      isMulti
+                      //   isMulti
                       searchable={false}
                       onChange={this.onChangeSensor.bind(this)}
                     />
@@ -606,6 +571,13 @@ class Iot extends Component {
                 revision={this.state.revision}
               />
             </CardDeck>
+            <CardDeck className="carddeck">
+              <CardCell
+                title="Spectrogram"
+                plot={[this.state.plot_spectro]}
+                revision={this.state.revision}
+              />
+            </CardDeck>
             <div className="margin" />
             {/* <Footer /> */}
           </div>
@@ -615,4 +587,4 @@ class Iot extends Component {
   }
 }
 
-export default Iot;
+export default IotSpectrogram;

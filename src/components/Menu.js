@@ -62,7 +62,7 @@ class Menu extends Component {
               </DropdownMenu>
             </UncontrolledDropdown>
             <NavItem>
-              <NavLink href="/iot">IoT</NavLink>
+              <NavLink href="/iot/graph">IoT</NavLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>

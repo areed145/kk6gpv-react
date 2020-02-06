@@ -11,6 +11,8 @@ import WeatherAviation from "./pages/WeatherAviation";
 import WeatherBlips from "./pages/WeatherBlips";
 import WeatherSoundings from "./pages/WeatherSoundings";
 import IoT from "./pages/IoT";
+import IoTSpectrogram from "./pages/IoTSpectrogram";
+import IoTAnomaly from "./pages/IoTAnomaly";
 import AprsLocation from "./pages/AprsLocation";
 import AprsIgate from "./pages/AprsIgate";
 import AprsHouston from "./pages/AprsHouston";
@@ -52,7 +54,9 @@ class App extends Component {
             <Route path="/weather/aviation" component={WeatherAviation} />
             <Route path="/weather/blips" component={WeatherBlips} />
             <Route path="/weather/soundings" component={WeatherSoundings} />
-            <Route path="/iot" component={IoT} />
+            <Route path="/iot/graph" component={IoT} />
+            <Route path="/iot/spectrogram" component={IoTSpectrogram} />
+            <Route path="/iot/anomaly" component={IoTAnomaly} />
             <Route path="/aprs/location" component={AprsLocation} />
             <Route path="/aprs/igate" component={AprsIgate} />
             <Route path="/aprs/houston" component={AprsHouston} />

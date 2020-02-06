@@ -37,7 +37,7 @@ const Home = () => {
           />
           <CardCell
             title="IoT"
-            link="/iot"
+            link="/iot/graph"
             icon={iot}
             bgcolor="rgb(255, 208, 147)"
           />
