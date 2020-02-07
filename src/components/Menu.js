@@ -61,9 +61,16 @@ class Menu extends Component {
                 <DropdownItem href="/weather/soundings">Soundings</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
-            <NavItem>
-              <NavLink href="/iot/graph">IoT</NavLink>
-            </NavItem>
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                IoT
+              </DropdownToggle>
+              <DropdownMenu right className="menu">
+                <DropdownItem href="/iot/graph">Graph</DropdownItem>
+                <DropdownItem href="/iot/spectrogram">Spectrogram</DropdownItem>
+                <DropdownItem href="/iot/anomaly">Anomaly</DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 APRS
@@ -117,7 +124,9 @@ class Menu extends Component {
               <NavLink href="/login">Login</NavLink>
             </NavItem> */}
             <NavItem>
-              <NavLink href="https://kk6gpv-api.herokuapp.com/docs">API</NavLink>
+              <NavLink href="https://kk6gpv-api.herokuapp.com/docs">
+                API
+              </NavLink>
             </NavItem>
           </Nav>
         </Collapse>
