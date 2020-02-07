@@ -11,6 +11,7 @@ class IotAnomaly extends Component {
       error: null,
       isLoaded: false,
       plot_iot: [],
+      plot_anomaly: [],
       time: {
         value: "h_6",
         label: "6 hours"
@@ -35,8 +36,11 @@ class IotAnomaly extends Component {
       }
       const res = await response.json();
       var plot_iot = { ...this.state.plot_iot };
+      var plot_anomaly = { ...this.state.plot_anomaly };
       plot_iot.data = res.graph.data;
+      plot_anomaly.data = res.anomaly.data;
       this.setState({ plot_iot });
+      this.setState({ plot_anomaly });
     } catch (error) {
       this.setState({
         isLoaded: true,
@@ -63,7 +67,8 @@ class IotAnomaly extends Component {
           const res = await response.json();
           this.setState({
             isLoaded: true,
-            plot_iot: res.graph
+            plot_iot: res.graph,
+            plot_anomaly: res.anomaly,
           });
         } catch (error) {
           this.setState({
@@ -92,8 +97,11 @@ class IotAnomaly extends Component {
           }
           const res = await response.json();
           var plot_iot = { ...this.state.plot_iot };
+          var plot_anomaly = { ...this.state.plot_anomaly };
           plot_iot.data = res.graph.data;
+          plot_anomaly.data = res.anomaly.data;
           this.setState({ plot_iot });
+          this.setState({ plot_anomaly });
         } catch (error) {
           this.setState({
             isLoaded: true,
@@ -121,7 +129,8 @@ class IotAnomaly extends Component {
       const res = await response.json();
       this.setState({
         isLoaded: true,
-        plot_iot: res.graph
+        plot_iot: res.graph,
+        plot_anomaly: res.anomaly
       });
     } catch (error) {
       this.setState({
@@ -559,6 +568,13 @@ class IotAnomaly extends Component {
               <CardCell
                 title="Sensor Values"
                 plot={[this.state.plot_iot]}
+                revision={this.state.revision}
+              />
+            </CardDeck>
+            <CardDeck className="carddeck">
+              <CardCell
+                title="Anomaly Detection"
+                plot={[this.state.plot_anomaly]}
                 revision={this.state.revision}
               />
             </CardDeck>
