@@ -138,7 +138,7 @@ class IotSpectrogram extends Component {
         error
       });
     }
-    this.interval = setInterval(() => this.intervalUpdate(), 60000);
+    this.interval = setInterval(() => this.intervalUpdate(), 10000);
   }
 
   render() {
