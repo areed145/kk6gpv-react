@@ -41,7 +41,7 @@ class DetailsOilgas extends Component {
               <CardWellMap
                 api={this.state.api}
                 title="Well Location"
-                mapstyle="mapbox://styles/areed145/ck5ipvzcq0tos1ipc69h4vn7v"
+                mapstyle="mapbox://styles/areed145/ck6h5ywqd0aig1ioqwdynu6sb"
               />
             </CardDeck>
             <CardDeck className="carddeck">
@@ -64,14 +64,14 @@ class DetailsOilgas extends Component {
               <CardWellMap
                 api={this.state.api}
                 title="CRM Map"
-                mapstyle="mapbox://styles/areed145/ck2jlfnp03oiv1cpepd4js9k6"
+                mapstyle="mapbox://styles/areed145/ck6h8yefz0dc11ir1qkwv4uy3"
               />
             </CardDeck>
             <CardDeck className="carddeck">
               <CardWellMap
                 api={this.state.api}
                 title="IP Map"
-                mapstyle="mapbox://styles/areed145/ck5n93bd915mb1iqdh5otkndj"
+                mapstyle="mapbox://styles/areed145/ck6h8m4th0cwp1imhqwofy2eq"
               />
               <CardWellMap
                 api={this.state.api}
