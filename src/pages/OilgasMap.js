@@ -8,7 +8,7 @@ const MapOilgas = () => {
       latitude={35.429904}
       longitude={-109.601666}
       zoom={4}
-      mapstyle={"mapbox://styles/areed145/ck5ipvzcq0tos1ipc69h4vn7v"}
+      mapstyle={"mapbox://styles/areed145/ck6h5ywqd0aig1ioqwdynu6sb"}
       fill={"page"}
     />
   );
