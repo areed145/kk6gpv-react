@@ -12,6 +12,7 @@ class IotAnomaly extends Component {
       isLoaded: false,
       plot_iot: [],
       plot_anomaly: [],
+      plot_spectro: [],
       time: {
         value: "h_6",
         label: "6 hours"
@@ -37,10 +38,13 @@ class IotAnomaly extends Component {
       const res = await response.json();
       var plot_iot = { ...this.state.plot_iot };
       var plot_anomaly = { ...this.state.plot_anomaly };
+      var plot_spectro = { ...this.state.plot_spectro };
       plot_iot.data = res.graph.data;
       plot_anomaly.data = res.anomaly.data;
+      plot_spectro.data = res.spectro.data;
       this.setState({ plot_iot });
       this.setState({ plot_anomaly });
+      this.setState({ plot_spectro });
     } catch (error) {
       this.setState({
         isLoaded: true,
@@ -69,6 +73,7 @@ class IotAnomaly extends Component {
             isLoaded: true,
             plot_iot: res.graph,
             plot_anomaly: res.anomaly,
+            plot_spectro: res.spectro
           });
         } catch (error) {
           this.setState({
@@ -130,7 +135,8 @@ class IotAnomaly extends Component {
       this.setState({
         isLoaded: true,
         plot_iot: res.graph,
-        plot_anomaly: res.anomaly
+        plot_anomaly: res.anomaly,
+        plot_spectro: res.spectro
       });
     } catch (error) {
       this.setState({
@@ -573,8 +579,15 @@ class IotAnomaly extends Component {
             </CardDeck>
             <CardDeck className="carddeck">
               <CardCell
-                title="Anomaly Detection"
+                title="Anomaly Level"
                 plot={[this.state.plot_anomaly]}
+                revision={this.state.revision}
+              />
+            </CardDeck>
+            <CardDeck className="carddeck">
+              <CardCell
+                title="Spectrogram Input"
+                plot={[this.state.plot_spectro]}
                 revision={this.state.revision}
               />
             </CardDeck>

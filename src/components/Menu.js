@@ -67,7 +67,6 @@ class Menu extends Component {
               </DropdownToggle>
               <DropdownMenu right className="menu">
                 <DropdownItem href="/iot/graph">Graph</DropdownItem>
-                <DropdownItem href="/iot/spectrogram">Spectrogram</DropdownItem>
                 <DropdownItem href="/iot/anomaly">Anomaly</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
