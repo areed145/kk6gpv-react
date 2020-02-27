@@ -108,9 +108,20 @@ class Menu extends Component {
                 Oil & Gas
               </DropdownToggle>
               <DropdownMenu right className="menu">
-                <DropdownItem href="/oilgas/summary">Summary</DropdownItem>
                 <DropdownItem href="/oilgas/map">Map</DropdownItem>
                 <DropdownItem href="/oilgas/tasks">Tasks</DropdownItem>
+                <DropdownItem href="/oilgas/summary/High%20Performer">
+                  High Performer
+                </DropdownItem>
+                <DropdownItem href="/oilgas/summary/Low%20Performer">
+                  Low Performer
+                </DropdownItem>
+                <DropdownItem href="/oilgas/summary/Slider">
+                  Slider
+                </DropdownItem>
+                <DropdownItem href="/oilgas/summary/Gainer">
+                  Gainer
+                </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
             {/* <NavItem>

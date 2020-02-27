@@ -69,7 +69,7 @@ class App extends Component {
             <Route path="/travel" component={Travel} />
             <Route path="/scuba" component={Scuba} />
             <Route path="/fishing" component={Fishing} />
-            <Route path="/oilgas/summary" component={OilgasSummary} />
+            <Route path="/oilgas/summary/:tag" component={OilgasSummary} />
             <Route path="/oilgas/map" component={OilgasMap} />
             <Route path="/oilgas/details/:api" component={OilgasDetails} />
             <Route path="/oilgas/tasks" component={CardBoard} />
