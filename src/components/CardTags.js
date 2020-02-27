@@ -5,9 +5,6 @@ import {
   CardBody,
   CardHeader,
   CardTitle
-  //   ButtonGroup,
-  //   Button,
-  //   CardFooter
 } from "reactstrap";
 
 class CardTags extends Component {
