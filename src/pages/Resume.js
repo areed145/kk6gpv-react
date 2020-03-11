@@ -1,44 +1,52 @@
 import React from "react";
 import { CardDeck } from "reactstrap";
 import CardResume from "../components/CardResume";
+import CardCell from "../components/CardCell";
 // import Footer from "../components/Footer";
 
-// import cvx from "../assets/resume/cvx.png";
-// import psa from "../assets/resume/psa.png";
-// import nsai from "../assets/resume/nsai.png";
-// import hhe from "../assets/resume/hhe.png";
-// import aas from "../assets/resume/aas.png";
-// import bne from "../assets/resume/bne.jpeg";
-// import ut from "../assets/resume/ut.png";
+import cvx from "../assets/resume/cvx.png";
+import psa from "../assets/resume/psa.png";
+import nsai from "../assets/resume/nsai.png";
+import hhe from "../assets/resume/hhe.jpg";
+import aas from "../assets/resume/aas.png";
+import bne from "../assets/resume/bne.jpeg";
+import ut from "../assets/resume/ut.png";
 
 const Resume = () => {
   return (
     <div>
       <div className="main">
+        {/* <CardDeck className="carddeck">
+          <CardCell />
+          <CardCell />
+        </CardDeck> */}
         <CardDeck className="carddeck">
           <CardResume
             className="cardresume"
-            // img={cvx}
+            img={cvx}
             title="Engineering Data Scientist"
             company="Chevron"
-            dates="Jan 2020 - "
+            location="Houston, TX"
+            dates="Jan 2020 - Present"
             // roles={["a", "b"]}
           />
         </CardDeck>
         <CardDeck className="carddeck">
           <CardResume
-            // img={cvx}
+            img={cvx}
             title="Emerging Technology - Petroleum Data Science"
             company="Chevron"
+            location="Houston, TX"
             dates="Jun 2018 - Dec 2019"
             // roles={["a", "b"]}
           />
         </CardDeck>
         <CardDeck className="carddeck">
           <CardResume
-            // img={cvx}
+            img={cvx}
             title="Reservoir Engineer - Kern River"
             company="Chevron"
+            location="Bakersfield, CA"
             dates="Jan 2017 - Jun 2018"
             roles={[
               "Forecasted, matured 25-pattern, 159-well steamflood development project ($27.2 mil capital budget))",
@@ -51,9 +59,10 @@ const Resume = () => {
         </CardDeck>
         <CardDeck className="carddeck">
           <CardResume
-            // img={cvx}
+            img={cvx}
             title="Reservoir Engineer - Cymric"
             company="Chevron"
+            location="McKittrick, CA"
             dates="Jul 2013 - Jan 2017"
             roles={[
               "Conducted internal reviews of steamflood projects, executed steam injection changes (~$5.4 mil/yr OPEX savings)",
@@ -68,9 +77,10 @@ const Resume = () => {
         </CardDeck>
         <CardDeck className="carddeck">
           <CardResume
-            // img={cvx}
+            img={cvx}
             title="Production Engineer - San Ardo Field"
             company="Chevron"
+            location="San Ardo, CA"
             dates="Aug 2011 - Jul 2013"
             roles={[
               "Designed and executed workovers on 65 development wells ($22 mil capital budget)",
@@ -85,9 +95,10 @@ const Resume = () => {
         </CardDeck>
         <CardDeck className="carddeck">
           <CardResume
-            // img={cvx}
+            img={psa}
             title="Petroleum Engineer Intern"
             company="Platt, Sparks & Associates Consulting Petroleum Engineers, Inc"
+            location="Austin, TX"
             dates="Oct 2010 - Jul 2011"
             roles={[
               "Compile production and event logs for gas processing facilities",
@@ -100,9 +111,10 @@ const Resume = () => {
         </CardDeck>
         <CardDeck className="carddeck">
           <CardResume
-            // img={nsai}
+            img={nsai}
             title="Reservoir Engineer Intern"
-            company="Netherland Sewell & Associates, Inc - Dallas, TX"
+            company="Netherland Sewell & Associates, Inc"
+            location="Dallas, Texas"
             dates="May 2010 - Aug 2010"
             roles={[
               "Utilized IHS and public data to locate and compile historical production data for 10000+ wells throughout the U.S.",
@@ -116,9 +128,10 @@ const Resume = () => {
         </CardDeck>
         <CardDeck className="carddeck">
           <CardResume
-            // img={cvx}
+            img={hhe}
             title="Drilling Engineer Intern - Nagykunság Basin"
-            company="Hungarian Horizons Energy - Budapest, Hungary"
+            company="Hungarian Horizons Energy"
+            location="Budapest, Hungary"
             dates="Jun 2009 - Aug 2009"
             roles={[
               "Shadowed drilling supervisor for two successful gas well completions in southeastern Hungary",
@@ -133,9 +146,10 @@ const Resume = () => {
         </CardDeck>
         <CardDeck className="carddeck">
           <CardResume
-            // img={cvx}
+            img={aas}
             title="Production Engineer Intern - Barnett Shale"
-            company="Aspect Abundant Shale - Fort Worth, TX"
+            company="Aspect Abundant Shale"
+            location="Fort Worth, TX"
             dates="May 2008 - Aug 2008"
             roles={[
               "Sized, collected bids for, and ordered compressors adding up to 260 Mcf/d in production for three Barnett Shale wells",
@@ -149,9 +163,10 @@ const Resume = () => {
         </CardDeck>
         <CardDeck className="carddeck">
           <CardResume
-            // img={bne}
+            img={bne}
             title="Production / Facilities Engineering Intern - Spanish Lookout"
-            company="Belize Natural Energy - San Ignacio, Belize"
+            company="Belize Natural Energy"
+            location="San Ignacio, Belize"
             dates="Jun 2007 - Aug 2007"
             roles={[
               "Reviewed and optimized plans for a 3-phase pipeline connecting 5 wells to a central processing facility",
@@ -165,9 +180,10 @@ const Resume = () => {
         </CardDeck>
         <CardDeck className="carddeck">
           <CardResume
-            // img={ut}
+            img={ut}
             title="Undergraduate Research Assistant"
-            company="University of Texas at Austin - Austin, TX"
+            company="University of Texas at Austin"
+            location="Austin, TX"
             dates="Jan 2007 - Jun 2007"
             roles={[
               "Part of FASTRAC student satellite team sponsored by the Air Force Research Laboratory testing on-orbit real-time GPS relative navigation solution via real-time crosslink data exchange, real-time attitude determination using a single frequency, C/A-code, reprogrammable GPS receiver, and Micro-discharge plasma thruster technologies."
