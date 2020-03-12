@@ -29,7 +29,7 @@ import OilgasSummary from "./pages/OilgasSummary";
 import OilgasMap from "./pages/OilgasMap";
 import OilgasDetails from "./pages/OilgasDetails";
 import Blog from "./pages/Blog";
-import About from "./pages/About";
+// import About from "./pages/About";
 import Resume from "./pages/Resume";
 import Login from "./pages/Login";
 import TestMap from "./pages/TestMap";
@@ -74,8 +74,8 @@ class App extends Component {
             <Route path="/oilgas/details/:api" component={OilgasDetails} />
             <Route path="/oilgas/tasks" component={CardBoard} />
             <Route path="/blog" component={Blog} />
-            <Route path="/about" component={About} />
-            <Route path="/resume" component={Resume} />
+            <Route path="/about" component={Resume} />
+            {/* <Route path="/resume" component={Resume} /> */}
             <Route path="/login" component={Login} />
             <Route path="/test/map" component={TestMap} />
             <Route path="/api" component={API} />

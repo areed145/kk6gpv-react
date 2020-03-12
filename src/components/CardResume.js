@@ -5,7 +5,7 @@ import {
   CardBody,
   CardText,
   CardHeader,
-  CardTitle
+//   CardTitle
 } from "reactstrap";
 
 class CardResume extends Component {
@@ -22,8 +22,8 @@ class CardResume extends Component {
         <div
           style={{
             float: "left",
-            height: "100px",
-            width: "200px"
+            height: this.props.height,
+            width: this.props.width
           }}
         >
           <div
@@ -43,7 +43,7 @@ class CardResume extends Component {
               <CardImg
                 style={{
                   height: "100%",
-                  maxHeight: "100px",
+                  maxHeight: this.props.height,
                   width: "auto"
                 }}
                 src={this.props.img}
@@ -54,14 +54,16 @@ class CardResume extends Component {
       );
     }
 
-    // let title;
-    // if (this.props.title) {
-    //   title = (
-    //     <CardText>
-    //       <h5 align="left">{this.props.title}</h5>
-    //     </CardText>
-    //   );
-    // }
+    let title;
+    if (this.props.title) {
+      title = (
+        <CardHeader className="cardheader">
+          <CardText>
+            <h5 align="center">{this.props.title}</h5>
+          </CardText>
+        </CardHeader>
+      );
+    }
 
     let company;
     if (this.props.company) {
@@ -99,11 +101,7 @@ class CardResume extends Component {
 
     return (
       <Card className="card">
-        <CardHeader className="cardheader">
-          <CardTitle>
-            <h5 align="center">{this.props.title}</h5>
-          </CardTitle>
-        </CardHeader>
+        {title}
         <CardBody className="cardbody" style={bodystyle}>
           {img}
           {company}

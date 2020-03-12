@@ -1,7 +1,8 @@
 import React from "react";
-import { CardDeck } from "reactstrap";
+import { CardDeck, Card, CardBody, CardHeader, CardTitle } from "reactstrap";
 import CardResume from "../components/CardResume";
-// import CardCell from "../components/CardCell";
+import CardCell from "../components/CardCell";
+import ReactTags from "react-tag-autocomplete";
 // import Footer from "../components/Footer";
 
 import cvx from "../assets/resume/cvx.png";
@@ -12,14 +13,83 @@ import aas from "../assets/resume/aas.png";
 import bne from "../assets/resume/bne.jpeg";
 import ut from "../assets/resume/ut.png";
 
+import profile from "../assets/resume/profile.jpeg";
+
 const Resume = () => {
   return (
     <div>
       <div className="mainframe">
-        {/* <CardDeck className="carddeck">
-          <CardCell />
-          <CardCell />
-        </CardDeck> */}
+        <CardDeck className="carddeck">
+          <CardCell className="cardcell" img={profile} />
+          <Card className="card">
+            <CardHeader className="cardheader">
+              <CardTitle>
+                <h5 align="center">Skills</h5>
+              </CardTitle>
+            </CardHeader>
+            <CardBody className="cardbody">
+              <ReactTags
+                placeholderText={""}
+                tags={[
+                  { id: 1, name: "petroleum" },
+                  { id: 1, name: "production" },
+                  { id: 2, name: "reservoir" },
+                  { id: 2, name: "drilling" },
+                  { id: 2, name: "field surveillance" },
+                  { id: 2, name: "artifical lift" },
+                  { id: 2, name: "workovers" },
+                  { id: 2, name: "heavy oil" },
+                  { id: 3, name: "data science" },
+                  { id: 3, name: "well logging" },
+                  { id: 3, name: "field operations" },
+                  { id: 4, name: "scientific computing" },
+                  { id: 5, name: "engineering" },
+                  { id: 6, name: "python" },
+                  { id: 7, name: "javascript" },
+                  { id: 8, name: "plotly" },
+                  { id: 8, name: "analytics" },
+                  { id: 8, name: "machine learning" },
+                  { id: 8, name: "automation" },
+                  { id: 8, name: "gis" }
+                ]}
+                allowBackspace={false}
+              />
+            </CardBody>
+          </Card>
+          <Card className="card">
+            <CardHeader className="cardheader">
+              <CardTitle>
+                <h5 align="center">Interests</h5>
+              </CardTitle>
+            </CardHeader>
+            <CardBody className="cardbody">
+              <ReactTags
+                placeholderText={""}
+                tags={[
+                  { id: 1, name: "oil & gas" },
+                  { id: 1, name: "aviation" },
+                  { id: 1, name: "weather" },
+                  { id: 1, name: "paragliding" },
+                  { id: 1, name: "soaring" },
+                  { id: 1, name: "ham radio" },
+                  { id: 1, name: "photography" },
+                  { id: 1, name: "fly fishing" },
+                  { id: 1, name: "kayaking" },
+                  { id: 1, name: "scuba" },
+                  { id: 1, name: "backpacking" },
+                  { id: 1, name: "hiking" },
+                  { id: 1, name: "travel" },
+                  { id: 1, name: "iot" },
+                  { id: 1, name: "programming" },
+                  { id: 1, name: "home automation" },
+                  { id: 1, name: "electronics" },
+                  { id: 1, name: "diy" }
+                ]}
+                allowBackspace={false}
+              />
+            </CardBody>
+          </Card>
+        </CardDeck>
         <CardDeck className="carddeck">
           <CardResume
             className="cardresume"
@@ -28,6 +98,8 @@ const Resume = () => {
             company="Chevron"
             location="Houston, TX"
             dates="Jan 2020 - Present"
+            height="100px"
+            width="200px"
             // roles={["a", "b"]}
           />
         </CardDeck>
@@ -38,6 +110,8 @@ const Resume = () => {
             company="Chevron"
             location="Houston, TX"
             dates="Jun 2018 - Dec 2019"
+            height="100px"
+            width="200px"
             // roles={["a", "b"]}
           />
         </CardDeck>
@@ -55,6 +129,8 @@ const Resume = () => {
               "Built custom software to help identify and rank future oil production opportunities and communicate standardized performance metrics",
               "Support future business plan scenarios with high-level project oil and spend forecasts"
             ]}
+            height="100px"
+            width="200px"
           />
         </CardDeck>
         <CardDeck className="carddeck">
@@ -73,6 +149,8 @@ const Resume = () => {
               "Supported other engineering functions by creating and maintaining forecasts used to size future facilities",
               "Facilitated weekly meetings aligning stakeholders in thermal, plants, and subsurface around optimal use of plant and system capacities"
             ]}
+            height="100px"
+            width="200px"
           />
         </CardDeck>
         <CardDeck className="carddeck">
@@ -91,6 +169,8 @@ const Resume = () => {
               "Assisted other assets by sharing well-work performance evaluation tool, enabling optimizations (~$1 mil benefit)",
               "Prioritized drilling, operations, and construction groups schedules to maximize economics while minimizing hazards and conflicts"
             ]}
+            height="100px"
+            width="200px"
           />
         </CardDeck>
         <CardDeck className="carddeck">
@@ -107,6 +187,8 @@ const Resume = () => {
               "Package new tight well designation applications for client to submit state regulators for tax credit",
               "Used production data provided as legal evidence with historical weather data to create pipeline throughput model"
             ]}
+            height="100px"
+            width="200px"
           />
         </CardDeck>
         <CardDeck className="carddeck">
@@ -124,6 +206,8 @@ const Resume = () => {
               "Performed Monte Carlo analysis to assess probabilistic reserves",
               "Data used to support financial forecasts and reserves audits for one the firm’s largest royalty-fund client in 1/3 the typical time"
             ]}
+            height="100px"
+            width="200px"
           />
         </CardDeck>
         <CardDeck className="carddeck">
@@ -142,6 +226,8 @@ const Resume = () => {
               "Created pipe tally spreadsheet for rack location and best casing orders based on depth, centralizer, and collar considerations",
               "Calculated weights for various bottom hole assemblies for placement in drilling plans"
             ]}
+            height="100px"
+            width="200px"
           />
         </CardDeck>
         <CardDeck className="carddeck">
@@ -159,6 +245,8 @@ const Resume = () => {
               "Developed reusable pipeline cost model based on length, crossings, and variable material costs",
               "Brought compressors and wells into city and state noise, environmental, and safety compliance"
             ]}
+            height="100px"
+            width="200px"
           />
         </CardDeck>
         <CardDeck className="carddeck">
@@ -176,6 +264,8 @@ const Resume = () => {
               "Led the installation of a diesel topping plant",
               "Prepared cores for geologists"
             ]}
+            height="100px"
+            width="200px"
           />
         </CardDeck>
         <CardDeck className="carddeck">
@@ -188,6 +278,8 @@ const Resume = () => {
             roles={[
               "Part of FASTRAC student satellite team sponsored by the Air Force Research Laboratory testing on-orbit real-time GPS relative navigation solution via real-time crosslink data exchange, real-time attitude determination using a single frequency, C/A-code, reprogrammable GPS receiver, and Micro-discharge plasma thruster technologies."
             ]}
+            height="100px"
+            width="200px"
           />
         </CardDeck>
         <div className="margin" />
