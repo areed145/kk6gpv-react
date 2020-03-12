@@ -334,7 +334,7 @@ class AprsIgate extends Component {
     } else if (!isLoaded) {
       return (
         <div>
-          <div className="main">
+          <div className="mainframe">
             <div className="center">
               <div className="spinner-border text-secondary" role="status">
                 <span className="sr-only">Loading...</span>
@@ -348,7 +348,7 @@ class AprsIgate extends Component {
     } else {
       return (
         <div>
-          <div className="main">
+          <div className="mainframe">
             <CardDeck className="carddeck">
               <Card className="card">
                 <CardHeader className="cardheader">

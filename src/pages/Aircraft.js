@@ -17,7 +17,7 @@ import n5777v_mit1 from "../assets/images/n5777v_mit1.jpg";
 const Aircraft = () => {
   return (
     <div>
-      <div className="main">
+      <div className="mainframe">
         <CardDeck className="carddeck">
           <CardCell
             img={first_solo}

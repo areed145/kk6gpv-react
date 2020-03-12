@@ -18,7 +18,7 @@ import igate from "../assets/images/igate.jpeg";
 const AprsInfo = () => {
   return (
     <div>
-      <div className="main">
+      <div className="mainframe">
         <CardDeck className="carddeck">
           <CardCell
             title="APRS"

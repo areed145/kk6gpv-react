@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import "./styles/index.css";
 
 import Home from "./pages/Home";
 import StationDb from "./pages/StationDb";
@@ -35,6 +34,7 @@ import Resume from "./pages/Resume";
 import Login from "./pages/Login";
 import TestMap from "./pages/TestMap";
 import CardBoard from "./pages/CardBoard";
+import API from "./pages/API";
 
 import Menu from "./components/Menu";
 
@@ -78,6 +78,7 @@ class App extends Component {
             <Route path="/resume" component={Resume} />
             <Route path="/login" component={Login} />
             <Route path="/test/map" component={TestMap} />
+            <Route path="/api" component={API} />
             <Route component={Error} />
           </Switch>
         </BrowserRouter>

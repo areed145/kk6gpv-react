@@ -61,7 +61,7 @@ class Galleries extends Component {
     } else if (!isLoaded) {
       return (
         <div>
-          <div className="main">
+          <div className="mainframe">
             <div className="center">
               <div className="spinner-border text-secondary" role="status">
                 <span className="sr-only">Loading...</span>
@@ -75,7 +75,7 @@ class Galleries extends Component {
     } else {
       return (
         <div>
-          <div className="main">
+          <div className="mainframe">
             {cards}
             <div className="margin" />
             {/* <Footer /> */}

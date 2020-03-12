@@ -9,7 +9,7 @@ import kings from "../assets/images/kings.jpg";
 const Fishing = () => {
   return (
     <div>
-      <div className="main">
+      <div className="mainframe">
         <CardDeck className="carddeck">
           <CardCell
             img={owens}

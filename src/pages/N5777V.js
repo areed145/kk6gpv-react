@@ -11,7 +11,7 @@ import n5777v_mit1 from "../assets/images/n5777v_mit1.jpg";
 const N5777V = () => {
   return (
     <div>
-      <div className="main">
+      <div className="mainframe">
         <CardDeck className="carddeck">
           <CardCell
             img={

@@ -27,7 +27,7 @@ class DetailsOilgas extends Component {
     } else if (!isLoaded) {
       return (
         <div>
-          <div className="main" />
+          <div className="mainframe" />
           <div className="margin" />
           {/* <Footer /> */}
         </div>
@@ -35,7 +35,7 @@ class DetailsOilgas extends Component {
     } else {
       return (
         <div>
-          <div className="main">
+          <div className="mainframe">
             <CardDeck className="carddeck">
               <CardWellHeader api={this.state.api} />
               <CardWellMap

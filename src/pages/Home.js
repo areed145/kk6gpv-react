@@ -21,7 +21,7 @@ import about from "../assets/icons/id.svg";
 const Home = () => {
   return (
     <div>
-      <div className="main">
+      <div className="mainframe">
         <CardDeck className="carddeck">
           <CardCell
             title="Station Weather"

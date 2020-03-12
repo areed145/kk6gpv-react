@@ -33,7 +33,9 @@
     "react-trello": "^2.2.3",
     "reactstrap": "^8.2.0",
     "redux": "^3.7.2",
-    "styled-components": "^5.0.0"
+    "styled-components": "^5.0.0",
+    "swagger-editor": "^3.8.0",
+    "swagger-ui-react": "^3.25.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -15,7 +15,7 @@ class OilgasSummary extends Component {
   render() {
     return (
       <div>
-        <div className="main">
+        <div className="mainframe">
           <CardDeck className="carddeck">
             <CardSummary tag={this.state.tag} />
           </CardDeck>

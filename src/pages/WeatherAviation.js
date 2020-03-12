@@ -664,7 +664,7 @@ class WeatherAviation extends Component {
     } else if (!isLoaded) {
       return (
         <div>
-          <div className="main">
+          <div className="mainframe">
             <div className="center">
               <div className="spinner-border text-secondary" role="status">
                 <span className="sr-only">Loading...</span>
@@ -678,7 +678,7 @@ class WeatherAviation extends Component {
     } else {
       return (
         <div>
-          <div className="main">
+          <div className="mainframe">
             <Div100vh style={{ height: "calc(100rvh - 65px)" }}>
               <Plot
                 data={this.state.radar_map.data}

@@ -6,7 +6,7 @@ import CardCarousel from "../components/CardCarousel";
 const Blog = () => {
   return (
     <div>
-      <div className="main">
+      <div className="mainframe">
         <CardDeck className="carddeck">
           <CardCarousel name="Plunger Lift Optimization" roles={["a", "b"]} />
         </CardDeck>

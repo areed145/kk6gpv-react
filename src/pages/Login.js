@@ -6,7 +6,7 @@ import React from "react";
 const Login = () => {
   return (
     <div>
-      <div className="main">
+      <div className="mainframe">
         <div className="margin" />
         {/* <Footer /> */}
       </div>

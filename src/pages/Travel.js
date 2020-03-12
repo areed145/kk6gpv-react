@@ -28,7 +28,7 @@ const images = importAll(
 const Travel = () => {
   return (
     <div>
-      <div className="main">
+      <div className="mainframe">
         <CardDeck className="carddeck">
           <Card className="card">
             <CardHeader className="cardheader">

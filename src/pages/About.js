@@ -16,7 +16,7 @@ import React from "react";
 const About = () => {
   return (
     <div>
-      <div className="main">
+      <div className="mainframe">
         <div className="margin" />
         {/* <Footer /> */}
       </div>

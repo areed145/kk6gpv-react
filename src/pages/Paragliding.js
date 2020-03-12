@@ -15,7 +15,7 @@ import helmet from "../assets/images/helmet.jpg";
 const Paragliding = () => {
   return (
     <div>
-      <div className="main">
+      <div className="mainframe">
         <CardDeck className="carddeck">
           <CardCell
             img={ant_hill_track}

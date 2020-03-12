@@ -10,7 +10,7 @@ import soaring_tsp1 from "../assets/images/soaring_tsp1.jpg";
 const Soaring = () => {
   return (
     <div>
-      <div className="main">
+      <div className="mainframe">
         <CardDeck className="carddeck">
           <CardCell
             img={soaring_tsp2}

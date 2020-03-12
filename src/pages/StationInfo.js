@@ -8,7 +8,7 @@ import wxstation from "../assets/images/wxstation.jpg";
 const StationInfo = () => {
   return (
     <div>
-      <div className="main">
+      <div className="mainframe">
         <CardDeck className="carddeck">
           <CardCell
             title="Coconut Barometer"

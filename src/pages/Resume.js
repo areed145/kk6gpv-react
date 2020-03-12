@@ -1,7 +1,7 @@
 import React from "react";
 import { CardDeck } from "reactstrap";
 import CardResume from "../components/CardResume";
-import CardCell from "../components/CardCell";
+// import CardCell from "../components/CardCell";
 // import Footer from "../components/Footer";
 
 import cvx from "../assets/resume/cvx.png";
@@ -15,7 +15,7 @@ import ut from "../assets/resume/ut.png";
 const Resume = () => {
   return (
     <div>
-      <div className="main">
+      <div className="mainframe">
         {/* <CardDeck className="carddeck">
           <CardCell />
           <CardCell />
