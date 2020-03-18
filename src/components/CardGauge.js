@@ -26,7 +26,6 @@ class CardGauge extends Component {
     let pathX;
     let space;
     let pathY;
-    let pathEnd;
     let path;
     let path2;
     let cmap;
@@ -49,9 +48,10 @@ class CardGauge extends Component {
     let pathX2;
     let space2;
     let pathY2;
-    let pathEnd2;
     let path3;
     let path4;
+    let history;
+    let shapes;
 
     let bodystyle;
     bodystyle = { backgroundColor: this.props.bgcolor };
@@ -80,6 +80,8 @@ class CardGauge extends Component {
 
     let gauge;
     if (this.props.gauge) {
+      shapes = [];
+
       ws = 70;
       ls = 25;
       gs = 360 - ws - 2 * ls;
@@ -87,13 +89,58 @@ class CardGauge extends Component {
       hw = this.props.gauge.hw;
       sz = hw / 8;
 
-      level = this.props.gauge.level;
-      levelinset = this.props.gauge.level_inset;
-      levelinset2 = this.props.gauge.level_inset2;
       gmin = this.props.gauge.gmin;
       gmax = this.props.gauge.gmax;
-      leveldisp = level;
 
+      levelinset = this.props.gauge.level_inset;
+      levelinset2 = this.props.gauge.level_inset2;
+
+      try {
+        history = this.props.gauge.history;
+        for (i = 0; i < history.length; i++) {
+          level = history[i];
+          leveldisp = level;
+          if (level > gmax) {
+            leveldisp = gmax;
+          }
+          if (level < gmin) {
+            leveldisp = gmin;
+          }
+          degrees = 360 - rot - ((leveldisp - gmin) / (gmax - gmin)) * gs;
+          radius = 0.75;
+          radians = (degrees * Math.PI) / 180;
+          mainPath = "";
+          var path1x = String(Math.cos(radians));
+          var path2x = String(0.9 * Math.cos(radians));
+          var path1y = String(Math.sin(radians));
+          var path2y = String(0.9 * Math.sin(radians));
+          space = " ";
+          path = mainPath.concat(
+            "M ",
+            path1x,
+            space,
+            path1y,
+            " L ",
+            path2x,
+            space,
+            path2y,
+            " Z"
+          );
+
+          shapes.push({
+            type: "path",
+            path: path,
+            opacity: 0.33,
+            fillcolor: "#000000",
+            line: {
+              color: "#000000"
+            }
+          });
+        }
+      } catch {}
+
+      level = this.props.gauge.level;
+      leveldisp = level;
       if (level > gmax) {
         leveldisp = gmax;
       }
@@ -110,9 +157,26 @@ class CardGauge extends Component {
       pathX = String(x);
       space = " ";
       pathY = String(y);
-      pathEnd = " Z";
-      path = mainPath.concat(pathX, space, pathY, pathEnd);
-      path2 = mainPath2.concat(pathX, space, pathY, pathEnd);
+      path = mainPath.concat(pathX, space, pathY, " Z");
+      path2 = mainPath2.concat(pathX, space, pathY, " Z");
+
+      shapes.push({
+        type: "path",
+        path: path,
+        fillcolor: "#000000",
+        line: {
+          color: "#000000"
+        }
+      });
+
+      shapes.push({
+        type: "path",
+        path: path2,
+        fillcolor: "#000000",
+        line: {
+          color: "#000000"
+        }
+      });
 
       cmap = this.props.gauge.cmap;
 
@@ -166,24 +230,7 @@ class CardGauge extends Component {
       ];
 
       layout = {
-        shapes: [
-          {
-            type: "path",
-            path: path,
-            fillcolor: "#000000",
-            line: {
-              color: "#000000"
-            }
-          },
-          {
-            type: "path",
-            path: path2,
-            fillcolor: "#000000",
-            line: {
-              color: "#000000"
-            }
-          }
-        ],
+        shapes: shapes,
         height: hw,
         width: hw,
         margin: {
@@ -224,6 +271,8 @@ class CardGauge extends Component {
 
     let gauge_winddir;
     if (this.props.gauge_winddir) {
+      shapes = [];
+
       ws = 70;
       ls = 25;
       gs = 360 - ws - 2 * ls;
@@ -231,9 +280,54 @@ class CardGauge extends Component {
       hw = this.props.gauge_winddir.hw;
       sz = 25;
 
-      level = this.props.gauge_winddir.level;
       gmin = this.props.gauge_winddir.gmin;
       gmax = this.props.gauge_winddir.gmax;
+
+      try {
+        history = this.props.gauge_winddir.history;
+        for (i = 0; i < history.length; i++) {
+          level = history[i];
+          leveldisp = level;
+          if (level > gmax) {
+            leveldisp = gmax;
+          }
+          if (level < gmin) {
+            leveldisp = gmin;
+          }
+          degrees = 360 + 90 - ((leveldisp - gmin) / (gmax - gmin)) * 360;
+          radius = 0.75;
+          radians = (degrees * Math.PI) / 180;
+          mainPath = "";
+          let path1x = String(Math.cos(radians));
+          let path2x = String(0.9 * Math.cos(radians));
+          let path1y = String(Math.sin(radians));
+          let path2y = String(0.9 * Math.sin(radians));
+          space = " ";
+          path = mainPath.concat(
+            "M ",
+            path1x,
+            space,
+            path1y,
+            " L ",
+            path2x,
+            space,
+            path2y,
+            " Z"
+          );
+
+          shapes.push({
+            type: "path",
+            path: path,
+            opacity: 0.33,
+            fillcolor: "#000000",
+            line: {
+              color: "#000000"
+            }
+          });
+        }
+      } catch {}
+
+      level = this.props.gauge_winddir.level;
       leveldisp = level;
 
       if (level > gmax) {
@@ -253,9 +347,26 @@ class CardGauge extends Component {
       pathX = String(x);
       space = " ";
       pathY = String(y);
-      pathEnd = " Z";
-      path = mainPath.concat(pathX, space, pathY, pathEnd);
-      path2 = mainPath2.concat(pathX, space, pathY, pathEnd);
+      path = mainPath.concat(pathX, space, pathY, " Z");
+      path2 = mainPath2.concat(pathX, space, pathY, " Z");
+
+      shapes.push({
+        type: "path",
+        path: path,
+        fillcolor: "#000000",
+        line: {
+          color: "#000000"
+        }
+      });
+
+      shapes.push({
+        type: "path",
+        path: path2,
+        fillcolor: "#000000",
+        line: {
+          color: "#000000"
+        }
+      });
 
       data = [
         {
@@ -338,24 +449,7 @@ class CardGauge extends Component {
       ];
 
       layout = {
-        shapes: [
-          {
-            type: "path",
-            path: path,
-            fillcolor: "#000000",
-            line: {
-              color: "#000000"
-            }
-          },
-          {
-            type: "path",
-            path: path2,
-            fillcolor: "#000000",
-            line: {
-              color: "#000000"
-            }
-          }
-        ],
+        shapes: shapes,
         height: hw,
         width: hw,
         margin: {
@@ -396,6 +490,8 @@ class CardGauge extends Component {
 
     let gauge_windspd;
     if (this.props.gauge_windspd) {
+      shapes = [];
+
       ws = 70;
       ls = 25;
       gs = 360 - ws - 2 * ls;
@@ -403,10 +499,55 @@ class CardGauge extends Component {
       hw = this.props.gauge_windspd.hw;
       sz = 25;
 
-      level = this.props.gauge_windspd.level;
-      level2 = this.props.gauge_windspd.level2;
       gmin = this.props.gauge_windspd.gmin;
       gmax = this.props.gauge_windspd.gmax;
+
+      try {
+        history = this.props.gauge_windspd.history;
+        for (i = 0; i < history.length; i++) {
+          level = history[i];
+          leveldisp = level;
+          if (level > gmax) {
+            leveldisp = gmax;
+          }
+          if (level < gmin) {
+            leveldisp = gmin;
+          }
+          degrees = 360 - rot - ((leveldisp - gmin) / (gmax - gmin)) * gs;
+          radius = 0.75;
+          radians = (degrees * Math.PI) / 180;
+          mainPath = "";
+          let path1x = String(Math.cos(radians));
+          let path2x = String(0.9 * Math.cos(radians));
+          let path1y = String(Math.sin(radians));
+          let path2y = String(0.9 * Math.sin(radians));
+          space = " ";
+          path = mainPath.concat(
+            "M ",
+            path1x,
+            space,
+            path1y,
+            " L ",
+            path2x,
+            space,
+            path2y,
+            " Z"
+          );
+
+          shapes.push({
+            type: "path",
+            path: path,
+            opacity: 0.33,
+            fillcolor: "#000000",
+            line: {
+              color: "#000000"
+            }
+          });
+        }
+      } catch {}
+
+      level = this.props.gauge_windspd.level;
+      level2 = this.props.gauge_windspd.level2;
       leveldisp = level;
       leveldisp2 = level2;
 
@@ -432,9 +573,8 @@ class CardGauge extends Component {
       pathX = String(x);
       space = " ";
       pathY = String(y);
-      pathEnd = " Z";
-      path = mainPath.concat(pathX, space, pathY, pathEnd);
-      path2 = mainPath2.concat(pathX, space, pathY, pathEnd);
+      path = mainPath.concat(pathX, space, pathY, " Z");
+      path2 = mainPath2.concat(pathX, space, pathY, " Z");
       degrees2 = 360 - rot - ((leveldisp2 - gmin) / (gmax - gmin)) * gs;
       radius2 = 0.75;
       radians2 = (degrees2 * Math.PI) / 180;
@@ -445,9 +585,44 @@ class CardGauge extends Component {
       pathX2 = String(x2);
       space2 = " ";
       pathY2 = String(y2);
-      pathEnd2 = " Z";
-      path3 = main2Path.concat(pathX2, space2, pathY2, pathEnd2);
-      path4 = main2Path2.concat(pathX2, space2, pathY2, pathEnd2);
+      path3 = main2Path.concat(pathX2, space2, pathY2, " Z");
+      path4 = main2Path2.concat(pathX2, space2, pathY2, " Z");
+
+      shapes.push({
+        type: "path",
+        path: path,
+        fillcolor: "#000000",
+        line: {
+          color: "#000000"
+        }
+      });
+
+      shapes.push({
+        type: "path",
+        path: path2,
+        fillcolor: "#000000",
+        line: {
+          color: "#000000"
+        }
+      });
+
+      shapes.push({
+        type: "path",
+        path: path3,
+        fillcolor: "#000000",
+        line: {
+          color: "#000000"
+        }
+      });
+
+      shapes.push({
+        type: "path",
+        path: path4,
+        fillcolor: "#000000",
+        line: {
+          color: "#000000"
+        }
+      });
 
       data = [
         {
@@ -501,40 +676,7 @@ class CardGauge extends Component {
       ];
 
       layout = {
-        shapes: [
-          {
-            type: "path",
-            path: path,
-            fillcolor: "#000000",
-            line: {
-              color: "#000000"
-            }
-          },
-          {
-            type: "path",
-            path: path2,
-            fillcolor: "#000000",
-            line: {
-              color: "#000000"
-            }
-          },
-          {
-            type: "path",
-            path: path3,
-            fillcolor: "#000000",
-            line: {
-              color: "#000000"
-            }
-          },
-          {
-            type: "path",
-            path: path4,
-            fillcolor: "#000000",
-            line: {
-              color: "#000000"
-            }
-          }
-        ],
+        shapes: shapes,
         height: hw,
         width: hw,
         margin: {

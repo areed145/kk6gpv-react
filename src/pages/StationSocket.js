@@ -16,6 +16,18 @@ class StationSocket extends Component {
       rad: false,
       isLoaded: false,
       wx: [],
+      wx_hist: {
+        temp_f: [],
+        dewpoint_f: [],
+        relative_humidity: [],
+        pressure_in: [],
+        wind_degrees: [],
+        wind_mph: [],
+        precip_today_in: [],
+        solar_radiation: [],
+        uv: []
+      },
+      hist_len: 25,
       prop_awc: "flight_category",
       lat: 29.78088,
       lon: -95.42041,
@@ -51,6 +63,18 @@ class StationSocket extends Component {
         wx_wind.wind_degrees = message.wind_degrees;
         wx_wind.wind_mph = message.wind_mph;
         this.setState({ wx: wx_wind });
+
+        var wx_hist_wind = { ...this.state.wx_hist };
+        wx_hist_wind.wind_degrees.push(message.wind_degrees);
+        if (wx_hist_wind.wind_degrees.length > this.state.hist_len) {
+          wx_hist_wind.wind_degrees.shift();
+        }
+        wx_hist_wind.wind_mph.push(message.wind_mph);
+        if (wx_hist_wind.wind_mph.length > this.state.hist_len) {
+          wx_hist_wind.wind_mph.shift();
+        }
+        this.setState({ wx_hist: wx_hist_wind });
+
         this.setState({ sky: true });
       } catch {}
     }
@@ -69,6 +93,26 @@ class StationSocket extends Component {
         wx_air.strike_last_dist = message.strike_last_dist;
         wx_air.strike_last_epoch = message.strike_last_epoch;
         this.setState({ wx: wx_air });
+
+        var wx_hist_air = { ...this.state.wx_hist };
+        wx_hist_air.temp_f.push(message.temp_f);
+        if (wx_hist_air.temp_f.length > this.state.hist_len) {
+          wx_hist_air.temp_f.shift();
+        }
+        wx_hist_air.dewpoint_f.push(message.dewpoint_f);
+        if (wx_hist_air.dewpoint_f.length > this.state.hist_len) {
+          wx_hist_air.dewpoint_f.shift();
+        }
+        wx_hist_air.relative_humidity.push(message.relative_humidity);
+        if (wx_hist_air.relative_humidity.length > this.state.hist_len) {
+          wx_hist_air.relative_humidity.shift();
+        }
+        wx_hist_air.pressure_in.push(message.pressure_in);
+        if (wx_hist_air.pressure_in.length > this.state.hist_len) {
+          wx_hist_air.pressure_in.shift();
+        }
+        this.setState({ wx_hist: wx_hist_air });
+
         this.setState({ air: true });
       } catch {}
     }
@@ -82,6 +126,30 @@ class StationSocket extends Component {
         wx_sky.solar_radiation = message.solar_radiation;
         wx_sky.uv = message.uv;
         this.setState({ wx: wx_sky });
+
+        var wx_hist_sky = { ...this.state.wx_hist };
+        wx_hist_sky.wind_degrees.push(message.wind_degrees);
+        if (wx_hist_sky.wind_degrees.length > this.state.hist_len) {
+          wx_hist_sky.wind_degrees.shift();
+        }
+        wx_hist_sky.wind_mph.push(message.wind_mph);
+        if (wx_hist_sky.wind_mph.length > this.state.hist_len) {
+          wx_hist_sky.wind_mph.shift();
+        }
+        wx_hist_sky.precip_today_in.push(message.precip_today_in);
+        if (wx_hist_sky.precip_today_in.length > this.state.hist_len) {
+          wx_hist_sky.precip_today_in.shift();
+        }
+        wx_hist_sky.solar_radiation.push(message.solar_radiation);
+        if (wx_hist_sky.solar_radiation.length > this.state.hist_len) {
+          wx_hist_sky.solar_radiation.shift();
+        }
+        wx_hist_sky.uv.push(message.uv);
+        if (wx_hist_sky.uv.length > this.state.hist_len) {
+          wx_hist_sky.uv.shift();
+        }
+        this.setState({ wx_hist: wx_hist_sky });
+
         this.setState({ sky: true });
       } catch {}
     }
@@ -166,6 +234,7 @@ class StationSocket extends Component {
                 gauge={{
                   level: this.state.wx.temp_f,
                   level_inset: this.state.wx.temp_f,
+                  history: this.state.wx_hist.temp_f,
                   gmin: 0,
                   gmax: 110,
                   hw: 200,
@@ -189,6 +258,7 @@ class StationSocket extends Component {
                 gauge={{
                   level: this.state.wx.dewpoint_f,
                   level_inset: this.state.wx.dewpoint_f,
+                  history: this.state.wx_hist.dewpoint_f,
                   gmin: 0,
                   gmax: 110,
                   hw: 200,
@@ -212,6 +282,7 @@ class StationSocket extends Component {
                 gauge={{
                   level: this.state.wx.relative_humidity,
                   level_inset: this.state.wx.relative_humidity,
+                  history: this.state.wx_hist.relative_humidity,
                   gmin: 0,
                   gmax: 100,
                   hw: 200,
@@ -224,6 +295,7 @@ class StationSocket extends Component {
                   level: this.state.wx.pressure_in,
                   level_inset: this.state.wx.pressure_in,
                   level_inset2: this.state.wx.pressure_trend,
+                  history: this.state.wx_hist.pressure_in,
                   gmin: 29.3,
                   gmax: 30.5,
                   hw: 200,
@@ -236,6 +308,7 @@ class StationSocket extends Component {
                 title="Wind Direction"
                 gauge_winddir={{
                   level: this.state.wx.wind_degrees,
+                  history: this.state.wx_hist.wind_degrees,
                   gmin: 0,
                   gmax: 359,
                   hw: 160
@@ -248,6 +321,7 @@ class StationSocket extends Component {
                   level2: this.state.wx.wind_gust_mph,
                   level_inset: this.state.wx.wind_mph,
                   level_inset2: this.state.wx.wind_gust_mph,
+                  history: this.state.wx_hist.wind_mph,
                   gmin: 0,
                   gmax: 15,
                   hw: 160
@@ -258,6 +332,7 @@ class StationSocket extends Component {
                 gauge={{
                   level: this.state.wx.precip_today_in,
                   level_inset: this.state.wx.precip_today_in,
+                  history: this.state.wx_hist.precip_today_in,
                   gmin: 0,
                   gmax: 1,
                   hw: 160,
@@ -269,6 +344,7 @@ class StationSocket extends Component {
                 gauge={{
                   level: this.state.wx.solar_radiation,
                   level_inset: this.state.wx.solar_radiation,
+                  history: this.state.wx_hist.solar_radiation,
                   gmin: 0,
                   gmax: 1000,
                   hw: 160,
@@ -280,6 +356,7 @@ class StationSocket extends Component {
                 gauge={{
                   level: this.state.wx.uv,
                   level_inset: this.state.wx.uv,
+                  history: this.state.wx_hist.uv,
                   gmin: 0,
                   gmax: 8,
                   hw: 160,
