@@ -27,25 +27,25 @@ const Home = () => {
             title="Station Weather"
             link="/station/live"
             icon={station_history}
-            bgcolor="#ffffff"
+            bgcolor="#f2f2f2"
           />
           <CardCell
             title="Aviation Weather"
             link="/weather/aviation"
             icon={weather_aviation}
-            bgcolor="#ffffff"
+            bgcolor="#f2f2f2"
           />
           <CardCell
             title="IoT"
             link="/iot/graph"
             icon={iot}
-            bgcolor="#ffffff"
+            bgcolor="#f2f2f2"
           />
           <CardCell
             title="APRS"
             link="/aprs/location"
             icon={aprs}
-            bgcolor="#ffffff"
+            bgcolor="#f2f2f2"
           />
         </CardDeck>
         <CardDeck className="carddeck">
@@ -53,25 +53,25 @@ const Home = () => {
             title="Flying"
             link="/aircraft"
             icon={aircraft}
-            bgcolor="#ffffff"
+            bgcolor="#f2f2f2"
           />
           <CardCell
             title="Photos"
             link="/galleries"
             icon={photos}
-            bgcolor="#ffffff"
+            bgcolor="#f2f2f2"
           />
           <CardCell
             title="Travel"
             link="/travel"
             icon={travel}
-            bgcolor="#ffffff"
+            bgcolor="#f2f2f2"
           />
           <CardCell
             title="Scuba"
             link="/scuba"
             icon={scuba}
-            bgcolor="#ffffff"
+            bgcolor="#f2f2f2"
           />
         </CardDeck>
         <CardDeck className="carddeck">
@@ -79,25 +79,25 @@ const Home = () => {
             title="Fishing"
             link="/fishing"
             icon={fishing}
-            bgcolor="#ffffff"
+            bgcolor="#f2f2f2"
           />
           <CardCell
             title="Oil & Gas"
             link="/oilgas/map"
             icon={oilgas}
-            bgcolor="#ffffff"
+            bgcolor="#f2f2f2"
           />
           <CardCell
             title="Blog"
             link="/blog"
             icon={blog}
-            bgcolor="#ffffff"
+            bgcolor="#f2f2f2"
           />
           <CardCell
             title="About"
             link="/about"
             icon={about}
-            bgcolor="#ffffff"
+            bgcolor="#f2f2f2"
           />
         </CardDeck>
         <div className="margin" />
