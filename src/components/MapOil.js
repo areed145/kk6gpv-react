@@ -1,12 +1,10 @@
 import { Component } from "react";
 import React from "react";
-import Div100vh from "react-div-100vh";
 import ReactMapGL, {
   GeolocateControl,
   Popup,
-  FullscreenControl,
   Layer,
-  Source
+  Source,
 } from "react-map-gl";
 import WellInfo from "./WellInfo";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -24,19 +22,19 @@ class MapOil extends Component {
       longitude: this.props.longitude,
       zoom: this.props.zoom,
       showPopup: true,
-      radius: this.props.radius
+      radius: this.props.radius,
     },
     fill: this.props.fill,
-    popup: null
+    popup: null,
   };
 
-  onViewportChange = viewport => {
+  onViewportChange = (viewport) => {
     const { width, height, ...etc } = viewport;
     this.setState({ viewport: etc });
   };
 
   onMapClick(event) {
-    const feature = event.features.find(f => f.layer.id === "wells");
+    const feature = event.features.find((f) => f.layer.id === "wells");
 
     if (feature) {
       // look up cluster expansion zoom
@@ -53,7 +51,7 @@ class MapOil extends Component {
         lease: lease,
         well: well,
         operator: operator,
-        api: api
+        api: api,
       };
       this.setState({ popup: popup });
     }
@@ -88,18 +86,10 @@ class MapOil extends Component {
           type: "Feature",
           geometry: {
             type: "Point",
-            coordinates: [this.props.longitude, this.props.latitude]
-          }
-        }
-      ]
-    };
-
-    const fullscreenControlStyle = {
-      position: "absolute",
-      top: 10,
-      left: 10,
-      padding: "0px",
-      boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.5)"
+            coordinates: [this.props.longitude, this.props.latitude],
+          },
+        },
+      ],
     };
 
     const geolocateStyle = {
@@ -107,102 +97,94 @@ class MapOil extends Component {
       right: 10,
       top: 10,
       padding: "0px",
-      boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.5)"
+      borderRadius: "0px",
+      boxShadow: "0 5px 15px rgba(0, 0, 0, 0.2)",
     };
 
     if (this.state.fill === "page") {
       return (
-        <Div100vh style={{ height: "calc(100rvh - 65px)" }}>
-          <ReactMapGL
-            {...viewport}
-            width="100%"
-            height="100%"
-            mapboxApiAccessToken={TOKEN}
-            mapStyle={this.props.mapstyle}
-            onViewportChange={viewport => this.onViewportChange(viewport)}
-            onClick={popup => this.onMapClick(popup)}
-          >
-            {this.renderPopup()}
-            <Source id="my-data" type="geojson" data={geojson}>
-              <Layer
-                // id="point"
-                type="circle"
-                beforeId="wells"
-                paint={{
-                  "circle-radius": {
-                    stops: [
-                      [0, 0],
-                      [20, metersToPixelsAtMaxZoom(100, this.props.latitude)]
-                    ],
-                    base: 2
-                  },
-                  "circle-color": "red",
-                  "circle-opacity": 0.1,
-                  "circle-stroke-width": 2,
-                  "circle-stroke-color": "red"
-                }}
-              />
-            </Source>
-            <div className="geolocate">
-              <GeolocateControl
-                style={geolocateStyle}
-                positionOptions={{ enableHighAccuracy: true }}
-                trackUserLocation={true}
-                onViewportChange={this._updateViewport}
-              />
-            </div>
-            <div className="fullscreen" style={fullscreenControlStyle}>
-              <FullscreenControl />
-            </div>
-          </ReactMapGL>
-        </Div100vh>
+        <ReactMapGL
+          {...viewport}
+          width="100%"
+          height="calc(100vh - 66px)"
+          mapboxApiAccessToken={TOKEN}
+          mapStyle={this.props.mapstyle}
+          onViewportChange={(viewport) => this.onViewportChange(viewport)}
+          onClick={(popup) => this.onMapClick(popup)}
+        >
+          {this.renderPopup()}
+          <Source id="my-data" type="geojson" data={geojson}>
+            <Layer
+              // id="point"
+              type="circle"
+              beforeId="wells"
+              paint={{
+                "circle-radius": {
+                  stops: [
+                    [0, 0],
+                    [20, metersToPixelsAtMaxZoom(100, this.props.latitude)],
+                  ],
+                  base: 2,
+                },
+                "circle-color": "red",
+                "circle-opacity": 0.1,
+                "circle-stroke-width": 2,
+                "circle-stroke-color": "red",
+              }}
+            />
+          </Source>
+          <div className="geolocate">
+            <GeolocateControl
+              style={geolocateStyle}
+              positionOptions={{ enableHighAccuracy: true }}
+              trackUserLocation={true}
+              onViewportChange={this._updateViewport}
+            />
+          </div>
+        </ReactMapGL>
       );
     } else {
       return (
-        <div style={{ height: "500px", minHeight: "500px" }}>
-          <ReactMapGL
-            {...viewport}
-            width="100%"
-            height="100%"
-            mapboxApiAccessToken={TOKEN}
-            mapStyle={this.props.mapstyle}
-            onViewportChange={viewport => this.onViewportChange(viewport)}
-            onClick={popup => this.onMapClick(popup)}
-          >
-            {this.renderPopup()}
-            <Source id="my-data" type="geojson" data={geojson}>
-              <Layer
-                // id="point"
-                type="circle"
-                beforeId="wells"
-                paint={{
-                  "circle-radius": {
-                    stops: [
-                      [0, 0],
-                      [20, metersToPixelsAtMaxZoom(100, 22)]
-                    ],
-                    base: 2
-                  },
-                  "circle-color": "red",
-                  "circle-opacity": 0.1,
-                  "circle-stroke-width": 2,
-                  "circle-stroke-color": "red"
-                }}
-              />
-            </Source>
-            <div className="geolocate">
-              <GeolocateControl
-                style={geolocateStyle}
-                positionOptions={{ enableHighAccuracy: true }}
-                trackUserLocation={true}
-                onViewportChange={this._updateViewport}
-              />
-            </div>
-            <div className="fullscreen" style={fullscreenControlStyle}>
-              <FullscreenControl />
-            </div>
-          </ReactMapGL>
-        </div>
+        <ReactMapGL
+          {...viewport}
+          width="100%"
+          height="100%"
+          minHeight="500px"
+          mapboxApiAccessToken={TOKEN}
+          mapStyle={this.props.mapstyle}
+          onViewportChange={(viewport) => this.onViewportChange(viewport)}
+          onClick={(popup) => this.onMapClick(popup)}
+        >
+          {this.renderPopup()}
+          <Source id="my-data" type="geojson" data={geojson}>
+            <Layer
+              // id="point"
+              type="circle"
+              beforeId="wells"
+              paint={{
+                "circle-radius": {
+                  stops: [
+                    [0, 0],
+                    [20, metersToPixelsAtMaxZoom(100, 22)],
+                  ],
+                  base: 2,
+                },
+                "circle-color": "red",
+                "circle-opacity": 0.1,
+                "circle-stroke-width": 2,
+                "circle-stroke-color": "red",
+              }}
+            />
+          </Source>
+          <div className="geolocate">
+            <GeolocateControl
+              style={geolocateStyle}
+              positionOptions={{ enableHighAccuracy: true }}
+              trackUserLocation={true}
+              onViewportChange={this._updateViewport}
+            />
+          </div>
+        </ReactMapGL>
       );
     }
   }

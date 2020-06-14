@@ -10,7 +10,7 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
   // NavbarText
 } from "reactstrap";
 
@@ -24,12 +24,12 @@ class Menu extends Component {
     this.state = {
       isOpen: false,
       navCollapsed: true,
-      showNavbar: false
+      showNavbar: false,
     };
   }
   toggle() {
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpen: !this.state.isOpen,
     });
   }
   render() {
@@ -77,7 +77,6 @@ class Menu extends Component {
               <DropdownMenu right className="menu">
                 <DropdownItem href="/aprs/location">KK6GPV</DropdownItem>
                 <DropdownItem href="/aprs/igate">KK6GPV-10</DropdownItem>
-                <DropdownItem href="/aprs/houston">Houston Area</DropdownItem>
                 <DropdownItem href="/aprs/info">APRS Info</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
@@ -99,8 +98,8 @@ class Menu extends Component {
               <DropdownMenu right className="menu">
                 <DropdownItem href="/galleries">Photos</DropdownItem>
                 <DropdownItem href="/travel">Travel</DropdownItem>
-                <DropdownItem href="/scuba">Scuba</DropdownItem>
                 <DropdownItem href="/fishing">Fishing</DropdownItem>
+                <DropdownItem href="/scuba">Scuba</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
             <UncontrolledDropdown nav inNavbar>
@@ -110,18 +109,6 @@ class Menu extends Component {
               <DropdownMenu right className="menu">
                 <DropdownItem href="/oilgas/map">Map</DropdownItem>
                 <DropdownItem href="/oilgas/tasks">Tasks</DropdownItem>
-                <DropdownItem href="/oilgas/summary/High%20Performer">
-                  High Performer
-                </DropdownItem>
-                <DropdownItem href="/oilgas/summary/Low%20Performer">
-                  Low Performer
-                </DropdownItem>
-                <DropdownItem href="/oilgas/summary/Slider">
-                  Slider
-                </DropdownItem>
-                <DropdownItem href="/oilgas/summary/Gainer">
-                  Gainer
-                </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
             {/* <NavItem>

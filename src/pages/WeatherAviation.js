@@ -9,7 +9,7 @@ import {
   DropdownToggle,
   ButtonDropdown,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
 } from "reactstrap";
 // import Footer from "../components/Footer";
 class WeatherAviation extends Component {
@@ -36,13 +36,13 @@ class WeatherAviation extends Component {
       watchwarn: 0,
       temp: 0,
       radar_map: [],
-      dropdownOpen: false
+      dropdownOpen: false,
     };
   }
 
   toggle() {
     this.setState({
-      dropdownOpen: !this.state.dropdownOpen
+      dropdownOpen: !this.state.dropdownOpen,
     });
   }
 
@@ -50,7 +50,7 @@ class WeatherAviation extends Component {
     this.setState(
       {
         prop: event.value,
-        prop_label: event.label
+        prop_label: event.label,
       },
       function() {
         fetch(
@@ -78,9 +78,9 @@ class WeatherAviation extends Component {
             this.state.watchwarn
           )}&temp=${encodeURIComponent(this.state.temp)}`
         )
-          .then(res => res.json())
+          .then((res) => res.json())
           .then(
-            result => {
+            (result) => {
               var radar_map = { ...this.state.radar_map };
               radar_map.data = result.map.data;
               this.setState({ radar_map });
@@ -88,10 +88,10 @@ class WeatherAviation extends Component {
             // Note: it's important to handle errors here
             // instead of a catch() block so that we don't swallow
             // exceptions from actual bugs in components.
-            error => {
+            (error) => {
               this.setState({
                 isLoaded: true,
-                error
+                error,
               });
             }
           );
@@ -103,7 +103,7 @@ class WeatherAviation extends Component {
     var temp = -this.state.temp + 1;
     this.setState(
       {
-        temp: temp
+        temp: temp,
       },
       function() {
         fetch(
@@ -131,9 +131,9 @@ class WeatherAviation extends Component {
             this.state.watchwarn
           )}&temp=${encodeURIComponent(this.state.temp)}`
         )
-          .then(res => res.json())
+          .then((res) => res.json())
           .then(
-            result => {
+            (result) => {
               var radar_map = { ...this.state.radar_map };
               radar_map.data = result.map.data;
               radar_map.layout.mapbox.layers = result.map.layout.mapbox.layers;
@@ -142,10 +142,10 @@ class WeatherAviation extends Component {
             // Note: it's important to handle errors here
             // instead of a catch() block so that we don't swallow
             // exceptions from actual bugs in components.
-            error => {
+            (error) => {
               this.setState({
                 isLoaded: true,
-                error
+                error,
               });
             }
           );
@@ -157,7 +157,7 @@ class WeatherAviation extends Component {
     var infrared = -this.state.infrared + 1;
     this.setState(
       {
-        infrared: infrared
+        infrared: infrared,
       },
       function() {
         fetch(
@@ -185,9 +185,9 @@ class WeatherAviation extends Component {
             this.state.watchwarn
           )}&temp=${encodeURIComponent(this.state.temp)}`
         )
-          .then(res => res.json())
+          .then((res) => res.json())
           .then(
-            result => {
+            (result) => {
               var radar_map = { ...this.state.radar_map };
               radar_map.data = result.map.data;
               radar_map.layout.mapbox.layers = result.map.layout.mapbox.layers;
@@ -196,10 +196,10 @@ class WeatherAviation extends Component {
             // Note: it's important to handle errors here
             // instead of a catch() block so that we don't swallow
             // exceptions from actual bugs in components.
-            error => {
+            (error) => {
               this.setState({
                 isLoaded: true,
-                error
+                error,
               });
             }
           );
@@ -211,7 +211,7 @@ class WeatherAviation extends Component {
     var visible = -this.state.visible + 1;
     this.setState(
       {
-        visible: visible
+        visible: visible,
       },
       function() {
         fetch(
@@ -239,9 +239,9 @@ class WeatherAviation extends Component {
             this.state.watchwarn
           )}&temp=${encodeURIComponent(this.state.temp)}`
         )
-          .then(res => res.json())
+          .then((res) => res.json())
           .then(
-            result => {
+            (result) => {
               var radar_map = { ...this.state.radar_map };
               radar_map.data = result.map.data;
               radar_map.layout.mapbox.layers = result.map.layout.mapbox.layers;
@@ -250,10 +250,10 @@ class WeatherAviation extends Component {
             // Note: it's important to handle errors here
             // instead of a catch() block so that we don't swallow
             // exceptions from actual bugs in components.
-            error => {
+            (error) => {
               this.setState({
                 isLoaded: true,
-                error
+                error,
               });
             }
           );
@@ -265,7 +265,7 @@ class WeatherAviation extends Component {
     var analysis = -this.state.analysis + 1;
     this.setState(
       {
-        analysis: analysis
+        analysis: analysis,
       },
       function() {
         fetch(
@@ -293,9 +293,9 @@ class WeatherAviation extends Component {
             this.state.watchwarn
           )}&temp=${encodeURIComponent(this.state.temp)}`
         )
-          .then(res => res.json())
+          .then((res) => res.json())
           .then(
-            result => {
+            (result) => {
               var radar_map = { ...this.state.radar_map };
               radar_map.data = result.map.data;
               radar_map.layout.mapbox.layers = result.map.layout.mapbox.layers;
@@ -304,10 +304,10 @@ class WeatherAviation extends Component {
             // Note: it's important to handle errors here
             // instead of a catch() block so that we don't swallow
             // exceptions from actual bugs in components.
-            error => {
+            (error) => {
               this.setState({
                 isLoaded: true,
-                error
+                error,
               });
             }
           );
@@ -319,7 +319,7 @@ class WeatherAviation extends Component {
     var lightning = -this.state.lightning + 1;
     this.setState(
       {
-        lightning: lightning
+        lightning: lightning,
       },
       function() {
         fetch(
@@ -347,9 +347,9 @@ class WeatherAviation extends Component {
             this.state.watchwarn
           )}&temp=${encodeURIComponent(this.state.temp)}`
         )
-          .then(res => res.json())
+          .then((res) => res.json())
           .then(
-            result => {
+            (result) => {
               var radar_map = { ...this.state.radar_map };
               radar_map.data = result.map.data;
               radar_map.layout.mapbox.layers = result.map.layout.mapbox.layers;
@@ -358,10 +358,10 @@ class WeatherAviation extends Component {
             // Note: it's important to handle errors here
             // instead of a catch() block so that we don't swallow
             // exceptions from actual bugs in components.
-            error => {
+            (error) => {
               this.setState({
                 isLoaded: true,
-                error
+                error,
               });
             }
           );
@@ -373,7 +373,7 @@ class WeatherAviation extends Component {
     var precip = -this.state.precip + 1;
     this.setState(
       {
-        precip: precip
+        precip: precip,
       },
       function() {
         fetch(
@@ -401,9 +401,9 @@ class WeatherAviation extends Component {
             this.state.watchwarn
           )}&temp=${encodeURIComponent(this.state.temp)}`
         )
-          .then(res => res.json())
+          .then((res) => res.json())
           .then(
-            result => {
+            (result) => {
               var radar_map = { ...this.state.radar_map };
               radar_map.data = result.map.data;
               radar_map.layout.mapbox.layers = result.map.layout.mapbox.layers;
@@ -412,10 +412,10 @@ class WeatherAviation extends Component {
             // Note: it's important to handle errors here
             // instead of a catch() block so that we don't swallow
             // exceptions from actual bugs in components.
-            error => {
+            (error) => {
               this.setState({
                 isLoaded: true,
-                error
+                error,
               });
             }
           );
@@ -427,7 +427,7 @@ class WeatherAviation extends Component {
     var radar = -this.state.radar + 1;
     this.setState(
       {
-        radar: radar
+        radar: radar,
       },
       function() {
         fetch(
@@ -455,9 +455,9 @@ class WeatherAviation extends Component {
             this.state.watchwarn
           )}&temp=${encodeURIComponent(this.state.temp)}`
         )
-          .then(res => res.json())
+          .then((res) => res.json())
           .then(
-            result => {
+            (result) => {
               var radar_map = { ...this.state.radar_map };
               radar_map.data = result.map.data;
               radar_map.layout.mapbox.layers = result.map.layout.mapbox.layers;
@@ -466,10 +466,10 @@ class WeatherAviation extends Component {
             // Note: it's important to handle errors here
             // instead of a catch() block so that we don't swallow
             // exceptions from actual bugs in components.
-            error => {
+            (error) => {
               this.setState({
                 isLoaded: true,
-                error
+                error,
               });
             }
           );
@@ -481,7 +481,7 @@ class WeatherAviation extends Component {
     var watchwarn = -this.state.watchwarn + 1;
     this.setState(
       {
-        watchwarn: watchwarn
+        watchwarn: watchwarn,
       },
       function() {
         fetch(
@@ -509,9 +509,9 @@ class WeatherAviation extends Component {
             this.state.watchwarn
           )}&temp=${encodeURIComponent(this.state.temp)}`
         )
-          .then(res => res.json())
+          .then((res) => res.json())
           .then(
-            result => {
+            (result) => {
               var radar_map = { ...this.state.radar_map };
               radar_map.data = result.map.data;
               radar_map.layout.mapbox.layers = result.map.layout.mapbox.layers;
@@ -520,10 +520,10 @@ class WeatherAviation extends Component {
             // Note: it's important to handle errors here
             // instead of a catch() block so that we don't swallow
             // exceptions from actual bugs in components.
-            error => {
+            (error) => {
               this.setState({
                 isLoaded: true,
-                error
+                error,
               });
             }
           );
@@ -535,7 +535,7 @@ class WeatherAviation extends Component {
     var stations = -this.state.stations + 1;
     this.setState(
       {
-        stations: stations
+        stations: stations,
       },
       function() {
         fetch(
@@ -563,9 +563,9 @@ class WeatherAviation extends Component {
             this.state.watchwarn
           )}&temp=${encodeURIComponent(this.state.temp)}`
         )
-          .then(res => res.json())
+          .then((res) => res.json())
           .then(
-            result => {
+            (result) => {
               var radar_map = { ...this.state.radar_map };
               radar_map.data = result.map.data;
               radar_map.layout.mapbox.layers = result.map.layout.mapbox.layers;
@@ -574,10 +574,10 @@ class WeatherAviation extends Component {
             // Note: it's important to handle errors here
             // instead of a catch() block so that we don't swallow
             // exceptions from actual bugs in components.
-            error => {
+            (error) => {
               this.setState({
                 isLoaded: true,
-                error
+                error,
               });
             }
           );
@@ -611,21 +611,21 @@ class WeatherAviation extends Component {
         this.state.watchwarn
       )}&temp=${encodeURIComponent(this.state.temp)}`
     )
-      .then(res => res.json())
+      .then((res) => res.json())
       .then(
-        result => {
+        (result) => {
           this.setState({
             isLoaded: true,
-            radar_map: result.map
+            radar_map: result.map,
           });
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
         // exceptions from actual bugs in components.
-        error => {
+        (error) => {
           this.setState({
             isLoaded: true,
-            error
+            error,
           });
         }
       );
@@ -656,7 +656,7 @@ class WeatherAviation extends Component {
       { value: "sky_cover_0", label: "Sky Cover" },
       { value: "precip_in", label: "Precip" },
       { value: "elevation_m", label: "Elevation" },
-      { value: "age", label: "Age" }
+      { value: "age", label: "Age" },
     ];
 
     if (error) {
@@ -679,7 +679,7 @@ class WeatherAviation extends Component {
       return (
         <div>
           <div className="mainframe">
-            <Div100vh style={{ height: "calc(100rvh - 65px)" }}>
+            <Div100vh style={{ height: "calc(100rvh - 66px)" }}>
               <Plot
                 data={this.state.radar_map.data}
                 layout={this.state.radar_map.layout}
@@ -692,133 +692,131 @@ class WeatherAviation extends Component {
               className="card"
               style={{
                 position: "fixed",
-                // width: "250px",
-                // height: "210px",
                 top: "140px",
-                left: "15px"
+                left: "15px",
               }}
             >
               <CardBody className="cardbodynopad">
                 <div style={{ margin: "-5px 0px -5px 0px" }}>
-                <ButtonGroup vertical>
-                  <ButtonDropdown
-                    isOpen={this.state.dropdownOpen}
-                    toggle={this.toggle}
-                    direction="down"
-                  >
-                    <DropdownToggle
-                      caret
-                      direction="right"
-                      style={{
-                        color: "#ffffff",
-                        backgroundColor: "#e8093a",
-                        border: "0px"
-                      }}
+                  <ButtonGroup vertical>
+                    <ButtonDropdown
+                      isOpen={this.state.dropdownOpen}
+                      toggle={this.toggle}
+                      direction="down"
                     >
-                      Layers
-                    </DropdownToggle>
-                    <DropdownMenu
-                      className="dropdownmenu"
-                      style={{
-                        position: "absolute",
-                        top: "0px",
-                        left: "100px"
-                      }}
-                    >
-                      <DropdownItem
+                      <DropdownToggle
+                        caret
+                        direction="right"
                         style={{
                           color: "#ffffff",
-                          backgroundColor: "#eb3461",
-                          border: "0px"
+                          backgroundColor: "#e8093a",
+                          border: "0px",
                         }}
-                        onClick={this.onClickStations.bind(this)}
                       >
-                        Stations
-                      </DropdownItem>
-                      <DropdownItem
+                        Layers
+                      </DropdownToggle>
+                      <DropdownMenu
+                        className="dropdownmenu"
                         style={{
-                          color: "#ffffff",
-                          backgroundColor: "#c53093",
-                          border: "0px"
+                          position: "absolute",
+                          top: "0px",
+                          left: "100px",
                         }}
-                        onClick={this.onClickTemp.bind(this)}
                       >
-                        Temp
-                      </DropdownItem>
-                      <DropdownItem
-                        style={{
-                          color: "#ffffff",
-                          backgroundColor: "#8a30c5",
-                          border: "0px"
-                        }}
-                        onClick={this.onClickInfrared.bind(this)}
-                      >
-                        Infrared
-                      </DropdownItem>
-                      <DropdownItem
-                        style={{
-                          color: "#ffffff",
-                          backgroundColor: "#3330c5",
-                          border: "0px"
-                        }}
-                        onClick={this.onClickVisible.bind(this)}
-                      >
-                        Visible
-                      </DropdownItem>
-                      <DropdownItem
-                        style={{
-                          color: "#ffffff",
-                          backgroundColor: "#2EA4F4",
-                          border: "0px"
-                        }}
-                        onClick={this.onClickFronts.bind(this)}
-                      >
-                        Fronts
-                      </DropdownItem>
-                      <DropdownItem
-                        style={{
-                          color: "#ffffff",
-                          backgroundColor: "#30c5a5",
-                          border: "0px"
-                        }}
-                        onClick={this.onClickPrecip.bind(this)}
-                      >
-                        Precip
-                      </DropdownItem>
-                      <DropdownItem
-                        style={{
-                          color: "#ffffff",
-                          backgroundColor: "#a6d84b",
-                          border: "0px"
-                        }}
-                        onClick={this.onClickRadar.bind(this)}
-                      >
-                        Radar
-                      </DropdownItem>
-                      <DropdownItem
-                        style={{
-                          color: "#ffffff",
-                          backgroundColor: "#F4C12E",
-                          border: "0px"
-                        }}
-                        onClick={this.onClickLightning.bind(this)}
-                      >
-                        Lightning
-                      </DropdownItem>
-                      <DropdownItem
-                        style={{
-                          color: "#ffffff",
-                          backgroundColor: "#F46A2E",
-                          border: "0px"
-                        }}
-                        onClick={this.onClickAlerts.bind(this)}
-                      >
-                        Alerts
-                      </DropdownItem>
-                    </DropdownMenu>
-                  </ButtonDropdown>
-                </ButtonGroup>
-              </div>
+                        <DropdownItem
+                          style={{
+                            color: "#ffffff",
+                            backgroundColor: "#eb3461",
+                            border: "0px",
+                          }}
+                          onClick={this.onClickStations.bind(this)}
+                        >
+                          Stations
+                        </DropdownItem>
+                        <DropdownItem
+                          style={{
+                            color: "#ffffff",
+                            backgroundColor: "#c53093",
+                            border: "0px",
+                          }}
+                          onClick={this.onClickTemp.bind(this)}
+                        >
+                          Temp
+                        </DropdownItem>
+                        <DropdownItem
+                          style={{
+                            color: "#ffffff",
+                            backgroundColor: "#8a30c5",
+                            border: "0px",
+                          }}
+                          onClick={this.onClickInfrared.bind(this)}
+                        >
+                          Infrared
+                        </DropdownItem>
+                        <DropdownItem
+                          style={{
+                            color: "#ffffff",
+                            backgroundColor: "#3330c5",
+                            border: "0px",
+                          }}
+                          onClick={this.onClickVisible.bind(this)}
+                        >
+                          Visible
+                        </DropdownItem>
+                        <DropdownItem
+                          style={{
+                            color: "#ffffff",
+                            backgroundColor: "#2EA4F4",
+                            border: "0px",
+                          }}
+                          onClick={this.onClickFronts.bind(this)}
+                        >
+                          Fronts
+                        </DropdownItem>
+                        <DropdownItem
+                          style={{
+                            color: "#ffffff",
+                            backgroundColor: "#30c5a5",
+                            border: "0px",
+                          }}
+                          onClick={this.onClickPrecip.bind(this)}
+                        >
+                          Precip
+                        </DropdownItem>
+                        <DropdownItem
+                          style={{
+                            color: "#ffffff",
+                            backgroundColor: "#a6d84b",
+                            border: "0px",
+                          }}
+                          onClick={this.onClickRadar.bind(this)}
+                        >
+                          Radar
+                        </DropdownItem>
+                        <DropdownItem
+                          style={{
+                            color: "#ffffff",
+                            backgroundColor: "#F4C12E",
+                            border: "0px",
+                          }}
+                          onClick={this.onClickLightning.bind(this)}
+                        >
+                          Lightning
+                        </DropdownItem>
+                        <DropdownItem
+                          style={{
+                            color: "#ffffff",
+                            backgroundColor: "#F46A2E",
+                            border: "0px",
+                          }}
+                          onClick={this.onClickAlerts.bind(this)}
+                        >
+                          Alerts
+                        </DropdownItem>
+                      </DropdownMenu>
+                    </ButtonDropdown>
+                  </ButtonGroup>
+                </div>
               </CardBody>
             </Card>
             <Card
@@ -827,7 +825,7 @@ class WeatherAviation extends Component {
                 position: "fixed",
                 width: "240px",
                 top: "85px",
-                left: "15px"
+                left: "15px",
               }}
             >
               <CardBody className="cardbodynopad">
