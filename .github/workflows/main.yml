@@ -21,7 +21,7 @@ jobs:
           heroku_app_name: "kk6gpv-react" #Must be unique in Heroku
           heroku_email: "areed145@gmail.com"
           buildpack: "https://github.com/mars/create-react-app-buildpack.git" #OPTIONAL
-          branch: "YOUR_BRANCH" #OPTIONAL and DEFAULT - 'HEAD' (a.k.a your current branch)
+#           branch: "YOUR_BRANCH" #OPTIONAL and DEFAULT - 'HEAD' (a.k.a your current branch)
 #           dontuseforce: false #OPTIONAL and DEFAULT - false
 #           usedocker: false #OPTIONAL and DEFAULT - false
 #           appdir: "" #OPTIONAL and DEFAULT - "". This is useful if the api you're deploying is in a subfolder
