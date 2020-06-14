@@ -699,6 +699,7 @@ class WeatherAviation extends Component {
               }}
             >
               <CardBody className="cardbodynopad">
+                <div style={{ margin: "-5px 0px -5px 0px" }}>
                 <ButtonGroup vertical>
                   <ButtonDropdown
                     isOpen={this.state.dropdownOpen}
@@ -817,6 +818,7 @@ class WeatherAviation extends Component {
                     </DropdownMenu>
                   </ButtonDropdown>
                 </ButtonGroup>
+              </div>
               </CardBody>
             </Card>
             <Card
