@@ -1,46 +1,15 @@
 import React, { Component } from "react";
-import {
-  Card,
-  CardBody,
-  CardHeader,
-  CardTitle,
-  Table
-  //   ButtonGroup,
-  //   Button,
-  //   CardFooter
-} from "reactstrap";
+import { Card, CardBody, CardHeader, CardTitle, Table } from "reactstrap";
 
 class CardWellHeader extends Component {
   constructor(props) {
     super(props);
     this.state = {
       error: null,
-      isLoaded: false,
+      isLoaded: true,
       api: this.props.api,
-      header: []
+      header: this.props.header,
     };
-  }
-
-  async componentDidMount() {
-    const api = encodeURIComponent(this.state.api);
-    try {
-      const response = await fetch(
-        `https://kk6gpv-api.herokuapp.com/oilgas/header/details?api=${api}`
-      );
-      if (!response.ok) {
-        throw Error(response.statusText);
-      }
-      const res = await response.json();
-      this.setState({
-        isLoaded: true,
-        header: res.header
-      });
-    } catch (error) {
-      this.setState({
-        isLoaded: true,
-        error
-      });
-    }
   }
 
   render() {

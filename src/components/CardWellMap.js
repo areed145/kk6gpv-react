@@ -1,5 +1,15 @@
 import React, { Component } from "react";
-import { Card, CardBody, CardHeader, CardTitle } from "reactstrap";
+import {
+  Card,
+  CardBody,
+  CardHeader,
+  CardTitle,
+  //   Button,
+  //   Modal,
+  //   ModalHeader,
+  //   ModalBody,
+  //   CardImg,
+} from "reactstrap";
 import MapOil from "./MapOil";
 
 class CardWellMap extends Component {
@@ -7,49 +17,38 @@ class CardWellMap extends Component {
     super(props);
     this.state = {
       error: null,
-      isLoaded: false,
-      api: this.props.api,
-      header: []
+      isLoaded: true,
+      modal: false,
+      fade: true,
+      title: this.props.title,
+      latitude: this.props.latitude,
+      longitude: this.props.longitude,
+      mapstyle: this.props.mapstyle,
+      zoom: this.props.zoom,
     };
   }
 
-  async componentDidMount() {
-    const api = encodeURIComponent(this.state.api);
-    try {
-      const response = await fetch(
-        `https://kk6gpv-api.herokuapp.com/oilgas/header/details?api=${api}`
-      );
-      if (!response.ok) {
-        throw Error(response.statusText);
-      }
-      const res = await response.json();
-      this.setState({
-        isLoaded: true,
-        header: res.header
-      });
-    } catch (error) {
-      this.setState({
-        isLoaded: true,
-        error
-      });
-    }
+  toggle() {
+    this.setState({
+      modal: !this.state.modal,
+      fade: !this.state.fade,
+    });
   }
 
   render() {
-    let bodystyle = { backgroundColor: this.props.bgcolor };
     const { error, isLoaded } = this.state;
 
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
       return (
-        <Card className="card">
-          <CardHeader className="cardheader">
+        <Card>
+          <CardHeader>
             <CardTitle>
-              <h5 align="center">{this.props.title}</h5>
+              <h5 align="center">{this.state.title}</h5>
             </CardTitle>
           </CardHeader>
-          <CardBody className="cardbody" style={bodystyle}>
+          <CardBody>
             <div className="waiting">
               <div className="center">
                 <div className="spinner-border text-secondary" role="status">
@@ -69,13 +68,12 @@ class CardWellMap extends Component {
                 <h5>{this.state.title}</h5>
               </CardTitle>
             </CardHeader>
-          <CardBody style={{ minHeight: "500px", height: "0px" }}>
-            <CardBody className="cardbody">
+            <CardBody style={{ minHeight: "500px", height: "0px" }}>
               <MapOil
-                latitude={this.state.header.latitude}
-                longitude={this.state.header.longitude}
-                zoom={16}
-                mapstyle={this.props.mapstyle}
+                latitude={this.state.latitude}
+                longitude={this.state.longitude}
+                zoom={this.state.zoom}
+                mapstyle={this.state.mapstyle}
               />
             </CardBody>
           </Card>

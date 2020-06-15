@@ -14,9 +14,31 @@ class DetailsOilgas extends Component {
     super(props);
     this.state = {
       error: null,
-      isLoaded: true,
-      api: this.props.match.params.api
+      isLoaded: false,
+      api: this.props.match.params.api,
     };
+  }
+
+  async componentDidMount() {
+    const api = encodeURIComponent(this.state.api);
+    try {
+      const response = await fetch(
+        `https://kk6gpv-api.herokuapp.com/oilgas/header/details?api=${api}`
+      );
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const res = await response.json();
+      this.setState({
+        isLoaded: true,
+        header: res.header,
+      });
+    } catch (error) {
+      this.setState({
+        isLoaded: true,
+        error,
+      });
+    }
   }
 
   render() {
@@ -36,47 +58,55 @@ class DetailsOilgas extends Component {
       return (
         <div>
           <div className="mainframe">
-            <CardDeck className="carddeck">
-              <CardWellHeader api={this.state.api} />
+            <CardDeck>
+              <CardWellHeader header={this.state.header} />
               <CardWellMap
-                api={this.state.api}
+                latitude={this.state.header.latitude}
+                longitude={this.state.header.longitude}
                 title="Well Location"
                 mapstyle="mapbox://styles/areed145/ck6h5ywqd0aig1ioqwdynu6sb"
+                zoom={16}
               />
             </CardDeck>
-            <CardDeck className="carddeck">
+            <CardDeck>
               <CardProdInj api={this.state.api} />
             </CardDeck>
-            <CardDeck className="carddeck">
+            <CardDeck>
               <CardTags api={this.state.api} />
             </CardDeck>
-            <CardDeck className="carddeck">
+            <CardDeck>
               <CardDecline api={this.state.api} />
             </CardDeck>
-            <CardDeck className="carddeck">
+            <CardDeck>
               <CardOffset api={this.state.api} />
             </CardDeck>
-            <CardDeck className="carddeck">
+            <CardDeck>
               <CardCyclic api={this.state.api} />
             </CardDeck>
-            <CardDeck className="carddeck">
+            <CardDeck>
               <CardCRM api={this.state.api} />
               <CardWellMap
-                api={this.state.api}
-                title="CRM Map"
+                latitude={this.state.header.latitude}
+                longitude={this.state.header.longitude}
+                title="Well Location"
                 mapstyle="mapbox://styles/areed145/ck6h8yefz0dc11ir1qkwv4uy3"
+                zoom={16}
               />
             </CardDeck>
             <CardDeck className="carddeck">
               <CardWellMap
-                api={this.state.api}
-                title="IP Map"
+                latitude={this.state.header.latitude}
+                longitude={this.state.header.longitude}
+                title="Well Location"
                 mapstyle="mapbox://styles/areed145/ck6h8m4th0cwp1imhqwofy2eq"
+                zoom={16}
               />
               <CardWellMap
-                api={this.state.api}
-                title="Decline Map"
+                latitude={this.state.header.latitude}
+                longitude={this.state.header.longitude}
+                title="Well Location"
                 mapstyle="mapbox://styles/areed145/ck5n8jaq92f1y1ilpmeruwstl"
+                zoom={16}
               />
             </CardDeck>
             <div className="margin" />

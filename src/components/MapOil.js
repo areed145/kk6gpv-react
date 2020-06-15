@@ -113,6 +113,7 @@ class MapOil extends Component {
           onClick={(popup) => this.onMapClick(popup)}
         >
           {this.renderPopup()}
+
           <Source id="my-data" type="geojson" data={geojson}>
             <Layer
               // id="point"

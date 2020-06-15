@@ -70,7 +70,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.carddeck {
+.card-deck {
   margin-top: 25px !important;
   margin-left: 12.5px !important;
   margin-right: 12.5px !important;
@@ -193,7 +193,7 @@ body {
   right: 5px !important;
 }
 
-.cardheader {
+.card-header {
   font-family: "Ubuntu";
   text-align: center;
   -webkit-font-smoothing: antialiased;
@@ -217,7 +217,7 @@ body {
   background-color: #ebe8e8 !important;
 }
 
-.cardfooter {
+.card-footer {
   font-family: "Ubuntu";
   text-align: center;
   -webkit-font-smoothing: antialiased;
@@ -229,7 +229,7 @@ body {
   background-color: #ebe8e8 !important;
 }
 
-.cardbody {
+.card-body {
   border-radius: 0px 0px 0px 0px !important;
   padding: 10px !important;
 }
