@@ -50,7 +50,7 @@ class CardWellMap extends Component {
             </CardTitle>
           </CardHeader>
           <CardBody className="cardbody" style={bodystyle}>
-            <div style={{ minHeight: "50px" }}>
+            <div className="waiting">
               <div className="center">
                 <div className="spinner-border text-secondary" role="status">
                   <span className="sr-only">Loading...</span>
@@ -63,12 +63,13 @@ class CardWellMap extends Component {
     } else {
       try {
         return (
-          <Card className="card">
-            <CardHeader className="cardheader">
+          <Card>
+            <CardHeader>
               <CardTitle>
-                <h5>{this.props.title}</h5>
+                <h5>{this.state.title}</h5>
               </CardTitle>
             </CardHeader>
+          <CardBody style={{ minHeight: "500px", height: "0px" }}>
             <CardBody className="cardbody">
               <MapOil
                 latitude={this.state.header.latitude}
