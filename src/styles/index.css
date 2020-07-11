@@ -4,6 +4,7 @@
 body {
   margin: 0;
   font-family: "Ubuntu" !important;
+  font-display: swap;
   background-color: #f0ffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -46,6 +47,7 @@ body {
 /* .mapboxgl-popup-content {
     position: relative;
     font-family: "Ubuntu";
+    font-display: swap;
     background: #f0ffff !important;
     opacity: 0.7;
     border-radius: 10px !important;
@@ -63,6 +65,7 @@ body {
 .navbar-default,
 .footer {
   font-family: "Ubuntu";
+  font-display: swap;
   color: #f0ffff;
   background-color: #f0ffff;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
@@ -88,6 +91,7 @@ body {
 .menu,
 .card {
   font-family: "Ubuntu";
+  font-display: swap;
   background-color: #ffffff !important;
   border: 0px !important;
   border-radius: 0px !important;
@@ -96,6 +100,7 @@ body {
 
 .dropdownmenu {
   font-family: "Ubuntu";
+  font-display: swap;
   background-color: #f0f5f5 !important;
   border: 0px !important;
   border-radius: 0px !important;
@@ -115,6 +120,7 @@ body {
 
 .modal-header {
   font-family: "Ubuntu";
+  font-display: swap;
   text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -127,6 +133,7 @@ body {
 
 .modal-title {
   font-family: "Ubuntu";
+  font-display: swap;
   text-align: center;
   border: 0px !important;
   padding: 0px !important;
@@ -137,6 +144,7 @@ body {
   display: inline !important;
   padding: 1px 1px;
   font-family: "Ubuntu";
+  font-display: swap;
   text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -195,6 +203,7 @@ body {
 
 .card-header {
   font-family: "Ubuntu";
+  font-display: swap;
   text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -207,6 +216,7 @@ body {
 
 .card-title {
   font-family: "Ubuntu";
+  font-display: swap;
   text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -219,6 +229,7 @@ body {
 
 .card-footer {
   font-family: "Ubuntu";
+  font-display: swap;
   text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -251,6 +262,7 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+  font-display: swap;
 }
 
 .react-tags {
