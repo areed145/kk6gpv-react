@@ -4,11 +4,12 @@ import {
   Card,
   CardBody,
   CardHeader,
-  CardTitle
+  CardTitle,
   //   ButtonGroup,
   //   Button,
   //   CardFooter
 } from "reactstrap";
+import RenderLoader from "../components/RenderLoader";
 
 class CardCyclic extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class CardCyclic extends Component {
       error: null,
       isLoaded: false,
       api: this.props.api,
-      cyclic: []
+      cyclic: [],
     };
   }
 
@@ -25,7 +26,7 @@ class CardCyclic extends Component {
     var cyclic = { ...this.state.cyclic };
     cyclic.layout.yaxis.type = "log";
     this.setState({
-      cyclic
+      cyclic,
     });
   }
 
@@ -33,7 +34,7 @@ class CardCyclic extends Component {
     var cyclic = { ...this.state.cyclic };
     cyclic.layout.yaxis.type = "linear";
     this.setState({
-      cyclic
+      cyclic,
     });
   }
 
@@ -49,12 +50,12 @@ class CardCyclic extends Component {
       const res = await response.json();
       this.setState({
         isLoaded: true,
-        cyclic: res.graph_cyclic_jobs
+        cyclic: res.graph_cyclic_jobs,
       });
     } catch (error) {
       this.setState({
         isLoaded: true,
-        error
+        error,
       });
     }
   }
@@ -74,13 +75,7 @@ class CardCyclic extends Component {
             </CardTitle>
           </CardHeader>
           <CardBody className="cardbody" style={bodystyle}>
-            <div style={{ minHeight: "50px" }}>
-              <div className="center">
-                <div className="spinner-border text-secondary" role="status">
-                  <span className="sr-only">Loading...</span>
-                </div>
-              </div>
-            </div>
+            <RenderLoader location="card" />
           </CardBody>
         </Card>
       );
@@ -101,7 +96,7 @@ class CardCyclic extends Component {
                 useResizeHandler
                 style={{ width: "100%" }}
                 config={{
-                  displayModeBar: false
+                  displayModeBar: false,
                 }}
               />
             </CardBody>

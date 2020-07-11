@@ -7,8 +7,9 @@ import {
   CardTitle,
   ButtonGroup,
   Button,
-  CardFooter
+  CardFooter,
 } from "reactstrap";
+import RenderLoader from "../components/RenderLoader";
 
 class CardOffset extends Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class CardOffset extends Component {
       wtr_hm: [],
       oil_ci: [],
       stm_ci: [],
-      wtr_ci: []
+      wtr_ci: [],
     };
   }
 
@@ -39,7 +40,7 @@ class CardOffset extends Component {
     this.setState({
       oil,
       wtr,
-      stm
+      stm,
     });
   }
 
@@ -53,7 +54,7 @@ class CardOffset extends Component {
     this.setState({
       oil,
       wtr,
-      stm
+      stm,
     });
   }
 
@@ -64,7 +65,7 @@ class CardOffset extends Component {
     this.setState({
       oil,
       wtr,
-      stm
+      stm,
     });
   }
 
@@ -88,12 +89,12 @@ class CardOffset extends Component {
         wtr_ci: res.graph_offset_wtr_ci,
         oil: res.graph_offset_oil_ci,
         stm: res.graph_offset_stm_ci,
-        wtr: res.graph_offset_wtr_ci
+        wtr: res.graph_offset_wtr_ci,
       });
     } catch (error) {
       this.setState({
         isLoaded: true,
-        error
+        error,
       });
     }
   }
@@ -113,13 +114,7 @@ class CardOffset extends Component {
             </CardTitle>
           </CardHeader>
           <CardBody className="cardbody" style={bodystyle}>
-            <div style={{ minHeight: "50px" }}>
-              <div className="center">
-                <div className="spinner-border text-secondary" role="status">
-                  <span className="sr-only">Loading...</span>
-                </div>
-              </div>
-            </div>
+            <RenderLoader location="card" />
           </CardBody>
           <CardFooter className="cardfooter">
             <ButtonGroup sz="sm">
@@ -159,7 +154,7 @@ class CardOffset extends Component {
                 useResizeHandler
                 style={{ width: "100%" }}
                 config={{
-                  displayModeBar: false
+                  displayModeBar: false,
                 }}
               />
               <Plot
@@ -169,7 +164,7 @@ class CardOffset extends Component {
                 useResizeHandler
                 style={{ width: "100%" }}
                 config={{
-                  displayModeBar: false
+                  displayModeBar: false,
                 }}
               />
               <Plot
@@ -179,7 +174,7 @@ class CardOffset extends Component {
                 useResizeHandler
                 style={{ width: "100%" }}
                 config={{
-                  displayModeBar: false
+                  displayModeBar: false,
                 }}
               />
             </CardBody>

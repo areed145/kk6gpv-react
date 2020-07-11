@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Card, CardBody, CardHeader, CardTitle, Table } from "reactstrap";
+import RenderLoader from "../components/RenderLoader";
 
 class CardWellHeader extends Component {
   constructor(props) {
@@ -27,13 +28,7 @@ class CardWellHeader extends Component {
             </CardTitle>
           </CardHeader>
           <CardBody className="cardbody" style={bodystyle}>
-            <div style={{ minHeight: "50px" }}>
-              <div className="center">
-                <div className="spinner-border text-secondary" role="status">
-                  <span className="sr-only">Loading...</span>
-                </div>
-              </div>
-            </div>
+            <RenderLoader location="card" />
           </CardBody>
         </Card>
       );

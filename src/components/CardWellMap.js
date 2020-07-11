@@ -11,6 +11,7 @@ import {
   //   CardImg,
 } from "reactstrap";
 import MapOil from "./MapOil";
+import RenderLoader from "../components/RenderLoader";
 
 class CardWellMap extends Component {
   constructor(props) {
@@ -49,13 +50,7 @@ class CardWellMap extends Component {
             </CardTitle>
           </CardHeader>
           <CardBody>
-            <div className="waiting">
-              <div className="center">
-                <div className="spinner-border text-secondary" role="status">
-                  <span className="sr-only">Loading...</span>
-                </div>
-              </div>
-            </div>
+            <RenderLoader location="map" />
           </CardBody>
         </Card>
       );

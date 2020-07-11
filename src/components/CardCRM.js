@@ -4,11 +4,12 @@ import {
   Card,
   CardBody,
   CardHeader,
-  CardTitle
+  CardTitle,
   //   ButtonGroup,
   //   Button,
   //   CardFooter
 } from "reactstrap";
+import RenderLoader from "../components/RenderLoader";
 
 class CardCRM extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class CardCRM extends Component {
       error: null,
       isLoaded: false,
       api: this.props.api,
-      crm: []
+      crm: [],
     };
   }
 
@@ -33,12 +34,12 @@ class CardCRM extends Component {
       const res = await response.json();
       this.setState({
         isLoaded: true,
-        crm: res.graph_crm
+        crm: res.graph_crm,
       });
     } catch (error) {
       this.setState({
         isLoaded: true,
-        error
+        error,
       });
     }
   }
@@ -58,13 +59,7 @@ class CardCRM extends Component {
             </CardTitle>
           </CardHeader>
           <CardBody className="cardbody" style={bodystyle}>
-            <div style={{ minHeight: "50px" }}>
-              <div className="center">
-                <div className="spinner-border text-secondary" role="status">
-                  <span className="sr-only">Loading...</span>
-                </div>
-              </div>
-            </div>
+            <RenderLoader location="card" />
           </CardBody>
         </Card>
       );
@@ -85,7 +80,7 @@ class CardCRM extends Component {
                 useResizeHandler
                 style={{ width: "100%" }}
                 config={{
-                  displayModeBar: false
+                  displayModeBar: false,
                 }}
               />
             </CardBody>

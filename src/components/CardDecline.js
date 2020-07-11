@@ -7,8 +7,9 @@ import {
   CardTitle,
   ButtonGroup,
   Button,
-  CardFooter
+  CardFooter,
 } from "reactstrap";
+import RenderLoader from "../components/RenderLoader";
 
 class CardDecline extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class CardDecline extends Component {
       api: this.props.api,
       decline_date: [],
       decline_cum: [],
-      decline: []
+      decline: [],
     };
   }
 
@@ -27,7 +28,7 @@ class CardDecline extends Component {
     var decline = { ...this.state.decline_date };
     decline.layout.yaxis.type = "log";
     this.setState({
-      decline
+      decline,
     });
   }
 
@@ -35,7 +36,7 @@ class CardDecline extends Component {
     var decline = { ...this.state.decline_date };
     decline.layout.yaxis.type = "linear";
     this.setState({
-      decline
+      decline,
     });
   }
 
@@ -43,7 +44,7 @@ class CardDecline extends Component {
     var decline = { ...this.state.decline_cum };
     decline.layout.yaxis.type = "log";
     this.setState({
-      decline
+      decline,
     });
   }
 
@@ -51,7 +52,7 @@ class CardDecline extends Component {
     var decline = { ...this.state.decline_cum };
     decline.layout.yaxis.type = "linear";
     this.setState({
-      decline
+      decline,
     });
   }
 
@@ -61,14 +62,14 @@ class CardDecline extends Component {
       const response = await fetch(
         `https://kk6gpv-api.herokuapp.com/oilgas/decline/solve?api=${api}`,
         {
-          method: "PUT"
+          method: "PUT",
         }
       );
       if (!response.ok) {
         throw Error(response.statusText);
       }
       const res = await response.json();
-      if (res.result === 'success') {
+      if (res.result === "success") {
         try {
           const response = await fetch(
             `https://kk6gpv-api.herokuapp.com/oilgas/decline/graph?api=${api}&axis=log`
@@ -81,19 +82,19 @@ class CardDecline extends Component {
             isLoaded: true,
             decline_date: res.graph_decline,
             decline_cum: res.graph_decline_cum,
-            decline: res.graph_decline
+            decline: res.graph_decline,
           });
         } catch (error) {
           this.setState({
             isLoaded: true,
-            error
+            error,
           });
         }
       }
     } catch (error) {
       this.setState({
         isLoaded: true,
-        error
+        error,
       });
     }
   }
@@ -112,12 +113,12 @@ class CardDecline extends Component {
         isLoaded: true,
         decline_date: res.graph_decline,
         decline_cum: res.graph_decline_cum,
-        decline: res.graph_decline
+        decline: res.graph_decline,
       });
     } catch (error) {
       this.setState({
         isLoaded: true,
-        error
+        error,
       });
     }
   }
@@ -137,13 +138,7 @@ class CardDecline extends Component {
             </CardTitle>
           </CardHeader>
           <CardBody className="cardbody" style={bodystyle}>
-            <div style={{ minHeight: "50px" }}>
-              <div className="center">
-                <div className="spinner-border text-secondary" role="status">
-                  <span className="sr-only">Loading...</span>
-                </div>
-              </div>
-            </div>
+            <RenderLoader location="card" />
           </CardBody>
           <CardFooter className="cardfooter">
             <ButtonGroup sz="sm">
@@ -177,7 +172,7 @@ class CardDecline extends Component {
                 useResizeHandler
                 style={{ width: "100%" }}
                 config={{
-                  displayModeBar: false
+                  displayModeBar: false,
                 }}
               />
             </CardBody>

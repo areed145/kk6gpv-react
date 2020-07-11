@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CardGauge from "../components/CardGauge";
 import CardCell from "../components/CardCell";
+import RenderLoader from "../components/RenderLoader";
 import { CardDeck } from "reactstrap";
 // import Footer from "../components/Footer";
 import mqtt from "mqtt";
@@ -25,7 +26,7 @@ class StationSocket extends Component {
         wind_mph: [],
         precip_today_in: [],
         solar_radiation: [],
-        uv: []
+        uv: [],
       },
       hist_len: 25,
       prop_awc: "flight_category",
@@ -41,7 +42,7 @@ class StationSocket extends Component {
       precip: 0,
       watchwarn: 0,
       temp: 0,
-      radar_map: []
+      radar_map: [],
     };
     this.state.client.on("connect", function() {
       //   console.log("mqtt connected");
@@ -188,18 +189,18 @@ class StationSocket extends Component {
         this.state.watchwarn
       )}&temp=${encodeURIComponent(this.state.temp)}`
     )
-      .then(response => response.json())
+      .then((response) => response.json())
       .then(
-        res => {
+        (res) => {
           this.setState({
             rad: true,
-            radar_map: res.map
+            radar_map: res.map,
           });
         },
-        error => {
+        (error) => {
           this.setState({
             isLoaded: true,
-            error
+            error,
           });
         }
       );
@@ -211,19 +212,7 @@ class StationSocket extends Component {
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return (
-        <div>
-          <div className="mainframe">
-            <div className="center">
-              <div className="spinner-border text-secondary" role="status">
-                <span className="sr-only">Loading...</span>
-              </div>
-            </div>
-            <div className="margin" />
-          </div>
-          {/* <Footer /> */}
-        </div>
-      );
+      return <RenderLoader />;
     } else {
       return (
         <div>
@@ -249,8 +238,8 @@ class StationSocket extends Component {
                     "#42edae",
                     "#42d0ed",
                     "#4283ed",
-                    "#424ded"
-                  ]
+                    "#424ded",
+                  ],
                 }}
               />
               <CardGauge
@@ -273,8 +262,8 @@ class StationSocket extends Component {
                     "#42edae",
                     "#42d0ed",
                     "#4283ed",
-                    "#424ded"
-                  ]
+                    "#424ded",
+                  ],
                 }}
               />
               <CardGauge
@@ -286,7 +275,7 @@ class StationSocket extends Component {
                   gmin: 0,
                   gmax: 100,
                   hw: 200,
-                  cmap: ["#4286f4", "#41b8f4", "#41f1f4", "#41f455", "#a9f441"]
+                  cmap: ["#4286f4", "#41b8f4", "#41f1f4", "#41f455", "#a9f441"],
                 }}
               />
               <CardGauge
@@ -299,7 +288,7 @@ class StationSocket extends Component {
                   gmin: 29.3,
                   gmax: 30.5,
                   hw: 200,
-                  cmap: ["#78ed42", "#d6ed42", "#edde42", "#f4af41", "#f48541"]
+                  cmap: ["#78ed42", "#d6ed42", "#edde42", "#f4af41", "#f48541"],
                 }}
               />
             </CardDeck>
@@ -311,7 +300,7 @@ class StationSocket extends Component {
                   history: this.state.wx_hist.wind_degrees,
                   gmin: 0,
                   gmax: 359,
-                  hw: 160
+                  hw: 160,
                 }}
               />
               <CardGauge
@@ -324,7 +313,7 @@ class StationSocket extends Component {
                   history: this.state.wx_hist.wind_mph,
                   gmin: 0,
                   gmax: 15,
-                  hw: 160
+                  hw: 160,
                 }}
               />
               <CardGauge
@@ -336,7 +325,7 @@ class StationSocket extends Component {
                   gmin: 0,
                   gmax: 1,
                   hw: 160,
-                  cmap: ["#4286f4", "#6399f2", "#41b8f4", "#41f1f4", "#bcf6ff"]
+                  cmap: ["#4286f4", "#6399f2", "#41b8f4", "#41f1f4", "#bcf6ff"],
                 }}
               />
               <CardGauge
@@ -348,7 +337,7 @@ class StationSocket extends Component {
                   gmin: 0,
                   gmax: 1000,
                   hw: 160,
-                  cmap: ["#ff9900", "#ffb444", "#ffd944", "#fce58a", "#fffcbc"]
+                  cmap: ["#ff9900", "#ffb444", "#ffd944", "#fce58a", "#fffcbc"],
                 }}
               />
               <CardGauge
@@ -360,7 +349,7 @@ class StationSocket extends Component {
                   gmin: 0,
                   gmax: 8,
                   hw: 160,
-                  cmap: ["#ff9990", "#fcbbb5", "#fcd1b5", "#efd5c4", "#f2e7e1"]
+                  cmap: ["#ff9990", "#fcbbb5", "#fcd1b5", "#efd5c4", "#f2e7e1"],
                 }}
               />
             </CardDeck>

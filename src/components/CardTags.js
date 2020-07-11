@@ -1,11 +1,7 @@
 import React, { Component } from "react";
 import ReactTags from "react-tag-autocomplete";
-import {
-  Card,
-  CardBody,
-  CardHeader,
-  CardTitle
-} from "reactstrap";
+import { Card, CardBody, CardHeader, CardTitle } from "reactstrap";
+import RenderLoader from "../components/RenderLoader";
 
 class CardTags extends Component {
   constructor(props) {
@@ -48,8 +44,8 @@ class CardTags extends Component {
         { id: 29, name: "R1" },
         { id: 30, name: "R2" },
         { id: 31, name: "No Production Data" },
-        { id: 32, name: "Curtailment Candidate" }
-      ]
+        { id: 32, name: "Curtailment Candidate" },
+      ],
     };
   }
 
@@ -67,7 +63,7 @@ class CardTags extends Component {
           this.state.api
         )}`,
         {
-          method: "PUT"
+          method: "PUT",
         }
       );
       //   if (!response.ok) {
@@ -75,7 +71,7 @@ class CardTags extends Component {
       //   }
     } catch (error) {
       this.setState({
-        isLoaded: true
+        isLoaded: true,
         // error
       });
     }
@@ -94,7 +90,7 @@ class CardTags extends Component {
           this.state.api
         )}`,
         {
-          method: "PUT"
+          method: "PUT",
         }
       );
       //   if (!response.ok) {
@@ -102,7 +98,7 @@ class CardTags extends Component {
       //   }
     } catch (error) {
       this.setState({
-        isLoaded: true
+        isLoaded: true,
         // error
       });
     }
@@ -120,12 +116,12 @@ class CardTags extends Component {
       const res = await response.json();
       this.setState({
         isLoaded: true,
-        tags: res.tags
+        tags: res.tags,
       });
     } catch (error) {
       this.setState({
         isLoaded: true,
-        tags: []
+        tags: [],
       });
     }
   }
@@ -145,20 +141,14 @@ class CardTags extends Component {
             </CardTitle>
           </CardHeader>
           <CardBody className="cardbody" style={bodystyle}>
-            <div style={{ minHeight: "50px" }}>
-              <div className="center">
-                <div className="spinner-border text-secondary" role="status">
-                  <span className="sr-only">Loading...</span>
-                </div>
-              </div>
-            </div>
+            <RenderLoader location="card" />
           </CardBody>
         </Card>
       );
     } else {
       try {
         return (
-            <Card className="card">
+          <Card className="card">
             <CardHeader className="cardheader">
               <CardTitle>
                 <h5 align="center">Tags</h5>

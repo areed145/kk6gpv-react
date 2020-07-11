@@ -7,8 +7,9 @@ import {
   CardTitle,
   ButtonGroup,
   Button,
-  CardFooter
+  CardFooter,
 } from "reactstrap";
+import RenderLoader from "../components/RenderLoader";
 
 class CardProdInj extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class CardProdInj extends Component {
       error: null,
       isLoaded: false,
       api: this.props.api,
-      prodinj: []
+      prodinj: [],
     };
   }
 
@@ -25,7 +26,7 @@ class CardProdInj extends Component {
     var prodinj = { ...this.state.prodinj };
     prodinj.layout.yaxis.type = "log";
     this.setState({
-      prodinj
+      prodinj,
     });
   }
 
@@ -33,7 +34,7 @@ class CardProdInj extends Component {
     var prodinj = { ...this.state.prodinj };
     prodinj.layout.yaxis.type = "linear";
     this.setState({
-      prodinj
+      prodinj,
     });
   }
 
@@ -49,12 +50,12 @@ class CardProdInj extends Component {
       const res = await response.json();
       this.setState({
         isLoaded: true,
-        prodinj: res.graph_oilgas
+        prodinj: res.graph_oilgas,
       });
     } catch (error) {
       this.setState({
         isLoaded: true,
-        error
+        error,
       });
     }
   }
@@ -74,13 +75,7 @@ class CardProdInj extends Component {
             </CardTitle>
           </CardHeader>
           <CardBody className="cardbody" style={bodystyle}>
-            <div style={{ minHeight: "50px" }}>
-              <div className="center">
-                <div className="spinner-border text-secondary" role="status">
-                  <span className="sr-only">Loading...</span>
-                </div>
-              </div>
-            </div>
+            <RenderLoader location="card" />
           </CardBody>
           <CardFooter className="cardfooter">
             <ButtonGroup sz="sm">
@@ -114,7 +109,7 @@ class CardProdInj extends Component {
                 useResizeHandler
                 style={{ width: "100%" }}
                 config={{
-                  displayModeBar: false
+                  displayModeBar: false,
                 }}
               />
             </CardBody>

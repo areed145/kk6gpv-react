@@ -1,18 +1,19 @@
 import DataTable from "react-data-table-component";
 import React, { Component } from "react";
 import { Card, CardBody, CardHeader, CardTitle } from "reactstrap";
+import RenderLoader from "../components/RenderLoader";
 
 const customStyles = {
   headRow: {
     style: {
-      fontSize: "1em"
-    }
+      fontSize: "1em",
+    },
   },
   headCells: {
     style: {
-      fontSize: "1em"
-    }
-  }
+      fontSize: "1em",
+    },
+  },
 };
 const columns = [
   {
@@ -21,16 +22,17 @@ const columns = [
     sortable: true,
     right: true,
     style: {
-      fontSize: "1.1em"
+      fontSize: "1.1em",
     },
     ignoreRowClick: true,
-    cell: row => (
-        <a
-        href={'/oilgas/details/' + row.api}
+    cell: (row) => (
+      <a
+        href={"/oilgas/details/" + row.api}
         target="_blank"
-        rel="noopener noreferrer">
+        rel="noopener noreferrer"
+      >
         {row.api}
-        </a>
+      </a>
     ),
   },
   {
@@ -39,16 +41,16 @@ const columns = [
     sortable: true,
     right: true,
     style: {
-      fontSize: "1.1em"
-    }
+      fontSize: "1.1em",
+    },
   },
   {
     name: "Lease",
     selector: "lease",
     sortable: true,
     style: {
-      fontSize: "1.1em"
-    }
+      fontSize: "1.1em",
+    },
   },
   {
     name: "Well",
@@ -56,8 +58,8 @@ const columns = [
     sortable: true,
     right: true,
     style: {
-      fontSize: "1.1em"
-    }
+      fontSize: "1.1em",
+    },
   },
   {
     name: "County",
@@ -65,8 +67,8 @@ const columns = [
     sortable: true,
     right: true,
     style: {
-      fontSize: "1.1em"
-    }
+      fontSize: "1.1em",
+    },
   },
   {
     name: "Operator",
@@ -74,8 +76,8 @@ const columns = [
     sortable: true,
     right: true,
     style: {
-      fontSize: "1.1em"
-    }
+      fontSize: "1.1em",
+    },
   },
   {
     name: "Well Status",
@@ -83,8 +85,8 @@ const columns = [
     sortable: true,
     right: true,
     style: {
-      fontSize: "1.1em"
-    }
+      fontSize: "1.1em",
+    },
   },
   {
     name: "Oil Cum",
@@ -92,28 +94,28 @@ const columns = [
     sortable: true,
     right: true,
     style: {
-      fontSize: "1.1em"
+      fontSize: "1.1em",
     },
     conditionalCellStyles: [
       {
-        when: row => row.oil_cum < 20000,
+        when: (row) => row.oil_cum < 20000,
         style: {
-          backgroundColor: "#d6ed42"
-        }
+          backgroundColor: "#d6ed42",
+        },
       },
       {
-        when: row => row.oil_cum >= 20000 && row.oil_cum < 40000,
+        when: (row) => row.oil_cum >= 20000 && row.oil_cum < 40000,
         style: {
-          backgroundColor: "#78ed42"
-        }
+          backgroundColor: "#78ed42",
+        },
       },
       {
-        when: row => row.oil_cum >= 40000,
+        when: (row) => row.oil_cum >= 40000,
         style: {
-          backgroundColor: "#50bf37"
-        }
-      }
-    ]
+          backgroundColor: "#50bf37",
+        },
+      },
+    ],
   },
   {
     name: "Water Cum",
@@ -121,28 +123,28 @@ const columns = [
     sortable: true,
     right: true,
     style: {
-      fontSize: "1.1em"
+      fontSize: "1.1em",
     },
     conditionalCellStyles: [
       {
-        when: row => row.water_cum < 40000,
+        when: (row) => row.water_cum < 40000,
         style: {
-          backgroundColor: "#caf0f7"
-        }
+          backgroundColor: "#caf0f7",
+        },
       },
       {
-        when: row => row.water_cum >= 40000 && row.water_cum < 80000,
+        when: (row) => row.water_cum >= 40000 && row.water_cum < 80000,
         style: {
-          backgroundColor: "#64d6ea"
-        }
+          backgroundColor: "#64d6ea",
+        },
       },
       {
-        when: row => row.water_cum >= 80000,
+        when: (row) => row.water_cum >= 80000,
         style: {
-          backgroundColor: "#4286f4"
-        }
-      }
-    ]
+          backgroundColor: "#4286f4",
+        },
+      },
+    ],
   },
   {
     name: "Steam Cum",
@@ -150,29 +152,29 @@ const columns = [
     sortable: true,
     right: true,
     style: {
-      fontSize: "1.1em"
+      fontSize: "1.1em",
     },
     conditionalCellStyles: [
       {
-        when: row => row.wtrstm_cum < 800000,
+        when: (row) => row.wtrstm_cum < 800000,
         style: {
-          backgroundColor: "#edb6d7"
-        }
+          backgroundColor: "#edb6d7",
+        },
       },
       {
-        when: row => row.wtrstm_cum >= 800000 && row.wtrstm_cum < 1600000,
+        when: (row) => row.wtrstm_cum >= 800000 && row.wtrstm_cum < 1600000,
         style: {
-          backgroundColor: "#ed87c4"
-        }
+          backgroundColor: "#ed87c4",
+        },
       },
       {
-        when: row => row.wtrstm_cum >= 1600000,
+        when: (row) => row.wtrstm_cum >= 1600000,
         style: {
-          backgroundColor: "#e22f9b"
-        }
-      }
-    ]
-  }
+          backgroundColor: "#e22f9b",
+        },
+      },
+    ],
+  },
 ];
 
 class CardSummary extends Component {
@@ -182,7 +184,7 @@ class CardSummary extends Component {
       error: null,
       isLoaded: false,
       tag: this.props.tag,
-      entries: []
+      entries: [],
     };
   }
 
@@ -198,12 +200,12 @@ class CardSummary extends Component {
       const res = await response.json();
       this.setState({
         isLoaded: true,
-        entries: res.headers
+        entries: res.headers,
       });
     } catch (error) {
       this.setState({
         isLoaded: true,
-        error
+        error,
       });
     }
   }
@@ -223,13 +225,7 @@ class CardSummary extends Component {
             </CardTitle>
           </CardHeader>
           <CardBody className="cardbody" style={bodystyle}>
-            <div style={{ minHeight: "50px" }}>
-              <div className="center">
-                <div className="spinner-border text-secondary" role="status">
-                  <span className="sr-only">Loading...</span>
-                </div>
-              </div>
-            </div>
+            <RenderLoader location="card" />
           </CardBody>
         </Card>
       );
