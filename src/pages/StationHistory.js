@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import CardCell from "../components/CardCell";
 import Select from "react-select";
 import { CardDeck, Card, CardHeader, CardTitle, CardBody } from "reactstrap";
-// import Footer from "../components/Footer";
+import RenderLoader from "../components/RenderLoader";
 class StationHistory extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +19,7 @@ class StationHistory extends Component {
       fig_thp: [],
       time: "d_1",
       time_label: "1 day",
-      revision: 0
+      revision: 0,
     };
   }
 
@@ -27,7 +27,7 @@ class StationHistory extends Component {
     this.setState(
       {
         time: event.value,
-        time_label: event.label
+        time_label: event.label,
       },
       async function() {
         try {
@@ -50,12 +50,12 @@ class StationHistory extends Component {
             fig_cb: res.fig_cb,
             fig_wr: res.fig_wr,
             fig_thp: res.fig_thp,
-            revision: this.state.revision + 1
+            revision: this.state.revision + 1,
           });
         } catch (error) {
           this.setState({
             isLoaded: true,
-            error
+            error,
           });
         }
       }
@@ -83,12 +83,12 @@ class StationHistory extends Component {
         fig_cb: res.fig_cb,
         fig_wr: res.fig_wr,
         fig_thp: res.fig_thp,
-        revision: this.state.revision + 1
+        revision: this.state.revision + 1,
       });
     } catch (error) {
       this.setState({
         isLoaded: true,
-        error
+        error,
       });
     }
   }
@@ -103,25 +103,13 @@ class StationHistory extends Component {
       { value: "d_1", label: "1 day" },
       { value: "d_2", label: "2 days" },
       { value: "d_7", label: "7 days" },
-      { value: "d_30", label: "30 days" }
+      { value: "d_30", label: "30 days" },
     ];
 
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return (
-        <div>
-          <div className="mainframe">
-            <div className="center">
-              <div className="spinner-border text-secondary" role="status">
-                <span className="sr-only">Loading...</span>
-              </div>
-            </div>
-          </div>
-          <div className="margin" />
-          {/* <Footer /> */}
-        </div>
-      );
+      return <RenderLoader location="page" />;
     } else {
       return (
         <div>

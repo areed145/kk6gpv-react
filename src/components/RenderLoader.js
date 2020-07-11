@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import logo from "../assets/images/icon_transparent.png";
+
 class RenderLoader extends Component {
   render() {
     if (this.props.location === "card") {
@@ -17,26 +19,16 @@ class RenderLoader extends Component {
     } else if (this.props.location === "map") {
       return (
         <div>
-          <div className="waiting">
-            <div className="center">
-              <div className="spinner-border text-secondary" role="status">
-                <span className="sr-only">Loading...</span>
-              </div>
-            </div>
-            <div className="margin" />
+          <div className="full-page-loader">
+            <img width="100" src={logo} alt="Coconut Barometer Logo" />
           </div>
         </div>
       );
     } else {
       return (
         <div>
-          <div className="mainframe">
-            <div className="center">
-              <div className="spinner-border text-secondary" role="status">
-                <span className="sr-only">Loading...</span>
-              </div>
-            </div>
-            <div className="margin" />
+          <div className="full-page-loader">
+            <img width="100" src={logo} alt="Coconut Barometer Logo" />
           </div>
         </div>
       );

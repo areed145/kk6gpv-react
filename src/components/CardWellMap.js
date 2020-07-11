@@ -1,15 +1,5 @@
 import React, { Component } from "react";
-import {
-  Card,
-  CardBody,
-  CardHeader,
-  CardTitle,
-  //   Button,
-  //   Modal,
-  //   ModalHeader,
-  //   ModalBody,
-  //   CardImg,
-} from "reactstrap";
+import { Card, CardBody, CardHeader, CardTitle } from "reactstrap";
 import MapOil from "./MapOil";
 import RenderLoader from "../components/RenderLoader";
 
@@ -50,7 +40,7 @@ class CardWellMap extends Component {
             </CardTitle>
           </CardHeader>
           <CardBody>
-            <RenderLoader location="map" />
+            <RenderLoader location="card" />
           </CardBody>
         </Card>
       );

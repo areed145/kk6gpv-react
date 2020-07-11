@@ -11,7 +11,7 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "reactstrap";
-// import Footer from "../components/Footer";
+import RenderLoader from "../components/RenderLoader";
 class WeatherAviation extends Component {
   constructor(props) {
     super(props);
@@ -662,19 +662,7 @@ class WeatherAviation extends Component {
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return (
-        <div>
-          <div className="mainframe">
-            <div className="center">
-              <div className="spinner-border text-secondary" role="status">
-                <span className="sr-only">Loading...</span>
-              </div>
-            </div>
-          </div>
-          <div className="margin" />
-          {/* <Footer /> */}
-        </div>
-      );
+      return <RenderLoader location="page" />;
     } else {
       return (
         <div>

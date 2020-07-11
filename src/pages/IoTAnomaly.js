@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import CardCell from "../components/CardCell";
 import Select from "react-select";
 import { CardDeck, Card, CardHeader, CardTitle, CardBody } from "reactstrap";
-// import Footer from "../components/Footer";
+import RenderLoader from "../components/RenderLoader";
 
 class IotAnomaly extends Component {
   constructor(props) {
@@ -15,13 +15,13 @@ class IotAnomaly extends Component {
       plot_spectro: [],
       time: {
         value: "h_6",
-        label: "6 hours"
+        label: "6 hours",
       },
       sensor: {
         value: "sensor.load_1m",
-        label: "Load 1m"
+        label: "Load 1m",
       },
-      revision: 0
+      revision: 0,
     };
   }
 
@@ -48,7 +48,7 @@ class IotAnomaly extends Component {
     } catch (error) {
       this.setState({
         isLoaded: true,
-        error
+        error,
       });
     }
   }
@@ -56,7 +56,7 @@ class IotAnomaly extends Component {
   async onChangeTime(event) {
     this.setState(
       {
-        time: event
+        time: event,
       },
       async function() {
         try {
@@ -73,12 +73,12 @@ class IotAnomaly extends Component {
             isLoaded: true,
             plot_iot: res.graph,
             plot_anomaly: res.anomaly,
-            plot_spectro: res.spectro
+            plot_spectro: res.spectro,
           });
         } catch (error) {
           this.setState({
             isLoaded: true,
-            error
+            error,
           });
         }
       }
@@ -88,7 +88,7 @@ class IotAnomaly extends Component {
   async onChangeSensor(event) {
     this.setState(
       {
-        sensor: event
+        sensor: event,
       },
       async function() {
         try {
@@ -110,7 +110,7 @@ class IotAnomaly extends Component {
         } catch (error) {
           this.setState({
             isLoaded: true,
-            error
+            error,
           });
         }
       }
@@ -136,12 +136,12 @@ class IotAnomaly extends Component {
         isLoaded: true,
         plot_iot: res.graph,
         plot_anomaly: res.anomaly,
-        plot_spectro: res.spectro
+        plot_spectro: res.spectro,
       });
     } catch (error) {
       this.setState({
         isLoaded: true,
-        error
+        error,
       });
     }
     this.interval = setInterval(() => this.intervalUpdate(), 10000);
@@ -160,7 +160,7 @@ class IotAnomaly extends Component {
       { value: "h_6", label: "6 hours" },
       { value: "d_1", label: "1 day" },
       { value: "d_2", label: "2 days" },
-      { value: "d_7", label: "7 days" }
+      { value: "d_7", label: "7 days" },
     ];
 
     var sensor_options = [
@@ -176,8 +176,8 @@ class IotAnomaly extends Component {
           { value: "sensor.disk_use_percent_home", label: "Disk Use %" },
           { value: "sensor.speedtest_download", label: "Speedtest Download" },
           { value: "sensor.speedtest_upload", label: "Speedtest Upload" },
-          { value: "sensor.speedtest_ping", label: "Speedtest Ping" }
-        ]
+          { value: "sensor.speedtest_ping", label: "Speedtest Ping" },
+        ],
       },
       {
         label: "Plug 1",
@@ -186,10 +186,10 @@ class IotAnomaly extends Component {
           { value: "sensor.plug_01_power", label: "Plug 01 Power" },
           {
             value: "sensor.plug_01_total_daily_energy",
-            label: "Plug 01 Total Daily Energy"
+            label: "Plug 01 Total Daily Energy",
           },
-          { value: "sensor.plug_01_voltage", label: "Plug 01 Voltage" }
-        ]
+          { value: "sensor.plug_01_voltage", label: "Plug 01 Voltage" },
+        ],
       },
       {
         label: "Plug 2",
@@ -198,10 +198,10 @@ class IotAnomaly extends Component {
           { value: "sensor.plug_02_power", label: "Plug 02 Power" },
           {
             value: "sensor.plug_02_total_daily_energy",
-            label: "Plug 02 Total Daily Energy"
+            label: "Plug 02 Total Daily Energy",
           },
-          { value: "sensor.plug_02_voltage", label: "Plug 02 Voltage" }
-        ]
+          { value: "sensor.plug_02_voltage", label: "Plug 02 Voltage" },
+        ],
       },
       {
         label: "Plug 3",
@@ -210,24 +210,24 @@ class IotAnomaly extends Component {
           { value: "sensor.plug_03_power", label: "Plug 03 Power" },
           {
             value: "sensor.plug_03_total_daily_energy",
-            label: "Plug 03 Total Daily Energy"
+            label: "Plug 03 Total Daily Energy",
           },
-          { value: "sensor.plug_03_voltage", label: "Plug 03 Voltage" }
-        ]
+          { value: "sensor.plug_03_voltage", label: "Plug 03 Voltage" },
+        ],
       },
       {
         label: "Floor 2",
         options: [
           { value: "sensor.floor2_temperature", label: "Floor 2 Temperature" },
-          { value: "sensor.floor2_humidity", label: "Floor 2 Humidity" }
-        ]
+          { value: "sensor.floor2_humidity", label: "Floor 2 Humidity" },
+        ],
       },
       {
         label: "Mobile",
         options: [
           { value: "sensor.mobile_temperature", label: "Mobile Temperature" },
-          { value: "sensor.mobile_humidity", label: "Mobile Humidity" }
-        ]
+          { value: "sensor.mobile_humidity", label: "Mobile Humidity" },
+        ],
       },
       {
         label: "Forecast",
@@ -235,28 +235,28 @@ class IotAnomaly extends Component {
           { value: "weather.dark_sky_forecast", label: "Dark Sky Forecast" },
           { value: "sensor.dark_sky_icon", label: "Dark Sky Icon" },
           { value: "sensor.dark_sky_icon_1h", label: "Dark Sky Icon 1h" },
-          { value: "sensor.dark_sky_icon_6h", label: "Dark Sky Icon 6h" }
-        ]
+          { value: "sensor.dark_sky_icon_6h", label: "Dark Sky Icon 6h" },
+        ],
       },
       {
         label: "Temperature",
         options: [
           {
             value: "sensor.dark_sky_apparent_temperature",
-            label: "Apparent Temperature"
+            label: "Apparent Temperature",
           },
           {
             value: "sensor.dark_sky_apparent_temperature_1h",
-            label: "Apparent Temperature 1h"
+            label: "Apparent Temperature 1h",
           },
           {
             value: "sensor.dark_sky_apparent_temperature_6h",
-            label: "Apparent Temperature 6h"
+            label: "Apparent Temperature 6h",
           },
           { value: "sensor.dark_sky_temperature", label: "Temperature" },
           { value: "sensor.dark_sky_temperature_1h", label: "Temperature 1h" },
-          { value: "sensor.dark_sky_temperature_6h", label: "Temperature 6h" }
-        ]
+          { value: "sensor.dark_sky_temperature_6h", label: "Temperature 6h" },
+        ],
       },
       {
         label: "Cloud Coverage",
@@ -264,13 +264,13 @@ class IotAnomaly extends Component {
           { value: "sensor.dark_sky_cloud_coverage", label: "Cloud Coverage" },
           {
             value: "sensor.dark_sky_cloud_coverage_1h",
-            label: "Cloud Coverage 1h"
+            label: "Cloud Coverage 1h",
           },
           {
             value: "sensor.dark_sky_cloud_coverage_6h",
-            label: "Cloud Coverage 6h"
-          }
-        ]
+            label: "Cloud Coverage 6h",
+          },
+        ],
       },
       {
         label: "Dewpoint",
@@ -278,13 +278,13 @@ class IotAnomaly extends Component {
           { value: "sensor.dark_sky_dew_point", label: "Dewpoint" },
           {
             value: "sensor.dark_sky_dew_point_1h",
-            label: "Dewpoint 1h"
+            label: "Dewpoint 1h",
           },
           {
             value: "sensor.dark_sky_dew_point_6h",
-            label: "Dewpoint 6h"
-          }
-        ]
+            label: "Dewpoint 6h",
+          },
+        ],
       },
       {
         label: "Humidity",
@@ -292,26 +292,26 @@ class IotAnomaly extends Component {
           { value: "sensor.dark_sky_humidity", label: "Humidity" },
           {
             value: "sensor.dark_sky_humidity_1h",
-            label: "Humidity 1h"
+            label: "Humidity 1h",
           },
           {
             value: "sensor.dark_sky_humidity_6h",
-            label: "Humidity 6h"
-          }
-        ]
+            label: "Humidity 6h",
+          },
+        ],
       },
       {
         label: "Storms",
         options: [
           {
             value: "sensor.dark_sky_nearest_storm_bearing",
-            label: "Nearest Storm Bearing"
+            label: "Nearest Storm Bearing",
           },
           {
             value: "sensor.dark_sky_nearest_storm_distance",
-            label: "Nearest Storm Distance"
-          }
-        ]
+            label: "Nearest Storm Distance",
+          },
+        ],
       },
       {
         label: "Ozone",
@@ -319,13 +319,13 @@ class IotAnomaly extends Component {
           { value: "sensor.dark_sky_ozone", label: "Ozone" },
           {
             value: "sensor.dark_sky_ozone_1h",
-            label: "Ozone 1h"
+            label: "Ozone 1h",
           },
           {
             value: "sensor.dark_sky_ozone_6h",
-            label: "Ozone 6h"
-          }
-        ]
+            label: "Ozone 6h",
+          },
+        ],
       },
       {
         label: "Precip",
@@ -333,198 +333,186 @@ class IotAnomaly extends Component {
           { value: "sensor.dark_sky_precip", label: "Precip" },
           {
             value: "sensor.dark_sky_precip_1h",
-            label: "Precip 1h"
+            label: "Precip 1h",
           },
           {
             value: "sensor.dark_sky_precip_6h",
-            label: "Precip 6h"
-          }
-        ]
+            label: "Precip 6h",
+          },
+        ],
       },
       {
         label: "Precip Accumulation",
         options: [
           {
             value: "sensor.dark_sky_precip_accumulation",
-            label: "Precip Accumulation"
+            label: "Precip Accumulation",
           },
           {
             value: "sensor.dark_sky_precip_accumulation_1h",
-            label: "Precip Accumulation 1h"
+            label: "Precip Accumulation 1h",
           },
           {
             value: "sensor.dark_sky_precip_accumulation_6h",
-            label: "Precip Accumulation 6h"
-          }
-        ]
+            label: "Precip Accumulation 6h",
+          },
+        ],
       },
       {
         label: "Precip Intensity",
         options: [
           {
             value: "sensor.dark_sky_precip_intensity",
-            label: "Precip Intensity"
+            label: "Precip Intensity",
           },
           {
             value: "sensor.dark_sky_precip_intensity_1h",
-            label: "Precip Intensity 1h"
+            label: "Precip Intensity 1h",
           },
           {
             value: "sensor.dark_sky_precip_intensity_6h",
-            label: "Precip Intensity 6h"
-          }
-        ]
+            label: "Precip Intensity 6h",
+          },
+        ],
       },
       {
         label: "Precip Probability",
         options: [
           {
             value: "sensor.dark_sky_precip_probability",
-            label: "Precip Probability"
+            label: "Precip Probability",
           },
           {
             value: "sensor.dark_sky_precip_probability_1h",
-            label: "Precip Probability 1h"
+            label: "Precip Probability 1h",
           },
           {
             value: "sensor.dark_sky_precip_probability_6h",
-            label: "Precip Probability 6h"
-          }
-        ]
+            label: "Precip Probability 6h",
+          },
+        ],
       },
       {
         label: "Pressure",
         options: [
           {
             value: "sensor.dark_sky_pressure",
-            label: "Pressure"
+            label: "Pressure",
           },
           {
             value: "sensor.dark_sky_pressure_1h",
-            label: "Pressure 1h"
+            label: "Pressure 1h",
           },
           {
             value: "sensor.dark_sky_pressure_6h",
-            label: "Pressure 6h"
-          }
-        ]
+            label: "Pressure 6h",
+          },
+        ],
       },
       {
         label: "UV Index",
         options: [
           {
             value: "sensor.dark_sky_uv_index",
-            label: "UV Index"
+            label: "UV Index",
           },
           {
             value: "sensor.dark_sky_uv_index_1h",
-            label: "UV Index 1h"
+            label: "UV Index 1h",
           },
           {
             value: "sensor.dark_sky_uv_index_6h",
-            label: "UV Index 6h"
-          }
-        ]
+            label: "UV Index 6h",
+          },
+        ],
       },
       {
         label: "Visibility",
         options: [
           {
             value: "sensor.dark_sky_visibility",
-            label: "Visibility"
+            label: "Visibility",
           },
           {
             value: "sensor.dark_sky_visibility_1h",
-            label: "Visibility 1h"
+            label: "Visibility 1h",
           },
           {
             value: "sensor.dark_sky_visibility_6h",
-            label: "Visibility 6h"
-          }
-        ]
+            label: "Visibility 6h",
+          },
+        ],
       },
       {
         label: "Wind Bearing",
         options: [
           {
             value: "sensor.dark_sky_wind_bearing",
-            label: "Wind Bearing"
+            label: "Wind Bearing",
           },
           {
             value: "sensor.dark_sky_wind_bearing_1h",
-            label: "Wind Bearing 1h"
+            label: "Wind Bearing 1h",
           },
           {
             value: "sensor.dark_sky_wind_bearing_6h",
-            label: "Wind Bearing 6h"
-          }
-        ]
+            label: "Wind Bearing 6h",
+          },
+        ],
       },
       {
         label: "Wind Speed",
         options: [
           {
             value: "sensor.dark_sky_wind_speed",
-            label: "Wind Speed"
+            label: "Wind Speed",
           },
           {
             value: "sensor.dark_sky_wind_speed_1h",
-            label: "Wind Speed 1h"
+            label: "Wind Speed 1h",
           },
           {
             value: "sensor.dark_sky_wind_speed_6h",
-            label: "Wind Speed 6h"
-          }
-        ]
+            label: "Wind Speed 6h",
+          },
+        ],
       },
       {
         label: "Wind Gust",
         options: [
           {
             value: "sensor.dark_sky_wind_gust",
-            label: "Wind Gust"
+            label: "Wind Gust",
           },
           {
             value: "sensor.dark_sky_wind_gust_1h",
-            label: "Wind Gust 1h"
+            label: "Wind Gust 1h",
           },
           {
             value: "sensor.dark_sky_wind_gust_6h",
-            label: "Wind Gust 6h"
-          }
-        ]
+            label: "Wind Gust 6h",
+          },
+        ],
       },
       {
         label: "Sun / Moon",
         options: [
           {
             value: "sun.sun",
-            label: "Sun"
+            label: "Sun",
           },
           {
             value: "sensor.moon",
-            label: "Moon"
-          }
-        ]
-      }
+            label: "Moon",
+          },
+        ],
+      },
     ];
 
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return (
-        <div>
-          <div className="mainframe">
-            <div className="center">
-              <div className="spinner-border text-secondary" role="status">
-                <span className="sr-only">Loading...</span>
-              </div>
-            </div>
-          </div>
-          <div className="margin" />
-          {/* <Footer /> */}
-        </div>
-      );
+      return <RenderLoader location="page" />;
     } else {
       return (
         <div>

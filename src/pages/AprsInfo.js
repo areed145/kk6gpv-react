@@ -5,10 +5,9 @@ import {
   CardBody,
   CardHeader,
   CardTitle,
-  Table
+  Table,
 } from "reactstrap";
 import CardCell from "../components/CardCell";
-// import Footer from "../components/Footer";
 
 import yaesu from "../assets/images/yaesu.jpg";
 import baofeng from "../assets/images/baofeng.jpg";
@@ -25,7 +24,7 @@ const AprsInfo = () => {
             text={[
               "My main interest in amateur radio has to do with APRS (Automatic Packet Reporting System), an amateur radio-based system for realtime tactical digital communications of information of immediate value in the local area.",
               "Pages in this section are generated from data reported from APRS beaconing, typically while driving and flying.",
-              "aprs.fi maintains historical daily logs of points and tracks."
+              "aprs.fi maintains historical daily logs of points and tracks.",
             ]}
           />
         </CardDeck>

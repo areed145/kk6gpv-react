@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import CardCell from "../components/CardCell";
 import Select from "react-select";
 import { CardDeck, Card, CardHeader, CardTitle, CardBody } from "reactstrap";
-// import Footer from "../components/Footer";
+import RenderLoader from "../components/RenderLoader";
 
 class AprsHouston extends Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class AprsHouston extends Component {
       time_label: "5 minutes",
       prop: "speed",
       prop_label: "Speed",
-      revision: 0
+      revision: 0,
     };
   }
 
@@ -27,7 +27,7 @@ class AprsHouston extends Component {
     this.setState(
       {
         time: event.value,
-        time_label: event.label
+        time_label: event.label,
       },
       async function() {
         try {
@@ -46,12 +46,12 @@ class AprsHouston extends Component {
           this.setState({
             plot_speed: res.plot_speed,
             plot_alt: res.plot_alt,
-            plot_course: res.plot_course
+            plot_course: res.plot_course,
           });
         } catch (error) {
           this.setState({
             isLoaded: true,
-            error
+            error,
           });
         }
       }
@@ -62,7 +62,7 @@ class AprsHouston extends Component {
     this.setState(
       {
         prop: event.value,
-        prop_label: event.label
+        prop_label: event.label,
       },
       async function() {
         try {
@@ -81,7 +81,7 @@ class AprsHouston extends Component {
         } catch (error) {
           this.setState({
             isLoaded: true,
-            error
+            error,
           });
         }
       }
@@ -105,12 +105,12 @@ class AprsHouston extends Component {
         plot_speed: res.plot_speed,
         plot_alt: res.plot_alt,
         plot_course: res.plot_course,
-        rows: res.rows
+        rows: res.rows,
       });
     } catch (error) {
       this.setState({
         isLoaded: true,
-        error
+        error,
       });
     }
   }
@@ -122,31 +122,19 @@ class AprsHouston extends Component {
       { value: "m_5", label: "5 minutes" },
       { value: "h_1", label: "1 hour" },
       { value: "h_6", label: "6 hours" },
-      { value: "d_1", label: "1 day" }
+      { value: "d_1", label: "1 day" },
     ];
 
     var prop_options = [
       { value: "speed", label: "Speed" },
       { value: "altitude", label: "Altitude" },
-      { value: "course", label: "Course" }
+      { value: "course", label: "Course" },
     ];
 
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return (
-        <div>
-          <div className="mainframe">
-            <div className="center">
-              <div className="spinner-border text-secondary" role="status">
-                <span className="sr-only">Loading...</span>
-              </div>
-            </div>
-          </div>
-          <div className="margin" />
-          {/* <Footer /> */}
-        </div>
-      );
+      return <RenderLoader location="page" />;
     } else {
       return (
         <div>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CardCell from "../components/CardCell";
 import { CardDeck } from "reactstrap";
-// import Footer from "../components/Footer";
+import RenderLoader from "../components/RenderLoader";
 
 class WeatherSoundings extends Component {
   constructor(props) {
@@ -22,27 +22,27 @@ class WeatherSoundings extends Component {
       precip: 0,
       watchwarn: 0,
       temp: 0,
-      radar_map: []
+      radar_map: [],
     };
   }
 
   componentDidMount() {
     fetch("https://kk6gpv-api.herokuapp.com/station/live/data")
-      .then(res => res.json())
+      .then((res) => res.json())
       .then(
-        result => {
+        (result) => {
           this.setState({
             // isLoaded: true,
-            wx: result
+            wx: result,
           });
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
         // exceptions from actual bugs in components.
-        error => {
+        (error) => {
           this.setState({
             isLoaded: true,
-            error
+            error,
           });
         }
       );
@@ -69,21 +69,21 @@ class WeatherSoundings extends Component {
         this.state.watchwarn
       )}&temp=${encodeURIComponent(this.state.temp)}`
     )
-      .then(res => res.json())
+      .then((res) => res.json())
       .then(
-        result => {
+        (result) => {
           this.setState({
             isLoaded: true,
-            radar_map: result
+            radar_map: result,
           });
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
         // exceptions from actual bugs in components.
-        error => {
+        (error) => {
           this.setState({
             isLoaded: true,
-            error
+            error,
           });
         }
       );
@@ -95,19 +95,7 @@ class WeatherSoundings extends Component {
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return (
-        <div>
-          <div className="mainframe">
-            <div className="center">
-              <div className="spinner-border text-secondary" role="status">
-                <span className="sr-only">Loading...</span>
-              </div>
-            </div>
-            <div className="margin" />
-          </div>
-          {/* <Footer /> */}
-        </div>
-      );
+      return <RenderLoader location="page" />;
     } else {
       return (
         <div>
@@ -131,8 +119,8 @@ class WeatherSoundings extends Component {
                     "#42edae",
                     "#42d0ed",
                     "#4283ed",
-                    "#424ded"
-                  ]
+                    "#424ded",
+                  ],
                 }}
               />
               <CardCell
@@ -153,8 +141,8 @@ class WeatherSoundings extends Component {
                     "#42edae",
                     "#42d0ed",
                     "#4283ed",
-                    "#424ded"
-                  ]
+                    "#424ded",
+                  ],
                 }}
               />
               <CardCell
@@ -164,7 +152,7 @@ class WeatherSoundings extends Component {
                   gmin: 0,
                   gmax: 100,
                   hw: 200,
-                  cmap: ["#4286f4", "#41b8f4", "#41f1f4", "#41f455", "#a9f441"]
+                  cmap: ["#4286f4", "#41b8f4", "#41f1f4", "#41f455", "#a9f441"],
                 }}
               />
               <CardCell
@@ -174,7 +162,7 @@ class WeatherSoundings extends Component {
                   gmin: 29.3,
                   gmax: 30.5,
                   hw: 200,
-                  cmap: ["#78ed42", "#d6ed42", "#edde42", "#f4af41", "#f48541"]
+                  cmap: ["#78ed42", "#d6ed42", "#edde42", "#f4af41", "#f48541"],
                 }}
               />
             </CardDeck>
@@ -185,7 +173,7 @@ class WeatherSoundings extends Component {
                   level: this.state.wx.wind_degrees,
                   gmin: 0,
                   gmax: 359,
-                  hw: 160
+                  hw: 160,
                 }}
               />
               <CardCell
@@ -195,7 +183,7 @@ class WeatherSoundings extends Component {
                   level2: this.state.wx.wind_gust_mph,
                   gmin: 0,
                   gmax: 15,
-                  hw: 160
+                  hw: 160,
                 }}
               />
               <CardCell
@@ -205,7 +193,7 @@ class WeatherSoundings extends Component {
                   gmin: 0,
                   gmax: 1,
                   hw: 160,
-                  cmap: ["#4286f4", "#6399f2", "#41b8f4", "#41f1f4", "#bcf6ff"]
+                  cmap: ["#4286f4", "#6399f2", "#41b8f4", "#41f1f4", "#bcf6ff"],
                 }}
               />
               <CardCell
@@ -215,7 +203,7 @@ class WeatherSoundings extends Component {
                   gmin: 0,
                   gmax: 1000,
                   hw: 160,
-                  cmap: ["#ff9900", "#ffb444", "#ffd944", "#fce58a", "#fffcbc"]
+                  cmap: ["#ff9900", "#ffb444", "#ffd944", "#fce58a", "#fffcbc"],
                 }}
               />
               <CardCell
@@ -225,7 +213,7 @@ class WeatherSoundings extends Component {
                   gmin: 0,
                   gmax: 8,
                   hw: 160,
-                  cmap: ["#ff9990", "#fcbbb5", "#fcd1b5", "#efd5c4", "#f2e7e1"]
+                  cmap: ["#ff9990", "#fcbbb5", "#fcd1b5", "#efd5c4", "#f2e7e1"],
                 }}
               />
             </CardDeck>

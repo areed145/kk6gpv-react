@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CardCell from "../components/CardCell";
 import { CardDeck } from "reactstrap";
-// import Footer from "../components/Footer";
+import RenderLoader from "../components/RenderLoader";
 
 class Gallery extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class Gallery extends Component {
       title: [],
       count_photos: [],
       count_views: [],
-      revision: 0
+      revision: 0,
     };
   }
 
@@ -25,25 +25,25 @@ class Gallery extends Component {
         this.state.id
       )}`
     )
-      .then(res => res.json())
+      .then((res) => res.json())
       .then(
-        result => {
+        (result) => {
           this.setState({
             isLoaded: true,
             rows: result.rows,
             map: result.map,
             title: result.title,
             count_photos: result.count_photos,
-            count_views: result.count_views
+            count_views: result.count_views,
           });
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
         // exceptions from actual bugs in components.
-        error => {
+        (error) => {
           this.setState({
             isLoaded: true,
-            error
+            error,
           });
         }
       );
@@ -80,19 +80,7 @@ class Gallery extends Component {
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return (
-        <div>
-          <div className="mainframe">
-            <div className="center">
-              <div className="spinner-border text-secondary" role="status">
-                <span className="sr-only">Loading...</span>
-              </div>
-            </div>
-          </div>
-          <div className="margin" />
-          {/* <Footer /> */}
-        </div>
-      );
+      return <RenderLoader location="page" />;
     } else {
       return (
         <div>

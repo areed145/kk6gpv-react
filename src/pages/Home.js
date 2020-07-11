@@ -87,12 +87,7 @@ const Home = () => {
             icon={oilgas}
             bgcolor="#f2f2f2"
           />
-          <CardCell
-            title="Blog"
-            link="/blog"
-            icon={blog}
-            bgcolor="#f2f2f2"
-          />
+          <CardCell title="Blog" link="/blog" icon={blog} bgcolor="#f2f2f2" />
           <CardCell
             title="About"
             link="/about"
@@ -101,7 +96,6 @@ const Home = () => {
           />
         </CardDeck>
         <div className="margin" />
-        {/* <Footer /> */}
       </div>
     </div>
   );

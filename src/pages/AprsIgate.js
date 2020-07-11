@@ -3,19 +3,19 @@ import CardCell from "../components/CardCell";
 import Select from "react-select";
 import DataTable from "react-data-table-component";
 import { CardDeck, Card, CardHeader, CardTitle, CardBody } from "reactstrap";
-// import Footer from "../components/Footer";
+import RenderLoader from "../components/RenderLoader";
 
 const customStyles = {
   headRow: {
     style: {
-      fontSize: "1em"
-    }
+      fontSize: "1em",
+    },
   },
   headCells: {
     style: {
-      fontSize: "1em"
-    }
-  }
+      fontSize: "1em",
+    },
+  },
 };
 const columns = [
   {
@@ -24,8 +24,8 @@ const columns = [
     sortable: true,
     right: true,
     style: {
-      fontSize: "1.1em"
-    }
+      fontSize: "1.1em",
+    },
   },
   {
     name: "From",
@@ -33,8 +33,8 @@ const columns = [
     sortable: true,
     right: true,
     style: {
-      fontSize: "1.1em"
-    }
+      fontSize: "1.1em",
+    },
   },
   {
     name: "To",
@@ -42,8 +42,8 @@ const columns = [
     sortable: true,
     right: true,
     style: {
-      fontSize: "1.1em"
-    }
+      fontSize: "1.1em",
+    },
   },
   {
     name: "Via",
@@ -51,8 +51,8 @@ const columns = [
     sortable: true,
     right: true,
     style: {
-      fontSize: "1.1em"
-    }
+      fontSize: "1.1em",
+    },
   },
   {
     name: "Speed",
@@ -60,8 +60,8 @@ const columns = [
     sortable: true,
     right: true,
     style: {
-      fontSize: "1.1em"
-    }
+      fontSize: "1.1em",
+    },
   },
   {
     name: "Altitude",
@@ -69,8 +69,8 @@ const columns = [
     sortable: true,
     right: true,
     style: {
-      fontSize: "1.1em"
-    }
+      fontSize: "1.1em",
+    },
   },
   {
     name: "Course",
@@ -78,8 +78,8 @@ const columns = [
     sortable: true,
     right: true,
     style: {
-      fontSize: "1.1em"
-    }
+      fontSize: "1.1em",
+    },
   },
   {
     name: "Comment",
@@ -87,9 +87,9 @@ const columns = [
     sortable: true,
     right: true,
     style: {
-      fontSize: "1.1em"
-    }
-  }
+      fontSize: "1.1em",
+    },
+  },
 ];
 class AprsIgate extends Component {
   constructor(props) {
@@ -106,7 +106,7 @@ class AprsIgate extends Component {
       time_label: "7 days",
       prop: "speed",
       prop_label: "Speed",
-      revision: 0
+      revision: 0,
     };
   }
 
@@ -127,12 +127,12 @@ class AprsIgate extends Component {
       this.setState({
         plot_speed: res.plot_speed,
         plot_alt: res.plot_alt,
-        plot_course: res.plot_course
+        plot_course: res.plot_course,
       });
     } catch (error) {
       this.setState({
         isLoaded: true,
-        error
+        error,
       });
     }
     try {
@@ -146,12 +146,12 @@ class AprsIgate extends Component {
       }
       const res = await response.json();
       this.setState({
-        range_aprs: res.range_aprs
+        range_aprs: res.range_aprs,
       });
     } catch (error) {
       this.setState({
         isLoaded: true,
-        error
+        error,
       });
     }
   }
@@ -160,7 +160,7 @@ class AprsIgate extends Component {
     this.setState(
       {
         time: event.value,
-        time_label: event.label
+        time_label: event.label,
       },
       async function() {
         try {
@@ -179,12 +179,12 @@ class AprsIgate extends Component {
           this.setState({
             plot_speed: res.plot_speed,
             plot_alt: res.plot_alt,
-            plot_course: res.plot_course
+            plot_course: res.plot_course,
           });
         } catch (error) {
           this.setState({
             isLoaded: true,
-            error
+            error,
           });
         }
         try {
@@ -198,12 +198,12 @@ class AprsIgate extends Component {
           }
           const res = await response.json();
           this.setState({
-            range_aprs: res.range_aprs
+            range_aprs: res.range_aprs,
           });
         } catch (error) {
           this.setState({
             isLoaded: true,
-            error
+            error,
           });
         }
       }
@@ -214,7 +214,7 @@ class AprsIgate extends Component {
     this.setState(
       {
         prop: event.value,
-        prop_label: event.label
+        prop_label: event.label,
       },
       async function() {
         try {
@@ -233,7 +233,7 @@ class AprsIgate extends Component {
         } catch (error) {
           this.setState({
             isLoaded: true,
-            error
+            error,
           });
         }
         try {
@@ -247,12 +247,12 @@ class AprsIgate extends Component {
           }
           const res = await response.json();
           this.setState({
-            range_aprs: res.range_aprs
+            range_aprs: res.range_aprs,
           });
         } catch (error) {
           this.setState({
             isLoaded: true,
-            error
+            error,
           });
         }
       }
@@ -280,12 +280,12 @@ class AprsIgate extends Component {
         plot_speed: res.plot_speed,
         plot_alt: res.plot_alt,
         plot_course: res.plot_course,
-        rows: res.rows
+        rows: res.rows,
       });
     } catch (error) {
       this.setState({
         isLoaded: true,
-        error
+        error,
       });
     }
     try {
@@ -299,12 +299,12 @@ class AprsIgate extends Component {
       }
       const res = await response.json();
       this.setState({
-        range_aprs: res.range_aprs
+        range_aprs: res.range_aprs,
       });
     } catch (error) {
       this.setState({
         isLoaded: true,
-        error
+        error,
       });
     }
   }
@@ -320,31 +320,19 @@ class AprsIgate extends Component {
       { value: "d_30", label: "30 days" },
       { value: "d_60", label: "60 days" },
       { value: "d_180", label: "180 days" },
-      { value: "d_360", label: "360 days" }
+      { value: "d_360", label: "360 days" },
     ];
 
     var prop_options = [
       { value: "speed", label: "Speed" },
       { value: "altitude", label: "Altitude" },
-      { value: "course", label: "Course" }
+      { value: "course", label: "Course" },
     ];
 
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return (
-        <div>
-          <div className="mainframe">
-            <div className="center">
-              <div className="spinner-border text-secondary" role="status">
-                <span className="sr-only">Loading...</span>
-              </div>
-            </div>
-          </div>
-          <div className="margin" />
-          {/* <Footer /> */}
-        </div>
-      );
+      return <RenderLoader location="page" />;
     } else {
       return (
         <div>
