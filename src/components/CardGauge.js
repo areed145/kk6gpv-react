@@ -133,8 +133,8 @@ class CardGauge extends Component {
             opacity: 0.33,
             fillcolor: "#000000",
             line: {
-              color: "#000000"
-            }
+              color: "#000000",
+            },
           });
         }
       } catch {}
@@ -165,8 +165,8 @@ class CardGauge extends Component {
         path: path,
         fillcolor: "#000000",
         line: {
-          color: "#000000"
-        }
+          color: "#000000",
+        },
       });
 
       shapes.push({
@@ -174,8 +174,8 @@ class CardGauge extends Component {
         path: path2,
         fillcolor: "#000000",
         line: {
-          color: "#000000"
-        }
+          color: "#000000",
+        },
       });
 
       cmap = this.props.gauge.cmap;
@@ -207,10 +207,10 @@ class CardGauge extends Component {
           y: [0],
           marker: {
             size: sz,
-            color: "#000000"
+            color: "#000000",
           },
           showlegend: false,
-          hoverinfo: "none"
+          hoverinfo: "none",
         },
         {
           values: values,
@@ -221,12 +221,12 @@ class CardGauge extends Component {
           textinfo: "text",
           textposition: "inside",
           marker: {
-            colors: colors
+            colors: colors,
           },
           hole: 0.5,
           type: "pie",
-          showlegend: false
-        }
+          showlegend: false,
+        },
       ];
 
       layout = {
@@ -238,22 +238,22 @@ class CardGauge extends Component {
           r: 0,
           b: 0,
           t: 0,
-          pad: 0
+          pad: 0,
         },
         xaxis: {
           zeroline: false,
           showticklabels: false,
           showgrid: false,
           range: [-1, 1],
-          fixedrange: true
+          fixedrange: true,
         },
         yaxis: {
           zeroline: false,
           showticklabels: false,
           showgrid: false,
           range: [-1, 1],
-          fixedrange: true
-        }
+          fixedrange: true,
+        },
       };
 
       gauge = (
@@ -321,8 +321,8 @@ class CardGauge extends Component {
             opacity: 0.33,
             fillcolor: "#000000",
             line: {
-              color: "#000000"
-            }
+              color: "#000000",
+            },
           });
         }
       } catch {}
@@ -355,8 +355,8 @@ class CardGauge extends Component {
         path: path,
         fillcolor: "#000000",
         line: {
-          color: "#000000"
-        }
+          color: "#000000",
+        },
       });
 
       shapes.push({
@@ -364,8 +364,8 @@ class CardGauge extends Component {
         path: path2,
         fillcolor: "#000000",
         line: {
-          color: "#000000"
-        }
+          color: "#000000",
+        },
       });
 
       data = [
@@ -375,10 +375,10 @@ class CardGauge extends Component {
           y: [0],
           marker: {
             size: sz,
-            color: "#000000"
+            color: "#000000",
           },
           showlegend: false,
-          hoverinfo: "none"
+          hoverinfo: "none",
         },
         {
           values: [
@@ -397,7 +397,7 @@ class CardGauge extends Component {
             22.5,
             22.5,
             22.5,
-            22.5
+            22.5,
           ],
           hoverinfo: "none",
           rotation: -11.25,
@@ -418,7 +418,7 @@ class CardGauge extends Component {
             "E",
             "ENE",
             "NE",
-            "NNE"
+            "NNE",
           ],
           textinfo: "text",
           textposition: "inside",
@@ -439,13 +439,13 @@ class CardGauge extends Component {
               "#BCBCBC",
               "#d8bdb8",
               "#e2aba1",
-              "#f7856f"
-            ]
+              "#f7856f",
+            ],
           },
           hole: 0.5,
           type: "pie",
-          showlegend: false
-        }
+          showlegend: false,
+        },
       ];
 
       layout = {
@@ -457,22 +457,22 @@ class CardGauge extends Component {
           r: 0,
           b: 0,
           t: 0,
-          pad: 0
+          pad: 0,
         },
         xaxis: {
           zeroline: false,
           showticklabels: false,
           showgrid: false,
           range: [-1, 1],
-          fixedrange: true
+          fixedrange: true,
         },
         yaxis: {
           zeroline: false,
           showticklabels: false,
           showgrid: false,
           range: [-1, 1],
-          fixedrange: true
-        }
+          fixedrange: true,
+        },
       };
 
       gauge_winddir = (
@@ -540,8 +540,8 @@ class CardGauge extends Component {
             opacity: 0.33,
             fillcolor: "#000000",
             line: {
-              color: "#000000"
-            }
+              color: "#000000",
+            },
           });
         }
       } catch {}
@@ -593,8 +593,8 @@ class CardGauge extends Component {
         path: path,
         fillcolor: "#000000",
         line: {
-          color: "#000000"
-        }
+          color: "#000000",
+        },
       });
 
       shapes.push({
@@ -602,8 +602,8 @@ class CardGauge extends Component {
         path: path2,
         fillcolor: "#000000",
         line: {
-          color: "#000000"
-        }
+          color: "#000000",
+        },
       });
 
       shapes.push({
@@ -611,8 +611,8 @@ class CardGauge extends Component {
         path: path3,
         fillcolor: "#000000",
         line: {
-          color: "#000000"
-        }
+          color: "#000000",
+        },
       });
 
       shapes.push({
@@ -620,8 +620,8 @@ class CardGauge extends Component {
         path: path4,
         fillcolor: "#000000",
         line: {
-          color: "#000000"
-        }
+          color: "#000000",
+        },
       });
 
       data = [
@@ -631,10 +631,10 @@ class CardGauge extends Component {
           y: [0],
           marker: {
             size: sz,
-            color: "#000000"
+            color: "#000000",
           },
           showlegend: false,
-          hoverinfo: "none"
+          hoverinfo: "none",
         },
         {
           values: [ls, 80, 80, 48, 16, 12, 4, ls, ws],
@@ -650,9 +650,7 @@ class CardGauge extends Component {
             "",
             "",
             gmin.toString(),
-            Math.round(leveldisp).toString() +
-              "/" +
-              Math.round(leveldisp2).toString()
+            Math.round(level).toString() + "/" + Math.round(level2).toString(),
           ],
           textinfo: "text",
           textposition: "inside",
@@ -666,13 +664,13 @@ class CardGauge extends Component {
               "#009999",
               "#3366ff",
               "rgba(110, 154, 22, 0)",
-              "rgba(110, 154, 22, 0)"
-            ]
+              "rgba(110, 154, 22, 0)",
+            ],
           },
           hole: 0.5,
           type: "pie",
-          showlegend: false
-        }
+          showlegend: false,
+        },
       ];
 
       layout = {
@@ -684,22 +682,22 @@ class CardGauge extends Component {
           r: 0,
           b: 0,
           t: 0,
-          pad: 0
+          pad: 0,
         },
         xaxis: {
           zeroline: false,
           showticklabels: false,
           showgrid: false,
           range: [-1, 1],
-          fixedrange: true
+          fixedrange: true,
         },
         yaxis: {
           zeroline: false,
           showticklabels: false,
           showgrid: false,
           range: [-1, 1],
-          fixedrange: true
-        }
+          fixedrange: true,
+        },
       };
 
       gauge_windspd = (
