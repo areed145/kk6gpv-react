@@ -1,9 +1,10 @@
 @font-face {
-  font-family: Ubuntu;
+/*   font-family: Ubuntu;
   font-style: normal;
   font-weight: 400;
-  src: url(../assets/fonts/ubuntu400.woff2) format("woff2");
+  src: url(../assets/fonts/ubuntu400.woff2) format("woff2"); */
   font-display: swap;
+  font-family: 'Roboto Mono', monospace;
 }
 
 .full-page-loader {
@@ -42,7 +43,8 @@
 
 body {
   margin: 0;
-  font-family: Ubuntu !important;
+/*   font-family: Ubuntu !important; */
+  font-family: 'Roboto Mono', monospace;
   background-color: #f0ffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -134,7 +136,8 @@ body {
 .navbar,
 .navbar-default,
 .footer {
-  font-family: "Ubuntu";
+/*   font-family: "Ubuntu"; */
+  font-family: 'Roboto Mono', monospace;
   font-display: swap;
   color: #f0ffff;
   background-color: #f0ffff;
@@ -160,7 +163,8 @@ body {
 .mapboxgl-popup-content,
 .menu,
 .card {
-  font-family: "Ubuntu";
+/*   font-family: "Ubuntu"; */
+  font-family: 'Roboto Mono', monospace;
   font-display: swap;
   background-color: #ffffff !important;
   border: 0px !important;
@@ -169,7 +173,8 @@ body {
 }
 
 .dropdownmenu {
-  font-family: "Ubuntu";
+/*   font-family: "Ubuntu"; */
+  font-family: 'Roboto Mono', monospace;
   font-display: swap;
   background-color: #f0f5f5 !important;
   border: 0px !important;
@@ -189,7 +194,8 @@ body {
 }
 
 .modal-header {
-  font-family: "Ubuntu";
+/*   font-family: "Ubuntu"; */
+  font-family: 'Roboto Mono', monospace;
   font-display: swap;
   text-align: center;
   -webkit-font-smoothing: antialiased;
@@ -213,7 +219,8 @@ body {
 .modal-footer {
   display: inline !important;
   padding: 1px 1px;
-  font-family: "Ubuntu";
+/*   font-family: "Ubuntu"; */
+  font-family: 'Roboto Mono', monospace;
   font-display: swap;
   text-align: center;
   -webkit-font-smoothing: antialiased;
@@ -272,7 +279,8 @@ body {
 }
 
 .card-header {
-  font-family: "Ubuntu";
+/*   font-family: "Ubuntu"; */
+  font-family: 'Roboto Mono', monospace;
   font-display: swap;
   text-align: center;
   -webkit-font-smoothing: antialiased;
@@ -285,7 +293,8 @@ body {
 }
 
 .card-title {
-  font-family: "Ubuntu";
+/*   font-family: "Ubuntu"; */
+  font-family: 'Roboto Mono', monospace;
   font-display: swap;
   text-align: center;
   -webkit-font-smoothing: antialiased;
@@ -298,7 +307,8 @@ body {
 }
 
 .card-footer {
-  font-family: "Ubuntu";
+/*   font-family: "Ubuntu"; */
+  font-family: 'Roboto Mono', monospace;
   font-display: swap;
   text-align: center;
   -webkit-font-smoothing: antialiased;
