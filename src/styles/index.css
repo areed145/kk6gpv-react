@@ -1,7 +1,5 @@
 @font-face {
-  /* font-family: Ubuntu;
-  src: url(/assets/fonts/ubuntu400.woff2) format("woff2"); */
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto Mono";
   src: url(/assets/fonts/roboto-mono.woff2) format("woff2");
   font-style: normal;
   font-weight: 400;
@@ -45,7 +43,7 @@
 body {
   margin: 0;
   /*   font-family:  !important; */
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto Mono" !important;
   background-color: #f0ffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -137,8 +135,7 @@ body {
 .navbar,
 .navbar-default,
 .footer {
-  /*   font-family: ""; */
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto Mono" !important;
   font-display: swap;
   color: #f0ffff;
   background-color: #f0ffff;
@@ -164,8 +161,7 @@ body {
 .mapboxgl-popup-content,
 .menu,
 .card {
-  /*   font-family: ""; */
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto Mono" !important;
   font-display: swap;
   background-color: #ffffff !important;
   border: 0px !important;
@@ -174,8 +170,7 @@ body {
 }
 
 .dropdownmenu {
-  /*   font-family: ""; */
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto Mono" !important;
   font-display: swap;
   background-color: #f0f5f5 !important;
   border: 0px !important;
@@ -195,8 +190,7 @@ body {
 }
 
 .modal-header {
-  /*   font-family: ""; */
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto Mono" !important;
   font-display: swap;
   text-align: center;
   -webkit-font-smoothing: antialiased;
@@ -220,8 +214,7 @@ body {
 .modal-footer {
   display: inline !important;
   padding: 1px 1px;
-  /*   font-family: ""; */
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto Mono" !important;
   font-display: swap;
   text-align: center;
   -webkit-font-smoothing: antialiased;
@@ -280,8 +273,7 @@ body {
 }
 
 .card-header {
-  /*   font-family: ""; */
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto Mono" !important;
   font-display: swap;
   text-align: center;
   -webkit-font-smoothing: antialiased;
@@ -294,8 +286,7 @@ body {
 }
 
 .card-title {
-  /*   font-family: ""; */
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto Mono" !important;
   font-display: swap;
   text-align: center;
   -webkit-font-smoothing: antialiased;
@@ -308,8 +299,7 @@ body {
 }
 
 .card-footer {
-  /*   font-family: ""; */
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto Mono" !important;
   font-display: swap;
   text-align: center;
   -webkit-font-smoothing: antialiased;
