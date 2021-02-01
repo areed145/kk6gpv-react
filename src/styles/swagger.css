@@ -1,11 +1,3 @@
-@font-face {
-  font-family: "Roboto Mono";
-  src: url(/assets/fonts/roboto-mono.woff2) format("woff2");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
-
 @charset "UTF-8";
 .swagger-ui html {
   box-sizing: border-box;

@@ -1,8 +1,8 @@
 @font-face {
   font-family: "Roboto Mono";
-  src: url(/assets/fonts/roboto-mono.woff2) format("woff2");
+  src: url(/assets/fonts/roboto-mono-v13-latin-regular.woff2) format("woff2");
   font-style: normal;
-  font-weight: 400;
+  font-weight: normal;
   font-display: swap;
 }
 
@@ -42,7 +42,6 @@
 
 body {
   margin: 0;
-  /*   font-family:  !important; */
   font-family: "Roboto Mono" !important;
   background-color: #f0ffff;
   -webkit-font-smoothing: antialiased;
