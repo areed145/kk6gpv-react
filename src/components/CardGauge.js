@@ -230,6 +230,7 @@ class CardGauge extends Component {
       ];
 
       layout = {
+        font: { family: "Roboto Mono" },
         shapes: shapes,
         height: hw,
         width: hw,
@@ -449,6 +450,7 @@ class CardGauge extends Component {
       ];
 
       layout = {
+        font: { family: "Roboto Mono" },
         shapes: shapes,
         height: hw,
         width: hw,
@@ -674,6 +676,7 @@ class CardGauge extends Component {
       ];
 
       layout = {
+        font: { family: "Roboto Mono" },
         shapes: shapes,
         height: hw,
         width: hw,
