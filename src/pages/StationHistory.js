@@ -177,17 +177,17 @@ class StationHistory extends Component {
             </CardDeck>
             <CardDeck className="carddeck">
               <CardCell
-                plot={[this.state.fig_wr]}
-                revision={this.state.revision}
-              />
-              <CardCell
-                plot={[this.state.fig_thp]}
+                plot={[this.state.fig_lt]}
                 revision={this.state.revision}
               />
             </CardDeck>
             <CardDeck className="carddeck">
               <CardCell
-                plot={[this.state.fig_lt]}
+                plot={[this.state.fig_wr]}
+                revision={this.state.revision}
+              />
+              <CardCell
+                plot={[this.state.fig_thp]}
                 revision={this.state.revision}
               />
             </CardDeck>
