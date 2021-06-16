@@ -17,6 +17,7 @@ class StationHistory extends Component {
       fig_cb: [],
       fig_wr: [],
       fig_thp: [],
+      fig_lt: [],
       time: "d_1",
       time_label: "1 day",
       revision: 0,
@@ -50,6 +51,7 @@ class StationHistory extends Component {
             fig_cb: res.fig_cb,
             fig_wr: res.fig_wr,
             fig_thp: res.fig_thp,
+            fig_lt: res.fig_lt,
             revision: this.state.revision + 1,
           });
         } catch (error) {
@@ -83,6 +85,7 @@ class StationHistory extends Component {
         fig_cb: res.fig_cb,
         fig_wr: res.fig_wr,
         fig_thp: res.fig_thp,
+        fig_lt: res.fig_lt,
         revision: this.state.revision + 1,
       });
     } catch (error) {
@@ -179,6 +182,12 @@ class StationHistory extends Component {
               />
               <CardCell
                 plot={[this.state.fig_thp]}
+                revision={this.state.revision}
+              />
+            </CardDeck>
+            <CardDeck className="carddeck">
+              <CardCell
+                plot={[this.state.fig_lt]}
                 revision={this.state.revision}
               />
             </CardDeck>
